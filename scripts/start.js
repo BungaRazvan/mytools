@@ -8,6 +8,7 @@ const options = {
   autoInstall: false,
   hmr: false,
   target: "electron",
+  caches: false,
 };
 
 let electronStarted = false;
