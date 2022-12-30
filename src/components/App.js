@@ -1,16 +1,14 @@
 import React from "react";
 
+import Aws from "./Apps/Aws";
+
 const App = () => (
   <React.Fragment>
-    <span className="rocket">
-      <div className="rocket-icon">🚀</div>
-    </span>
-    <p>
-      Edit <code>src/components/App.js</code> and save to reload.
-    </p>
-    <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-      Learn React
-    </a>
+    <div className="container">
+      <div className="card">
+        <Aws />
+      </div>
+    </div>
   </React.Fragment>
 );
 
