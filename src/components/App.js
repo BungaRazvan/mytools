@@ -1,6 +1,6 @@
 import React from "react";
 
-import Aws from "./Apps/Aws";
+import Aws from "./Apps/Aws/Aws";
 
 const App = () => (
   <React.Fragment>
