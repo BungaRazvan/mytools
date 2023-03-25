@@ -1,0 +1,145 @@
+@import "./includes/wndows_tile_colors.scss";
+@import "./includes/wndows_tile_keyframes.scss";
+
+.title {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.1;
+  color: #212121;
+  text-transform: inherit;
+  letter-spacing: inherit;
+}
+
+.dashboard {
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+  padding: 5px;
+  margin: 0;
+}
+.dashboard > * {
+  display: block;
+  float: left;
+  margin: 5px;
+}
+
+.caption {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.1;
+  color: #bdbdbd;
+  text-transform: inherit;
+  letter-spacing: inherit;
+}
+
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+  transform: translatez(0);
+}
+
+.ink {
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  transform: scale(0);
+  background: #fff;
+  opacity: 1;
+
+  &.animate {
+    -webkit-animation: ripple-effect 0.5s linear;
+    -o-animation: ripple-effect 0.5s linear;
+    animation: ripple-effect 0.5s linear;
+  }
+}
+
+.tile {
+  color: #212121;
+  overflow: hidden;
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  transition: all 0.15s ease-in-out;
+  width: 270px;
+  height: 130px;
+
+  &:hover,
+  &:active,
+  &.active,
+  &:focus {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+
+  .content-wrapper {
+    position: absolute;
+    display: block;
+    top: 0;
+    width: 100%;
+    transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+
+    .tile-content {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      height: 130px;
+      padding: 10px;
+
+      .tile-img {
+        position: relative;
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        height: 86.66666667px;
+
+        &.tile-img-sm {
+          position: absolute;
+          margin: 0;
+          padding: 0;
+          display: block;
+          opacity: 0.3;
+          width: 65px;
+          height: 43.33333333px;
+          bottom: 10px;
+          left: 10px;
+        }
+
+        &.tile-img-bg {
+          position: absolute;
+          background-position: left top;
+          background-size: cover;
+          width: 270px;
+          height: 130px;
+          margin-left: -10px;
+          margin-top: -10px;
+        }
+      }
+
+      .tile-holder {
+        position: relative;
+        display: block;
+        padding: 0;
+
+        &.tile-holder-sm {
+          position: absolute;
+          margin: 0;
+          padding: 0;
+          bottom: 10px;
+          left: 10px;
+        }
+      }
+    }
+  }
+}
+
+.caption {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.1;
+  color: #bdbdbd;
+  text-transform: inherit;
+  letter-spacing: inherit;
+}
