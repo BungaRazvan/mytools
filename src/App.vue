@@ -31,6 +31,12 @@ export default {
 
   mounted() {
     this.showTiles();
+    // window.nodeEnv.send("test");
+
+    setInterval(() => {
+      window.ipc.receive("fromMain", (data) => {});
+      window.ipc.send("toMain");
+    }, 1000);
   },
 };
 </script>
