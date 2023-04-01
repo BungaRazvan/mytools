@@ -31,12 +31,39 @@ export default {
 
   mounted() {
     this.showTiles();
-    // window.nodeEnv.send("test");
+
+    const interval = 1000;
+
+    const gamesToCheck = [
+      { name: "GenshinImpact", time: 0 },
+      { name: "Overwatch", time: 0 },
+      { name: "Hearthstone", time: 0 },
+    ];
 
     setInterval(() => {
-      window.ipc.receive("fromMain", (data) => {});
-      window.ipc.send("toMain");
-    }, 1000);
+      gamesToCheck.map((game) => {
+        window.ipc.send("isGameRunning", game.name);
+
+        window.ipc.receive("isGameRunning", (data) => {
+          if (data[game.name]) {
+            game.time += interval / 1000;
+          }
+
+          if (
+            Object.keys(data)[0] == game.name &&
+            !data[game.name] &&
+            game.time > 0
+          ) {
+            window.ipc.send("logRunningGame", {
+              app: game.name,
+              time: game.time,
+            });
+
+            game.time = 0;
+          }
+        });
+      });
+    }, interval);
   },
 };
 </script>
