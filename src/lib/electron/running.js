@@ -12,8 +12,8 @@ export const isProgramRunning = async (programName) => {
       `tasklist /FO CSV /NH /FI "IMAGENAME eq ${programName}"`,
       (error, stdout, stderr) => {
         if (error) {
-          reject(error);
-          return;
+          console.error(error);
+          resolve(false);
         }
 
         const processList = stdout
