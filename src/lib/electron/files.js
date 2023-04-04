@@ -13,64 +13,123 @@ export const checkFolder = (folderPath) => {
   }
 };
 
-// Read the file
-export const readFile = (fileName, folderPath = documentsPath) => {
-  // Define the file path
+export const readCSVFile = (
+  fileName,
+  retrieveHeaders = [],
+  delimiter = null,
+  folderPath = documentsPath
+) => {
   checkFolder(folderPath);
+
+  // Define the file path
   const filePath = path.join(folderPath, fileName);
+  const separator = delimiter ? delimiter : ";";
 
-  fs.access(filePath, fs.constants.F_OK, (err) => {
-    if (err) {
-      console.error(`File does not exist: ${filePath}`);
-      return;
-    }
-  });
+  try {
+    fs.accessSync(filePath, fs.constants.F_OK);
+  } catch (error) {
+    console.error(`File does not exist: ${filePath}`);
+    return false;
+  }
 
-  fs.readFile(filePath, "utf8", (err, data) => {
-    if (err) {
-      console.error(`Error reading file: ${err}`);
-      return;
-    }
+  try {
+    const fileData = fs.readFileSync(filePath, "utf8");
+
+    const lines = fileData.split("\n");
+    const headers = lines
+      .shift()
+      .split(separator)
+      .filter((line) => retrieveHeaders.includes(line));
+
+    const data = [];
+
+    lines.forEach((line) => {
+      const values = line.split(separator);
+      const item = {};
+
+      headers.forEach((header, index) => {
+        item[header] = values[index];
+      });
+
+      data.push(item);
+    });
 
     return data;
-  });
+  } catch (error) {
+    console.error(`Error reading file: ${err}`);
+    return;
+  }
+};
+
+// Read the file
+export const readJsonFile = (fileName, folderPath = documentsPath) => {
+  checkFolder(folderPath);
+
+  // Define the file path
+  const filePath = path.join(folderPath, fileName);
+
+  try {
+    fs.accessSync(filePath, fs.constants.F_OK);
+  } catch (error) {
+    console.error(`File does not exist: ${filePath}`);
+    return false;
+  }
+
+  try {
+    const data = fs.readFileSync(filePath, "utf8");
+    return JSON.parse(data);
+  } catch (error) {
+    console.error(`Error reading file: ${err}`);
+    return;
+  }
 };
 
 export const updateFile = (fileName, data, folderPath = documentsPath) => {
   checkFolder(folderPath);
 
   const filePath = path.join(folderPath, fileName);
-  let newData = data;
+  const isCSV = fileName.includes(".csv");
+  const isJSON = fileName.includes(".json");
 
-  if (fileName.includes(".csv")) {
-    newData = Object.values(data).join(";") + "; \n";
+  let newData = data;
+  let hasWriteFile = false;
+
+  if (isCSV) {
+    newData = Object.values(data).join(";") + ";";
   }
 
-  fs.access(filePath, fs.constants.F_OK, (err) => {
-    if (err) {
-      console.error(`File does not exist: ${filePath}`);
-      newData = Object.keys(data).join(";") + "; \n" + newData;
+  if (isJSON) {
+    newData = JSON.stringify(data);
+  }
 
-      fs.writeFile(filePath, newData, (err) => {
-        if (err) {
-          console.error(`Error writing file: ${err}`);
-          return;
-        }
+  try {
+    fs.accessSync(filePath, fs.constants.F_OK);
+  } catch (error) {
+    console.error(`File does not exist: ${filePath}`);
+    hasWriteFile = true;
 
-        console.log("File updated successfully");
-      });
+    if (isCSV) {
+      newData = Object.keys(data).join(";") + ";" + newData;
+    }
+  }
 
+  if (hasWriteFile) {
+    try {
+      fs.writeFileSync(filePath, newData);
+      console.log("File written successfully");
+      return;
+    } catch (error) {
+      console.error(`Error writing file: ${err}`);
       return;
     }
+  }
 
-    fs.appendFile(filePath, newData, (err) => {
-      if (err) {
-        console.error(`Error writing file: ${err}`);
-        return;
-      }
-
-      console.log("File updated successfully");
-      return;
-    });
-  });
+  try {
+    fs.appendFileSync(filePath, "\n" + newData);
+    console.log("File updated successfully");
+    return;
+  } catch (error) {
+    console.error(`Error writing file: ${err}`);
+    return;
+  }
 };
