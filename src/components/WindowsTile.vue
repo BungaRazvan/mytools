@@ -29,7 +29,7 @@ export default {
   props: ["color", "size", "shape", "title"],
   methods: {
     ripple: (e) => {
-      const el = e.target.parentElement.parentElement.parentElement;
+      const el = e.currentTarget;
 
       if (el.querySelector(".ink") == null) {
         const spanElement = document.createElement("span");
@@ -59,8 +59,8 @@ export default {
       }
 
       // get click coordinates
-      const x = e.screenX - el.offsetLeft - ink.offsetWidth / 2;
-      const y = e.screenY - el.offsetTop - ink.offsetHeight / 2;
+      const x = e.pageX - el.offsetLeft - ink.offsetWidth / 2;
+      const y = e.pageY - el.offsetTop - ink.offsetHeight / 2;
 
       ink.style.top = `${y}px`;
       ink.style.left = `${x}px`;
