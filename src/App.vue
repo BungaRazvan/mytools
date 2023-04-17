@@ -1,69 +1,83 @@
 <template>
-  <div class="dashboard display-animation">
-    <WindowsTile color="pink" title="Amazon" />
-    <WindowsTile color="blue" shape="sqr" title="Game Tracking" />
+  <div>
+    <MainScreen key="main-screen" v-if="this.screen() == 'main'" />
+    <GameTracking key="game-tracking" v-if="this.screen() == 'gameTracking'" />
   </div>
 </template>
 
 <script>
 import "./assets/scss/style.scss";
 
-import WindowsTile from "./components/WindowsTile.vue";
+import MainScreen from "@/components/screens/MainScreen.vue";
+import GameTracking from "@/components/screens/GameTracking.vue";
 
 export default {
   name: "App",
-  components: { WindowsTile },
-  methods: {
-    showTiles: () => {
-      const speed = 200;
-      const containers = document.querySelectorAll(".display-animation");
+  components: { MainScreen, GameTracking },
 
-      containers.forEach((container) => {
-        container.childNodes.forEach((children) => {
-          const offset = children.offsetLeft * 0.8 + children.offsetTop;
-          const delay = parseFloat(offset / speed).toFixed(2);
-          children.style.animationDelay = delay;
-          children.classList.add("animated");
-        });
-      });
+  methods: {
+    screen() {
+      return this.$store.state.screen;
     },
   },
 
   mounted() {
-    this.showTiles();
+    const secondToMS = 1000;
+    const store = this.$store;
 
-    const interval = 1000;
+    let gamesToCheck = [];
 
-    const gamesToCheck = [
-      { name: "GenshinImpact", time: 0 },
-      { name: "Overwatch", time: 0 },
-      { name: "Hearthstone", time: 0 },
-    ];
+    window.ipc.send("getSettingsFile");
+    window.ipc.receive("getSettingsFile", (data) => {
+      if (data?.gamesToCheck?.length) {
+        gamesToCheck = data.gamesToCheck;
+      }
+    });
 
-    setInterval(() => {
+    const intervalId = setInterval(() => {
+      // TODO i will need to cancel this when i add a new game
       gamesToCheck.map((game) => {
         window.ipc.send("isGameRunning", game.name);
-
         window.ipc.receive("isGameRunning", (data) => {
           if (data[game.name]) {
-            game.time += interval / 1000;
+            if (!game.startTime) {
+              // Game has just started running - record the start time
+              game.startTime = new Date();
+            }
+
+            store.dispatch("all", {
+              mutation: "setGameRunning",
+              data: { running: true, name: game.name },
+            });
           }
 
           if (
             Object.keys(data)[0] == game.name &&
             !data[game.name] &&
-            game.time > 0
+            game.startTime != null
           ) {
+            const elapsedSeconds = Math.floor(
+              (new Date() - game.startTime) / secondToMS
+            );
+            game.startTime = null;
+
+            store.dispatch("all", {
+              mutation: "setGameRunning",
+              data: { running: false, name: game.name },
+            });
             window.ipc.send("logRunningGame", {
               app: game.name,
-              time: game.time,
+              time: elapsedSeconds,
             });
-
-            game.time = 0;
           }
         });
       });
-    }, interval);
+    }, secondToMS);
+
+    store.dispatch("all", {
+      mutation: "setIntervalId",
+      data: { intervalId },
+    });
   },
 };
 </script>
