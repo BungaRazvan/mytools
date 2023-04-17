@@ -2,10 +2,11 @@
 
 import path from "path";
 
-import { app, protocol, BrowserWindow, Tray, Menu } from "electron";
+import { app, protocol, BrowserWindow, Tray, Menu, screen } from "electron";
 import { createProtocol } from "vue-cli-plugin-electron-builder/lib";
 import installExtension, { VUEJS3_DEVTOOLS } from "electron-devtools-installer";
 import AutoLaunch from "auto-launch";
+import Store from "electron-store";
 
 import "./lib/electron/ipc";
 
@@ -14,6 +15,8 @@ const iconPath = isDevelopment
   ? "./public/img/icon310x310.ico"
   : path.join(__dirname.replace("app.asar", ""), "img", "icon310x310.ico");
 
+const store = new Store();
+
 let tray = null;
 
 // Scheme must be registered before the app is ready
@@ -21,10 +24,10 @@ protocol.registerSchemesAsPrivileged([
   { scheme: "app", privileges: { secure: true, standard: true } },
 ]);
 
-let win;
+let mainWindow;
 async function createWindow() {
   // Create the browser window.
-  win = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     icon: iconPath,
     width: 1800,
     height: 1600,
@@ -39,15 +42,15 @@ async function createWindow() {
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
-    await win.loadURL(process.env.WEBPACK_DEV_SERVER_URL);
+    await mainWindow.loadURL(process.env.WEBPACK_DEV_SERVER_URL);
 
     if (!process.env.IS_TEST) {
-      win.webContents.openDevTools();
+      mainWindow.webContents.openDevTools();
     }
   } else {
     createProtocol("app");
     // Load the index.html when not in development
-    win.loadURL("app://./index.html");
+    mainWindow.loadURL("app://./index.html");
   }
 }
 
@@ -55,14 +58,14 @@ function createTray() {
   tray = new Tray(iconPath);
 
   tray.on("double-click", () => {
-    win.show();
+    mainWindow.show();
   });
 
   const contextMenu = Menu.buildFromTemplate([
     {
       label: "Open MyTools",
       click: () => {
-        win.restore();
+        mainWindow.restore();
       },
     },
     {
@@ -94,7 +97,7 @@ app.on("activate", () => {
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow();
   } else {
-    win.show();
+    mainWindow.show();
   }
 });
 
@@ -113,13 +116,37 @@ app.on("ready", async () => {
   createWindow();
   createTray();
 
+  mainWindow.once("ready-to-show", () => {
+    const mainWindowBounds = store.get("mainWindowBounds");
+
+    if (mainWindowBounds) {
+      const currentDisplay = screen.getDisplayMatching(mainWindow.getBounds());
+      const scaleFactorX = currentDisplay.scaleFactor;
+      const scaleFactorY = currentDisplay.scaleFactor;
+      const bounds = {
+        x: mainWindowBounds.x * scaleFactorX,
+        y: mainWindowBounds.y * scaleFactorY,
+        width: mainWindowBounds.width * scaleFactorX,
+        height: mainWindowBounds.height * scaleFactorY,
+      };
+
+      mainWindow.setBounds(bounds);
+    }
+    mainWindow.show();
+  });
+
   // Hide the window instead of closing it when the user clicks the close button
-  win.on("close", (event) => {
+  mainWindow.on("close", (event) => {
     if (app.isQuiting) {
-      win = null;
+      mainWindow = null;
     } else {
       event.preventDefault();
-      win.hide();
+
+      // Save window position and size to store when the window
+      const bounds = mainWindow.getBounds();
+      store.set("mainWindowBounds", bounds);
+
+      mainWindow.hide();
     }
   });
 
