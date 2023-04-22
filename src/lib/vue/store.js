@@ -3,6 +3,8 @@ import { createStore } from "vuex";
 
 const initialStore = {
   screen: "main",
+  screenHistory: [],
+  screenIndex: 0,
   screens: {
     gamesTracking: {
       gamesToCheck: [],
@@ -39,7 +41,28 @@ export const store = createStore({
 
   mutations: {
     changeScreen(state, screen) {
+      state.screenHistory.splice(state.screenIndex + 1);
+      state.screenHistory.push(state.screen);
+      state.screenHistory.push(screen);
+      state.screenIndex = state.screenHistory.length - 1;
       state.screen = screen;
+    },
+
+    navigateScreen(state, direction) {
+      if (direction == "back") {
+        if (state.screenIndex > 0) {
+          state.screenIndex--;
+        }
+
+        state.screen = state.screenHistory[state.screenIndex];
+      }
+
+      if (direction == "forward") {
+        if (state.screenIndex < state.screenHistory.length - 1) {
+          state.screenIndex++;
+          state.screen = state.screenHistory[state.screenIndex];
+        }
+      }
     },
 
     setGames(state, games) {

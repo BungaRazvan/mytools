@@ -1,5 +1,7 @@
 <template>
   <div>
+    <div @click="this.goBack()" class="btn pulse">Back</div>
+
     <div
       class="game-info"
       :class="{ 'game-running': game.running }"
@@ -30,6 +32,7 @@
 <script>
 export default {
   name: "GameTracking",
+  props: ["goBack"],
 
   methods: {
     checkDate(date, isRunning) {

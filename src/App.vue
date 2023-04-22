@@ -1,7 +1,11 @@
 <template>
   <div>
     <MainScreen key="main-screen" v-if="this.screen() == 'main'" />
-    <GameTracking key="game-tracking" v-if="this.screen() == 'gameTracking'" />
+    <GameTracking
+      key="game-tracking"
+      v-if="this.screen() == 'gameTracking'"
+      :goBack="this.goBack"
+    />
   </div>
 </template>
 
@@ -19,11 +23,44 @@ export default {
     screen() {
       return this.$store.state.screen;
     },
+
+    goBack() {
+      const store = this.$store;
+
+      store.dispatch("all", {
+        mutation: "navigateScreen",
+        data: "back",
+      });
+    },
+
+    goBackOrForward() {
+      const store = this.$store;
+
+      // Add a mousedown event listener to the element
+      document.addEventListener("mousedown", (event) => {
+        switch (event.button) {
+          case 4:
+            store.dispatch("all", {
+              mutation: "navigateScreen",
+              data: "forward",
+            });
+            break;
+          case 3:
+            store.dispatch("all", {
+              mutation: "navigateScreen",
+              data: "back",
+            });
+            break;
+        }
+      });
+    },
   },
 
   mounted() {
     const secondToMS = 1000;
     const store = this.$store;
+
+    this.goBackOrForward();
 
     let gamesToCheck = [];
 

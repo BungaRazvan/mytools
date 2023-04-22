@@ -5,7 +5,11 @@ const { app } = require("electron");
 // Get the path to the Documents folder
 const documentFolder =
   process.env.NODE_ENV == "production" ? "MyTools" : "MyToolsDev";
-const documentsPath = path.join(app.getPath("documents"), documentFolder);
+
+export const documentsPath = path.join(
+  app.getPath("documents"),
+  documentFolder
+);
 
 export const checkFolder = (folderPath) => {
   if (!fs.existsSync(folderPath)) {
