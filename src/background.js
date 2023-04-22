@@ -2,11 +2,14 @@
 
 import path from "path";
 
+import AutoLaunch from "auto-launch";
+import Store from "electron-store";
+
 import { app, protocol, BrowserWindow, Tray, Menu, screen } from "electron";
 import { createProtocol } from "vue-cli-plugin-electron-builder/lib";
 import installExtension, { VUEJS3_DEVTOOLS } from "electron-devtools-installer";
-import AutoLaunch from "auto-launch";
-import Store from "electron-store";
+
+import { documentsPath } from "./lib/electron/files";
 
 import "./lib/electron/ipc";
 
@@ -15,16 +18,21 @@ const iconPath = isDevelopment
   ? "./public/img/icon310x310.ico"
   : path.join(__dirname.replace("app.asar", ""), "img", "icon310x310.ico");
 
-const store = new Store();
+const storeOptions = {
+  // Set the store location in the env document file
+  cwd: documentsPath,
+};
 
-let tray = null;
-
+// Create an instance of electron-store with the options
+const store = new Store(storeOptions);
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
   { scheme: "app", privileges: { secure: true, standard: true } },
 ]);
 
 let mainWindow;
+let tray = null;
+
 async function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
@@ -116,6 +124,7 @@ app.on("ready", async () => {
   createWindow();
   createTray();
 
+  // all this is needed for the initial app opening
   mainWindow.once("ready-to-show", () => {
     const mainWindowBounds = store.get("mainWindowBounds");
 
@@ -132,7 +141,13 @@ app.on("ready", async () => {
 
       mainWindow.setBounds(bounds);
     }
-    mainWindow.show();
+  });
+
+  // this is in the even of moving the window, clicking X and then brinkging it back
+  // no idea why ready-to-show needs to be scaled and this doesn't
+  mainWindow.on("show", () => {
+    const mainWindowBounds = store.get("mainWindowBounds");
+    mainWindow.setBounds(mainWindowBounds);
   });
 
   // Hide the window instead of closing it when the user clicks the close button
@@ -144,6 +159,7 @@ app.on("ready", async () => {
 
       // Save window position and size to store when the window
       const bounds = mainWindow.getBounds();
+      console.log(bounds, "set");
       store.set("mainWindowBounds", bounds);
 
       mainWindow.hide();
