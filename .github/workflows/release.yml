@@ -24,6 +24,11 @@ jobs:
       - name: Build
         run: npm run electron:build
 
+  release:
+    runs-on: ubuntu-latest
+    environment: release
+
+    steps:
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
