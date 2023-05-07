@@ -7,11 +7,22 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Cache Node.js modules
+        id: cache-dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+            ${{ runner.os }}-
+            ${{ runner.os }}-node-modules-
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
@@ -19,37 +30,57 @@ jobs:
           node-version: "14.x"
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build
-        run: npm run electron:build
+      - name: Build Electron App
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: npm run electron:build -p always
 
-  release:
-    runs-on: ubuntu-latest
-    environment: release
-    needs: build
+      - name: Get version from package.json
+        id: get_version
+        run: echo "app_version=$(node -p "require('./package.json').version")" | Out-File -FilePath $env:GITHUB_ENV -Append # no need for -Encoding utf8
 
-    steps:
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
-          tag_name: v${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body: |
-            See the [release notes](https://github.com/razvan/mytool/releases/tag/v${{ github.ref }}) for details.
+          tag_name: ${{ env.app_version }}
+          release_name: Release v${{ env.app_version }}
           draft: false
-          prerelease: false
+          prerelease: true
 
-      - name: Upload Release Asset
-        id: upload-release-asset
+      - name: List dist_electron directory
+        run: dir dist_electron
+
+      - name: Upload artifacts
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./build/My-Electron-App-Setup.exe
-          asset_name: My-Electron-App-Setup.exe
+          asset_path: ./dist_electron/MyTools Setup ${{ env.app_version }}.exe
+          asset_name: MyTools-Setup-${{ env.app_version }}.exe
           asset_content_type: application/octet-stream
+
+      - name: Upload artifacts binary
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./dist_electron/MyTools Setup ${{ env.app_version }}.exe.blockmap
+          asset_name: MyTools-Setup-${{ env.app_version }}.exe.blockmap
+          asset_content_type: application/octet-stream
+
+      - name: Upload artifacts yaml
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./dist_electron/latest.yml
+          asset_name: latest.yml
+          asset_content_type: text/x-yaml
