@@ -57,10 +57,10 @@ async function createWindow() {
       mainWindow.webContents.openDevTools();
     }
   } else {
+    autoUpdater.checkForUpdatesAndNotify();
     createProtocol("app");
     // Load the index.html when not in development
     mainWindow.loadURL("app://./index.html");
-    autoUpdater.checkForUpdatesAndNotify();
   }
 }
 
