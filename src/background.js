@@ -8,6 +8,7 @@ import Store from "electron-store";
 import { app, protocol, BrowserWindow, Tray, Menu, screen } from "electron";
 import { createProtocol } from "vue-cli-plugin-electron-builder/lib";
 import installExtension, { VUEJS3_DEVTOOLS } from "electron-devtools-installer";
+import { autoUpdater } from "electron-updater";
 
 import { documentsPath } from "./lib/electron/files";
 
@@ -59,6 +60,7 @@ async function createWindow() {
     createProtocol("app");
     // Load the index.html when not in development
     mainWindow.loadURL("app://./index.html");
+    autoUpdater.checkForUpdatesAndNotify();
   }
 }
 

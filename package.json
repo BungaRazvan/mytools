@@ -1,6 +1,6 @@
 {
   "name": "mytools",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": {
     "name": "BungaRazvan"
   },
@@ -18,10 +18,10 @@
   "dependencies": {
     "auto-launch": "5.0.5",
     "core-js": "3.8.3",
+    "electron-store": "8.1.0",
     "lodash": "4.17.21",
     "vue": "3.2.13",
-    "vuex": "4.1.0",
-    "electron-store": "8.1.0"
+    "vuex": "4.1.0"
   },
   "devDependencies": {
     "@babel/core": "7.12.16",
@@ -31,6 +31,7 @@
     "@vue/cli-service": "^5.0.0",
     "electron": "13.0.0",
     "electron-devtools-installer": "3.1.0",
+    "electron-updater": "5.3.0",
     "eslint": "7.32.0",
     "eslint-plugin-vue": "8.0.3",
     "node-sass": "8.0.0",
