@@ -1,14 +1,8 @@
 <template>
   <div class="dashboard display-animation">
     <WindowsTile
-      @click="this.changeScreen('amazonTracking')"
-      color="pink"
-      title="Amazon Tracking"
-    />
-    <WindowsTile
       @click="this.changeScreen('gameTracking')"
       color="blue"
-      shape="sqr"
       title="Game Tracking"
     />
   </div>
