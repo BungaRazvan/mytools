@@ -28,3 +28,13 @@ html {
   margin-top: 20px;
   font-size: 30px;
 }
+
+html::-webkit-scrollbar {
+  width: 10px;
+  background-color: #282a2c;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #4b83bc;
+  border-radius: 100vw;
+}

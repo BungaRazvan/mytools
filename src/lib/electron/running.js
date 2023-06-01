@@ -1,11 +1,5 @@
 import { exec } from "child_process";
 
-const programs = [
-  { name: "GenshinImpact.exe", displayName: "Genshin Impact" },
-  { name: "chrome.exe", displayName: "Google Chrome" },
-  { name: "notepad.exe", displayName: "Notepad" },
-];
-
 export const isProgramRunning = async (programName) => {
   return new Promise((resolve, reject) => {
     exec(

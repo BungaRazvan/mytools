@@ -68,18 +68,21 @@ export const store = createStore({
     setGames(state, games) {
       state.screens.gamesTracking.gamesToCheck = games;
     },
-    // setGameData(data) {},
 
     setGamesData(state, data) {
       state.screens.gamesTracking.gamesData = data;
     },
 
     setGameRunning(state, data) {
-      const { name, running } = data;
+      const { name, running, elapsedSeconds } = data;
 
       forEach(state.screens.gamesTracking.gamesData, (game) => {
         if (game.app == name) {
           game.running = running;
+
+          if (elapsedSeconds) {
+            game.time += elapsedSeconds;
+          }
         }
       });
     },

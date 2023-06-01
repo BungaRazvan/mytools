@@ -60,7 +60,7 @@ export const readCSVFile = (
 
     return data;
   } catch (error) {
-    console.error(`Error reading file: ${err}`);
+    console.error(`Error reading file: ${error}`);
     return;
   }
 };
@@ -83,7 +83,7 @@ export const readJsonFile = (fileName, folderPath = documentsPath) => {
     const data = fs.readFileSync(filePath, "utf8");
     return JSON.parse(data);
   } catch (error) {
-    console.error(`Error reading file: ${err}`);
+    console.error(`Error reading file: ${error}`);
     return;
   }
 };
@@ -123,7 +123,7 @@ export const updateFile = (fileName, data, folderPath = documentsPath) => {
       console.log("File written successfully");
       return;
     } catch (error) {
-      console.error(`Error writing file: ${err}`);
+      console.error(`Error writing file: ${error}`);
       return;
     }
   }
@@ -133,7 +133,7 @@ export const updateFile = (fileName, data, folderPath = documentsPath) => {
     console.log("File updated successfully");
     return;
   } catch (error) {
-    console.error(`Error writing file: ${err}`);
+    console.error(`Error writing file: ${error}`);
     return;
   }
 };
