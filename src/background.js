@@ -3,14 +3,12 @@
 import path from "path";
 
 import AutoLaunch from "auto-launch";
-import Store from "electron-store";
 
 import { app, protocol, BrowserWindow, Tray, Menu, screen } from "electron";
 import { createProtocol } from "vue-cli-plugin-electron-builder/lib";
 import installExtension, { VUEJS3_DEVTOOLS } from "electron-devtools-installer";
 import { autoUpdater } from "electron-updater";
-
-import { documentsPath } from "./lib/electron/files";
+import electronStore from "./lib/electron/store";
 
 import "./lib/electron/ipc";
 
@@ -19,13 +17,6 @@ const iconPath = isDevelopment
   ? "./public/img/icon310x310.ico"
   : path.join(__dirname.replace("app.asar", ""), "img", "icon310x310.ico");
 
-const storeOptions = {
-  // Set the store location in the env document file
-  cwd: documentsPath,
-};
-
-// Create an instance of electron-store with the options
-const store = new Store(storeOptions);
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
   { scheme: "app", privileges: { secure: true, standard: true } },
@@ -123,12 +114,13 @@ app.on("ready", async () => {
       console.error("Vue Devtools failed to install:", e.toString());
     }
   }
+
   createWindow();
   createTray();
 
   // all this is needed for the initial app opening
   mainWindow.once("ready-to-show", () => {
-    const mainWindowBounds = store.get("mainWindowBounds");
+    const mainWindowBounds = electronStore.get("mainWindowBounds");
 
     if (mainWindowBounds) {
       const currentDisplay = screen.getDisplayMatching(mainWindow.getBounds());
@@ -148,7 +140,7 @@ app.on("ready", async () => {
   // this is in the even of moving the window, clicking X and then brinkging it back
   // no idea why ready-to-show needs to be scaled and this doesn't
   mainWindow.on("show", () => {
-    const mainWindowBounds = store.get("mainWindowBounds");
+    const mainWindowBounds = electronStore.get("mainWindowBounds");
     mainWindow.setBounds(mainWindowBounds);
   });
 
@@ -158,11 +150,9 @@ app.on("ready", async () => {
       mainWindow = null;
     } else {
       event.preventDefault();
-
       // Save window position and size to store when the window
       const bounds = mainWindow.getBounds();
-      console.log(bounds, "set");
-      store.set("mainWindowBounds", bounds);
+      electronStore.set("mainWindowBounds", bounds);
 
       mainWindow.hide();
     }
