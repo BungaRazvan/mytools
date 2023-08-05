@@ -10,7 +10,7 @@
         <label>New Game Label</label>
         <div>
           <input
-            name="new-game-label"
+            name="label"
             :value="gameData.label"
             @change="setGameData"
             type="text"
@@ -23,7 +23,7 @@
         <label>New Game Executable</label>
         <div>
           <input
-            name="new-game-game-app"
+            name="app"
             :value="gameData.app"
             @change="setGameData"
             type="text"
@@ -101,7 +101,6 @@ export default {
         app: null,
         startTime: null,
         time: null,
-        display: null,
         running: null,
         played: null,
       },
@@ -110,7 +109,6 @@ export default {
         app: null,
         startTime: null,
         time: null,
-        display: null,
         running: null,
         played: null,
       },
