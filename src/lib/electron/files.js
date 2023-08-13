@@ -137,3 +137,7 @@ export const updateFile = (fileName, data, folderPath = documentsPath) => {
     return;
   }
 };
+
+export const readFolder = (folderPath) => {
+  return fs.readdirSync(folderPath);
+};

@@ -1,0 +1,64 @@
+{
+  "data": [
+    {
+      "set": "Archaic Petra",
+      "bonus": {
+        "2-piece": "Gain a 15% Geo DMG Bonus.",
+        "4-piece": "Upon obtaining an Elemental Shard Created through a Crystallize Reaction, all party members gain a 35% DMG Bonus for that particular element for 10s. Only one form of Elemental DMG Bonus can be gained in this manner at any one time."
+      },
+      "types": {
+        "flower": {
+          "name": "Flower of the Creviced Cliff",
+          "image": "Archaic_Petra_Flower.png"
+        },
+        "feather": {
+          "name": "Feather of Jagged Peaks",
+          "image": "Archaic_Petra_Feather.png"
+        },
+        "sands": {
+          "name": "Sundial of Enduring Jade",
+          "image": "Archaic_Petra_Sands.png"
+        },
+        "goblet": {
+          "name": "Goblet of Chiseled Crag",
+          "image": "Archaic_Petra_Goblet.png"
+        },
+        "circlet": {
+          "name": "Mask of Solitude Basalt",
+          "image": "Archaic_Petra_Circlet.png"
+        }
+      },
+      "element": "Geo",
+      "rarity": 5,
+      "domains": [{ "name": "Domain of Guyun", "image": "Domain_of_Guyun.png" }]
+    },
+    {
+      "set": "",
+      "bonus": {
+        "2-piece": "",
+        "4-piece": ""
+      },
+      "types": {
+        "flower": {
+          "name": "",
+          "image": ""
+        },
+        "sands": {
+          "name": "",
+          "image": ""
+        },
+        "goblet": { "name": "", "image": "" },
+        "circlet": { "name": "", "image": "" }
+      },
+      "element": "",
+      "rarity": 0,
+      "domains": [
+        {
+          "name": "",
+          "image": ""
+        }
+      ],
+      "bosses": []
+    }
+  ]
+}

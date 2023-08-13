@@ -1,0 +1,633 @@
+{
+  "data": [
+    {
+      "name": "Albedo",
+      "rarity": 5,
+      "element": "Geo",
+      "weapon": "Sword",
+      "region": "Mondstadt",
+      "thumbnail": "Albedo_Icon.webp"
+    },
+    {
+      "name": "Alhaitham",
+      "rarity": 5,
+      "element": "Dendro",
+      "weapon": "Sword",
+      "region": "Sumeru",
+      "thumbnail": "Alhaitham_Icon.webp"
+    },
+    {
+      "name": "Aloy",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Cryo",
+      "weapon": "Bow",
+      "region": "Crossover",
+      "thumbnail": "Aloy_Icon.webp"
+    },
+    {
+      "name": "Amber",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Pyro",
+      "weapon": "Bow",
+      "region": "Mondstadt",
+      "thumbnail": "Amber_Icon.webp"
+    },
+    {
+      "name": "Arataki Itto",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Geo",
+      "weapon": "Claymore",
+      "region": "Inazuma",
+      "thumbnail": "Arataki_Itto_Icon.webp"
+    },
+    {
+      "name": "Baizhu",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Dendro",
+      "weapon": "Catalyst",
+      "region": "Liyue",
+      "thumbnail": "Baizhu_Icon.webp"
+    },
+    {
+      "name": "Barbara",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Hydro",
+      "weapon": "Catalyst",
+      "region": "Mondstadt",
+      "thumbnail": "Barbara_Icon.webp"
+    },
+    {
+      "name": "Beidou",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Electro",
+      "weapon": "Claymore",
+      "region": "Liyue",
+      "thumbnail": "Beidou_Icon.webp"
+    },
+    {
+      "name": "Bennett",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Pyro",
+      "weapon": "Sword",
+      "region": "Mondstadt",
+      "thumbnail": "Bennett_Icon.webp"
+    },
+    {
+      "name": "Candace",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Hydro",
+      "weapon": "Polearm",
+      "region": "Sumeru",
+      "thumbnail": "Candace_Icon.webp"
+    },
+    {
+      "name": "Chongyun",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Cryo",
+      "weapon": "Claymore",
+      "region": "Liyue",
+      "thumbnail": "Chongyun_Icon.webp"
+    },
+    {
+      "name": "Collei",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Dendro",
+      "weapon": "Bow",
+      "region": "Sumeru",
+      "thumbnail": "Collei_Icon.webp"
+    },
+    {
+      "name": "Cyno",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Electro",
+      "weapon": "Polearm",
+      "region": "Sumeru",
+      "thumbnail": "Cyno_Icon.webp"
+    },
+    {
+      "name": "Dehya",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Pyro",
+      "weapon": "Claymore",
+      "region": "Sumeru",
+      "thumbnail": "Dehya_Icon.webp"
+    },
+    {
+      "name": "Diluc",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Pyro",
+      "weapon": "Claymore",
+      "region": "Mondstadt",
+      "thumbnail": "Diluc_Icon.webp"
+    },
+    {
+      "name": "Diona",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Cryo",
+      "weapon": "Bow",
+      "region": "Mondstadt",
+      "thumbnail": "Diona_Icon.webp"
+    },
+    {
+      "name": "Dori",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Electro",
+      "weapon": "Claymore",
+      "region": "Sumeru",
+      "thumbnail": "Dori_Icon.webp"
+    },
+    {
+      "name": "Eula",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Cryo",
+      "weapon": "Claymore",
+      "region": "Mondstadt",
+      "thumbnail": "Eula_Icon.webp"
+    },
+    {
+      "name": "Faruzan",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Anemo",
+      "weapon": "Bow",
+      "region": "Sumeru",
+      "thumbnail": "Faruzan_Icon.webp"
+    },
+    {
+      "name": "Fischl",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Electro",
+      "weapon": "Bow",
+      "region": "Mondstadt",
+      "thumbnail": "Fischl_Icon.webp"
+    },
+    {
+      "name": "Ganyu",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Cryo",
+      "weapon": "Bow",
+      "region": "Liyue",
+      "thumbnail": "Ganyu_Icon.webp"
+    },
+    {
+      "name": "Gorou",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Geo",
+      "weapon": "Bow",
+      "region": "Inazuma",
+      "thumbnail": "Gorou_Icon.webp"
+    },
+    {
+      "name": "Hu Tao",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Pyro",
+      "weapon": "Polearm",
+      "region": "Liyue",
+      "thumbnail": "Hu_Tao_Icon.webp"
+    },
+    {
+      "name": "Jean",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Anemo",
+      "weapon": "Sword",
+      "region": "Mondstadt",
+      "thumbnail": "Jean_Icon.webp"
+    },
+    {
+      "name": "Kaedehara Kazuha",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Anemo",
+      "weapon": "Sword",
+      "region": "Inazuma",
+      "thumbnail": "Kaedehara_Kazuha_Icon.webp"
+    },
+    {
+      "name": "Kaeya",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Cryo",
+      "weapon": "Sword",
+      "region": "MondstadtKhaenri'ah",
+      "thumbnail": "Kaeya_Icon.webp"
+    },
+    {
+      "name": "Kamisato Ayaka",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Cryo",
+      "weapon": "Sword",
+      "region": "Inazuma",
+      "thumbnail": "Kamisato_Ayaka_Icon.webp"
+    },
+    {
+      "name": "Kamisato Ayato",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Hydro",
+      "weapon": "Sword",
+      "region": "Inazuma",
+      "thumbnail": "Kamisato_Ayato_Icon.webp"
+    },
+    {
+      "name": "Kaveh",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Dendro",
+      "weapon": "Claymore",
+      "region": "Sumeru",
+      "thumbnail": "Kaveh_Icon.webp"
+    },
+    {
+      "name": "Keqing",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Electro",
+      "weapon": "Sword",
+      "region": "Liyue",
+      "thumbnail": "Keqing_Icon.webp"
+    },
+    {
+      "name": "Kirara",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Dendro",
+      "weapon": "Sword",
+      "region": "Inazuma",
+      "thumbnail": "Kirara_Icon.webp"
+    },
+    {
+      "name": "Klee",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Pyro",
+      "weapon": "Catalyst",
+      "region": "Mondstadt",
+      "thumbnail": "Klee_Icon.webp"
+    },
+    {
+      "name": "Kujou Sara",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Electro",
+      "weapon": "Bow",
+      "region": "Inazuma",
+      "thumbnail": "Kujou_Sara_Icon.webp"
+    },
+    {
+      "name": "Kuki Shinobu",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Electro",
+      "weapon": "Sword",
+      "region": "Inazuma",
+      "thumbnail": "Kuki_Shinobu_Icon.webp"
+    },
+    {
+      "name": "Layla",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Cryo",
+      "weapon": "Sword",
+      "region": "Sumeru",
+      "thumbnail": "Layla_Icon.webp"
+    },
+    {
+      "name": "Lisa",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Electro",
+      "weapon": "Catalyst",
+      "region": "Mondstadt",
+      "thumbnail": "Lisa_Icon.webp"
+    },
+    {
+      "name": "Lynette",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Anemo",
+      "weapon": "Sword",
+      "region": "Fontaine",
+      "thumbnail": "Lynette_Icon.webp"
+    },
+    {
+      "name": "Lyney",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Pyro",
+      "weapon": "Bow",
+      "region": "Fontaine",
+      "thumbnail": "Lyney_Icon.webp"
+    },
+    {
+      "name": "Mika",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Cryo",
+      "weapon": "Polearm",
+      "region": "Mondstadt",
+      "thumbnail": "Mika_Icon.webp"
+    },
+    {
+      "name": "Mona",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Hydro",
+      "weapon": "Catalyst",
+      "region": "Mondstadt",
+      "thumbnail": "Mona_Icon.webp"
+    },
+    {
+      "name": "Nahida",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Dendro",
+      "weapon": "Catalyst",
+      "region": "Sumeru",
+      "thumbnail": "Nahida_Icon.webp"
+    },
+    {
+      "name": "Nilou",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Hydro",
+      "weapon": "Sword",
+      "region": "Sumeru",
+      "thumbnail": "Nilou_Icon.webp"
+    },
+    {
+      "name": "Ningguang",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Geo",
+      "weapon": "Catalyst",
+      "region": "Liyue",
+      "thumbnail": "Ningguang_Icon.webp"
+    },
+    {
+      "name": "Noelle",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Geo",
+      "weapon": "Claymore",
+      "region": "Mondstadt",
+      "thumbnail": "Noelle_Icon.webp"
+    },
+    {
+      "name": "Qiqi",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Cryo",
+      "weapon": "Sword",
+      "region": "Liyue",
+      "thumbnail": "Qiqi_Icon.webp"
+    },
+    {
+      "name": "Raiden Shogun",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Electro",
+      "weapon": "Polearm",
+      "region": "Inazuma",
+      "thumbnail": "Raiden_Shogun_Icon.webp"
+    },
+    {
+      "name": "Razor",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Electro",
+      "weapon": "Claymore",
+      "region": "Mondstadt",
+      "thumbnail": "Razor_Icon.webp"
+    },
+    {
+      "name": "Rosaria",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Cryo",
+      "weapon": "Polearm",
+      "region": "Mondstadt",
+      "thumbnail": "Rosaria_Icon.webp"
+    },
+    {
+      "name": "Sangonomiya Kokomi",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Hydro",
+      "weapon": "Catalyst",
+      "region": "Inazuma",
+      "thumbnail": "Sangonomiya_Kokomi_Icon.webp"
+    },
+    {
+      "name": "Sayu",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Anemo",
+      "weapon": "Claymore",
+      "region": "Inazuma",
+      "thumbnail": "Sayu_Icon.webp"
+    },
+    {
+      "name": "Shenhe",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Cryo",
+      "weapon": "Polearm",
+      "region": "Liyue",
+      "thumbnail": "Shenhe_Icon.webp"
+    },
+    {
+      "name": "Shikanoin Heizou",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Anemo",
+      "weapon": "Catalyst",
+      "region": "Inazuma",
+      "thumbnail": "Shikanoin_Heizou_Icon.webp"
+    },
+    {
+      "name": "Sucrose",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Anemo",
+      "weapon": "Catalyst",
+      "region": "Mondstadt",
+      "thumbnail": "Sucrose_Icon.webp"
+    },
+    {
+      "name": "Tartaglia",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Hydro",
+      "weapon": "Bow",
+      "region": "Snezhnaya",
+      "thumbnail": "Tartaglia_Icon.webp"
+    },
+    {
+      "name": "Thoma",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Pyro",
+      "weapon": "Polearm",
+      "region": "Inazuma",
+      "thumbnail": "Thoma_Icon.webp"
+    },
+    {
+      "name": "Tighnari",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Dendro",
+      "weapon": "Bow",
+      "region": "Sumeru",
+      "thumbnail": "Tighnari_Icon.webp"
+    },
+    {
+      "name": "Traveler",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Anemo",
+      "weapon": "Sword",
+      "region": "Outlander",
+      "thumbnail": "Lumine_Icon.webp"
+    },
+
+    {
+      "name": "Venti",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Anemo",
+      "weapon": "Bow",
+      "region": "Mondstadt",
+      "thumbnail": "Venti_Icon.webp"
+    },
+    {
+      "name": "Wanderer",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Anemo",
+      "weapon": "Catalyst",
+      "region": ["Sumeru", "Snezhnaya", "Inazuma"],
+      "thumbnail": "Wanderer_Icon.webp"
+    },
+    {
+      "name": "Xiangling",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Pyro",
+      "weapon": "Polearm",
+      "region": "Liyue",
+      "thumbnail": "Xiangling_Icon.webp"
+    },
+    {
+      "name": "Xiao",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Anemo",
+      "weapon": "Polearm",
+      "region": "Liyue",
+      "thumbnail": "Xiao_Icon.webp"
+    },
+    {
+      "name": "Xingqiu",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Hydro",
+      "weapon": "Sword",
+      "region": "Liyue",
+      "thumbnail": "Xingqiu_Icon.webp"
+    },
+    {
+      "name": "Xinyan",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Pyro",
+      "weapon": "Claymore",
+      "region": "Liyue",
+      "thumbnail": "Xinyan_Icon.webp"
+    },
+    {
+      "name": "Yae Miko",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Electro",
+      "weapon": "Catalyst",
+      "region": "Inazuma",
+      "thumbnail": "Yae_Miko_Icon.webp"
+    },
+    {
+      "name": "Yanfei",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Pyro",
+      "weapon": "Catalyst",
+      "region": "Liyue",
+      "thumbnail": "Yanfei_Icon.webp"
+    },
+    {
+      "name": "Yaoyao",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Dendro",
+      "weapon": "Polearm",
+      "region": "Liyue",
+      "thumbnail": "Yaoyao_Icon.webp"
+    },
+    {
+      "name": "Yelan",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Hydro",
+      "weapon": "Bow",
+      "region": "Liyue",
+      "thumbnail": "Yelan_Icon.webp"
+    },
+    {
+      "name": "Yoimiya",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Pyro",
+      "weapon": "Bow",
+      "region": "Inazuma",
+      "thumbnail": "Yoimiya_Icon.webp"
+    },
+    {
+      "name": "Yun Jin",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Geo",
+      "weapon": "Polearm",
+      "region": "Liyue",
+      "thumbnail": "Yun_Jin_Icon.webp"
+    },
+    {
+      "name": "Zhongli",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Geo",
+      "weapon": "Polearm",
+      "region": "Liyue",
+      "thumbnail": "Zhongli_Icon.webp"
+    }
+  ]
+}

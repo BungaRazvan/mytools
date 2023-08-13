@@ -82,6 +82,7 @@ export const store = createStore({
 
           if (elapsedSeconds) {
             game.time += elapsedSeconds;
+            game.played = new Date();
           }
         }
       });
