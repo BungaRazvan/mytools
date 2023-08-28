@@ -11,9 +11,8 @@
     font-size: 25px;
     position: absolute;
 
-    top: 25%;
     transform: translate(-50%);
-
+    top: 25%;
     left: 50%;
 
     width: max-content;
@@ -37,6 +36,6 @@
 <script>
 export default {
   name: "Tooltip",
-  props: ["children", "text"],
+  props: ["text"],
 };
 </script>
