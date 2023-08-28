@@ -2,20 +2,24 @@
   <div class="build">
     <label class="build-label">
       <i class="material-icons edit-icon">edit_note</i>
-      <span>Build #1</span>
+      <span>{{ this.name }}</span>
       <i class="material-icons delete-icon">delete</i>
     </label>
     <div class="build-characters">
-      <div class="character">
-        <i class="material-icons">add</i>
+      <div
+        class="character"
+        :class="[
+          character.rarity == 5
+            ? 'five-star'
+            : character.rarity == 4
+            ? 'four-star'
+            : '',
+        ]"
+        v-for="(character, index) in this.characters"
+      >
+        <img :src="`/img/genshin/characters/${character.image}`" />
       </div>
-      <div class="character">
-        <i class="material-icons">add</i>
-      </div>
-      <div class="character">
-        <i class="material-icons">add</i>
-      </div>
-      <div class="character">
+      <div v-for="_ in 4 - this.characters.length" class="character">
         <i class="material-icons">add</i>
       </div>
     </div>
@@ -83,5 +87,6 @@
 <script>
 export default {
   name: "Build",
+  props: ["name", "characters"],
 };
 </script>

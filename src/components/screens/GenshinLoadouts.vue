@@ -1,9 +1,11 @@
 <template>
   <div class="build-container">
     <div class="builds">
-      <Build />
-      <Build />
-      <Build />
+      <Build
+        :name="build.name"
+        :characters="build.characters"
+        v-for="build in this.builds"
+      />
     </div>
 
     <div class="build-info">
@@ -35,10 +37,18 @@
   // 5-star character bg: #9f682a
   .five-star {
     background-color: #9f682a;
+
+    &.character {
+      background-color: #9f682a;
+    }
   }
 
   .four-star {
     background-color: #68598d;
+
+    &.character {
+      background-color: #68598d;
+    }
   }
 }
 </style>
@@ -54,7 +64,31 @@ export default {
   components: { Build, CharacterList, Tooltip },
 
   data() {
-    return {};
+    return {
+      defaultCharacter: [
+        {
+          name: null,
+          image: null,
+          artifacts: [],
+          weapon: null,
+          rarity: null,
+        },
+      ],
+      builds: [
+        {
+          name: "Build #1",
+          characters: [
+            {
+              name: "Albeido",
+              image: "Albedo_Icon.webp",
+              artifacts: [],
+              weapon: null,
+              rarity: 5,
+            },
+          ],
+        },
+      ],
+    };
   },
 
   methods: {},
