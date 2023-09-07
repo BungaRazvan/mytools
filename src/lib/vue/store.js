@@ -1,35 +1,17 @@
-import { forEach } from "lodash";
 import { createStore } from "vuex";
+
+import genshinLodaouts from "./store_modules/genshinLodaouts";
+import gamesTracking from "./store_modules/gamesTracking";
 
 const initialStore = {
   screen: "main",
   screenHistory: [],
   screenIndex: 0,
-  screens: {
-    gamesTracking: {
-      gamesToCheck: [],
-      gamesData: [],
-      intrervalId: null,
-    },
-  },
 };
 
 export const store = createStore({
   state: { ...initialStore },
-
-  getters: {
-    trackingGames: (state) => {
-      return state.screens.gamesTracking.gamesToCheck;
-    },
-
-    gamesData: (state) => {
-      return state.screens.gamesTracking.gamesData;
-    },
-
-    intrervalId: (state) => {
-      return state.screens.gamesTracking.intrervalId;
-    },
-  },
+  modules: { genshinLodaouts, gamesTracking },
 
   actions: {
     all: (context, payload) => {
@@ -63,33 +45,6 @@ export const store = createStore({
           state.screen = state.screenHistory[state.screenIndex];
         }
       }
-    },
-
-    setGames(state, games) {
-      state.screens.gamesTracking.gamesToCheck = games;
-    },
-
-    setGamesData(state, data) {
-      state.screens.gamesTracking.gamesData = data;
-    },
-
-    setGameRunning(state, data) {
-      const { name, running, elapsedSeconds } = data;
-
-      forEach(state.screens.gamesTracking.gamesData, (game) => {
-        if (game.app == name) {
-          game.running = running;
-
-          if (elapsedSeconds) {
-            game.time += elapsedSeconds;
-            game.played = new Date();
-          }
-        }
-      });
-    },
-
-    setIntervalId(state, data) {
-      state.screens.gamesTracking.intrervalId = data.intervalId;
     },
   },
 });

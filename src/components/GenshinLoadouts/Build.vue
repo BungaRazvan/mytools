@@ -1,9 +1,24 @@
 <template>
   <div class="build">
     <label class="build-label">
-      <i class="material-icons edit-icon">edit_note</i>
-      <span>{{ this.name }}</span>
-      <i class="material-icons delete-icon">delete</i>
+      <i
+        @click="this.toggleEditBuildName"
+        class="material-icons edit-icon"
+        v-if="!this.editBuildName"
+        >edit_note</i
+      >
+      <i v-if="this.editBuildName" class="material-icons edit-icon">done</i>
+      <input
+        class="edit-name"
+        @blur="this.editName($event, this.index)"
+        :disabled="!this.editBuildName"
+        :value="this.name"
+      />
+      <i
+        @click="this.removeBuild(this.index)"
+        class="material-icons delete-icon"
+        >delete</i
+      >
     </label>
     <div class="build-characters">
       <div
@@ -33,6 +48,13 @@
     align-items: center;
     align-content: center;
     font-size: 40px;
+
+    .edit-name {
+      background-color: #282a2c;
+      color: #fff;
+      border: 0;
+      font-size: 40px;
+    }
   }
 
   i {
@@ -87,6 +109,30 @@
 <script>
 export default {
   name: "Build",
-  props: ["name", "characters"],
+  props: ["name", "characters", "index"],
+  methods: {
+    editName(event, index) {
+      this.editBuildName = !this.editBuildName;
+      this.$store.dispatch("all", {
+        mutation: "editBuildName",
+        data: { index: index, name: event.target.value },
+      });
+    },
+    toggleEditBuildName() {
+      this.editBuildName = !this.editBuildName;
+    },
+    removeBuild(index) {
+      this.$store.dispatch("all", {
+        mutation: "removeBuild",
+        data: { index },
+      });
+    },
+  },
+
+  data() {
+    return {
+      editBuildName: false,
+    };
+  },
 };
 </script>

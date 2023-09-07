@@ -4,8 +4,11 @@
       <Build
         :name="build.name"
         :characters="build.characters"
-        v-for="build in this.builds"
+        :key="build.name"
+        :index="index"
+        v-for="(build, index) in this.$store.getters.builds"
       />
+      <div>+ Add New Build</div>
     </div>
 
     <div class="build-info">
@@ -36,18 +39,18 @@
   // 4-star character bg: #68598d
   // 5-star character bg: #9f682a
   .five-star {
-    background-color: #9f682a;
+    background-color: #9f682a !important;
 
     &.character {
-      background-color: #9f682a;
+      background-color: #9f682a !important;
     }
   }
 
   .four-star {
-    background-color: #68598d;
+    background-color: #68598d !important;
 
     &.character {
-      background-color: #68598d;
+      background-color: #68598d !important;
     }
   }
 }
@@ -72,20 +75,6 @@ export default {
           artifacts: [],
           weapon: null,
           rarity: null,
-        },
-      ],
-      builds: [
-        {
-          name: "Build #1",
-          characters: [
-            {
-              name: "Albeido",
-              image: "Albedo_Icon.webp",
-              artifacts: [],
-              weapon: null,
-              rarity: 5,
-            },
-          ],
         },
       ],
     };
