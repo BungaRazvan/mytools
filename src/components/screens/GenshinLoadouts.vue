@@ -8,11 +8,15 @@
         :index="index"
         v-for="(build, index) in this.$store.getters.builds"
       />
-      <div>+ Add New Build</div>
+      <div @click="this.addNewBuild">&plus; Add New Build</div>
     </div>
 
-    <div class="build-info">
+    <div class="panel" v-if="this.$store.getters.displayCharactersList">
       <CharacterList />
+    </div>
+
+    <div class="panel" v-if="this.$store.getters.displayCharaterBuild">
+      <ChharacterBuild />
     </div>
   </div>
 </template>
@@ -24,11 +28,10 @@
   .builds {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
     flex-wrap: wrap;
   }
 
-  .build-info {
+  .panel {
     background-color: #1c1d1e;
     display: flex;
     padding-left: 25px;
@@ -66,21 +69,13 @@ export default {
   props: ["goBack"],
   components: { Build, CharacterList, Tooltip },
 
-  data() {
-    return {
-      defaultCharacter: [
-        {
-          name: null,
-          image: null,
-          artifacts: [],
-          weapon: null,
-          rarity: null,
-        },
-      ],
-    };
+  methods: {
+    addNewBuild() {
+      this.$store.dispatch("all", {
+        mutation: "addNewBuild",
+      });
+    },
   },
-
-  methods: {},
 
   mounted() {},
 };

@@ -15,6 +15,7 @@
           ><img
             :class="character.rarity == 5 ? 'five-star' : 'four-star'"
             :src="`img/genshin/characters/${character.thumbnail}`"
+            @click="addCharaterToBuild(character)"
           />
         </Tooltip>
       </div>
@@ -23,6 +24,22 @@
 </template>
 
 <style lang="scss">
+.search {
+  margin-bottom: 10px;
+
+  .name {
+    width: 100%;
+    background-color: #1c1d1e;
+    color: #fff;
+    font-size: 20px;
+
+    &:focus-visible {
+      outline: none;
+      border: none;
+    }
+  }
+}
+
 .avatars {
   flex-wrap: wrap;
   display: flex;
@@ -71,9 +88,18 @@ export default {
 
       this.displayCharacters = foundCharacters;
     },
+
+    addCharaterToBuild(character) {
+      this.$store.dispatch("all", {
+        mutation: "addCharaterToBuild",
+        data: { character },
+      });
+    },
   },
 
   mounted() {
+    console.log("mounted");
+
     window.ipc
       .receive("readJsonFile", {
         folderPath: `${__static}/data/genshin/`,
