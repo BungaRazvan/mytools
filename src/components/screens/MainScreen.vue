@@ -11,6 +11,12 @@
       title="Genshin Loadouts"
       shape="sqr"
     />
+    <WindowsTile
+      @click="this.changeScreen('gameResourceTracking')"
+      color="cyan"
+      title="Game Resource Tracking"
+      shape="sqr"
+    />
   </div>
 </template>
 
