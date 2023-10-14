@@ -5,6 +5,12 @@
       color="blue"
       title="Game Tracking"
     />
+    <WindowsTile
+      @click="this.changeScreen('genshinLoadouts')"
+      color="purple"
+      title="Genshin Loadouts"
+      shape="sqr"
+    />
   </div>
 </template>
 

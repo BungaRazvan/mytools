@@ -13,7 +13,13 @@ contextBridge.exposeInMainWorld("ipc", {
   },
   receive: async (channel, data) => {
     // whitelist channels
-    const validChannels = ["getSetting", "isGameRunning", "getGamesData"];
+    const validChannels = [
+      "getSetting",
+      "isGameRunning",
+      "getGamesData",
+      "readFolder",
+      "readJsonFile",
+    ];
 
     if (validChannels.includes(channel)) {
       const result = await ipcRenderer.invoke(channel, data);

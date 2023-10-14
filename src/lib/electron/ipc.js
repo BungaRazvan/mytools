@@ -2,19 +2,14 @@ import { BrowserWindow, ipcMain } from "electron";
 import { map, groupBy, sumBy } from "lodash";
 
 import { isProgramRunning } from "./running";
-import { updateFile, readCSVFile } from "./files";
+import { updateFile, readCSVFile, readFolder, readJsonFile } from "./files";
 import electronStore from "./store";
 
 const sendToMain = (name, data) => {
   BrowserWindow.getAllWindows()[0].webContents.send(name, data);
 };
 
-ipcMain.handle("isGameRunning", async (event, args) => {
-  const isGameRunning = await isProgramRunning(`${args}.exe`);
-
-  return { [args]: isGameRunning };
-});
-
+// send
 ipcMain.on("logRunningGame", (event, args) => {
   const { app, time } = args;
 
@@ -23,6 +18,19 @@ ipcMain.on("logRunningGame", (event, args) => {
     time,
     timestamp: new Date().toISOString(),
   });
+});
+
+ipcMain.on("setSetting", (event, args) => {
+  const { setting, data } = args;
+
+  electronStore.set(setting, data);
+});
+
+// receive
+ipcMain.handle("isGameRunning", async (event, args) => {
+  const isGameRunning = await isProgramRunning(`${args}.exe`);
+
+  return { [args]: isGameRunning };
 });
 
 ipcMain.handle("getSetting", (event, arg) => {
@@ -45,9 +53,12 @@ ipcMain.handle("getGamesData", (event, args) => {
   return transformedData;
 });
 
-ipcMain.on("setSetting", (event, args) => {
-  const { setting, data } = args;
+ipcMain.handle("readFolder", (event, args) => {
+  const { folderPath } = args;
+  return readFolder(folderPath);
+});
 
-  console.log(args);
-  electronStore.set(setting, data);
+ipcMain.handle("readJsonFile", (event, args) => {
+  const { folderPath, fileName } = args;
+  return readJsonFile(fileName, folderPath);
 });

@@ -8,6 +8,11 @@
       :recordRunningGame="this.recordRunningGame"
       :calculateGameTime="this.calculateGameTime"
     />
+    <GenshinLoadouts
+      key="genshin-loadouts"
+      v-if="this.screen() == 'genshinLoadouts'"
+      :goBack="this.goBack"
+    />
   </div>
 </template>
 
@@ -16,11 +21,13 @@ import "./assets/scss/style.scss";
 
 import MainScreen from "@/components/screens/MainScreen.vue";
 import GameTracking from "@/components/screens/GameTracking.vue";
+import GenshinLoadouts from "@/components/screens/GenshinLoadouts.vue";
+
 import { secondToMS } from "@/lib/vue/constants";
 
 export default {
   name: "App",
-  components: { MainScreen, GameTracking },
+  components: { MainScreen, GameTracking, GenshinLoadouts },
 
   methods: {
     screen() {

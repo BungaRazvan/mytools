@@ -1,0 +1,1572 @@
+{
+  "data": [
+    {
+      "set_name": "Archaic Petra",
+      "bonus": {
+        "2-piece": "Gain a 15% Geo DMG Bonus.",
+        "4-piece": "Upon obtaining an Elemental Shard Created through a Crystallize Reaction, all party members gain a 35% DMG Bonus for that particular element for 10s. Only one form of Elemental DMG Bonus can be gained in this manner at any one time."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Flower of the Creviced Cliff",
+          "image": "Archaic_Petra_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Feather of Jagged Peaks",
+          "image": "Archaic_Petra_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Sundial of Enduring Jade",
+          "image": "Archaic_Petra_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Goblet of Chiseled Crag",
+          "image": "Archaic_Petra_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Mask of Solitude Basalt",
+          "image": "Archaic_Petra_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Blizzard Strayer",
+      "bonus": {
+        "2-piece": "Cryo DMG Bonus +15%",
+        "4-piece": "When a character attacks an enemy affected by Cryo, their CRIT Rate is increased by 20%. If the enemy is Frozen, CRIT Rate is increased by an additional 20%."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Snowswept Memory",
+          "image": "Blizzard_Strayer_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Icebreaker",
+          "image": "Blizzard_Strayer_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Frozen Homeland",
+          "image": "Blizzard_Strayer_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Frost-Weaved Dignity",
+          "image": "Blizzard_Strayer_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Broken Rime",
+          "image": "Blizzard_Strayer_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Bloodstained Chivalry",
+      "bonus": {
+        "2-piece": "Physical DMG +25%",
+        "4-piece": "After defeating an opponent, increases Charged Attack DMG by 50% and reduces its Stamina cost to 0 for 10s."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Bloodstained Flower of Iron",
+          "image": "Bloodstained_Chivalry_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Bloodstained Black Plume",
+          "image": "Bloodstained_Chivalry_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Bloodstained Final Hour",
+          "image": "Bloodstained_Chivalry_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Bloodstained Chevalier",
+          "image": "Bloodstained_Chivalry_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Bloodstained Iron Mask",
+          "image": "Bloodstained_Chivalry_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Crimson Witch of Flames",
+      "bonus": {
+        "2-piece": "Pyro DMG Bonus +15%.",
+        "4-piece": "Increases Overloaded, Burning, and Burgeon DMG by 40%. Increases Vaporize and Melt DMG by 15%. Using an Elemental Skill increases  Set effects by 50% for 10s. Max 3 stacks."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Witch",
+          "image": "Crimson_Witch_of_Flames_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Witch",
+          "image": "Crimson_Witch_of_Flames_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Witch",
+          "image": "Crimson_Witch_of_Flames_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Witch",
+          "image": "Crimson_Witch_of_Flames_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Witch",
+          "image": "Crimson_Witch_of_Flames_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Deepwood Memories",
+      "bonus": {
+        "2-piece": "Dendro DMG Bonus +15%",
+        "4-piece": "After Elemental Skills or Bursts hit opponents, the targets' Dendro RES will be decreased by 30% for 8s. This effect can be triggered even if the equipping character is not on the field."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Labyrinth Wayfarer",
+          "image": "Deepwood_Memories_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Scholar of Vines",
+          "image": "Deepwood_Memories_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "A Time of Insight",
+          "image": "Deepwood_Memories_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Lamp of the Lost",
+          "image": "Deepwood_Memories_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Laurel Coronet",
+          "image": "Deepwood_Memories_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Desert Pavilion Chronicle",
+      "bonus": {
+        "2-piece": "Anemo DMG Bonus +15%",
+        "4-piece": "When Charged Attacks hit opponents, the equipping character's Normal Attack speed will increase by 10% while Normal, Charged, and Plunging Attack DMG will increase by 40% for 15s"
+      },
+      "artifacts": {
+        "flower": {
+          "name": "The First Days of the City of Kings",
+          "image": "Desert_Pavilion_Chronicle_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "End of the Golden Realm",
+          "image": "Desert_Pavilion_Chronicle_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Timepiece of the Lost Path",
+          "image": "Desert_Pavilion_Chronicle_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Defender of the Enchanting Dream",
+          "image": "Desert_Pavilion_Chronicle_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Legacy of the Desert High-Born",
+          "image": "Desert_Pavilion_Chronicle_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Echoes of an Offering",
+      "bonus": {
+        "2-piece": "ATK +18%.",
+        "4-piece": "When Normal Attacks hit opponents, there is a 36% chance that it will trigger Valley Rite, which will increase Normal Attack DMG by 70% of ATK. This effect will be dispelled 0.05s after a Normal Attack deals DMG. If a Normal Attack fails to trigger Valley Rite, the odds of it triggering the next time will increase by 20%. This trigger can occur once every 0.2s."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Soulscent Bloom",
+          "image": "Echoes_of_an_Offering_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Jade Leaf",
+          "image": "Echoes_of_an_Offering_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Symbol of Felicitation",
+          "image": "Echoes_of_an_Offering_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Chalice of the Font",
+          "image": "Echoes_of_an_Offering_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Flowing Rings",
+          "image": "Echoes_of_an_Offering_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Emblem of Severed Fate",
+      "bonus": {
+        "2-piece": "Energy Recharge +20%.",
+        "4-piece": "Increases Elemental Burst DMG by 25% of Energy Recharge. A maximum of 75% bonus DMG can be obtained in this way."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Magnificent Tsuba",
+          "image": "Emblem_of_Severed_Fate_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Sundered Feather",
+          "image": "Emblem_of_Severed_Fate_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Storm Cage",
+          "image": "Emblem_of_Severed_Fate_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Scarlet Vessel",
+          "image": "Emblem_of_Severed_Fate_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Ornate Kabuto",
+          "image": "Emblem_of_Severed_Fate_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Flower of Paradise Lost",
+      "bonus": {
+        "2-piece": "Elemental Mastery +80",
+        "4-piece": "The equipping character's Bloom, Hyperbloom, and Burgeon reaction DMG are increased by 40%. Additionally, after the equipping character triggers Bloom, Hyperbloom, or Burgeon, they will gain another 25% bonus to the effect mentioned prior. Each stack of this lasts 10s. Max 4 stacks simultaneously. This effect can only be triggered once per second. The character who equips this can still trigger its effects when not on the field."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Ay-Khanoum",
+          "image": "Flower_of_Paradise_Lost_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Wilting Feast",
+          "image": "Flower_of_Paradise_Lost_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "A Moment Congealed",
+          "image": "Flower_of_Paradise_Lost_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Secret-Keeper",
+          "image": "Flower_of_Paradise_Lost_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Amethyst Crown",
+          "image": "Flower_of_Paradise_Lost_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Gilded Dreams",
+      "bonus": {
+        "2-piece": "Elemental Mastery +80",
+        "4-piece": "Within 8s of triggering an Elemental Reaction, the character equipping this will obtain buffs based on the Elemental Type of the other party members. ATK is increased by 14% for each member whose Elemental Type is the same as the equipping character, and EM is increased by 50 for every member with a different Elemental Type. Each of the buffs will count up to 3 characters. This effect can be triggered once every 8s and even when not on the field."
+      },
+      "artifacts": { "flower": {} }
+    },
+    {
+      "set_name": "Gladiator's Finale",
+      "bonus": {
+        "2-piece": "ATK +18%.",
+        "4-piece": "If the wielder of this artifact set uses a Sword, Claymore or Polearm, increases their Normal Attack DMG by 35%."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Gladiator",
+          "image": "Gladiator's_Finale_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Gladiator",
+          "image": "Gladiator's_Finale_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Gladiator",
+          "image": "Gladiator's_Finale_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Gladiator",
+          "image": "Gladiator's_Finale_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Gladiator",
+          "image": "Gladiator's_Finale_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Golden Troupe",
+      "bonus": {
+        "2-piece": "Elemental Skill DMG +20%",
+        "4-piece": "Increases Elemental Skill DMG by 25%. Additionally when not on the field, Elemental Skill DMG will be further increased by 25%. This effect will be cleared 2s after taking the field."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Golden Song",
+          "image": "Golden_Troupe_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Golden Bird",
+          "image": "Golden_Troupe_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Golden Era",
+          "image": "Golden_Troupe_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Golden Night",
+          "image": "Golden_Troupe_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Golden Troupe",
+          "image": "Golden_Troupe_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Heart of Depth",
+      "bonus": {
+        "2-piece": "Hydro DMG Bonus +15%",
+        "4-piece": "After using Elemental Skill, increases Normal Attack and Charged Attack DMG by 30% for 15s."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Gilded Corsage",
+          "image": "Heart_of_Depth_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Gust of Nostalgia",
+          "image": "Heart_of_Depth_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Copper Compass",
+          "image": "Heart_of_Depth_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Goblet of Thundering Deep",
+          "image": "Heart_of_Depth_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Wine-Stained Tricorne",
+          "image": "Heart_of_Depth_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Husk of Opulent Dreams",
+      "bonus": {
+        "2-piece": "DEF +30%",
+        "4-piece": "A character equipped with this Artifact set will obtain the Curiosity effect in the following conditions"
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Bloom Times",
+          "image": "Husk_of_Opulent_Dreams_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Plume of Luxury",
+          "image": "Husk_of_Opulent_Dreams_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Song of Life",
+          "image": "Husk_of_Opulent_Dreams_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Calabash of Awakening",
+          "image": "Husk_of_Opulent_Dreams_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Skeletal Hat",
+          "image": "Husk_of_Opulent_Dreams_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Lavawalker",
+      "bonus": {
+        "2-piece": "Pyro RES increased by 40%.",
+        "4-piece": "Increased DMG against enemies affected by Pyro by 35%."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Lavawalker",
+          "image": "Lavawalker_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Lavawalker",
+          "image": "Lavawalker_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Lavawalker",
+          "image": "Lavawalker_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Lavawalker",
+          "image": "Lavawalker_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Lavawalker",
+          "image": "Lavawalker_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Maiden Beloved",
+      "bonus": {
+        "2-piece": "Character Healing Effectiveness +15%.",
+        "4-piece": "Using an Elemental Skill or Burst increases healing received by all party members by 20% for 10s."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Maiden",
+          "image": "Maiden_Beloved_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Maiden",
+          "image": "Maiden_Beloved_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Maiden",
+          "image": "Maiden_Beloved_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Maiden",
+          "image": "Maiden_Beloved_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Maiden",
+          "image": "Maiden_Beloved_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Marechaussee Hunter",
+      "bonus": {
+        "2-piece": "Normal and Charged Attack DMG +15%",
+        "4-piece": "When current HP increases or decreases, CRIT Rate will be increased by 12% for 5s. Max 3 stacks."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Hunter",
+          "image": "Marechaussee_Hunter_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Masterpiece",
+          "image": "Marechaussee_Hunter_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Moment of Judgment",
+          "image": "Marechaussee_Hunter_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Forgotten Vessel",
+          "image": "Marechaussee_Hunter_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Veteran",
+          "image": "Marechaussee_Hunter_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Noblesse Oblige",
+      "bonus": {
+        "2-piece": "Elemental Burst DMG +20%.",
+        "4-piece": "Using an Elemental Burst increases all party members' ATK by 20% for 12s. This effect cannot stack."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Royal Flora",
+          "image": "Noblesse_Oblige_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Royal Plume",
+          "image": "Noblesse_Oblige_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Royal Pocket Watch",
+          "image": "Noblesse_Oblige_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Royal Silver Urn",
+          "image": "Noblesse_Oblige_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Royal Masque",
+          "image": "Noblesse_Oblige_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Nymph's Dream",
+      "bonus": {
+        "2-piece": "Hydro DMG bonus +15%",
+        "4-piece": "After Normal, Charged, and Plunging Attacks, Elemental Skills, and Elemental Bursts hit opponents, 1 stack of Mirrored Nymph will be triggered, lasting 8s. When under the effect of 1, 2, or 3 or more Mirrored Nymph Stacks, ATK will be increased by 7%/16%/25%, and Hydro DMG bonus will be increased by 4%/9%/15%. Mirrored Nymph stacks created by Normal, Charged, and Plunging Attacks, Elemental Skills, and Elemental Bursts exist independently."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Odyssean Flower",
+          "image": "Nymph's_Dream_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Wicked Mage",
+          "image": "Nymph's_Dream_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Nymph",
+          "image": "Nymph's_Dream_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Heroe",
+          "image": "Nymph's_Dream_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Fell Dragon",
+          "image": "Nymph's_Dream_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Ocean-Hued Clam",
+      "bonus": {
+        "2-piece": "Healing Bonus +15%",
+        "4-piece": "When the character with this artifact set heals a party member, 1 Foam will appear. It accumulates healed HP for 3 seconds, then explodes and deals 90% of the HP healed as DMG to nearby enemies. Max accumulated healing is 30,000 HP, including over-heal. There can only be 1 Foam active, but it stays even if you swap out. Foam CD is 3.5s."
+      },
+      "artifacts": {
+        "flower": { "name": "Barbara", "image": "Ocean-Hued_Clam_flower.png" },
+        "feather": {
+          "name": "Qiqi",
+          "image": "Ocean-Hued_Clam_feather.png",
+          "main_stats": [
+            "<td> \n    \u2022  Qiqi on the 2-piece set would make her healing more potent, while the 4-piece set would add more DMG for her kit. ",
+            "\n"
+          ]
+        },
+        "sands": { "name": "Jean", "image": "Ocean-Hued_Clam_sands.png" },
+        "goblet": { "name": "Baizhu", "image": "Ocean-Hued_Clam_goblet.png" }
+      }
+    },
+    {
+      "set_name": "Pale Flame",
+      "bonus": {
+        "2-piece": "Physical DMG +25%",
+        "4-piece": "When an Elemental skill hits an opponent, ATK is increased by 9% for 7s. This effect stacks up to 2 times and can be triggered once every 0.3s. Once 2 stacks are reached, 2-set effect is doubled."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Stainless Bloom",
+          "image": "Pale_Flame_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Wise Doctor",
+          "image": "Pale_Flame_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Moment of Cessation",
+          "image": "Pale_Flame_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Surpassing Cup",
+          "image": "Pale_Flame_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Mocking Mask",
+          "image": "Pale_Flame_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Retracing Bolide",
+      "bonus": {
+        "2-piece": "Increases Shield Strength by 35%",
+        "4-piece": "While protected by a shield, gain an additional 40% Normal and Charged Attack DMG."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Summer Night",
+          "image": "Retracing_Bolide_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Summer Night",
+          "image": "Retracing_Bolide_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Summer Night",
+          "image": "Retracing_Bolide_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Summer Night",
+          "image": "Retracing_Bolide_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Summer Night",
+          "image": "Retracing_Bolide_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Shimenawa's Reminiscence",
+      "bonus": {
+        "2-piece": "ATK +18%.",
+        "4-piece": "When casting an Elemental Skill, if the character has 15 or more Energy, they lose 15 Energy and Normal/Charge/Plunging Attack DMG is increased by 50% for 10s. This effect will not trigger again during that duration."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Entangling Bloom",
+          "image": "Shimenawa's_Reminiscence_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Shaft of Remembrance",
+          "image": "Shimenawa's_Reminiscence_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Morning Dew",
+          "image": "Shimenawa's_Reminiscence_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Hopeful Heart",
+          "image": "Shimenawa's_Reminiscence_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Capricious Visage",
+          "image": "Shimenawa's_Reminiscence_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Tenacity of the Millelith",
+      "bonus": {
+        "2-piece": "HP +20%",
+        "4-piece": "When an Elemental Skill hits an opponent, the ATK of all nearby party members is increased by 20% and their Shield Strength is increased by 30% for 3s. This effect can be triggered once every 0.5s. This effect can still be triggered even when the character who is using this artifact set is not on the field."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Flower of Accolades",
+          "image": "Tenacity_of_the_Millelith_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Ceremonial War-Plume",
+          "image": "Tenacity_of_the_Millelith_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Orichalceous Time-Dial",
+          "image": "Tenacity_of_the_Millelith_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Noble",
+          "image": "Tenacity_of_the_Millelith_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "General",
+          "image": "Tenacity_of_the_Millelith_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Thundering Fury",
+      "bonus": {
+        "2-piece": "Electro DMG Bonus +15%",
+        "4-piece": "Increases damage caused by Overloaded, Electro-Charged, Superconduct, and Hyperbloom by 40%, and the DMG Bonus conferred by Aggravate is increased by 20%. When Quicked or the aforementioned Elemental Reactions are triggered, Elemental Skill CD is decreased by 1s. Can only occur once every 0.8s"
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Thunderbird",
+          "image": "Thundering_Fury_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Survivor of Catastrophe",
+          "image": "Thundering_Fury_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Hourglass of Thunder",
+          "image": "Thundering_Fury_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Omen of Thunderstorm",
+          "image": "Thundering_Fury_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Thunder Summoner",
+          "image": "Thundering_Fury_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Thundersoother",
+      "bonus": {
+        "2-piece": "Electro RES increased by 40%.",
+        "4-piece": "Increases DMG against enemies affected by Electro by 35%."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Thundersoother",
+          "image": "Thundersoother_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Thundersoother",
+          "image": "Thundersoother_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Hour of Soothing Thunder",
+          "image": "Thundersoother_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Thundersoother",
+          "image": "Thundersoother_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Thundersoother",
+          "image": "Thundersoother_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Vermillion Hereafter",
+      "bonus": {
+        "2-piece": "ATK +18%.",
+        "4-piece": "After using an Elemental Burst, this character will gain the Nascent Light effect, increasing their ATK by 8% for 16s. When the character's HP decreases, their ATK will further increase by 10%. This further increase can occur this way a maximum of 4 times. This effect can be triggered once every 0.8s. Nascent Light will be dispelled when the character leaves the field. If an Elemental Burst is used again during the duration of Nascent Light, the original Nascent Light will be dispelled."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Flowering Life",
+          "image": "Vermillion_Hereafter_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Feather of Nascent Light",
+          "image": "Vermillion_Hereafter_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Solar Relic",
+          "image": "Vermillion_Hereafter_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Moment of the Pact",
+          "image": "Vermillion_Hereafter_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Thundering Poise",
+          "image": "Vermillion_Hereafter_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Viridescent Venerer",
+      "bonus": {
+        "2-piece": "Anemo DMG Bonus +15%",
+        "4-piece": "Increases Swirl DMG by 60%. Decreases opponent's Elemental RES to the element infused in the Swirl by 40% for 10s."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "In Rememberence of Viridescent Fields",
+          "image": "Viridescent_Venerer_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Viridescent Arrow Feather",
+          "image": "Viridescent_Venerer_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Viridescent Venerer",
+          "image": "Viridescent_Venerer_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Viridescent Venerer",
+          "image": "Viridescent_Venerer_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Viridescent Venerer",
+          "image": "Viridescent_Venerer_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Vourukasha's Glow",
+      "bonus": {
+        "2-piece": "HP +20%",
+        "4-piece": "Elemental Skill and Elemental Burst DMG will be increased by 10%. After the equipping character takes DMG, the aforementioned DMG Bonus is increased by 80% for 5s. This effect increase can have 5 stacks. The duration of each stack is counted independently. These effects can be triggered even when the equipping character is not on the field."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Stamen of Khvarena",
+          "image": "Vourukasha's_Glow_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Vibrant Pinion",
+          "image": "Vourukasha's_Glow_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Ancient Abscission",
+          "image": "Vourukasha's_Glow_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Feast of Boundless Joy",
+          "image": "Vourukasha's_Glow_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Heart of Khvarena",
+          "image": "Vourukasha's_Glow_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    },
+    {
+      "set_name": "Wanderer's Troupe",
+      "bonus": {
+        "2-piece": "Increases Elemental Mastery by 80.",
+        "4-piece": "Increases Charged Attack DMG by 35% if the character uses a Catalyst or a Bow."
+      },
+      "artifacts": {
+        "flower": {
+          "name": "Troupe",
+          "image": "Wanderer's_Troupe_flower.png",
+          "main_stats": ["HP"]
+        },
+        "feather": {
+          "name": "Bard",
+          "image": "Wanderer's_Troupe_feather.png",
+          "main_stats": ["ATK"]
+        },
+        "sands": {
+          "name": "Concert",
+          "image": "Wanderer's_Troupe_sands.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Energy Recharge%",
+            "Elemental Mastery"
+          ]
+        },
+        "goblet": {
+          "name": "Wanderer",
+          "image": "Wanderer's_Troupe_goblet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Physical DMG Bonus%",
+            "Elemental DMG Bonus%",
+            "Elemental Mastery"
+          ]
+        },
+        "circlet": {
+          "name": "Conductor",
+          "image": "Wanderer's_Troupe_circlet.png",
+          "main_stats": [
+            "HP%",
+            "ATK%",
+            "DEF%",
+            "Healing Bonus%",
+            "CRIT Rate%",
+            "CRIT DMG%",
+            "Elemental Mastery"
+          ]
+        }
+      }
+    }
+  ]
+}
