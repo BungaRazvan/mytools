@@ -5,7 +5,12 @@ import { contextBridge, ipcRenderer } from "electron";
 contextBridge.exposeInMainWorld("ipc", {
   send: (channel, data) => {
     // whitelist channels
-    const validChannels = ["logRunningGame", "setSetting"];
+    const validChannels = [
+      "logRunningGame",
+      "setSetting",
+      "startPython",
+      "stopPython",
+    ];
 
     if (validChannels.includes(channel)) {
       ipcRenderer.send(channel, data);
@@ -24,6 +29,17 @@ contextBridge.exposeInMainWorld("ipc", {
     if (validChannels.includes(channel)) {
       const result = await ipcRenderer.invoke(channel, data);
       return result;
+    }
+  },
+  on: (channel, callback) => {
+    // whitelist channels
+    const validChannels = ["python-screen"];
+
+    if (validChannels.includes(channel)) {
+      ipcRenderer.on(channel, (event, data) => {
+        // Pass the received data to the callback function
+        callback(data);
+      });
     }
   },
 });

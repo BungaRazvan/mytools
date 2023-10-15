@@ -12,7 +12,7 @@ import electronStore from "./lib/electron/store";
 
 import "./lib/electron/ipc";
 
-const isDevelopment = process.env.NODE_ENV !== "production";
+export const isDevelopment = process.env.NODE_ENV !== "production";
 const iconPath = isDevelopment
   ? "./public/img/icon310x310.ico"
   : path.join(__dirname.replace("app.asar", ""), "img", "icon310x310.ico");

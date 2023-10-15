@@ -1,13 +1,20 @@
+import path from "path";
+
 import { BrowserWindow, ipcMain } from "electron";
 import { map, groupBy, sumBy } from "lodash";
+import { spawn } from "child_process";
 
 import { isProgramRunning } from "./running";
 import { updateFile, readCSVFile, readFolder, readJsonFile } from "./files";
 import electronStore from "./store";
 
+import { isDevelopment } from "@/background";
+
 const sendToMain = (name, data) => {
   BrowserWindow.getAllWindows()[0].webContents.send(name, data);
 };
+
+let pythonChildProcess = null;
 
 // send
 ipcMain.on("logRunningGame", (event, args) => {
@@ -24,6 +31,33 @@ ipcMain.on("setSetting", (event, args) => {
   const { setting, data } = args;
 
   electronStore.set(setting, data);
+});
+
+ipcMain.on("startPython", (event, args) => {
+  const { script } = args;
+
+  const pythonProcess = spawn("python", [
+    path.join(__dirname, "..", `src/lib/python/${script}.py`),
+  ]);
+
+  pythonChildProcess = pythonProcess;
+
+  // Handle data and responses from the Python script
+  pythonProcess.stdout.on("data", (data) => {
+    const dataString = data.toString();
+    event.sender.send(`python-${script}`, dataString);
+  });
+
+  pythonProcess.stderr.on("data", (data) => {
+    console.error(`Error: ${data}`);
+    pythonProcess.kill();
+  });
+});
+
+ipcMain.on("stopPython", (event, args) => {
+  if (pythonChildProcess) {
+    pythonChildProcess.kill();
+  }
 });
 
 // receive

@@ -2,8 +2,11 @@ import re
 import cv2
 import time
 import pytesseract
+import signal
+import json
 
 from grt.image import StarRailRewardsTextImage, StarRailItemsImage
+from utils import cleanup, send_to_electron
 
 pytesseract.pytesseract.tesseract_cmd = "C:\Program Files\Tesseract-OCR\\tesseract.exe"
 
@@ -38,7 +41,7 @@ def format_text(text):
 
             result_dict[item_name] = item_quantity
 
-    print(result_dict)
+    return result_dict
 
 
 def grab_items():
@@ -49,20 +52,25 @@ def grab_items():
         # print(tesstr)
 
         if "Rewards" in tesstr:
-            time.sleep(2)
+            time.sleep(1)
             img = StarRailItemsImage()()
             test = pytesseract.image_to_string(img, config="--oem 3")
-            print(format_text(test))
+            send_to_electron(json.dumps(format_text(test)))
 
         cv2.imshow("window", screen)
-        print(f"{time.time() - now}")
+        # print(f"{time.time() - now}")
         if cv2.waitKey(25) & 0xFF == ord("q"):
             cv2.destroyAllWindows()
             break
 
 
 def main():
-    grab_items()
+    signal.signal(signal.SIGTERM, cleanup)
+
+    try:
+        grab_items()
+    except OSError:
+        grab_items()
 
 
 if __name__ == "__main__":
