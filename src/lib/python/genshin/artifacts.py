@@ -8,7 +8,7 @@ sets_data = []
 
 
 def save_image(img_name, img_url, save_path):
-    with open(f'{save_path}/{img_name}', "wb") as f:
+    with open(f"{save_path}/{img_name}", "wb") as f:
         f.write(get(img_url).content)
 
 
@@ -35,14 +35,14 @@ def extract_aritifacts(set_link, set_name):
     idx = 4
 
     art_index_table = {
-        'Desert': 6,
-        'Deepwood': 6,
-        'Flower': 6,
-        'Noblesse': 6,
-        'Husk': 6,
+        "Desert": 6,
+        "Deepwood": 6,
+        "Flower": 6,
+        "Noblesse": 6,
+        "Husk": 6,
         "Nymph's": 5,
-        'Ocean': 6,
-        'Vermillion': 5,
+        "Ocean": 6,
+        "Vermillion": 5,
         "Vourukasha's": 5,
     }
     set_start_name = set_name.split(" ")[0]
@@ -75,12 +75,20 @@ def extract_aritifacts(set_link, set_name):
                 artifacts[artifact_type]["image"] = img_name
 
             if td.br:
-                stats = str(td).replace('<td class="center">', '').replace('(Always)', '').strip().replace('<br/>', '~').replace('</td>', '').split('~')
+                stats = (
+                    str(td)
+                    .replace('<td class="center">', "")
+                    .replace("(Always)", "")
+                    .strip()
+                    .replace("<br/>", "~")
+                    .replace("</td>", "")
+                    .split("~")
+                )
 
                 if not stats[1]:
                     stats = [stats[0]]
 
-                artifacts[artifact_type]['main_stats'] = stats
+                artifacts[artifact_type]["main_stats"] = stats
 
     return artifacts
 
@@ -90,7 +98,7 @@ def all_sets():
         get("https://game8.co/games/Genshin-Impact/archives/297493").content,
         "html.parser",
     )
-    json_path = Path('../../../../public/data/genshin')
+    json_path = Path("../../../../public/data/genshin")
 
     sets = soup.find_all("table", class_="a-table")[1]
 
@@ -114,16 +122,15 @@ def all_sets():
         new_set["artifacts"] = artifact_details
 
         sets_data.append(new_set)
-    
+
     print(len(sets_data))
 
     with open(f"{json_path}/artifacts.json", "w") as f:
-        f.write(json.dumps({'data': sets_data}, indent=2))
-
+        f.write(json.dumps({"data": sets_data}, indent=2))
 
 
 # presets
 # https://gamewith.net/genshin-impact/article/show/22405
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     all_sets()
