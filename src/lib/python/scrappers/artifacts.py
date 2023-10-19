@@ -4,12 +4,7 @@ from bs4 import BeautifulSoup as _bs4
 from requests import get
 from pathlib import Path
 
-sets_data = []
-
-
-def save_image(img_name, img_url, save_path):
-    with open(f"{save_path}/{img_name}", "wb") as f:
-        f.write(get(img_url).content)
+from src.lib.python.utils import save_image
 
 
 def extract_bonuses(bonuses):
@@ -133,4 +128,5 @@ def all_sets():
 # https://gamewith.net/genshin-impact/article/show/22405
 
 if __name__ == "__main__":
+    sets_data = []
     all_sets()

@@ -14,13 +14,13 @@ pytesseract.pytesseract.tesseract_cmd = "C:\Program Files\Tesseract-OCR\\tessera
 def format_text(text):
     # Initialize an empty dictionary
     result_dict = {}
-    replace_map = {"*": "", ">": "", "�": ""}
+    replace_map = {"*": "", ">": "", "�": "", "-": "", ".": "", "'": "", "’": ""}
 
     for find, new_value in replace_map.items():
         text = text.replace(find, new_value)
 
     # Split the text into sections by "wards"
-    sections = re.split(r"\bwards\b", text.strip())
+    sections = re.split(r"\wards -\b", text.strip())
 
     # Iterate through the sections and parse the data
     for section in sections:
@@ -39,7 +39,7 @@ def format_text(text):
             except Exception:
                 continue
 
-            result_dict[item_name] = item_quantity
+            result_dict[item_name] = result_dict.get(item_name, 0) + item_quantity
 
     return result_dict
 
@@ -49,16 +49,15 @@ def grab_items():
         now = time.time()
         screen = StarRailRewardsTextImage()()
         tesstr = pytesseract.image_to_string(screen, config="--oem 3")
-        # print(tesstr)
 
         if "Rewards" in tesstr:
-            time.sleep(1)
+            time.sleep(1.5)
             img = StarRailItemsImage()()
-            test = pytesseract.image_to_string(img, config="--oem 3")
-            send_to_electron(json.dumps(format_text(test)))
+            items = pytesseract.image_to_string(img, config="--oem 3")
+            send_to_electron(json.dumps(format_text(items)))
+            cv2.imshow("img", img)
 
         cv2.imshow("window", screen)
-        # print(f"{time.time() - now}")
         if cv2.waitKey(25) & 0xFF == ord("q"):
             cv2.destroyAllWindows()
             break

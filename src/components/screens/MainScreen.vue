@@ -5,12 +5,12 @@
       color="blue"
       title="Game Tracking"
     />
-    <WindowsTile
+    <!-- <WindowsTile
       @click="this.changeScreen('genshinLoadouts')"
       color="purple"
       title="Genshin Loadouts"
       shape="sqr"
-    />
+    /> -->
     <WindowsTile
       @click="this.changeScreen('gameResourceTracking')"
       color="cyan"
@@ -34,7 +34,7 @@ export default {
       const containers = document.querySelectorAll(".display-animation");
 
       containers.forEach((container) => {
-        container.childNodes.forEach((children) => {
+        Array.from(container.children).forEach((children) => {
           const offset = children.offsetLeft * 0.8 + children.offsetTop;
           const delay = parseFloat(offset / speed).toFixed(2);
           children.style.animationDelay = delay;

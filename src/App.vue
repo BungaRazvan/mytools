@@ -8,11 +8,11 @@
       :recordRunningGame="this.recordRunningGame"
       :calculateGameTime="this.calculateGameTime"
     />
-    <!-- <GenshinLoadouts
+    <GenshinLoadouts
       key="genshin-loadouts"
       v-if="this.screen() == 'genshinLoadouts'"
       :goBack="this.goBack"
-    /> -->
+    />
     <GameResourceTracking
       key="game-resource-tracking"
       v-if="this.screen() == 'gameResourceTracking'"

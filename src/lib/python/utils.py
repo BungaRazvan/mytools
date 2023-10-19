@@ -1,5 +1,7 @@
 import sys
 
+from requests import get
+
 
 def cleanup(signum, frame):
     # Perform cleanup here (if needed)

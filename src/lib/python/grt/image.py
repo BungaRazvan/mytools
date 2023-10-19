@@ -54,11 +54,11 @@ class StarRailRewardsTextImage(Image):
 class StarRailItemsImage(Image):
     def __init__(self) -> None:
         super().__init__(
-            210,
+            220,
             int(SCREEN_SIZE[1] / 2) - 200,
             int(SCREEN_SIZE[1] / 2),
             SCREEN_SIZE[1] - 300,
         )
 
     def __call__(self):
-        return self.thresholding(super().__call__(), 150)
+        return self.thresholding(super().__call__(), 200)
