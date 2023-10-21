@@ -15,6 +15,7 @@ pnpm-debug.log*
 
 #python stuff
 **/*.pyc
+**/__pycache__
 **/venv
 
 # Editor directories and files

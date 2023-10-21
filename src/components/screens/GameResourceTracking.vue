@@ -49,7 +49,7 @@
 
 <script>
 import { secondsToHms } from "@/lib/vue/dates";
-import { mergeWith, merge, isNumber } from "lodash";
+import { mergeWith, isEmpty, isNumber } from "lodash";
 
 export default {
   name: "GameResourceTracking",
@@ -60,14 +60,7 @@ export default {
       runningScript: false,
       time: 0,
       intervalId: null,
-      items: {
-        "Strange Matter of": 4,
-        "Thiefs Instinct": 22,
-        Credit: 313,
-        "Conquerors Will": 1,
-        "Protein Rice": 6,
-        "Solid Water": 7,
-      },
+      items: {},
     };
   },
 
@@ -121,6 +114,15 @@ export default {
         window.ipc.send("stopPython");
         clearInterval(this.intervalId);
         this.intervalId = null;
+
+        if (!isEmpty(this.items)) {
+          window.ipc.send("saveItems", {
+            items: { ...this.items },
+            time: this.time,
+          });
+        }
+
+        this.items = {};
       }
 
       this.runningScript = !this.runningScript;

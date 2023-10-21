@@ -10,6 +10,7 @@ contextBridge.exposeInMainWorld("ipc", {
       "setSetting",
       "startPython",
       "stopPython",
+      "saveItems",
     ];
 
     if (validChannels.includes(channel)) {

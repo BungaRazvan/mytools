@@ -5,10 +5,14 @@ import { map, groupBy, sumBy } from "lodash";
 import { spawn } from "child_process";
 
 import { isProgramRunning } from "./running";
-import { updateFile, readCSVFile, readFolder, readJsonFile } from "./files";
+import {
+  writeCSVFile,
+  writeJsonFile,
+  readCSVFile,
+  readFolder,
+  readJsonFile,
+} from "./files";
 import electronStore from "./store";
-
-import { isDevelopment } from "@/background";
 
 const sendToMain = (name, data) => {
   BrowserWindow.getAllWindows()[0].webContents.send(name, data);
@@ -20,10 +24,21 @@ let pythonChildProcess = null;
 ipcMain.on("logRunningGame", (event, args) => {
   const { app, time } = args;
 
-  updateFile("runningTime.csv", {
+  writeCSVFile("runningTime.csv", {
     app,
     time,
     timestamp: new Date().toISOString(),
+  });
+});
+
+ipcMain.on("saveItems", (event, args) => {
+  const { items, time } = args;
+
+  writeJsonFile("gameTracking.json", {
+    game: "StarRail",
+    time: time,
+    items: items,
+    date: new Date().toISOString(),
   });
 });
 
