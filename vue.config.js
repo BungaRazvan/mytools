@@ -11,6 +11,12 @@ module.exports = defineConfig({
         win: {
           target: ["nsis"],
           icon: "src/assets/img/icon310x310.ico",
+          extraFiles: [
+            {
+              from: "dist_python/screen/screen.exe",
+              to: "./",
+            },
+          ],
         },
         nsis: {
           installerIcon: "src/assets/img/icon310x310.ico",

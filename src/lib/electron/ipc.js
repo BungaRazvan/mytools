@@ -52,7 +52,7 @@ ipcMain.on("startPython", (event, args) => {
   const { script } = args;
 
   const pythonProcess = spawn("python", [
-    path.join(__dirname, "..", `src/lib/python/${script}.py`),
+    path.join(__dirname, "..", `src/lib/python/grt/${script}.py`),
   ]);
 
   pythonChildProcess = pythonProcess;

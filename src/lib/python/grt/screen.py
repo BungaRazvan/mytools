@@ -5,8 +5,16 @@ import pytesseract
 import signal
 import json
 
-from grt.image import StarRailRewardsTextImage, StarRailItemsImage
+from image import StarRailRewardsTextImage, StarRailItemsImage
+import os
+import sys
+
+
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
+sys.path.append(parent_dir)
+
 from utils import cleanup, send_to_electron
+
 
 pytesseract.pytesseract.tesseract_cmd = "C:\Program Files\Tesseract-OCR\\tesseract.exe"
 
@@ -65,11 +73,7 @@ def grab_items():
 
 def main():
     signal.signal(signal.SIGTERM, cleanup)
-
-    try:
-        grab_items()
-    except OSError:
-        grab_items()
+    grab_items()
 
 
 if __name__ == "__main__":

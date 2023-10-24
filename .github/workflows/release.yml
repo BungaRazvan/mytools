@@ -40,19 +40,19 @@ jobs:
         with:
           node-version: "14.x"
 
-      - name: Cache Node.js modules
-        id: cache-dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-            ${{ runner.os }}-
-            ${{ runner.os }}-node-modules-
-
       - name: Install dependencies
         run: npm ci
+
+      - name: Install Python and Dependencies
+        run: |
+          choco install python --version 3.9 -y
+          pip install -r src/lib/python/requirements.txt
+
+      - name: Build Python Scrips
+        run: |
+          for spec_file in ./specs/*.spec; do
+            pyinstaller "$spec_file" --distpath dist_python
+          done
 
       - name: Build Electron App
         env:
