@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    [r'..\\src\\lib\\python\\grt\\screen.py'],
+    [r'..\\src\\lib\\python\\scripts\\star_rail_items.py'],
     pathex=['src/lib/python/'],
     binaries=[],
     datas=[],
@@ -20,7 +20,7 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='screen',
+    name='star_rail_items',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -39,5 +39,5 @@ coll = COLLECT(
     strip=False,
     upx=True,
     upx_exclude=[],
-    name='screen',
+    name='star_rail_items',
 )

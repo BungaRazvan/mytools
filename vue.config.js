@@ -13,8 +13,8 @@ module.exports = defineConfig({
           icon: "src/assets/img/icon310x310.ico",
           extraFiles: [
             {
-              from: "dist_python/screen/screen.exe",
-              to: "./",
+              from: "dist_python/star_rail_items/",
+              to: "./resources/scripts/star_rail_items",
             },
           ],
         },

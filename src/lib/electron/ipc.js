@@ -1,10 +1,10 @@
 import path from "path";
 
-import { BrowserWindow, ipcMain } from "electron";
+import { BrowserWindow, ipcMain, shell } from "electron";
 import { map, groupBy, sumBy } from "lodash";
 import { spawn } from "child_process";
 
-import { isProgramRunning } from "./running";
+import { isProgramRunning, checkForTesseract } from "./running";
 import {
   writeCSVFile,
   writeJsonFile,
@@ -14,11 +14,13 @@ import {
 } from "./files";
 import electronStore from "./store";
 
+import { isDevelopment } from "@/background";
+
 const sendToMain = (name, data) => {
   BrowserWindow.getAllWindows()[0].webContents.send(name, data);
 };
 
-let pythonChildProcess = null;
+let childProcess = null;
 
 // send
 ipcMain.on("logRunningGame", (event, args) => {
@@ -51,28 +53,46 @@ ipcMain.on("setSetting", (event, args) => {
 ipcMain.on("startPython", (event, args) => {
   const { script } = args;
 
-  const pythonProcess = spawn("python", [
-    path.join(__dirname, "..", `src/lib/python/grt/${script}.py`),
-  ]);
+  const scriptPath = isDevelopment
+    ? path.join(__dirname, "..", `src/lib/python/scripts/${script}.py`)
+    : path.join(process.resourcesPath, "scripts", `${script}`, `${script}.exe`);
 
-  pythonChildProcess = pythonProcess;
+  if (isDevelopment) {
+    childProcess = spawn("python", [scriptPath]);
+  } else {
+    childProcess = spawn(scriptPath);
+  }
 
   // Handle data and responses from the Python script
-  pythonProcess.stdout.on("data", (data) => {
+  childProcess.stdout.on("data", (data) => {
     const dataString = data.toString();
-    event.sender.send(`python-${script}`, dataString);
+    event.sender.send(`python_${script}`, dataString);
   });
 
-  pythonProcess.stderr.on("data", (data) => {
+  childProcess.stderr.on("data", (data) => {
     console.error(`Error: ${data}`);
-    pythonProcess.kill();
+    childProcess.kill();
   });
 });
 
 ipcMain.on("stopPython", (event, args) => {
-  if (pythonChildProcess) {
-    pythonChildProcess.kill();
+  if (childProcess) {
+    childProcess.kill();
   }
+});
+
+ipcMain.on("openBrowser", (event, args) => {
+  const { url } = args;
+
+  event.preventDefault();
+
+  console.log(url);
+
+  if (!url) {
+    return;
+  }
+
+  shell.openExternal(url);
 });
 
 // receive
@@ -110,4 +130,8 @@ ipcMain.handle("readFolder", (event, args) => {
 ipcMain.handle("readJsonFile", (event, args) => {
   const { folderPath, fileName } = args;
   return readJsonFile(fileName, folderPath);
+});
+
+ipcMain.handle("checkForTesseract", (event, args) => {
+  return checkForTesseract();
 });

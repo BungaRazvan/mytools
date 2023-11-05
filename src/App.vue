@@ -142,6 +142,12 @@ export default {
 
       this.recordRunningGame(store.getters.trackingGames);
     });
+
+    window.ipc.on("python_star_rail_items", (data) => {
+      const items = JSON.parse(data);
+
+      store.dispatch("all", { mutation: "mergeItems", data: items });
+    });
   },
 };
 </script>

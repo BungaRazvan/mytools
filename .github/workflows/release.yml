@@ -3,7 +3,7 @@ name: Build and Release
 on:
   push:
     branches:
-      - master
+      - MT-12
 
 jobs:
   check-tag:
@@ -51,7 +51,7 @@ jobs:
       - name: Build Python Scrips
         run: |
           for spec_file in ./specs/*.spec; do
-            pyinstaller "$spec_file" --distpath dist_python
+            pyinstaller "specs/$spec_file" --distpath dist_python
           done
 
       - name: Build Electron App

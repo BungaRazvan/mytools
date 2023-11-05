@@ -15,7 +15,7 @@ import "./lib/electron/ipc";
 export const isDevelopment = process.env.NODE_ENV !== "production";
 const iconPath = isDevelopment
   ? "./public/img/icon310x310.ico"
-  : path.join(__dirname.replace("app.asar", ""), "img", "icon310x310.ico");
+  : path.join(process.resourcesPath, "img", "icon310x310.ico");
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([

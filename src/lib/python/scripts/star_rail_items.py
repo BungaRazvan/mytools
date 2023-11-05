@@ -4,19 +4,14 @@ import time
 import pytesseract
 import signal
 import json
-
-from image import StarRailRewardsTextImage, StarRailItemsImage
 import os
 import sys
-
 
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 sys.path.append(parent_dir)
 
-from utils import cleanup, send_to_electron
-
-
-pytesseract.pytesseract.tesseract_cmd = "C:\Program Files\Tesseract-OCR\\tesseract.exe"
+from grt.image import StarRailRewardsTextImage, StarRailItemsImage
+from utils import cleanup, send_to_electron, get_tesseract_path
 
 
 def format_text(text):
@@ -54,18 +49,16 @@ def format_text(text):
 
 def grab_items():
     while True:
-        now = time.time()
         screen = StarRailRewardsTextImage()()
         tesstr = pytesseract.image_to_string(screen, config="--oem 3")
+        cv2.imshow("window", screen)
 
         if "Rewards" in tesstr:
             time.sleep(1.5)
             img = StarRailItemsImage()()
             items = pytesseract.image_to_string(img, config="--oem 3")
             send_to_electron(json.dumps(format_text(items)))
-            cv2.imshow("img", img)
 
-        cv2.imshow("window", screen)
         if cv2.waitKey(25) & 0xFF == ord("q"):
             cv2.destroyAllWindows()
             break
@@ -73,8 +66,11 @@ def grab_items():
 
 def main():
     signal.signal(signal.SIGTERM, cleanup)
+
     grab_items()
 
 
 if __name__ == "__main__":
+    tesseract_path = get_tesseract_path()
+    pytesseract.pytesseract.tesseract_cmd = tesseract_path
     main()

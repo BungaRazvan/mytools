@@ -11,6 +11,7 @@ contextBridge.exposeInMainWorld("ipc", {
       "startPython",
       "stopPython",
       "saveItems",
+      "openBrowser",
     ];
 
     if (validChannels.includes(channel)) {
@@ -25,6 +26,7 @@ contextBridge.exposeInMainWorld("ipc", {
       "getGamesData",
       "readFolder",
       "readJsonFile",
+      "checkForTesseract",
     ];
 
     if (validChannels.includes(channel)) {
@@ -34,7 +36,7 @@ contextBridge.exposeInMainWorld("ipc", {
   },
   on: (channel, callback) => {
     // whitelist channels
-    const validChannels = ["python-screen"];
+    const validChannels = ["python_star_rail_items"];
 
     if (validChannels.includes(channel)) {
       ipcRenderer.on(channel, (event, data) => {
