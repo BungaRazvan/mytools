@@ -22,6 +22,7 @@ const mutations = {
   saveItems(state, items) {
     state.items = {};
     state.previousItems.unshift(items);
+    state.time = 0;
   },
 
   setTime(state) {
