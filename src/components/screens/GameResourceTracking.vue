@@ -137,7 +137,7 @@ export default {
       const store = this.$store;
 
       if (!this.isScriptRunning) {
-        // window.ipc.send("startPython", { script: "star_rail_items" });
+        window.ipc.send("startPython", { script: "star_rail_items" });
 
         store.dispatch("all", {
           mutation: "setTime",
