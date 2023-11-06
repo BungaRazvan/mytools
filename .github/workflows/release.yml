@@ -3,7 +3,7 @@ name: Build and Release
 on:
   push:
     branches:
-      - MT-12
+      - master
 
 jobs:
   check-tag:
@@ -50,9 +50,10 @@ jobs:
 
       - name: Build Python Scrips
         run: |
-          for spec_file in ./specs/*.spec; do
+          Get-ChildItem -Path ./specs -Filter *.spec | ForEach-Object {
+            $spec_file = $_.Name
             pyinstaller "specs/$spec_file" --distpath dist_python
-          done
+          }
 
       - name: Build Electron App
         env:
