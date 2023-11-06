@@ -33,3 +33,15 @@ export const isProgramRunning = async (programName) => {
     );
   });
 };
+
+export function checkForTesseract() {
+  return new Promise((resolve, reject) => {
+    exec("reg query HKLM\\SOFTWARE\\Tesseract-OCR", (error, stdout, stderr) => {
+      if (stdout.toLowerCase().includes("tesseract-ocr")) {
+        resolve(true); // Tesseract is installed
+      } else {
+        resolve(false); // Tesseract is not installed
+      }
+    });
+  });
+}

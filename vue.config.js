@@ -11,6 +11,12 @@ module.exports = defineConfig({
         win: {
           target: ["nsis"],
           icon: "src/assets/img/icon310x310.ico",
+          extraFiles: [
+            {
+              from: "dist_python/star_rail_items/",
+              to: "./resources/scripts/star_rail_items",
+            },
+          ],
         },
         nsis: {
           installerIcon: "src/assets/img/icon310x310.ico",

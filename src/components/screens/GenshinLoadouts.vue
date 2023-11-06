@@ -16,7 +16,7 @@
     </div>
 
     <div class="panel" v-if="this.$store.getters.displayCharaterBuild">
-      <ChharacterBuild />
+      <CharacterBuild />
     </div>
   </div>
 </template>
@@ -62,12 +62,13 @@
 <script>
 import Build from "@/components/GenshinLoadouts/Build.vue";
 import CharacterList from "@/components/GenshinLoadouts/CharacterList.vue";
+import CharacterBuild from "@/components/GenshinLoadouts/CharacterBuild.vue";
 import Tooltip from "@/components/Tooltip.vue";
 
 export default {
   name: "GenshinLoadouts",
   props: ["goBack"],
-  components: { Build, CharacterList, Tooltip },
+  components: { Build, CharacterList, CharacterBuild, Tooltip },
 
   methods: {
     addNewBuild() {

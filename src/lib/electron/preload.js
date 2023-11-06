@@ -5,7 +5,14 @@ import { contextBridge, ipcRenderer } from "electron";
 contextBridge.exposeInMainWorld("ipc", {
   send: (channel, data) => {
     // whitelist channels
-    const validChannels = ["logRunningGame", "setSetting"];
+    const validChannels = [
+      "logRunningGame",
+      "setSetting",
+      "startPython",
+      "stopPython",
+      "saveItems",
+      "openBrowser",
+    ];
 
     if (validChannels.includes(channel)) {
       ipcRenderer.send(channel, data);
@@ -19,11 +26,23 @@ contextBridge.exposeInMainWorld("ipc", {
       "getGamesData",
       "readFolder",
       "readJsonFile",
+      "checkForTesseract",
     ];
 
     if (validChannels.includes(channel)) {
       const result = await ipcRenderer.invoke(channel, data);
       return result;
+    }
+  },
+  on: (channel, callback) => {
+    // whitelist channels
+    const validChannels = ["python_star_rail_items"];
+
+    if (validChannels.includes(channel)) {
+      ipcRenderer.on(channel, (event, data) => {
+        // Pass the received data to the callback function
+        callback(data);
+      });
     }
   },
 });

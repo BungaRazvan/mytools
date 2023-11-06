@@ -5,3 +5,9 @@ idna==3.4
 requests==2.31.0
 soupsieve==2.5
 urllib3==2.0.4
+numpy==1.26.0
+opencv-python==4.8.1.78
+packaging==23.2
+Pillow==10.0.1
+pytesseract==0.3.10
+pyinstaller==6.1.0
