@@ -51,7 +51,6 @@ def grab_items():
     while True:
         screen = StarRailRewardsTextImage()()
         tesstr = pytesseract.image_to_string(screen, config="--oem 3")
-        cv2.imshow("window", screen)
 
         if "Rewards" in tesstr:
             time.sleep(1.5)
