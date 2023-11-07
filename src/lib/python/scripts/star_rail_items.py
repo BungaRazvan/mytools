@@ -53,7 +53,7 @@ def grab_items():
         tesstr = pytesseract.image_to_string(screen, config="--oem 3")
 
         if "Rewards" in tesstr:
-            time.sleep(1.5)
+            time.sleep(1)
             img = StarRailItemsImage()()
             items = pytesseract.image_to_string(img, config="--oem 3")
             send_to_electron(json.dumps(format_text(items)))
