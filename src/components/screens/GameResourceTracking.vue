@@ -149,17 +149,17 @@ export default {
         if (!isEmpty(this.items)) {
           window.ipc.send("saveItems", {
             items: { ...this.items },
-            time: this.time,
-          });
-
-          store.dispatch("all", {
-            mutation: "saveItems",
-            data: {
-              items: this.items,
-              time: this.time,
-            },
+            time: this.resourceTime,
           });
         }
+
+        store.dispatch("all", {
+          mutation: "saveItems",
+          data: {
+            items: this.items,
+            time: this.resourceTime,
+          },
+        });
       }
 
       store.dispatch("all", { mutation: "toggleRunningScript" });
