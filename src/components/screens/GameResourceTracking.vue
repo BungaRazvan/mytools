@@ -1,102 +1,135 @@
 <template>
-  <div class="container">
-    <div v-if="!tesseractInstalled">
-      This program required Google's Tesseract Software. Please install it from
-      <a @click="openTesseract">here</a>
-    </div>
-
-    <div class="timer" v-if="tesseractInstalled">
-      {{ displayTime(resourceTime) }}
-
-      <button @click="toggleScript">
-        {{ !isScriptRunning ? "Start" : "Stop" }} Script
-      </button>
-    </div>
-  </div>
-
-  <div class="items">
-    <Item :amount="value" :name="key" v-for="(value, key) in items" />
-  </div>
-
-  <div class="previous-items">
-    <div v-for="item in previousItems">
-      <div class="divider">
-        <p>{{ displayTime(item.time) }}</p>
+  <div class="game-resource-tracking">
+    <div class="container">
+      <div @click="goBack" class="back-button">
+        <div class="btn pulse">Back</div>
       </div>
 
-      <div class="items">
-        <Item :amount="value" :name="key" v-for="(value, key) in item.items" />
+      <div v-if="!tesseractInstalled">
+        This program required Google's Tesseract Software. Please install it
+        from
+        <a @click="openTesseract">here</a>
+      </div>
+
+      <div class="timer" v-if="tesseractInstalled">
+        {{ displayTime(resourceTime) }}
+
+        <div
+          @click="toggleScript"
+          class="btn"
+          :class="{ danger: isScriptRunning, slide: !isScriptRunning }"
+        >
+          {{ !isScriptRunning ? "Start" : "Stop" }} Script
+        </div>
+        <div @click="newRun" v-if="isScriptRunning" class="btn slide">
+          New Run
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="previous-runs">
-    <div v-for="run in previousRuns">
-      <div class="divider">
-        <p>{{ displayTime(run.time) }}</p>
+    <div class="items">
+      <Item :amount="value" :name="key" v-for="(value, key) in items" />
+    </div>
 
-        <p class="right">{{ displayDate(run.date) }}</p>
+    <div class="previous-items">
+      <div v-for="item in previousItems">
+        <div class="divider">
+          <p>{{ displayTime(item.time) }}</p>
+        </div>
+
+        <div class="items">
+          <Item
+            :amount="value"
+            :name="key"
+            v-for="(value, key) in item.items"
+          />
+        </div>
       </div>
+    </div>
 
-      <div class="items">
-        <Item :amount="value" :name="key" v-for="(value, key) in run.items" />
+    <div class="previous-runs">
+      <div v-for="run in previousRuns">
+        <div class="divider">
+          <p>{{ displayTime(run.time) }}</p>
+
+          <p class="right">{{ displayDate(run.date) }}</p>
+        </div>
+
+        <div class="items">
+          <Item :amount="value" :name="key" v-for="(value, key) in run.items" />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <style lang="scss">
-.container {
-  display: flex;
-  justify-content: center;
-
-  a {
-    text-decoration: underline;
-    color: #1d61a5;
+.game-resource-tracking {
+  button,
+  .btn {
+    display: inline;
+    cursor: pointer;
+    padding: 0.5em 0.5em;
   }
-}
 
-.timer {
-  margin-bottom: 20px;
-}
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-.items {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  gap: 25px;
-}
+    .back-button {
+      flex: 1;
+    }
 
-.right {
-  float: right;
-  clear: both;
-}
+    .timer {
+      flex: 2;
+      margin: 20px 0;
+    }
 
-.divider {
-  position: relative;
-  margin-top: 50px;
+    a {
+      text-decoration: underline;
+      color: #1d61a5;
+    }
+  }
 
-  p {
+  .items {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    gap: 25px;
+  }
+
+  .right {
+    float: right;
+    clear: both;
+  }
+
+  .divider {
     position: relative;
-    display: inline-block;
-    padding: 0 10px;
-    margin: 0 20px;
-    top: -17px;
+    margin-top: 50px;
 
-    background-color: #282a2c;
-  }
+    p {
+      position: relative;
+      display: inline-block;
+      padding: 0 10px;
+      margin: 0 20px;
+      top: -17px;
 
-  &::before {
-    content: "";
-    display: block;
-    border-top: 1px solid #fff;
+      background-color: #282a2c;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      border-top: 1px solid #fff;
+    }
   }
 }
 </style>
 
 <script>
 import { secondsToHms } from "@/lib/vue/dates";
-import { isEmpty } from "lodash";
+import { isEmpty, reverse } from "lodash";
 import { mapGetters } from "vuex";
 
 import { displayDate } from "@/lib/vue/dates";
@@ -164,6 +197,25 @@ export default {
 
       store.dispatch("all", { mutation: "toggleRunningScript" });
     },
+
+    newRun() {
+      const store = this.$store;
+
+      if (!isEmpty(this.items)) {
+        window.ipc.send("saveItems", {
+          items: { ...this.items },
+          time: this.resourceTime,
+        });
+      }
+
+      store.dispatch("all", {
+        mutation: "saveItems",
+        data: {
+          items: this.items,
+          time: this.resourceTime,
+        },
+      });
+    },
   },
 
   computed: {
@@ -186,11 +238,11 @@ export default {
 
     if (!this.previousRuns.lenght) {
       window.ipc
-        .receive("readJsonFile", { fileName: "gameTracking.json" })
+        .receive("readJsonFile", { fileName: "gameResourceTracking.json" })
         .then((data) => {
           store.dispatch("all", {
             mutation: "setPreviousRuns",
-            data: data.data,
+            data: reverse(data.data),
           });
         });
     }

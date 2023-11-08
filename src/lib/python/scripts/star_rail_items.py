@@ -17,10 +17,10 @@ from utils import cleanup, send_to_electron, get_tesseract_path
 def format_text(text):
     # Initialize an empty dictionary
     result_dict = {}
-    replace_map = {"*": "", ">": "", "�": "", "-": "", ".": "", "'": "", "’": ""}
+    artifacts = ["*", ">", "�", "-", "_", "»", "’", "'", "<", "‘", "|", "~"]
 
-    for find, new_value in replace_map.items():
-        text = text.replace(find, new_value)
+    for find in artifacts:
+        text = text.replace(find, "")
 
     # Split the text into sections by "wards"
     sections = re.split(r"\wards -\b", text.strip())

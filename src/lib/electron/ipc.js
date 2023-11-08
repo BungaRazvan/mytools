@@ -4,7 +4,9 @@ import { BrowserWindow, ipcMain, shell } from "electron";
 import { map, groupBy, sumBy } from "lodash";
 import { spawn } from "child_process";
 
-import { isProgramRunning, checkForTesseract } from "./running";
+import { isDevelopment } from "@/background";
+import { startRailItemName } from "@/lib/vue/items";
+
 import {
   writeCSVFile,
   writeJsonFile,
@@ -12,9 +14,8 @@ import {
   readFolder,
   readJsonFile,
 } from "./files";
+import { isProgramRunning, checkForTesseract } from "./running";
 import electronStore from "./store";
-
-import { isDevelopment } from "@/background";
 
 const sendToMain = (name, data) => {
   BrowserWindow.getAllWindows()[0].webContents.send(name, data);
@@ -35,11 +36,16 @@ ipcMain.on("logRunningGame", (event, args) => {
 
 ipcMain.on("saveItems", (event, args) => {
   const { items, time } = args;
+  const correctItems = {};
 
-  writeJsonFile("gameTracking.json", {
+  for (const item in items) {
+    correctItems[startRailItemName(item)] = items[item];
+  }
+
+  writeJsonFile("gameResourceTracking.json", {
     game: "StarRail",
     time: time,
-    items: items,
+    items: correctItems,
     date: new Date().toISOString(),
   });
 });

@@ -4,7 +4,15 @@ import path from "path";
 
 import AutoLaunch from "auto-launch";
 
-import { app, protocol, BrowserWindow, Tray, Menu, screen } from "electron";
+import {
+  app,
+  protocol,
+  BrowserWindow,
+  Tray,
+  Menu,
+  screen,
+  Notification,
+} from "electron";
 import { createProtocol } from "vue-cli-plugin-electron-builder/lib";
 import installExtension from "electron-devtools-installer";
 import { autoUpdater } from "electron-updater";
@@ -13,16 +21,19 @@ import electronStore from "./lib/electron/store";
 import "./lib/electron/ipc";
 
 export const isDevelopment = process.env.NODE_ENV !== "production";
+
 const iconPath = isDevelopment
   ? "./public/img/icon310x310.ico"
   : path.join(process.resourcesPath, "img", "icon310x310.ico");
+const appName = app.getName();
+const testUpdate = false;
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
   { scheme: "app", privileges: { secure: true, standard: true } },
 ]);
 
-let mainWindow;
+let mainWindow = null;
 let tray = null;
 
 async function createWindow() {
@@ -49,7 +60,6 @@ async function createWindow() {
       mainWindow.webContents.openDevTools();
     }
   } else {
-    autoUpdater.checkForUpdatesAndNotify();
     createProtocol("app");
     // Load the index.html when not in development
     mainWindow.loadURL("app://./index.html");
@@ -83,6 +93,60 @@ function createTray() {
   tray.setContextMenu(contextMenu);
 }
 
+// Create a function to focus the existing instance (if any)
+function focusMainWindow() {
+  if (mainWindow.isMinimized()) {
+    mainWindow.restore();
+  }
+
+  if (!mainWindow.isVisible()) {
+    mainWindow.restore();
+  }
+
+  mainWindow.focus();
+}
+
+if (isDevelopment && testUpdate) {
+  autoUpdater.updateConfigPath = path.join(
+    __dirname,
+    "..",
+    "src",
+    "tests",
+    "dev-app-update.yml"
+  );
+
+  autoUpdater.forceDevUpdateConfig = isDevelopment;
+}
+autoUpdater.checkForUpdates();
+
+autoUpdater.on("download-progress", (progressObj) => {
+  const normalizedProgress = progressObj.transferred / progressObj.total;
+
+  mainWindow.setProgressBar(normalizedProgress);
+});
+
+autoUpdater.on("update-downloaded", (info) => {
+  const updateNotification = new Notification({
+    icon: iconPath,
+    title: "A new update is ready to install.",
+    body: `${appName} version ${info.version} has been downloaded and will be automatically installed on exit.
+    `,
+  });
+
+  updateNotification.show();
+
+  updateNotification.on("click", () => {
+    autoUpdater.quitAndInstall({ isSilent: true, isForceRunAfter: true });
+  });
+});
+
+// Ensure only one instance of the app is running
+const lock = app.requestSingleInstanceLock();
+
+if (!lock) {
+  app.quit();
+}
+
 // Quit when all windows are closed.
 // app.on("window-all-closed", (event) => {
 //   event.preventDefault();
@@ -92,6 +156,12 @@ function createTray() {
 //     app.quit();
 //   }
 // });
+
+app.setAppUserModelId(appName);
+
+app.on("second-instance", (event, argv, cwd) => {
+  focusMainWindow();
+});
 
 app.on("activate", () => {
   // On macOS it's common to re-create a window in the app when the

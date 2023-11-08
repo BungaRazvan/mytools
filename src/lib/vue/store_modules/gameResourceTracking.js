@@ -19,12 +19,12 @@ const mutations = {
     });
   },
 
-  saveItems(state, items) {
+  saveItems(state, data) {
     state.items = {};
     state.time = 0;
 
-    if (!isEmpty(items)) {
-      state.previousItems.unshift(items);
+    if (!isEmpty(data.items)) {
+      state.previousItems.unshift(data);
     }
   },
 
