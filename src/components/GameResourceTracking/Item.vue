@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <img :src="`img/star_rail/materials/${this.itemNametoImage(name)}`" />
+    <img :src="this.itemNametoImage(name)" />
     <div class="description">
       {{ this.itemToProperName(name) }} x{{ amount }}
     </div>
@@ -28,40 +28,21 @@
 </style>
 
 <script>
+import { startRailItemName } from "@/lib/vue/items";
+
 export default {
   name: "Items",
   props: ["amount", "name"],
 
   methods: {
     itemToProperName(item) {
-      let itemName = item;
-
-      if (item.includes("Strange")) {
-        itemName = "Strange Matter of Destruction";
-        return itemName;
-      }
-
-      switch (itemName) {
-        case "Conquerors Will":
-          itemName = "Conqueror's Will";
-          break;
-
-        case "Thiefs Instinct":
-          itemName = "Thief's Instinct";
-          break;
-
-        case "Usurpers Scheme":
-          itemName = "Usurper’s Scheme";
-          break;
-      }
-
-      return itemName;
+      return startRailItemName(item);
     },
 
     itemNametoImage(item) {
-      let itemName = this.itemToProperName(item);
+      const itemName = this.itemToProperName(item).replaceAll(" ", "_");
 
-      return itemName.replaceAll(" ", "_") + ".png";
+      return `img/star_rail/materials/${itemName}.png`;
     },
   },
 };

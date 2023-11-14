@@ -1,0 +1,4 @@
+owner: BungaRazvan
+repo: mytools
+provider: github
+updaterCacheDirName: mytools-updater-devs
