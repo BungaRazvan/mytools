@@ -143,7 +143,7 @@ autoUpdater.on("update-downloaded", (info) => {
 // Ensure only one instance of the app is running
 const lock = app.requestSingleInstanceLock();
 
-if (!lock) {
+if (!lock && !isDevelopment) {
   app.quit();
 }
 

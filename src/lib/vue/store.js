@@ -35,9 +35,8 @@ export const store = createStore({
       if (direction == "back") {
         if (state.screenIndex > 0) {
           state.screenIndex--;
+          state.screen = state.screenHistory[state.screenIndex];
         }
-
-        state.screen = state.screenHistory[state.screenIndex];
       }
 
       if (direction == "forward") {
