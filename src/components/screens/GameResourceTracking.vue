@@ -97,6 +97,7 @@
     flex-flow: row wrap;
     justify-content: flex-start;
     gap: 25px;
+    margin-top: 25px;
   }
 
   .right {

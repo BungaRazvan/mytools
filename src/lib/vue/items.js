@@ -21,6 +21,26 @@ export const startRailItemName = (item) => {
     return itemName;
   }
 
+  if (item.includes("Discarded Ingenium")) {
+    itemName = "Discarded Ingenium Parts";
+    return itemName;
+  }
+
+  if (item.includes("HumanHeight Auspici")) {
+    itemName = "Human-Height Auspicious Crops";
+    return itemName;
+  }
+
+  if (item.includes("Extract of Medicinal")) {
+    itemName = "Extract of Medicinal Herbs";
+    return itemName;
+  }
+
+  if (item.includes("PleasantLooking")) {
+    itemName = "Pleasant-Looking Trash";
+    return itemName;
+  }
+
   switch (itemName) {
     case "Conquerors Will":
       itemName = "Conqueror's Will";
@@ -31,7 +51,7 @@ export const startRailItemName = (item) => {
       break;
 
     case "Usurpers Scheme":
-      itemName = "Usurper’s Scheme";
+      itemName = "Usurper's Scheme";
       break;
   }
 

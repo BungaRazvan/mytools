@@ -1,10 +1,15 @@
 import json
+import os
+import sys
 
 from bs4 import BeautifulSoup as _bs4
 from requests import get
 from pathlib import Path
 
-from src.lib.python.utils import save_image
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
+sys.path.append(parent_dir)
+
+from utils import save_image
 
 
 def extract_bonuses(bonuses):
@@ -62,7 +67,11 @@ def extract_aritifacts(set_link, set_name):
         for td in tds:
             if td.img:
                 img_name = f'{set_name.replace(" ", "_")}_{artifact_type}.png'
-                # save_image(f'{img_name}', td.img.get('data-src'), Path('../../../../public/img/genshin/artifacts/'))
+                save_image(
+                    f"{img_name}",
+                    td.img.get("data-src"),
+                    Path("../../../../public/img/genshin/artifacts/"),
+                )
 
                 artifacts[artifact_type]["name"] = (
                     td.img.get("alt").replace("Image", "").strip()
