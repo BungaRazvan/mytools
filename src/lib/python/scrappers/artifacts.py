@@ -27,7 +27,7 @@ def extract_bonuses(bonuses):
 
 def extract_aritifacts(set_link, set_name):
     artifacts = {}
-    index_to_type = {1: "flower", 2: "feather", 3: "sands", 4: "goblet", 5: "circlet"}
+    index_to_type = {1: "Flower", 2: "Feather", 3: "Sands", 4: "Goblet", 5: "Circlet"}
 
     soup = _bs4(get(set_link).content, "html.parser")
 
@@ -132,9 +132,6 @@ def all_sets():
     with open(f"{json_path}/artifacts.json", "w") as f:
         f.write(json.dumps({"data": sets_data}, indent=2))
 
-
-# presets
-# https://gamewith.net/genshin-impact/article/show/22405
 
 if __name__ == "__main__":
     sets_data = []

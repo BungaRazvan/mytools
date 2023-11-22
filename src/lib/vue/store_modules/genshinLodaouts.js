@@ -1,14 +1,17 @@
+import { map } from "lodash";
+
 import { genshinTeamLimit } from "@/lib/vue/constants";
 
 const state = () => ({
   displayCharactersList: false,
   displayCharaterBuild: false,
 
-  buildIndex: null,
+  teamIndex: null,
   characterIndex: null,
-  builds: [
+  selectedBuild: {},
+  teams: [
     {
-      name: "Build #1",
+      name: "Team #1",
       characters: [
         {
           name: "Raiden Shogun",
@@ -21,7 +24,7 @@ const state = () => ({
     },
 
     {
-      name: "waifu team",
+      name: "team #2",
       characters: [
         {
           name: "Raiden Shogun",
@@ -60,11 +63,14 @@ const state = () => ({
       ],
     },
   ],
+
+  characters: [],
+  preBuilds: [],
 });
 
 const getters = {
-  builds: (state, getters, rootState) => {
-    return state.builds;
+  teams: (state, getters, rootState) => {
+    return state.teams;
   },
 
   displayCharactersList: (state, getters, rootState) => {
@@ -74,21 +80,41 @@ const getters = {
   displayCharaterBuild: (state, getters, rootState) => {
     return state.displayCharaterBuild;
   },
+
+  teamIndex: (state, getters, rootState) => {
+    return state.teamIndex;
+  },
+  characterIndex: (state, getters, rootState) => {
+    return state.characterIndex;
+  },
+
+  characters: (state, getters, rootState) => {
+    return state.characters;
+  },
+
+  preBuilds: (state, getters, rootState) => {
+    return state.preBuilds;
+  },
+  selectedBuild: (state, getters, rootState) => {
+    return state.selectedBuild;
+  },
 };
 
 const mutations = {
   toggleCharacterAction(state, data) {
-    const { characterIndex, buildIndex, action } = data;
+    const { characterIndex, teamIndex, action } = data;
     const toggleStatus = state[action];
+
     const opositAction =
       action == "displayCharaterBuild"
         ? "displayCharactersList"
         : "displayCharaterBuild";
 
     state[opositAction] = false;
+    state.selectedBuild = {};
 
     if (
-      state.buildIndex == buildIndex &&
+      state.teamIndex == teamIndex &&
       state.characterIndex != characterIndex
     ) {
       state.characterIndex = characterIndex;
@@ -96,42 +122,48 @@ const mutations = {
     }
 
     if (
-      state.buildIndex == buildIndex &&
+      state.teamIndex == teamIndex &&
       state.characterIndex == characterIndex
     ) {
-      state.displayCharactersList = !toggleStatus;
-      state.buildIndex = null;
+      state[action] = !toggleStatus;
+      state.teamIndex = null;
       state.characterIndex = null;
       return;
     }
 
-    if (toggleStatus && state.buildIndex != buildIndex) {
-      state.buildIndex = buildIndex;
+    if (toggleStatus && state.teamIndex != teamIndex) {
+      state.teamIndex = teamIndex;
       state.characterIndex = characterIndex;
       return;
     }
 
-    state.buildIndex = buildIndex;
+    state.teamIndex = teamIndex;
     state.characterIndex = characterIndex;
     state[action] = !toggleStatus;
   },
 
-  editBuildName(state, data) {
+  editTeamName(state, data) {
     const { name, index } = data;
-    state.builds[index].name = name;
+    state.teams[index].name = name;
   },
 
-  removeBuild(state, data) {
+  removeTeam(state, data) {
     const { index } = data;
-    state.builds.splice(index, 1);
+    state.teams.splice(index, 1);
   },
 
-  addCharaterToBuild(state, data) {
+  addCharaterToTeam(state, data) {
     const { character } = data;
-    let characters = state.builds[state.buildIndex].characters;
+    let characters = state.teams[state.teamIndex].characters;
+
+    const names = map(characters, "name");
+
+    if (names.includes(character.name)) {
+      return;
+    }
 
     if (characters.length + 1 == genshinTeamLimit) {
-      state.buildIndex = null;
+      state.teamIndex = null;
       state.characterIndex = null;
       state.displayCharactersList = !state.displayCharactersList;
     }
@@ -139,11 +171,41 @@ const mutations = {
     characters.push(character);
   },
 
-  addNewBuild(state) {
-    state.builds.push({
-      name: `Build #${state.builds.length + 1}`,
+  removeCharacter(state, data) {
+    const { characterIndex, teamIndex } = data;
+    let characters = state.teams[teamIndex].characters;
+
+    if (state.displayCharactersList) {
+      state.displayCharactersList = false;
+    }
+
+    if (state.displayCharaterBuild) {
+      state.displayCharaterBuild = false;
+    }
+
+    state.teamIndex = null;
+    state.characterIndex = null;
+    characters.splice(characterIndex, 1);
+  },
+
+  addNewTeam(state) {
+    state.teams.push({
+      name: `Team #${state.teams.length + 1}`,
       characters: [],
     });
+  },
+
+  setCharacters(state, data) {
+    state.characters = data;
+  },
+
+  setPreBuilds(state, data) {
+    state.preBuilds = data;
+  },
+
+  setSelectedBuild(state, data) {
+    console.log(data);
+    state.selectedBuild = data;
   },
 };
 

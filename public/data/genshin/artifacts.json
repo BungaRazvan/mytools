@@ -9,17 +9,17 @@
       "artifacts": {
         "flower": {
           "name": "Flower of the Creviced Cliff",
-          "image": "Archaic_Petra_flower.png",
+          "image": "Archaic_Petra_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Feather of Jagged Peaks",
-          "image": "Archaic_Petra_feather.png",
+          "image": "Archaic_Petra_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Sundial of Enduring Jade",
-          "image": "Archaic_Petra_sands.png",
+          "image": "Archaic_Petra_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -30,7 +30,7 @@
         },
         "goblet": {
           "name": "Goblet of Chiseled Crag",
-          "image": "Archaic_Petra_goblet.png",
+          "image": "Archaic_Petra_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -42,7 +42,7 @@
         },
         "circlet": {
           "name": "Mask of Solitude Basalt",
-          "image": "Archaic_Petra_circlet.png",
+          "image": "Archaic_Petra_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -64,17 +64,17 @@
       "artifacts": {
         "flower": {
           "name": "Snowswept Memory",
-          "image": "Blizzard_Strayer_flower.png",
+          "image": "Blizzard_Strayer_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Icebreaker",
-          "image": "Blizzard_Strayer_feather.png",
+          "image": "Blizzard_Strayer_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Frozen Homeland",
-          "image": "Blizzard_Strayer_sands.png",
+          "image": "Blizzard_Strayer_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -85,7 +85,7 @@
         },
         "goblet": {
           "name": "Frost-Weaved Dignity",
-          "image": "Blizzard_Strayer_goblet.png",
+          "image": "Blizzard_Strayer_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -97,7 +97,7 @@
         },
         "circlet": {
           "name": "Broken Rime",
-          "image": "Blizzard_Strayer_circlet.png",
+          "image": "Blizzard_Strayer_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -119,17 +119,17 @@
       "artifacts": {
         "flower": {
           "name": "Bloodstained Flower of Iron",
-          "image": "Bloodstained_Chivalry_flower.png",
+          "image": "Bloodstained_Chivalry_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Bloodstained Black Plume",
-          "image": "Bloodstained_Chivalry_feather.png",
+          "image": "Bloodstained_Chivalry_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Bloodstained Final Hour",
-          "image": "Bloodstained_Chivalry_sands.png",
+          "image": "Bloodstained_Chivalry_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -140,7 +140,7 @@
         },
         "goblet": {
           "name": "Bloodstained Chevalier",
-          "image": "Bloodstained_Chivalry_goblet.png",
+          "image": "Bloodstained_Chivalry_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -152,7 +152,7 @@
         },
         "circlet": {
           "name": "Bloodstained Iron Mask",
-          "image": "Bloodstained_Chivalry_circlet.png",
+          "image": "Bloodstained_Chivalry_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -174,17 +174,17 @@
       "artifacts": {
         "flower": {
           "name": "Witch",
-          "image": "Crimson_Witch_of_Flames_flower.png",
+          "image": "Crimson_Witch_of_Flames_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Witch",
-          "image": "Crimson_Witch_of_Flames_feather.png",
+          "image": "Crimson_Witch_of_Flames_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Witch",
-          "image": "Crimson_Witch_of_Flames_sands.png",
+          "image": "Crimson_Witch_of_Flames_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -195,7 +195,7 @@
         },
         "goblet": {
           "name": "Witch",
-          "image": "Crimson_Witch_of_Flames_goblet.png",
+          "image": "Crimson_Witch_of_Flames_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -207,7 +207,7 @@
         },
         "circlet": {
           "name": "Witch",
-          "image": "Crimson_Witch_of_Flames_circlet.png",
+          "image": "Crimson_Witch_of_Flames_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -229,17 +229,17 @@
       "artifacts": {
         "flower": {
           "name": "Labyrinth Wayfarer",
-          "image": "Deepwood_Memories_flower.png",
+          "image": "Deepwood_Memories_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Scholar of Vines",
-          "image": "Deepwood_Memories_feather.png",
+          "image": "Deepwood_Memories_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "A Time of Insight",
-          "image": "Deepwood_Memories_sands.png",
+          "image": "Deepwood_Memories_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -250,7 +250,7 @@
         },
         "goblet": {
           "name": "Lamp of the Lost",
-          "image": "Deepwood_Memories_goblet.png",
+          "image": "Deepwood_Memories_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -262,7 +262,7 @@
         },
         "circlet": {
           "name": "Laurel Coronet",
-          "image": "Deepwood_Memories_circlet.png",
+          "image": "Deepwood_Memories_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -284,17 +284,17 @@
       "artifacts": {
         "flower": {
           "name": "The First Days of the City of Kings",
-          "image": "Desert_Pavilion_Chronicle_flower.png",
+          "image": "Desert_Pavilion_Chronicle_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "End of the Golden Realm",
-          "image": "Desert_Pavilion_Chronicle_feather.png",
+          "image": "Desert_Pavilion_Chronicle_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Timepiece of the Lost Path",
-          "image": "Desert_Pavilion_Chronicle_sands.png",
+          "image": "Desert_Pavilion_Chronicle_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -305,7 +305,7 @@
         },
         "goblet": {
           "name": "Defender of the Enchanting Dream",
-          "image": "Desert_Pavilion_Chronicle_goblet.png",
+          "image": "Desert_Pavilion_Chronicle_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -317,7 +317,7 @@
         },
         "circlet": {
           "name": "Legacy of the Desert High-Born",
-          "image": "Desert_Pavilion_Chronicle_circlet.png",
+          "image": "Desert_Pavilion_Chronicle_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -339,17 +339,17 @@
       "artifacts": {
         "flower": {
           "name": "Soulscent Bloom",
-          "image": "Echoes_of_an_Offering_flower.png",
+          "image": "Echoes_of_an_Offering_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Jade Leaf",
-          "image": "Echoes_of_an_Offering_feather.png",
+          "image": "Echoes_of_an_Offering_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Symbol of Felicitation",
-          "image": "Echoes_of_an_Offering_sands.png",
+          "image": "Echoes_of_an_Offering_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -360,7 +360,7 @@
         },
         "goblet": {
           "name": "Chalice of the Font",
-          "image": "Echoes_of_an_Offering_goblet.png",
+          "image": "Echoes_of_an_Offering_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -372,7 +372,7 @@
         },
         "circlet": {
           "name": "Flowing Rings",
-          "image": "Echoes_of_an_Offering_circlet.png",
+          "image": "Echoes_of_an_Offering_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -394,17 +394,17 @@
       "artifacts": {
         "flower": {
           "name": "Magnificent Tsuba",
-          "image": "Emblem_of_Severed_Fate_flower.png",
+          "image": "Emblem_of_Severed_Fate_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Sundered Feather",
-          "image": "Emblem_of_Severed_Fate_feather.png",
+          "image": "Emblem_of_Severed_Fate_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Storm Cage",
-          "image": "Emblem_of_Severed_Fate_sands.png",
+          "image": "Emblem_of_Severed_Fate_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -415,7 +415,7 @@
         },
         "goblet": {
           "name": "Scarlet Vessel",
-          "image": "Emblem_of_Severed_Fate_goblet.png",
+          "image": "Emblem_of_Severed_Fate_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -427,7 +427,7 @@
         },
         "circlet": {
           "name": "Ornate Kabuto",
-          "image": "Emblem_of_Severed_Fate_circlet.png",
+          "image": "Emblem_of_Severed_Fate_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -449,17 +449,17 @@
       "artifacts": {
         "flower": {
           "name": "Ay-Khanoum",
-          "image": "Flower_of_Paradise_Lost_flower.png",
+          "image": "Flower_of_Paradise_Lost_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Wilting Feast",
-          "image": "Flower_of_Paradise_Lost_feather.png",
+          "image": "Flower_of_Paradise_Lost_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "A Moment Congealed",
-          "image": "Flower_of_Paradise_Lost_sands.png",
+          "image": "Flower_of_Paradise_Lost_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -470,7 +470,7 @@
         },
         "goblet": {
           "name": "Secret-Keeper",
-          "image": "Flower_of_Paradise_Lost_goblet.png",
+          "image": "Flower_of_Paradise_Lost_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -482,7 +482,7 @@
         },
         "circlet": {
           "name": "Amethyst Crown",
-          "image": "Flower_of_Paradise_Lost_circlet.png",
+          "image": "Flower_of_Paradise_Lost_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -512,17 +512,17 @@
       "artifacts": {
         "flower": {
           "name": "Gladiator",
-          "image": "Gladiator's_Finale_flower.png",
+          "image": "Gladiator's_Finale_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Gladiator",
-          "image": "Gladiator's_Finale_feather.png",
+          "image": "Gladiator's_Finale_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Gladiator",
-          "image": "Gladiator's_Finale_sands.png",
+          "image": "Gladiator's_Finale_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -533,7 +533,7 @@
         },
         "goblet": {
           "name": "Gladiator",
-          "image": "Gladiator's_Finale_goblet.png",
+          "image": "Gladiator's_Finale_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -545,7 +545,7 @@
         },
         "circlet": {
           "name": "Gladiator",
-          "image": "Gladiator's_Finale_circlet.png",
+          "image": "Gladiator's_Finale_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -567,17 +567,17 @@
       "artifacts": {
         "flower": {
           "name": "Golden Song",
-          "image": "Golden_Troupe_flower.png",
+          "image": "Golden_Troupe_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Golden Bird",
-          "image": "Golden_Troupe_feather.png",
+          "image": "Golden_Troupe_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Golden Era",
-          "image": "Golden_Troupe_sands.png",
+          "image": "Golden_Troupe_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -588,7 +588,7 @@
         },
         "goblet": {
           "name": "Golden Night",
-          "image": "Golden_Troupe_goblet.png",
+          "image": "Golden_Troupe_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -600,7 +600,7 @@
         },
         "circlet": {
           "name": "Golden Troupe",
-          "image": "Golden_Troupe_circlet.png",
+          "image": "Golden_Troupe_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -622,17 +622,17 @@
       "artifacts": {
         "flower": {
           "name": "Gilded Corsage",
-          "image": "Heart_of_Depth_flower.png",
+          "image": "Heart_of_Depth_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Gust of Nostalgia",
-          "image": "Heart_of_Depth_feather.png",
+          "image": "Heart_of_Depth_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Copper Compass",
-          "image": "Heart_of_Depth_sands.png",
+          "image": "Heart_of_Depth_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -643,7 +643,7 @@
         },
         "goblet": {
           "name": "Goblet of Thundering Deep",
-          "image": "Heart_of_Depth_goblet.png",
+          "image": "Heart_of_Depth_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -655,7 +655,7 @@
         },
         "circlet": {
           "name": "Wine-Stained Tricorne",
-          "image": "Heart_of_Depth_circlet.png",
+          "image": "Heart_of_Depth_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -677,17 +677,17 @@
       "artifacts": {
         "flower": {
           "name": "Bloom Times",
-          "image": "Husk_of_Opulent_Dreams_flower.png",
+          "image": "Husk_of_Opulent_Dreams_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Plume of Luxury",
-          "image": "Husk_of_Opulent_Dreams_feather.png",
+          "image": "Husk_of_Opulent_Dreams_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Song of Life",
-          "image": "Husk_of_Opulent_Dreams_sands.png",
+          "image": "Husk_of_Opulent_Dreams_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -698,7 +698,7 @@
         },
         "goblet": {
           "name": "Calabash of Awakening",
-          "image": "Husk_of_Opulent_Dreams_goblet.png",
+          "image": "Husk_of_Opulent_Dreams_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -710,7 +710,7 @@
         },
         "circlet": {
           "name": "Skeletal Hat",
-          "image": "Husk_of_Opulent_Dreams_circlet.png",
+          "image": "Husk_of_Opulent_Dreams_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -732,17 +732,17 @@
       "artifacts": {
         "flower": {
           "name": "Lavawalker",
-          "image": "Lavawalker_flower.png",
+          "image": "Lavawalker_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Lavawalker",
-          "image": "Lavawalker_feather.png",
+          "image": "Lavawalker_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Lavawalker",
-          "image": "Lavawalker_sands.png",
+          "image": "Lavawalker_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -753,7 +753,7 @@
         },
         "goblet": {
           "name": "Lavawalker",
-          "image": "Lavawalker_goblet.png",
+          "image": "Lavawalker_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -765,7 +765,7 @@
         },
         "circlet": {
           "name": "Lavawalker",
-          "image": "Lavawalker_circlet.png",
+          "image": "Lavawalker_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -787,17 +787,17 @@
       "artifacts": {
         "flower": {
           "name": "Maiden",
-          "image": "Maiden_Beloved_flower.png",
+          "image": "Maiden_Beloved_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Maiden",
-          "image": "Maiden_Beloved_feather.png",
+          "image": "Maiden_Beloved_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Maiden",
-          "image": "Maiden_Beloved_sands.png",
+          "image": "Maiden_Beloved_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -808,7 +808,7 @@
         },
         "goblet": {
           "name": "Maiden",
-          "image": "Maiden_Beloved_goblet.png",
+          "image": "Maiden_Beloved_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -820,7 +820,7 @@
         },
         "circlet": {
           "name": "Maiden",
-          "image": "Maiden_Beloved_circlet.png",
+          "image": "Maiden_Beloved_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -842,17 +842,17 @@
       "artifacts": {
         "flower": {
           "name": "Hunter",
-          "image": "Marechaussee_Hunter_flower.png",
+          "image": "Marechaussee_Hunter_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Masterpiece",
-          "image": "Marechaussee_Hunter_feather.png",
+          "image": "Marechaussee_Hunter_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Moment of Judgment",
-          "image": "Marechaussee_Hunter_sands.png",
+          "image": "Marechaussee_Hunter_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -863,7 +863,7 @@
         },
         "goblet": {
           "name": "Forgotten Vessel",
-          "image": "Marechaussee_Hunter_goblet.png",
+          "image": "Marechaussee_Hunter_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -875,7 +875,7 @@
         },
         "circlet": {
           "name": "Veteran",
-          "image": "Marechaussee_Hunter_circlet.png",
+          "image": "Marechaussee_Hunter_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -897,17 +897,17 @@
       "artifacts": {
         "flower": {
           "name": "Royal Flora",
-          "image": "Noblesse_Oblige_flower.png",
+          "image": "Noblesse_Oblige_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Royal Plume",
-          "image": "Noblesse_Oblige_feather.png",
+          "image": "Noblesse_Oblige_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Royal Pocket Watch",
-          "image": "Noblesse_Oblige_sands.png",
+          "image": "Noblesse_Oblige_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -918,7 +918,7 @@
         },
         "goblet": {
           "name": "Royal Silver Urn",
-          "image": "Noblesse_Oblige_goblet.png",
+          "image": "Noblesse_Oblige_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -930,7 +930,7 @@
         },
         "circlet": {
           "name": "Royal Masque",
-          "image": "Noblesse_Oblige_circlet.png",
+          "image": "Noblesse_Oblige_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -952,17 +952,17 @@
       "artifacts": {
         "flower": {
           "name": "Odyssean Flower",
-          "image": "Nymph's_Dream_flower.png",
+          "image": "Nymph's_Dream_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Wicked Mage",
-          "image": "Nymph's_Dream_feather.png",
+          "image": "Nymph's_Dream_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Nymph",
-          "image": "Nymph's_Dream_sands.png",
+          "image": "Nymph's_Dream_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -973,7 +973,7 @@
         },
         "goblet": {
           "name": "Heroe",
-          "image": "Nymph's_Dream_goblet.png",
+          "image": "Nymph's_Dream_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -985,7 +985,7 @@
         },
         "circlet": {
           "name": "Fell Dragon",
-          "image": "Nymph's_Dream_circlet.png",
+          "image": "Nymph's_Dream_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1005,17 +1005,17 @@
         "4-piece": "When the character with this artifact set heals a party member, 1 Foam will appear. It accumulates healed HP for 3 seconds, then explodes and deals 90% of the HP healed as DMG to nearby enemies. Max accumulated healing is 30,000 HP, including over-heal. There can only be 1 Foam active, but it stays even if you swap out. Foam CD is 3.5s."
       },
       "artifacts": {
-        "flower": { "name": "Barbara", "image": "Ocean-Hued_Clam_flower.png" },
+        "flower": { "name": "Barbara", "image": "Ocean-Hued_Clam_Flower.png" },
         "feather": {
           "name": "Qiqi",
-          "image": "Ocean-Hued_Clam_feather.png",
+          "image": "Ocean-Hued_Clam_Feather.png",
           "main_stats": [
             "<td> \n    \u2022  Qiqi on the 2-piece set would make her healing more potent, while the 4-piece set would add more DMG for her kit. ",
             "\n"
           ]
         },
-        "sands": { "name": "Jean", "image": "Ocean-Hued_Clam_sands.png" },
-        "goblet": { "name": "Baizhu", "image": "Ocean-Hued_Clam_goblet.png" }
+        "sands": { "name": "Jean", "image": "Ocean-Hued_Clam_Sands.png" },
+        "goblet": { "name": "Baizhu", "image": "Ocean-Hued_Clam_Goblet.png" }
       }
     },
     {
@@ -1027,17 +1027,17 @@
       "artifacts": {
         "flower": {
           "name": "Stainless Bloom",
-          "image": "Pale_Flame_flower.png",
+          "image": "Pale_Flame_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Wise Doctor",
-          "image": "Pale_Flame_feather.png",
+          "image": "Pale_Flame_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Moment of Cessation",
-          "image": "Pale_Flame_sands.png",
+          "image": "Pale_Flame_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1048,7 +1048,7 @@
         },
         "goblet": {
           "name": "Surpassing Cup",
-          "image": "Pale_Flame_goblet.png",
+          "image": "Pale_Flame_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1060,7 +1060,7 @@
         },
         "circlet": {
           "name": "Mocking Mask",
-          "image": "Pale_Flame_circlet.png",
+          "image": "Pale_Flame_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1082,17 +1082,17 @@
       "artifacts": {
         "flower": {
           "name": "Summer Night",
-          "image": "Retracing_Bolide_flower.png",
+          "image": "Retracing_Bolide_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Summer Night",
-          "image": "Retracing_Bolide_feather.png",
+          "image": "Retracing_Bolide_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Summer Night",
-          "image": "Retracing_Bolide_sands.png",
+          "image": "Retracing_Bolide_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1103,7 +1103,7 @@
         },
         "goblet": {
           "name": "Summer Night",
-          "image": "Retracing_Bolide_goblet.png",
+          "image": "Retracing_Bolide_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1115,7 +1115,7 @@
         },
         "circlet": {
           "name": "Summer Night",
-          "image": "Retracing_Bolide_circlet.png",
+          "image": "Retracing_Bolide_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1137,17 +1137,17 @@
       "artifacts": {
         "flower": {
           "name": "Entangling Bloom",
-          "image": "Shimenawa's_Reminiscence_flower.png",
+          "image": "Shimenawa's_Reminiscence_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Shaft of Remembrance",
-          "image": "Shimenawa's_Reminiscence_feather.png",
+          "image": "Shimenawa's_Reminiscence_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Morning Dew",
-          "image": "Shimenawa's_Reminiscence_sands.png",
+          "image": "Shimenawa's_Reminiscence_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1158,7 +1158,7 @@
         },
         "goblet": {
           "name": "Hopeful Heart",
-          "image": "Shimenawa's_Reminiscence_goblet.png",
+          "image": "Shimenawa's_Reminiscence_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1170,7 +1170,7 @@
         },
         "circlet": {
           "name": "Capricious Visage",
-          "image": "Shimenawa's_Reminiscence_circlet.png",
+          "image": "Shimenawa's_Reminiscence_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1192,17 +1192,17 @@
       "artifacts": {
         "flower": {
           "name": "Flower of Accolades",
-          "image": "Tenacity_of_the_Millelith_flower.png",
+          "image": "Tenacity_of_the_Millelith_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Ceremonial War-Plume",
-          "image": "Tenacity_of_the_Millelith_feather.png",
+          "image": "Tenacity_of_the_Millelith_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Orichalceous Time-Dial",
-          "image": "Tenacity_of_the_Millelith_sands.png",
+          "image": "Tenacity_of_the_Millelith_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1213,7 +1213,7 @@
         },
         "goblet": {
           "name": "Noble",
-          "image": "Tenacity_of_the_Millelith_goblet.png",
+          "image": "Tenacity_of_the_Millelith_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1225,7 +1225,7 @@
         },
         "circlet": {
           "name": "General",
-          "image": "Tenacity_of_the_Millelith_circlet.png",
+          "image": "Tenacity_of_the_Millelith_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1247,17 +1247,17 @@
       "artifacts": {
         "flower": {
           "name": "Thunderbird",
-          "image": "Thundering_Fury_flower.png",
+          "image": "Thundering_Fury_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Survivor of Catastrophe",
-          "image": "Thundering_Fury_feather.png",
+          "image": "Thundering_Fury_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Hourglass of Thunder",
-          "image": "Thundering_Fury_sands.png",
+          "image": "Thundering_Fury_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1268,7 +1268,7 @@
         },
         "goblet": {
           "name": "Omen of Thunderstorm",
-          "image": "Thundering_Fury_goblet.png",
+          "image": "Thundering_Fury_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1280,7 +1280,7 @@
         },
         "circlet": {
           "name": "Thunder Summoner",
-          "image": "Thundering_Fury_circlet.png",
+          "image": "Thundering_Fury_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1302,17 +1302,17 @@
       "artifacts": {
         "flower": {
           "name": "Thundersoother",
-          "image": "Thundersoother_flower.png",
+          "image": "Thundersoother_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Thundersoother",
-          "image": "Thundersoother_feather.png",
+          "image": "Thundersoother_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Hour of Soothing Thunder",
-          "image": "Thundersoother_sands.png",
+          "image": "Thundersoother_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1323,7 +1323,7 @@
         },
         "goblet": {
           "name": "Thundersoother",
-          "image": "Thundersoother_goblet.png",
+          "image": "Thundersoother_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1335,7 +1335,7 @@
         },
         "circlet": {
           "name": "Thundersoother",
-          "image": "Thundersoother_circlet.png",
+          "image": "Thundersoother_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1357,17 +1357,17 @@
       "artifacts": {
         "flower": {
           "name": "Flowering Life",
-          "image": "Vermillion_Hereafter_flower.png",
+          "image": "Vermillion_Hereafter_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Feather of Nascent Light",
-          "image": "Vermillion_Hereafter_feather.png",
+          "image": "Vermillion_Hereafter_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Solar Relic",
-          "image": "Vermillion_Hereafter_sands.png",
+          "image": "Vermillion_Hereafter_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1378,7 +1378,7 @@
         },
         "goblet": {
           "name": "Moment of the Pact",
-          "image": "Vermillion_Hereafter_goblet.png",
+          "image": "Vermillion_Hereafter_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1390,7 +1390,7 @@
         },
         "circlet": {
           "name": "Thundering Poise",
-          "image": "Vermillion_Hereafter_circlet.png",
+          "image": "Vermillion_Hereafter_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1412,17 +1412,17 @@
       "artifacts": {
         "flower": {
           "name": "In Rememberence of Viridescent Fields",
-          "image": "Viridescent_Venerer_flower.png",
+          "image": "Viridescent_Venerer_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Viridescent Arrow Feather",
-          "image": "Viridescent_Venerer_feather.png",
+          "image": "Viridescent_Venerer_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Viridescent Venerer",
-          "image": "Viridescent_Venerer_sands.png",
+          "image": "Viridescent_Venerer_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1433,7 +1433,7 @@
         },
         "goblet": {
           "name": "Viridescent Venerer",
-          "image": "Viridescent_Venerer_goblet.png",
+          "image": "Viridescent_Venerer_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1445,7 +1445,7 @@
         },
         "circlet": {
           "name": "Viridescent Venerer",
-          "image": "Viridescent_Venerer_circlet.png",
+          "image": "Viridescent_Venerer_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1467,17 +1467,17 @@
       "artifacts": {
         "flower": {
           "name": "Stamen of Khvarena",
-          "image": "Vourukasha's_Glow_flower.png",
+          "image": "Vourukasha's_Glow_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Vibrant Pinion",
-          "image": "Vourukasha's_Glow_feather.png",
+          "image": "Vourukasha's_Glow_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Ancient Abscission",
-          "image": "Vourukasha's_Glow_sands.png",
+          "image": "Vourukasha's_Glow_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1488,7 +1488,7 @@
         },
         "goblet": {
           "name": "Feast of Boundless Joy",
-          "image": "Vourukasha's_Glow_goblet.png",
+          "image": "Vourukasha's_Glow_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1500,7 +1500,7 @@
         },
         "circlet": {
           "name": "Heart of Khvarena",
-          "image": "Vourukasha's_Glow_circlet.png",
+          "image": "Vourukasha's_Glow_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1522,17 +1522,17 @@
       "artifacts": {
         "flower": {
           "name": "Troupe",
-          "image": "Wanderer's_Troupe_flower.png",
+          "image": "Wanderer's_Troupe_Flower.png",
           "main_stats": ["HP"]
         },
         "feather": {
           "name": "Bard",
-          "image": "Wanderer's_Troupe_feather.png",
+          "image": "Wanderer's_Troupe_Feather.png",
           "main_stats": ["ATK"]
         },
         "sands": {
           "name": "Concert",
-          "image": "Wanderer's_Troupe_sands.png",
+          "image": "Wanderer's_Troupe_Sands.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1543,7 +1543,7 @@
         },
         "goblet": {
           "name": "Wanderer",
-          "image": "Wanderer's_Troupe_goblet.png",
+          "image": "Wanderer's_Troupe_Goblet.png",
           "main_stats": [
             "HP%",
             "ATK%",
@@ -1555,7 +1555,7 @@
         },
         "circlet": {
           "name": "Conductor",
-          "image": "Wanderer's_Troupe_circlet.png",
+          "image": "Wanderer's_Troupe_Circlet.png",
           "main_stats": [
             "HP%",
             "ATK%",

@@ -5,16 +5,17 @@
       color="blue"
       title="Game Tracking"
     />
-    <!-- <WindowsTile
-      @click="this.changeScreen('genshinLoadouts')"
-      color="purple"
-      title="Genshin Loadouts"
-      shape="sqr"
-    /> -->
+
     <WindowsTile
       @click="this.changeScreen('gameResourceTracking')"
       color="cyan"
       title="Game Resource Tracking"
+      shape="sqr"
+    />
+    <WindowsTile
+      @click="this.changeScreen('genshinLoadouts')"
+      color="purple"
+      title="Genshin Loadouts"
       shape="sqr"
     />
   </div>

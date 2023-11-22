@@ -1,43 +1,56 @@
 <template>
-  <div class="build-container">
-    <div class="builds">
-      <Build
-        :name="build.name"
-        :characters="build.characters"
-        :key="build.name"
+  <div class="teams-container">
+    <div class="teams">
+      <Team
+        :name="team.name"
+        :characters="team.characters"
+        :key="team.name"
         :index="index"
-        v-for="(build, index) in this.$store.getters.builds"
+        v-for="(team, index) in teams"
       />
-      <div @click="this.addNewBuild">&plus; Add New Build</div>
+      <div class="new-team" @click="this.addNewTeam">&plus; Add New Team</div>
     </div>
 
-    <div class="panel" v-if="this.$store.getters.displayCharactersList">
+    <div class="panel" v-if="displayCharactersList">
       <CharacterList />
     </div>
 
-    <div class="panel" v-if="this.$store.getters.displayCharaterBuild">
+    <div class="panel" v-if="displayCharaterBuild">
       <CharacterBuild />
     </div>
   </div>
 </template>
 
 <style lang="scss">
-.build-container {
+.table {
+  width: 100%;
+  margin-top: 25px;
+  border-collapse: collapse;
+}
+
+.teams-container {
   display: flex;
 
-  .builds {
+  .teams {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
   }
 
+  .new-team {
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
   .panel {
+    position: sticky;
+    top: 0;
+
     background-color: #1c1d1e;
-    display: flex;
+
     padding-left: 25px;
-    min-height: 20%;
+    height: 100vh;
     width: 100%;
-    flex-wrap: wrap;
   }
   // 4-star character bg: #68598d
   // 5-star character bg: #9f682a
@@ -60,7 +73,9 @@
 </style>
 
 <script>
-import Build from "@/components/GenshinLoadouts/Build.vue";
+import { mapGetters } from "vuex";
+
+import Team from "@/components/GenshinLoadouts/Team.vue";
 import CharacterList from "@/components/GenshinLoadouts/CharacterList.vue";
 import CharacterBuild from "@/components/GenshinLoadouts/CharacterBuild.vue";
 import Tooltip from "@/components/Tooltip.vue";
@@ -68,16 +83,18 @@ import Tooltip from "@/components/Tooltip.vue";
 export default {
   name: "GenshinLoadouts",
   props: ["goBack"],
-  components: { Build, CharacterList, CharacterBuild, Tooltip },
+  components: { Team, CharacterList, CharacterBuild, Tooltip },
 
   methods: {
-    addNewBuild() {
+    addNewTeam() {
       this.$store.dispatch("all", {
-        mutation: "addNewBuild",
+        mutation: "addNewTeam",
       });
     },
   },
 
-  mounted() {},
+  computed: {
+    ...mapGetters(["displayCharaterBuild", "displayCharactersList", "teams"]),
+  },
 };
 </script>
