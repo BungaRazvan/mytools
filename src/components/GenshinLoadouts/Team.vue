@@ -1,35 +1,38 @@
 <template>
-  <div class="build">
-    <label class="build-label">
+  <div class="team">
+    <label class="team-label">
       <i
-        @click="this.toggleEditBuildName"
+        @click="this.toggleEditTeamName"
         class="material-icons edit-icon"
-        v-if="!this.editBuildName"
+        v-if="!this.editTeamName"
         >edit_note</i
       >
-      <i v-if="this.editBuildName" class="material-icons edit-icon">done</i>
+      <i v-if="this.editTeamName" class="material-icons edit-icon">done</i>
       <input
         class="edit-name"
         @blur="editName($event, this.index)"
-        :disabled="!this.editBuildName"
+        :disabled="!this.editTeamName"
         :value="this.name"
       />
-      <i @click="removeBuild(this.index)" class="material-icons delete-icon"
+      <i @click="removeTeam(this.index)" class="material-icons delete-icon"
         >delete</i
       >
     </label>
-    <div class="build-characters">
+    <div class="team-characters">
       <div
         class="character"
+        :key="`${this.index}-${index}-${character.name}`"
         @click="
-          toggleCharacterAction(index, this.index, 'displayCharaterBuild')
+          toggleCharacterAction(
+            $event,
+            index,
+            this.index,
+            'displayCharaterBuild'
+          )
         "
         :class="[
-          character.rarity == 5
-            ? 'five-star'
-            : character.rarity == 4
-            ? 'four-star'
-            : '',
+          determineStar(character.rarity),
+          determineActive(index, this.index),
         ]"
         v-for="(character, index) in this.characters"
       >
@@ -38,7 +41,9 @@
       <div
         v-for="_ in this.genshinTeamLimit - this.characters.length"
         class="character"
-        @click="toggleCharacterAction(_, this.index, 'displayCharactersList')"
+        @click="
+          toggleCharacterAction($event, _, this.index, 'displayCharactersList')
+        "
       >
         <i class="material-icons">add</i>
       </div>
@@ -47,11 +52,11 @@
 </template>
 
 <style lang="scss">
-.build {
+.team {
   width: 500px;
   margin-top: 10px;
 
-  .build-label {
+  .team-label {
     display: flex;
     align-items: center;
     align-content: center;
@@ -96,7 +101,7 @@
     }
   }
 
-  .build-characters {
+  .team-characters {
     display: flex;
     flex-grow: 1;
     justify-content: space-around;
@@ -106,11 +111,18 @@
       width: 105px;
       height: 105px;
       background-color: #1c1d1e;
-      border-radius: 20%;
+      border-radius: 10%;
       justify-content: center;
       align-items: center;
       display: flex;
       cursor: pointer;
+      overflow: hidden;
+
+      &.active {
+        border: 5px solid #c0ff40;
+        border-left: 0;
+        border-right: 0;
+      }
 
       i {
         font-size: 100%;
@@ -125,31 +137,57 @@
 import { genshinTeamLimit } from "@/lib/vue/constants";
 
 export default {
-  name: "Build",
+  name: "Team",
   props: ["name", "characters", "index"],
   methods: {
+    determineStar(rarity) {
+      return rarity == 5 ? "five-star" : rarity == 4 ? "four-star" : "";
+    },
+
+    determineActive(characterIndex, teamIndex) {
+      const store = this.$store.getters;
+
+      if (
+        store.displayCharaterBuild &&
+        store.teamIndex == teamIndex &&
+        store.characterIndex == characterIndex
+      ) {
+        return "active";
+      }
+    },
+
     editName(event, index) {
-      this.editBuildName = !this.editBuildName;
+      this.editTeamName = !this.editTeamName;
       this.$store.dispatch("all", {
-        mutation: "editBuildName",
+        mutation: "editTeamName",
         data: { index: index, name: event.target.value },
       });
     },
 
-    toggleEditBuildName() {
-      this.editBuildName = !this.editBuildName;
+    toggleEditTeamName() {
+      this.editTeamName = !this.editTeamName;
     },
 
-    toggleCharacterAction(characterIndex, buildIndex, action) {
-      this.$store.dispatch("all", {
-        data: { characterIndex, buildIndex, action },
+    toggleCharacterAction(event, characterIndex, teamIndex, action) {
+      const store = this.$store;
+
+      if (event.ctrlKey && action == "displayCharaterBuild") {
+        store.dispatch("all", {
+          data: { characterIndex, teamIndex },
+          mutation: "removeCharacter",
+        });
+        return;
+      }
+
+      store.dispatch("all", {
+        data: { characterIndex, teamIndex, action },
         mutation: "toggleCharacterAction",
       });
     },
 
-    removeBuild(index) {
+    removeTeam(index) {
       this.$store.dispatch("all", {
-        mutation: "removeBuild",
+        mutation: "removeTeam",
         data: { index },
       });
     },
@@ -157,7 +195,7 @@ export default {
 
   data() {
     return {
-      editBuildName: false,
+      editTeamName: false,
       genshinTeamLimit: genshinTeamLimit,
     };
   },

@@ -131,7 +131,12 @@ export const writeCSVFile = (fileName, data, folderPath = documentsPath) => {
   }
 };
 
-export const writeJsonFile = (fileName, data, folderPath = documentsPath) => {
+export const writeJsonFile = (
+  fileName,
+  data,
+  folderPath = documentsPath,
+  overwrite = false
+) => {
   checkFolder(folderPath);
 
   const isJson = fileName.includes(".json");
@@ -143,7 +148,7 @@ export const writeJsonFile = (fileName, data, folderPath = documentsPath) => {
   }
 
   let newData = data;
-  let hasToWriteFile = false;
+  let hasToWriteFile = overwrite;
 
   try {
     fs.accessSync(filePath, fs.constants.F_OK);
@@ -153,7 +158,7 @@ export const writeJsonFile = (fileName, data, folderPath = documentsPath) => {
   }
 
   if (hasToWriteFile) {
-    newData = { data: [newData] };
+    newData = !Array.isArray(newData) ? { data: [newData] } : { data: newData };
   } else {
     const oldData = JSON.parse(fs.readFileSync(filePath));
     oldData.data.push(newData);
