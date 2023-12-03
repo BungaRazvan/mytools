@@ -36,7 +36,7 @@
       ],
       "main_stats": {
         "sands": "Elemental Mastery",
-        "goblet": "Dendro DMG Bonus / EM",
+        "goblet": "Dendro DMG Bonus / Elemental Mastery",
         "circlet": "CRIT Rate / CRIT DMG"
       },
       "sub_stats": [
@@ -286,7 +286,16 @@
         "Prototype Rancour",
         "Fillet Blade"
       ],
-      "artifacts": [],
+      "artifacts": [
+        {
+          "name": "Pale Flame",
+          "no": 2
+        },
+        {
+          "name": "Bloodstained Chivalry",
+          "no": 2
+        }
+      ],
       "main_stats": {
         "sands": "ATK%",
         "goblet": "Physical DMG Bonus",
@@ -295,7 +304,7 @@
       "sub_stats": ["CRIT Rate or DMG", "ATK%", "ATK", "Energy Recharge"]
     }
   ],
-  "Kazuha": [
+  "Kaedehara Kazuha": [
     {
       "name": "Swirl Support",
       "weapon": "Freedom-Sworn",
@@ -356,7 +365,7 @@
           "no": 2
         },
         {
-          "name": "Gladiator",
+          "name": "Gladiator's Finale",
           "no": 2
         }
       ],
@@ -379,7 +388,7 @@
       "artifacts": [
         {
           "name": "Pale Flame",
-          "no": 0
+          "no": 4
         }
       ],
       "main_stats": {
@@ -426,11 +435,11 @@
       "substitute": ["Freedom-Sworn", "Xiphos' Moonlight", "Sapwood Blade"],
       "artifacts": [
         {
-          "name": "Tenacity Of The Millelith",
+          "name": "Tenacity of the Millelith",
           "no": 2
         },
         {
-          "name": "Vourukasha",
+          "name": "Vourukasha's Glow",
           "no": 2
         }
       ],
@@ -447,7 +456,7 @@
       "substitute": ["Light Of Foliar Incision", "Skyward Blade", "Iron Sting"],
       "artifacts": [
         {
-          "name": "Gilded Dreams",
+          "name": " Gilded Dreams",
           "no": 4
         }
       ],
@@ -496,7 +505,7 @@
           "no": 2
         },
         {
-          "name": "Wanderer",
+          "name": "Wanderer's Troupe",
           "no": 2
         }
       ],
@@ -560,7 +569,7 @@
       "substitute": ["Freedom-Sworn", "Xiphos' Moonlight", "Iron Sting"],
       "artifacts": [
         {
-          "name": "Vourukasha",
+          "name": "Vourukasha's Glow",
           "no": 2
         },
         {
@@ -631,9 +640,9 @@
       "sub_stats": ["ATK", "Energy Recharge", "Elemental Mastery"]
     }
   ],
-  "Anemo Traveler": [
+  "Traveler": [
     {
-      "name": "Support",
+      "name": "Anemo Support",
       "weapon": "Freedom-Sworn",
       "substitute": [
         "Xiphos' Moonlight",
@@ -642,27 +651,30 @@
         "Favonius Sword",
         "Skyrider Sword"
       ],
-      "artifacts": [],
+      "artifacts": [
+        {
+          "name": "Viridescent Venerer",
+          "no": 4
+        }
+      ],
       "main_stats": {
         "sands": "Elemental Mastery",
         "goblet": "Elemental Mastery",
         "circlet": "Elemental Mastery"
       },
       "sub_stats": ["Elemental Mastery", "Energy Recharge", "ATK%", "ATK"]
-    }
-  ],
-  "Hydro Traveler": [
+    },
     {
-      "name": "DPS",
+      "name": "Hydro DPS",
       "weapon": "Primordial Jade Cutter",
       "substitute": ["Mistsplitter Reforged", "Wolf-Fang", "Festering Desire"],
       "artifacts": [
         {
-          "name": "Heart of Depth",
+          "name": "Any Hydro DMG Bonus",
           "no": 2
         },
         {
-          "name": "Gladiator",
+          "name": "Any ATK% Bonus",
           "no": 2
         }
       ],
@@ -674,7 +686,7 @@
       "sub_stats": ["Crit Rate", "CRIT DMG", "Energy Recharge", "ATK%"]
     },
     {
-      "name": "Support",
+      "name": "Hydro Support",
       "weapon": "Key of Khaj-Nisut",
       "substitute": [
         "Freedom-Sworn",
@@ -694,11 +706,9 @@
         "circlet": "Crit Rate"
       },
       "sub_stats": ["Energy Recharge", "Crit DMG", "CRIT Rate", "ATK%"]
-    }
-  ],
-  "Dendro Traveler": [
+    },
     {
-      "name": "Dendro Reaction Support",
+      "name": "Dendro Dendro Reaction Support",
       "weapon": "Xiphos' Moonlight",
       "substitute": ["Freedom-Sworn", "Iron Sting"],
       "artifacts": [
@@ -720,7 +730,7 @@
       ]
     },
     {
-      "name": "Dendro Sub-DPS",
+      "name": "Dendro Dendro Sub-DPS",
       "weapon": "Xiphos' Moonlight",
       "substitute": ["Sacrificial Sword", "Freedom-Sworn", "Sapwood Blade"],
       "artifacts": [
@@ -740,11 +750,9 @@
         "Energy Recharge",
         "ATK%"
       ]
-    }
-  ],
-  "Electro Traveler": [
+    },
     {
-      "name": "Battery Support",
+      "name": "Electro Battery Support",
       "weapon": "Sacrificial Sword",
       "substitute": ["Freedom-Sworn", "Favonius Sword", "Sapwood Blade"],
       "artifacts": [
@@ -759,11 +767,9 @@
         "circlet": "CRIT Rate / DMG"
       },
       "sub_stats": ["Energy Recharge", "CRIT Rate", "CRIT Damage", "ATK%"]
-    }
-  ],
-  "Geo Traveler": [
+    },
     {
-      "name": "DPS",
+      "name": "Geo DPS",
       "weapon": "Primordial Jade Cutter",
       "substitute": [
         "Summit Shaper",
@@ -772,7 +778,16 @@
         "Amenoma Kageuchi",
         "Festering Desire"
       ],
-      "artifacts": [],
+      "artifacts": [
+        {
+          "name": "Archaic Petra",
+          "no": 2
+        },
+        {
+          "name": "Noblesse Oblige",
+          "no": 2
+        }
+      ],
       "main_stats": {
         "sands": "ATK%",
         "goblet": "Geo DMG Bonus",
@@ -792,7 +807,12 @@
         "Sapwood Blade",
         "Skyrider Sword"
       ],
-      "artifacts": [],
+      "artifacts": [
+        {
+          "name": "Emblem Of Severed Fate",
+          "no": 4
+        }
+      ],
       "main_stats": {
         "sands": "ATK%",
         "goblet": "Hydro DMG Bonus",
@@ -851,7 +871,35 @@
       ]
     }
   ],
-  "Cyno": [],
+  "Cyno": [
+    {
+      "name": "Electro DPS",
+      "weapon": "Staff Of The Scarlet Sands",
+      "substitute": [
+        "Primordial Jade Winged-Spear",
+        "Staff Of Homa",
+        "Ballad Of The Fjords",
+        "White Tassel"
+      ],
+      "artifacts": [
+        {
+          "name": "Thundering Fury",
+          "no": 4
+        }
+      ],
+      "main_stats": {
+        "sands": "Elemental Mastery",
+        "goblet": "Electro DMG Bonus",
+        "circlet": "Crit Rate/DMG"
+      },
+      "sub_stats": [
+        "Crit Rate/DMG",
+        "Energy Recharge",
+        "ATK%",
+        "Elemental Mastery"
+      ]
+    }
+  ],
   "Hu Tao": [
     {
       "name": "Pyro Reaction",
@@ -1056,6 +1104,7 @@
       "sub_stats": ["ATK%", "Energy Recharge"]
     }
   ],
+  "Calamity Queller": [],
   "Thoma": [
     {
       "name": "Burgeon",
@@ -1107,7 +1156,12 @@
         "Missive Windspear",
         "Dragon's Bane"
       ],
-      "artifacts": [],
+      "artifacts": [
+        {
+          "name": "Emblem Of Severed Fate",
+          "no": 4
+        }
+      ],
       "main_stats": {
         "sands": "ATK%",
         "goblet": "Pyro DMG Bonus",
@@ -1266,7 +1320,7 @@
         }
       ],
       "main_stats": {
-        "sands": "HP% or ER",
+        "sands": "HP% or Energy Recharge",
         "goblet": "HP%",
         "circlet": "HP%"
       },
@@ -1283,13 +1337,18 @@
         "Mappa Mare",
         "Fruit of Fulfillment"
       ],
-      "artifacts": [],
+      "artifacts": [
+        {
+          "name": "Flower Of Paradise Lost",
+          "no": 4
+        }
+      ],
       "main_stats": {
-        "sands": "EM",
-        "goblet": "EM",
-        "circlet": "EM"
+        "sands": "Elemental Mastery",
+        "goblet": "Elemental Mastery",
+        "circlet": "Elemental Mastery"
       },
-      "sub_stats": ["EM", "Energy Recharge", "ATK%"]
+      "sub_stats": ["Elemental Mastery", "Energy Recharge", "ATK%"]
     },
     {
       "name": "Support Healer",
@@ -1300,7 +1359,12 @@
         "Favonius Codex",
         "Otherworldly Story"
       ],
-      "artifacts": [],
+      "artifacts": [
+        {
+          "name": "Ocean-Hued Clam",
+          "no": 4
+        }
+      ],
       "main_stats": {
         "sands": "HP%",
         "goblet": "HP%",
@@ -1398,7 +1462,7 @@
           "no": 2
         },
         {
-          "name": "Gladiator",
+          "name": "Any ATK%",
           "no": 2
         }
       ],
@@ -1568,7 +1632,16 @@
         "Dodoco Tales",
         "Eye Of Perception"
       ],
-      "artifacts": [],
+      "artifacts": [
+        {
+          "name": "Archaic Petra",
+          "no": 2
+        },
+        {
+          "name": "Any ATK%",
+          "no": 2
+        }
+      ],
       "main_stats": {
         "sands": "ATK%",
         "goblet": "Geo DMG Bonus",
@@ -1585,7 +1658,16 @@
         "Mappa Mare",
         "Thrilling Tales Of Dragon Slayers"
       ],
-      "artifacts": [],
+      "artifacts": [
+        {
+          "name": "Archaic Petra",
+          "no": 2
+        },
+        {
+          "name": "Noblesse Oblige",
+          "no": 2
+        }
+      ],
       "main_stats": {
         "sands": "ATK%",
         "goblet": "Geo DMG Bonus",
@@ -1606,9 +1688,9 @@
         }
       ],
       "main_stats": {
-        "sands": "ATK% / EM",
-        "goblet": "Anemo DMG Bonus / EM",
-        "circlet": "CRIT Rate / CRIT DMG / EM"
+        "sands": "ATK% / Elemental Mastery",
+        "goblet": "Anemo DMG Bonus / Elemental Mastery",
+        "circlet": "CRIT Rate / CRIT DMG / Elemental Mastery"
       },
       "sub_stats": ["CRIT DMG", "CRIT Rate", "Elemental Mastery", "ATK%"]
     }
@@ -1624,7 +1706,7 @@
       ],
       "artifacts": [
         {
-          "name": "Marechaussee Hunter",
+          "name": " Marechaussee Hunter",
           "no": 4
         }
       ],
@@ -1633,7 +1715,12 @@
         "goblet": "Hydro DMG Bonus",
         "circlet": "Crit DMG"
       },
-      "sub_stats": ["CRIT DMG", "HP%", "CRIT Rate", "ER or EM"]
+      "sub_stats": [
+        "CRIT DMG",
+        "HP%",
+        "CRIT Rate",
+        "Energy Recharge or Elemental Mastery"
+      ]
     }
   ],
   "Sucrose": [
@@ -1647,7 +1734,12 @@
         "Favonius Codex",
         "Thrilling Tales Of Dragon Slayers"
       ],
-      "artifacts": [],
+      "artifacts": [
+        {
+          "name": "Viridescent Venerer",
+          "no": 4
+        }
+      ],
       "main_stats": {
         "sands": "Elemental Mastery",
         "goblet": "Elemental Mastery",
@@ -1692,7 +1784,7 @@
       ],
       "artifacts": [
         {
-          "name": "Marechaussee Hunter",
+          "name": " Marechaussee Hunter",
           "no": 4
         }
       ],
@@ -1716,7 +1808,7 @@
         }
       ],
       "main_stats": {
-        "sands": "ATK% or EM",
+        "sands": "ATK% or Elemental Mastery",
         "goblet": "Electro DMG Bonus",
         "circlet": "Crit Rate or DMG"
       },
@@ -1767,7 +1859,7 @@
       ],
       "artifacts": [
         {
-          "name": "Wanderer",
+          "name": "Wanderer's Troupe",
           "no": 4
         }
       ],
@@ -1795,7 +1887,12 @@
         "Luxurious Sea-Lord",
         "Forest Regalia"
       ],
-      "artifacts": [],
+      "artifacts": [
+        {
+          "name": "Emblem Of Severed Fate",
+          "no": 4
+        }
+      ],
       "main_stats": {
         "sands": "ATK%",
         "goblet": "Electro DMG Bonus",
@@ -1818,7 +1915,12 @@
         "Prototype Archaic",
         "Rainslasher"
       ],
-      "artifacts": [],
+      "artifacts": [
+        {
+          "name": "Thundering Fury",
+          "no": 4
+        }
+      ],
       "main_stats": {
         "sands": "ATK%",
         "goblet": "Electro DMG Bonus",
@@ -1843,7 +1945,16 @@
         "Sacrificial Greatsword",
         "Akuoumaru"
       ],
-      "artifacts": [],
+      "artifacts": [
+        {
+          "name": "Blizzard Strayer",
+          "no": 2
+        },
+        {
+          "name": "Any ATK%",
+          "no": 2
+        }
+      ],
       "main_stats": {
         "sands": "ATK%",
         "goblet": "Cryo DMG Bonus",
@@ -2032,7 +2143,7 @@
           "no": 2
         },
         {
-          "name": "Gladiator",
+          "name": "Any ATK%",
           "no": 2
         }
       ],
@@ -2098,7 +2209,7 @@
       ],
       "main_stats": {
         "sands": "Elemental Mastery",
-        "goblet": "Dendro DMG Bonus / EM",
+        "goblet": "Dendro DMG Bonus / Elemental Mastery",
         "circlet": "CRIT Rate / CRIT DMG"
       },
       "sub_stats": [
@@ -2276,7 +2387,7 @@
       ],
       "artifacts": [
         {
-          "name": "Wanderer",
+          "name": "Wanderer's Troupe",
           "no": 4
         }
       ],
@@ -2338,9 +2449,9 @@
       ]
     }
   ],
-  "Childe (Tartaglia)": [
+  "Tartaglia": [
     {
-      "name": "Childe Hydro On-Field DPS/Enabler",
+      "name": "Hydro On-Field DPS/Enabler",
       "weapon": "Polar Star",
       "substitute": [
         "Skyward Harp",
@@ -2351,7 +2462,7 @@
       ],
       "artifacts": [
         {
-          "name": "Nymph",
+          "name": "Nymph's Dream",
           "no": 4
         }
       ],
@@ -2368,12 +2479,12 @@
       ]
     },
     {
-      "name": "Childe Burst Nuke",
+      "name": "Burst Nuke",
       "weapon": "Polar Star",
       "substitute": ["Skyward Harp", "The Stringless", "King's Squire"],
       "artifacts": [
         {
-          "name": "Wanderer",
+          "name": "Wanderer's Troupe",
           "no": 2
         },
         {
@@ -2569,7 +2680,7 @@
       "substitute": ["Aqua Simulacra", "Amos' Bow", "Hamayumi"],
       "artifacts": [
         {
-          "name": "Wanderer",
+          "name": "Wanderer's Troupe",
           "no": 4
         }
       ],
@@ -2586,7 +2697,6 @@
       ]
     }
   ],
-  "Hunter": [],
   "Gorou": [
     {
       "name": "Geo Support",
@@ -2656,9 +2766,9 @@
         }
       ],
       "main_stats": {
-        "sands": "EM",
-        "goblet": "EM",
-        "circlet": "EM"
+        "sands": "Elemental Mastery",
+        "goblet": "Elemental Mastery",
+        "circlet": "Elemental Mastery"
       },
       "sub_stats": ["Elemental Mastery", "Energy Recharge", "ATK%"]
     },
@@ -2672,7 +2782,7 @@
           "no": 2
         },
         {
-          "name": "Gladiator",
+          "name": "Gladiator's Finale",
           "no": 2
         }
       ],
@@ -2747,7 +2857,7 @@
       ],
       "artifacts": [
         {
-          "name": "Shimenawa",
+          "name": "Shimenawa's Reminiscence",
           "no": 4
         }
       ],
@@ -2771,7 +2881,7 @@
       "substitute": ["Aqua Simulacra", "Skyward Harp", "Blackcliff Warbow"],
       "artifacts": [
         {
-          "name": "Marechaussee Hunter",
+          "name": " Marechaussee Hunter",
           "no": 4
         }
       ],

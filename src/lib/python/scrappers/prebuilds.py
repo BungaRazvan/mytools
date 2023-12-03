@@ -34,6 +34,11 @@ def character_builds(link, character):
         rows = table.find_all("tr")
         build_data["name"] = h3.text.replace("Build", "").replace(character, "").strip()
 
+        if "Traveler" in character:
+            build_data["name"] = (
+                character.replace("Traveler", "").strip() + " " + build_data["name"]
+            )
+
         for row in rows:
             category = row.th.text.lower()
 
@@ -47,18 +52,18 @@ def character_builds(link, character):
                 ]
                 build_data["substitute"] = substitutes
 
-            if category == "best artifact":
+            if category in ["best artifact", "best"]:
                 tags = row.td.find_all("a")
 
                 for tag in tags:
-                    artifact_name = tag.find("img")["alt"]
+                    artifact_name = tag.find("img").parent.text
 
                     try:
                         artifact_number = int(
                             tag.parent.get_text(strip=True).split("x")[-1].strip()[0]
                         )
                     except Exception:
-                        artifact_number = 0
+                        artifact_number = 4
 
                     # Append to the list of artifacts
                     build_data["artifacts"].append(
@@ -76,7 +81,17 @@ def character_builds(link, character):
                 stats = text.split("  ")
 
                 for index, key in enumerate(keys):
-                    build_data["main_stats"][key.lower()] = stats[index].strip()
+                    stat = stats[index].strip()
+
+                    if stat == "EM":
+                        stat = "Elemental Mastery"
+                    elif stat == "ER":
+                        stat = "Energy Recharge"
+
+                    stat = stat.replace("EM", "Elemental Mastery").replace(
+                        "ER", "Energy Recharge"
+                    )
+                    build_data["main_stats"][key.lower()] = stat
 
             if category == "priority sub-stats":
                 text = row.td.text.replace(".", " ")
@@ -85,7 +100,11 @@ def character_builds(link, character):
                     text = text.replace(str(i), "")
 
                 build_data["sub_stats"] = [
-                    stat.strip() for stat in text.split("  ") if stat
+                    stat.strip()
+                    .replace("EM", "Elemental Mastery")
+                    .replace("ER", "Energy Recharge")
+                    for stat in text.split("  ")
+                    if stat
                 ]
 
         builds_data.append(build_data)
@@ -111,8 +130,18 @@ def characters_links():
                 character,
                 img.parent.get("href"),
             )
-            builds_charactert = character_builds(img.parent.get("href"), character)
-            all_builds[character] = builds_charactert
+            builds_character = character_builds(img.parent.get("href"), character)
+
+            if "Traveler" in character:
+                character = "Traveler"
+
+                if len(all_builds.get("Traveler", [])):
+                    for build in builds_character:
+                        all_builds["Traveler"].append(build)
+
+                    continue
+
+            all_builds[character] = builds_character
 
     return all_builds
 

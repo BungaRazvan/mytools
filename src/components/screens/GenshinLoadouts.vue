@@ -1,6 +1,11 @@
 <template>
   <div class="teams-container">
     <div class="teams">
+      <div class="btn-container">
+        <div class="btn fill" @click="goBack">Back</div>
+        <div class="btn raise" @click="saveConfig">Save</div>
+      </div>
+
       <Team
         :name="team.name"
         :characters="team.characters"
@@ -95,6 +100,39 @@ export default {
 
   computed: {
     ...mapGetters(["displayCharaterBuild", "displayCharactersList", "teams"]),
+  },
+
+  methods: {
+    saveConfig() {
+      window.ipc.send("writeJsonFile", {
+        fileName: "genshinLoadouts.json",
+        data: JSON.parse(JSON.stringify(this.teams)),
+        overwrite: true,
+      });
+    },
+  },
+
+  mounted() {
+    const store = this.$store;
+
+    window.ipc
+      .receive("readJsonFile", {
+        fileName: "genshinLoadouts.json",
+      })
+      .then((data) => {
+        if (!data) {
+          data = { data: [{ name: `Team #1`, characters: [] }] };
+        }
+
+        store.dispatch("all", {
+          data: data.data,
+          mutation: "setTeams",
+        });
+      });
+  },
+
+  unmounted() {
+    this.saveConfig();
   },
 };
 </script>

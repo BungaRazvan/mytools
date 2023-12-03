@@ -15,7 +15,7 @@
         <td class="column center">
           <div v-for="substitute in substitutes">
             <img :src="this.itemNametoImage(substitute, 'weapon')" />
-            {{ substitute }}
+            <div>{{ substitute }}</div>
           </div>
         </td>
       </tr>
@@ -66,14 +66,8 @@ export default {
   props: ["weapon", "substitutes"],
 
   methods: {
-    itemNametoImage(itemName, type) {
-      let imgPath = "img/genshin";
-
-      if (type == "weapon") {
-        imgPath += "/weapons/Weapon_" + itemName.replaceAll(" ", "_") + ".png";
-
-        return imgPath;
-      }
+    itemNametoImage(itemName) {
+      return "img/genshin/weapons/" + itemName.replaceAll(" ", "_") + ".png";
     },
   },
 };

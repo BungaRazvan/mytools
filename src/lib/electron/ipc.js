@@ -50,6 +50,11 @@ ipcMain.on("saveItems", (event, args) => {
   });
 });
 
+ipcMain.on("writeJsonFile", (event, args) => {
+  const { fileName, data, folderPath, overwrite } = args;
+  writeJsonFile(fileName, data, folderPath, overwrite);
+});
+
 ipcMain.on("setSetting", (event, args) => {
   const { setting, data } = args;
 
@@ -91,8 +96,6 @@ ipcMain.on("openBrowser", (event, args) => {
   const { url } = args;
 
   event.preventDefault();
-
-  console.log(url);
 
   if (!url) {
     return;

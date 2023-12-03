@@ -49,7 +49,7 @@
     flex-wrap: wrap;
     display: flex;
     overflow-y: auto;
-    height: 90vh;
+    max-height: 90vh;
 
     &::-webkit-scrollbar {
       display: none;
@@ -58,6 +58,7 @@
 
   .avatar {
     cursor: pointer;
+    padding-bottom: 10px;
 
     img {
       border-radius: 25%;
@@ -93,7 +94,9 @@ export default {
       }
 
       const foundCharacters = characters.filter((character) => {
-        if (character.name.toLowerCase().includes(e.target.value)) {
+        if (
+          character.name.toLowerCase().includes(e.target.value.toLowerCase())
+        ) {
           return character;
         }
       });

@@ -1,4 +1,4 @@
-import { map } from "lodash";
+import { map, isEmpty } from "lodash";
 
 import { genshinTeamLimit } from "@/lib/vue/constants";
 
@@ -6,66 +6,15 @@ const state = () => ({
   displayCharactersList: false,
   displayCharaterBuild: false,
 
+  buildName: "",
   teamIndex: null,
   characterIndex: null,
+
   selectedBuild: {},
-  teams: [
-    {
-      name: "Team #1",
-      characters: [
-        {
-          name: "Raiden Shogun",
-          thumbnail: "Raiden_Shogun_Icon.webp",
-          artifacts: [],
-          weapon: null,
-          rarity: 5,
-        },
-      ],
-    },
-
-    {
-      name: "team #2",
-      characters: [
-        {
-          name: "Raiden Shogun",
-          thumbnail: "Raiden_Shogun_Icon.webp",
-          artifacts: [],
-          weapon: null,
-          rarity: 5,
-        },
-        {
-          name: "Jean",
-          type: "Character",
-          rarity: 5,
-          element: "Anemo",
-          weapon: "Sword",
-          region: "Mondstadt",
-          thumbnail: "Jean_Icon.webp",
-        },
-        {
-          name: "Eula",
-          type: "Character",
-          rarity: 5,
-          element: "Cryo",
-          weapon: "Claymore",
-          region: "Mondstadt",
-          thumbnail: "Eula_Icon.webp",
-        },
-        {
-          name: "Yelan",
-          type: "Character",
-          rarity: 5,
-          element: "Hydro",
-          weapon: "Bow",
-          region: "Liyue",
-          thumbnail: "Yelan_Icon.webp",
-        },
-      ],
-    },
-  ],
-
+  teams: [],
   characters: [],
   preBuilds: [],
+  allArtifacts: [],
 });
 
 const getters = {
@@ -84,6 +33,7 @@ const getters = {
   teamIndex: (state, getters, rootState) => {
     return state.teamIndex;
   },
+
   characterIndex: (state, getters, rootState) => {
     return state.characterIndex;
   },
@@ -95,8 +45,17 @@ const getters = {
   preBuilds: (state, getters, rootState) => {
     return state.preBuilds;
   },
+
   selectedBuild: (state, getters, rootState) => {
     return state.selectedBuild;
+  },
+
+  buildName: (state, getters, rootState) => {
+    return state.buildName;
+  },
+
+  allArtifacts: (state, getters, rootState) => {
+    return state.allArtifacts;
   },
 };
 
@@ -112,26 +71,28 @@ const mutations = {
 
     state[opositAction] = false;
     state.selectedBuild = {};
+    state.buildName = "";
 
-    if (
-      state.teamIndex == teamIndex &&
-      state.characterIndex != characterIndex
-    ) {
-      state.characterIndex = characterIndex;
-      return;
+    const characterBuild =
+      state.teams[teamIndex].characters[characterIndex]?.build;
+
+    if (!isEmpty(characterBuild)) {
+      state.selectedBuild = characterBuild;
+      state.buildName = characterBuild.name;
     }
 
     if (
+      toggleStatus &&
       state.teamIndex == teamIndex &&
       state.characterIndex == characterIndex
     ) {
-      state[action] = !toggleStatus;
       state.teamIndex = null;
       state.characterIndex = null;
+      state[action] = false;
       return;
     }
 
-    if (toggleStatus && state.teamIndex != teamIndex) {
+    if (toggleStatus) {
       state.teamIndex = teamIndex;
       state.characterIndex = characterIndex;
       return;
@@ -149,6 +110,16 @@ const mutations = {
 
   removeTeam(state, data) {
     const { index } = data;
+    const teamIndex = state.teamIndex;
+
+    if (index == teamIndex) {
+      state.teamIndex = null;
+      state.characterIndex = null;
+      state.selectedBuild = {};
+      state.displayCharaterBuild = false;
+      state.displayCharactersList = false;
+    }
+
     state.teams.splice(index, 1);
   },
 
@@ -195,8 +166,16 @@ const mutations = {
     });
   },
 
+  setBuildName(state, data) {
+    state.buildName = data;
+  },
+
   setCharacters(state, data) {
     state.characters = data;
+  },
+
+  setTeams(state, data) {
+    state.teams = data;
   },
 
   setPreBuilds(state, data) {
@@ -204,8 +183,16 @@ const mutations = {
   },
 
   setSelectedBuild(state, data) {
-    console.log(data);
     state.selectedBuild = data;
+  },
+
+  setBuild(state) {
+    state.teams[state.teamIndex].characters[state.characterIndex].build =
+      state.selectedBuild;
+  },
+
+  setAllArtifacts(state, data) {
+    state.allArtifacts = data;
   },
 };
 

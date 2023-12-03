@@ -4,7 +4,7 @@
       <select
         name="builds"
         class="builds"
-        @change="chooseBuild(buildName)"
+        @change="chooseBuild"
         v-model="buildName"
       >
         <option value="" selected>Select Build</option>
@@ -38,7 +38,7 @@
     </div>
 
     <div v-if="selectedBuild.name">
-      <div class="btn offset">Set Build</div>
+      <div @click="setBuild" class="btn offset">Set Build</div>
     </div>
   </div>
 </template>
@@ -75,11 +75,16 @@
 <script>
 import { find } from "lodash";
 import { mapGetters } from "vuex";
+import { computed } from "vue";
+
+import { store } from "@/lib/vue/store";
 
 import Tabs from "@/components/Tabs.vue";
 
 import WeaponsList from "./WeaponsList.vue";
 import ArtifactsList from "./ArtifactsList.vue";
+
+const buildName = computed({});
 
 export default {
   name: "CharacterBuild",
@@ -87,6 +92,22 @@ export default {
 
   computed: {
     ...mapGetters(["selectedBuild"]),
+
+    buildName: {
+      get() {
+        const getters = this.$store.getters;
+
+        return getters.buildName;
+      },
+
+      set(value) {
+        const getters = this.$store;
+        store.dispatch("all", {
+          mutation: "setBuildName",
+          data: value,
+        });
+      },
+    },
   },
 
   methods: {
@@ -106,15 +127,15 @@ export default {
         return {};
       }
 
-      const character = getters.teams[teamIndex].characters[characterIndex];
-
-      return character;
+      return getters.teams[teamIndex].characters[characterIndex];
     },
 
-    chooseBuild(buildName) {
-      if (buildName) {
+    chooseBuild() {
+      const getters = this.$store.getters;
+
+      if (getters.buildName) {
         const builds = this.allBuilds();
-        const build = find(builds, (build) => build.name == buildName);
+        const build = find(builds, (build) => build.name == getters.buildName);
         this.$store.dispatch("all", {
           mutation: "setSelectedBuild",
           data: build,
@@ -128,22 +149,11 @@ export default {
       });
     },
 
-    itemNametoImage(itemName, type) {
-      let imgPath = "img/genshin";
-
-      if (type == "weapon") {
-        imgPath += "/weapons/Weapon_" + itemName.replaceAll(" ", "_") + ".png";
-
-        return imgPath;
-      }
+    setBuild() {
+      this.$store.dispatch("all", {
+        mutation: "setBuild",
+      });
     },
-  },
-
-  data() {
-    return {
-      choosedBuild: {},
-      buildName: "",
-    };
   },
 
   mounted() {

@@ -11,18 +11,22 @@
         <td>Flower</td>
         <td>HP</td>
         <td rowspan="5">
-          <div v-for="(stat, index) in subStats">
+          <div v-for="stat in subStats">
             {{ stat }}
           </div>
         </td>
         <td rowspan="5">
-          <div v-for="artifact in artifacts">
+          <div v-for="(artifact, index) in artifacts">
             <img
               :alt="artifact.name"
-              :src="`img/genshin/artifacts/${artifact.name.replaceAll(
-                ' ',
-                '_'
-              )}_Flower.png`"
+              :src="artifactNameToImage(artifact.name)"
+              v-if="!artifact.name.includes('Any')"
+            />
+
+            <hr v-if="artifact.name.includes('Any') && index != 0" />
+            <ImageList
+              v-if="artifact.name.includes('Any')"
+              :images="findArtifacts(artifact.name)"
             />
             <div>x {{ artifact.no }}</div>
             <div>{{ artifact.name }}</div>
@@ -83,8 +87,60 @@
 </style>
 
 <script>
+import { mapGetters } from "vuex";
+import { filter, map } from "lodash";
+
+import ImageList from "@/components/ImageList.vue";
+
 export default {
   name: "ArtifactsList",
   props: ["artifacts", "mainStats", "subStats"],
+  components: { ImageList },
+
+  computed: {
+    ...mapGetters(["allArtifacts"]),
+  },
+
+  methods: {
+    findArtifacts(setName) {
+      let stat = setName.replaceAll("Any", "").replaceAll("Bonus", "").trim();
+
+      if (stat == "ATK%") {
+        stat = "ATK";
+      }
+
+      const artifacts = filter(this.allArtifacts, (artifact) => {
+        if (artifact.bonus["2-piece"].includes(stat)) {
+          return artifact;
+        }
+      });
+
+      return map(artifacts, (artifact) =>
+        this.artifactNameToImage(artifact.set_name)
+      );
+    },
+
+    artifactNameToImage(name) {
+      return `img/genshin/artifacts/${name.replaceAll(" ", "_")}_Flower.png`;
+    },
+  },
+
+  mounted() {
+    const store = this.$store;
+
+    if (!this.allArtifacts.length) {
+      window.ipc
+        .receive("readJsonFile", {
+          folderPath: `${__static}/data/genshin/`,
+          fileName: "artifacts.json",
+        })
+        .then((data) => {
+          store.dispatch("all", {
+            mutation: "setAllArtifacts",
+            data: data.data,
+          });
+        });
+    }
+  },
 };
 </script>

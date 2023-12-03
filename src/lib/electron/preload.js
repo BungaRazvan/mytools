@@ -12,6 +12,7 @@ contextBridge.exposeInMainWorld("ipc", {
       "stopPython",
       "saveItems",
       "openBrowser",
+      "writeJsonFile",
     ];
 
     if (validChannels.includes(channel)) {

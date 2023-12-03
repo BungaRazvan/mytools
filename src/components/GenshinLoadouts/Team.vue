@@ -170,15 +170,6 @@ export default {
 
     toggleCharacterAction(event, characterIndex, teamIndex, action) {
       const store = this.$store;
-      const getters = store.getters;
-
-      // if (
-      //   action == "displayCharaterBuild" &&
-      //   getters.characterIndex == characterIndex &&
-      //   getters.teamIndex == teamIndex
-      // ) {
-      //   return;
-      // }
 
       if (event.ctrlKey && action == "displayCharaterBuild") {
         store.dispatch("all", {
