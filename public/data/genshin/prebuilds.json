@@ -21,12 +21,12 @@
   "Alhaitham": [
     {
       "name": "Main DPS",
-      "weapon": "Light Of Foliar Incision",
+      "weapon": "Light of Foliar Incision",
       "substitute": [
         "Primordial Jade Cutter",
         "Haran Geppaku Futsu",
         "Wolf-Fang",
-        "Harbinger Of Dawn"
+        "Harbinger of Dawn"
       ],
       "artifacts": [
         {
@@ -109,7 +109,7 @@
       ],
       "artifacts": [
         {
-          "name": "Echoes Of An Offering",
+          "name": "Echoes of An offering",
           "no": 4
         }
       ],
@@ -131,7 +131,7 @@
       "substitute": ["Amenoma Kageuchi", "Xiphos' Moonlight", "Favonius Sword"],
       "artifacts": [
         {
-          "name": "Heart Of Depth",
+          "name": "Heart of Depth",
           "no": 2
         },
         {
@@ -431,7 +431,7 @@
   "Kirara": [
     {
       "name": "Support",
-      "weapon": "Key Of Khaj-Nisut",
+      "weapon": "Key of Khaj-Nisut",
       "substitute": ["Freedom-Sworn", "Xiphos' Moonlight", "Sapwood Blade"],
       "artifacts": [
         {
@@ -453,7 +453,7 @@
     {
       "name": "DPS",
       "weapon": "Primordial Jade Cutter",
-      "substitute": ["Light Of Foliar Incision", "Skyward Blade", "Iron Sting"],
+      "substitute": ["Light of Foliar Incision", "Skyward Blade", "Iron Sting"],
       "artifacts": [
         {
           "name": " Gilded Dreams",
@@ -480,7 +480,7 @@
       "substitute": ["Freedom-Sworn", "Key of Khaj-Nisut", "Iron Sting"],
       "artifacts": [
         {
-          "name": "Flower Of Paradise Lost",
+          "name": "Flower of Paradise Lost",
           "no": 4
         }
       ],
@@ -501,7 +501,7 @@
       ],
       "artifacts": [
         {
-          "name": "Tenacity of The Millelith",
+          "name": "Tenacity of the Millelith",
           "no": 2
         },
         {
@@ -520,11 +520,11 @@
   "Layla": [
     {
       "name": "Shield-Support",
-      "weapon": "Key Of Khaj-Nisut",
+      "weapon": "Key of Khaj-Nisut",
       "substitute": ["Freedom-Sworn", "Harbinger of Dawn", "Favonius Sword"],
       "artifacts": [
         {
-          "name": "Tenacity of The Millelith",
+          "name": "Tenacity of the Millelith",
           "no": 4
         }
       ],
@@ -546,7 +546,7 @@
       "substitute": ["Harbinger of Dawn", "Sacrificial Sword"],
       "artifacts": [
         {
-          "name": "Tenacity of The Millelith",
+          "name": "Tenacity of the Millelith",
           "no": 2
         },
         {
@@ -573,7 +573,7 @@
           "no": 2
         },
         {
-          "name": "Tenacity of The Millelith",
+          "name": "Tenacity of the Millelith",
           "no": 2
         }
       ],
@@ -595,11 +595,11 @@
       "substitute": [
         "Haran Geppaku Futsu",
         "Festering Desire",
-        "Harbinger Of Dawn"
+        "Harbinger of Dawn"
       ],
       "artifacts": [
         {
-          "name": "Heart Of Depth",
+          "name": "Heart of Depth",
           "no": 4
         }
       ],
@@ -798,7 +798,7 @@
   ],
   "Xingqiu": [
     {
-      "name": "Off-Field DPS",
+      "name": "off-Field DPS",
       "weapon": "Sacrificial Sword",
       "substitute": [
         "Freedom-Sworn",
@@ -837,7 +837,7 @@
           "no": 2
         },
         {
-          "name": "Tenacity of The Millelith",
+          "name": "Tenacity of the Millelith",
           "no": 2
         }
       ],
@@ -850,11 +850,11 @@
     },
     {
       "name": "Main DPS",
-      "weapon": "Staff Of Homa",
+      "weapon": "Staff 9f Homa",
       "substitute": ["Deathmatch", "Blackcliff Pole", "White Tassel"],
       "artifacts": [
         {
-          "name": "Heart Of Depth",
+          "name": "Heart of Depth",
           "no": 4
         }
       ],
@@ -874,11 +874,11 @@
   "Cyno": [
     {
       "name": "Electro DPS",
-      "weapon": "Staff Of The Scarlet Sands",
+      "weapon": "Staff of The Scarlet Sands",
       "substitute": [
         "Primordial Jade Winged-Spear",
-        "Staff Of Homa",
-        "Ballad Of The Fjords",
+        "Staff of Homa",
+        "Ballad of The Fjords",
         "White Tassel"
       ],
       "artifacts": [
@@ -905,7 +905,7 @@
       "name": "Pyro Reaction",
       "weapon": "Staff of Homa",
       "substitute": [
-        "Staff Of The Scarlet Sands",
+        "Staff of The Scarlet Sands",
         "Primordial Jade Winged-Spear",
         "Deathmatch",
         "Dragon's Bane",
@@ -933,7 +933,7 @@
       "name": "Burst DPS",
       "weapon": "Staff of Homa",
       "substitute": [
-        "Staff Of The Scarlet Sands",
+        "Staff of The Scarlet Sands",
         "Primordial Jade Winged-Spear",
         "Deathmatch",
         "Blackcliff Pole",
@@ -1016,7 +1016,7 @@
       "substitute": ["Moonpiercer", "Kitain Cross Spear"],
       "artifacts": [
         {
-          "name": "Flower Of Paradise Lost",
+          "name": "Flower of Paradise Lost",
           "no": 4
         }
       ],
@@ -1112,7 +1112,7 @@
       "substitute": ["Moonpiercer", "Kitain Cross Spear"],
       "artifacts": [
         {
-          "name": "Flower Of Paradise Lost",
+          "name": "Flower of Paradise Lost",
           "no": 4
         }
       ],
@@ -1147,10 +1147,10 @@
   ],
   "Xiangling": [
     {
-      "name": "Off-Field DPS",
-      "weapon": "Staff Of The Scarlet Sands",
+      "name": "off-Field DPS",
+      "weapon": "Staff of The Scarlet Sands",
       "substitute": [
-        "Staff Of Homa",
+        "Staff of Homa",
         "Wavebreaker's Fin",
         "The Catch",
         "Missive Windspear",
@@ -1180,7 +1180,7 @@
       "name": "Anemo Hyoercarry",
       "weapon": "Primordial Jade Winged-Spear",
       "substitute": [
-        "Staff Of Homa",
+        "Staff of Homa",
         "Vortex Vanquisher",
         "Deathmatch",
         "Blackcliff Pole"
@@ -1206,7 +1206,7 @@
       "substitute": ["Black Tassel", "Favonius Lance", "Kitain Cross Spear"],
       "artifacts": [
         {
-          "name": "Tenacity of The Millelith",
+          "name": "Tenacity of the Millelith",
           "no": 4
         }
       ],
@@ -1240,11 +1240,11 @@
   "Zhongli": [
     {
       "name": "Shield Support DPS",
-      "weapon": "Staff Of Homa",
+      "weapon": "Staff of Homa",
       "substitute": ["Black Tassel", "Vortex Vanquisher"],
       "artifacts": [
         {
-          "name": "Tenacity of The Millelith",
+          "name": "Tenacity of the Millelith",
           "no": 4
         }
       ],
@@ -1266,7 +1266,7 @@
       ],
       "artifacts": [
         {
-          "name": "Tenacity of The Millelith",
+          "name": "Tenacity of the Millelith",
           "no": 2
         },
         {
@@ -1285,7 +1285,7 @@
   "Baizhu": [
     {
       "name": "Dendro Support",
-      "weapon": "Thrilling Tales Of Dragon Slayers",
+      "weapon": "Thrilling Tales of Dragon Slayers",
       "substitute": [
         "Jadefall's Splendor",
         "Prototype Amber",
@@ -1310,7 +1310,7 @@
       "weapon": "Jadefall's Splendor",
       "substitute": [
         "Prototype Amber",
-        "Thrilling Tales Of Dragon Slayers",
+        "Thrilling Tales of Dragon Slayers",
         "Favonius Codex"
       ],
       "artifacts": [
@@ -1339,7 +1339,7 @@
       ],
       "artifacts": [
         {
-          "name": "Flower Of Paradise Lost",
+          "name": "Flower of Paradise Lost",
           "no": 4
         }
       ],
@@ -1352,7 +1352,7 @@
     },
     {
       "name": "Support Healer",
-      "weapon": "Thrilling Tales Of Dragon Slayers (F2P)",
+      "weapon": "Thrilling Tales of Dragon Slayers (F2P)",
       "substitute": [
         "Everlasting Moonglow",
         "Prototype Amber",
@@ -1385,7 +1385,7 @@
       ],
       "artifacts": [
         {
-          "name": "Crimson Witch Of Flames",
+          "name": "Crimson Witch of Flames",
           "no": 4
         }
       ],
@@ -1408,7 +1408,7 @@
       "weapon": "Everlasting Moonglow",
       "substitute": [
         "Prototype Amber",
-        "Thrilling Tales Of Dragon Slayers",
+        "Thrilling Tales of Dragon Slayers",
         "Hakushin Ring"
       ],
       "artifacts": [
@@ -1426,7 +1426,7 @@
     },
     {
       "name": "High Utility Support",
-      "weapon": "Thrilling Tales Of Dragon Slayers",
+      "weapon": "Thrilling Tales of Dragon Slayers",
       "substitute": [
         "Sacrificial Fragments",
         "Prototype Amber",
@@ -1434,7 +1434,7 @@
       ],
       "artifacts": [
         {
-          "name": "Tenacity of The Millelith",
+          "name": "Tenacity of the Millelith",
           "no": 4
         }
       ],
@@ -1483,7 +1483,7 @@
       "weapon": "A Thousand Floating Dreams",
       "substitute": [
         "Hakushin Ring",
-        "Fruit Of Fulfillment",
+        "Fruit of Fulfillment",
         "Favonius Codex",
         "Mappa Mare",
         "Magic Guide"
@@ -1515,7 +1515,7 @@
         "Lost Prayer To The Sacred Winds",
         "Oathsworn Eye",
         "Favonius Codex",
-        "Thrilling Tales Of Dragon Slayers",
+        "Thrilling Tales of Dragon Slayers",
         "Hakushin Ring"
       ],
       "artifacts": [
@@ -1548,7 +1548,7 @@
       ],
       "artifacts": [
         {
-          "name": "Heart Of Depth",
+          "name": "Heart of Depth",
           "no": 4
         }
       ],
@@ -1626,11 +1626,11 @@
       "name": "Main DPS",
       "weapon": "Lost Prayer To The Sacred Winds",
       "substitute": [
-        "Memory Of Dust",
+        "Memory of Dust",
         "Kagura's Verity",
         "Solar Pearl",
         "Dodoco Tales",
-        "Eye Of Perception"
+        "Eye of Perception"
       ],
       "artifacts": [
         {
@@ -1656,7 +1656,7 @@
         "The Widsith",
         "Favonius Codex",
         "Mappa Mare",
-        "Thrilling Tales Of Dragon Slayers"
+        "Thrilling Tales of Dragon Slayers"
       ],
       "artifacts": [
         {
@@ -1698,7 +1698,7 @@
   "Neuvillette": [
     {
       "name": "DPS",
-      "weapon": "Tome Of The Eternal Flow",
+      "weapon": "Tome of The Eternal Flow",
       "substitute": [
         "Sacrificial Jade",
         "Prototype Amber",
@@ -1730,9 +1730,9 @@
       "substitute": [
         "A Thousand Floating Dreams",
         "Wandering Evenstar",
-        "Fruit Of Fulfillment",
+        "Fruit of Fulfillment",
         "Favonius Codex",
-        "Thrilling Tales Of Dragon Slayers"
+        "Thrilling Tales of Dragon Slayers"
       ],
       "artifacts": [
         {
@@ -1852,7 +1852,7 @@
       "name": "Pyro Main DPS",
       "weapon": "Lost Prayer To The Sacred Winds",
       "substitute": [
-        "Memory Of Dust",
+        "Memory of Dust",
         "The Widsith",
         "Solar Pearl",
         "Dodoco Tales"
@@ -2039,7 +2039,7 @@
       "substitute": ["The Unforged", "Serpent Spine", "Prototype Archaic"],
       "artifacts": [
         {
-          "name": "Crimson Witch Of Flames",
+          "name": "Crimson Witch of Flames",
           "no": 4
         }
       ],
@@ -2066,7 +2066,7 @@
           "no": 2
         },
         {
-          "name": "Tenacity of The Millelith",
+          "name": "Tenacity of the Millelith",
           "no": 2
         }
       ],
@@ -2081,7 +2081,7 @@
   "Eula": [
     {
       "name": "Physical Main DPS",
-      "weapon": "Song Of Broken Pines",
+      "weapon": "Song of Broken Pines",
       "substitute": [
         "Wolf's Gravestone",
         "Serpent Spine",
@@ -2162,7 +2162,7 @@
       "substitute": ["Wolf's Gravestone", "Serpent Spine", "Whiteblind"],
       "artifacts": [
         {
-          "name": "Husk Of Opulent Dreams",
+          "name": "Husk of Opulent Dreams",
           "no": 4
         }
       ],
@@ -2181,7 +2181,7 @@
       "substitute": ["Makhaira Aquamarine", "Rainslasher", "Forest Regalia"],
       "artifacts": [
         {
-          "name": "Flower Of Paradise Lost",
+          "name": "Flower of Paradise Lost",
           "no": 4
         }
       ],
@@ -2196,7 +2196,7 @@
       "name": "Spread DPS",
       "weapon": "Wolf's Gravestone",
       "substitute": [
-        "Beacon Of The Reed Sea",
+        "Beacon of The Reed Sea",
         "Serpent Spine",
         "Mailed Flower",
         "Forest Regalia"
@@ -2232,7 +2232,7 @@
       ],
       "artifacts": [
         {
-          "name": "Husk Of Opulent Dreams",
+          "name": "Husk of Opulent Dreams",
           "no": 4
         }
       ],
@@ -2247,7 +2247,7 @@
   "Razor": [
     {
       "name": "Physical Main DPS",
-      "weapon": "Song Of Broken Pines",
+      "weapon": "Song of Broken Pines",
       "substitute": [
         "Wolf's Gravestone",
         "Serpent Spine",
@@ -2353,7 +2353,7 @@
       "name": "Burst Support",
       "weapon": "Polar Star",
       "substitute": [
-        "Elegy For The End",
+        "Elegy for the End",
         "Mouun's Moon",
         "The Stringless",
         "Fading Twilight"
@@ -2508,7 +2508,7 @@
   "Collei": [
     {
       "name": "Elemental Mastery Support",
-      "weapon": "Elegy For The End",
+      "weapon": "Elegy for the End",
       "substitute": ["The Stringless", "Windblume Ode", "Sacrificial Bow"],
       "artifacts": [
         {
@@ -2532,7 +2532,7 @@
       "name": "Dendro Sub-DPS",
       "weapon": "Aqua Simulacra",
       "substitute": [
-        "Elegy For The End",
+        "Elegy for the End",
         "Polar Star",
         "The Stringless",
         "Fading Twilight"
@@ -2560,7 +2560,7 @@
     {
       "name": "Support/Healer",
       "weapon": "Sacrificial Bow",
-      "substitute": ["Favonius Warbow", "Elegy For The End", "End Of The Line"],
+      "substitute": ["Favonius Warbow", "Elegy for the End", "End of The Line"],
       "artifacts": [
         {
           "name": "Noblesse Oblige",
@@ -2578,12 +2578,12 @@
   "Faruzan": [
     {
       "name": "Support",
-      "weapon": "Elegy For The End",
+      "weapon": "Elegy for the End",
       "substitute": [
         "Skyward Harp",
         "Sacrificial Bow",
         "Fading Twilight",
-        "End Of The Line"
+        "End of The Line"
       ],
       "artifacts": [
         {
@@ -2609,7 +2609,7 @@
       "name": "Sub DPS",
       "weapon": "Skyward Harp",
       "substitute": [
-        "Elegy For The End",
+        "Elegy for the End",
         "Alley Hunter",
         "The Stringless",
         "Windblume Ode"
@@ -2701,7 +2701,7 @@
     {
       "name": "Geo Support",
       "weapon": "Favonius Warbow",
-      "substitute": ["Elegy For The End", "End Of The Line"],
+      "substitute": ["Elegy for the End", "End of The Line"],
       "artifacts": [
         {
           "name": "The Exile",
@@ -2720,7 +2720,7 @@
     {
       "name": "Support",
       "weapon": "Skyward Harp",
-      "substitute": ["Elegy For The End", "Sacrificial Bow", "End Of The Line"],
+      "substitute": ["Elegy for the End", "Sacrificial Bow", "End of The Line"],
       "artifacts": [
         {
           "name": "Noblesse Oblige",
@@ -2758,7 +2758,7 @@
     {
       "name": "Swirl EM Support",
       "weapon": "Elegy for the End",
-      "substitute": ["The Stringless", "End Of The Line"],
+      "substitute": ["The Stringless", "End of The Line"],
       "artifacts": [
         {
           "name": "Viridescent Venerer",
@@ -2804,18 +2804,18 @@
       "name": "Main DPS",
       "weapon": "Aqua Simulacra",
       "substitute": [
-        "Elegy For The End",
+        "Elegy for the End",
         "Fading Twilight",
         "The Stringless",
         "Sacrificial Bow"
       ],
       "artifacts": [
         {
-          "name": "Tenacity of The Millelith",
+          "name": "Tenacity of the Millelith",
           "no": 2
         },
         {
-          "name": "Heart Of Depth",
+          "name": "Heart of Depth",
           "no": 2
         }
       ],
@@ -2919,11 +2919,11 @@
       "substitute": [
         "Oathsworn Eye",
         "Flowing Purity",
-        "Thrilling Tales Of Dragon Slayers"
+        "Thrilling Tales of Dragon Slayers"
       ],
       "artifacts": [
         {
-          "name": "Tenacity of The Millelith",
+          "name": "Tenacity of the Millelith",
           "no": 4
         }
       ],
