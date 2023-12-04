@@ -79,6 +79,9 @@ const mutations = {
     if (!isEmpty(characterBuild)) {
       state.selectedBuild = characterBuild;
       state.buildName = characterBuild.name;
+    } else {
+      state.selectedBuild = {};
+      state.buildName = "";
     }
 
     if (
@@ -110,16 +113,12 @@ const mutations = {
 
   removeTeam(state, data) {
     const { index } = data;
-    const teamIndex = state.teamIndex;
 
-    if (index == teamIndex) {
-      state.teamIndex = null;
-      state.characterIndex = null;
-      state.selectedBuild = {};
-      state.displayCharaterBuild = false;
-      state.displayCharactersList = false;
-    }
-
+    state.teamIndex = null;
+    state.characterIndex = null;
+    state.selectedBuild = {};
+    state.displayCharaterBuild = false;
+    state.displayCharactersList = false;
     state.teams.splice(index, 1);
   },
 

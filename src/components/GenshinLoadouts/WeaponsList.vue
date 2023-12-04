@@ -67,6 +67,10 @@ export default {
 
   methods: {
     itemNametoImage(itemName) {
+      if (!itemName) {
+        return "";
+      }
+
       return "img/genshin/weapons/" + itemName.replaceAll(" ", "_") + ".png";
     },
   },
