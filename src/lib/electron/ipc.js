@@ -61,6 +61,34 @@ ipcMain.on("setSetting", (event, args) => {
   electronStore.set(setting, data);
 });
 
+ipcMain.on("electronAction", (event, args) => {
+  const { action } = args;
+
+  const focusedWindow = BrowserWindow.getFocusedWindow();
+
+  switch (action) {
+    case "close":
+      focusedWindow.close();
+      break;
+
+    case "minimize":
+      focusedWindow.minimize();
+      break;
+
+    case "maximize":
+      if (focusedWindow.isMaximized()) {
+        focusedWindow.unmaximize();
+        break;
+      }
+
+      focusedWindow.maximize();
+      break;
+
+    default:
+      break;
+  }
+});
+
 ipcMain.on("startPython", (event, args) => {
   const { script } = args;
 

@@ -13,6 +13,7 @@ contextBridge.exposeInMainWorld("ipc", {
       "saveItems",
       "openBrowser",
       "writeJsonFile",
+      "electronAction",
     ];
 
     if (validChannels.includes(channel)) {
@@ -46,4 +47,8 @@ contextBridge.exposeInMainWorld("ipc", {
       });
     }
   },
+});
+
+contextBridge.exposeInMainWorld("env", {
+  isDevelopment: process.env.NODE_ENV !== "production",
 });

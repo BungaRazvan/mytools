@@ -1253,7 +1253,7 @@
         "goblet": "HP%",
         "circlet": "HP%"
       },
-      "sub_stats": ["HP% Energy Recharge"]
+      "sub_stats": ["HP%", "Energy Recharge"]
     },
     {
       "name": "Burst DPS",

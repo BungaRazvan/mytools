@@ -1,5 +1,7 @@
 <template>
   <div>
+    <Navbar />
+
     <MainScreen key="main-screen" v-if="this.screen() == 'main'" />
     <GameTracking
       key="game-tracking"
@@ -28,12 +30,14 @@ import MainScreen from "@/components/screens/MainScreen.vue";
 import GameTracking from "@/components/screens/GameTracking.vue";
 import GenshinLoadouts from "@/components/screens/GenshinLoadouts.vue";
 import GameResourceTracking from "@/components/screens/GameResourceTracking.vue";
+import Navbar from "@/components/Navbar.vue";
 
 import { secondToMS } from "@/lib/vue/constants";
 
 export default {
   name: "App",
   components: {
+    Navbar,
     MainScreen,
     GameTracking,
     GenshinLoadouts,

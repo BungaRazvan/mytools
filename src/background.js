@@ -25,8 +25,16 @@ export const isDevelopment = process.env.NODE_ENV !== "production";
 const iconPath = isDevelopment
   ? "./public/img/icon310x310.ico"
   : path.join(process.resourcesPath, "img", "icon310x310.ico");
-const appName = app.getName();
+
 const testUpdate = false;
+
+let appName = app.getName();
+
+if (isDevelopment) {
+  appName += "dev";
+}
+
+app.setAppUserModelId(appName);
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
@@ -42,6 +50,9 @@ async function createWindow() {
     icon: iconPath,
     width: 1800,
     height: 1600,
+
+    frame: false,
+
     webPreferences: {
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
@@ -96,11 +107,11 @@ function createTray() {
 // Create a function to focus the existing instance (if any)
 function focusMainWindow() {
   if (mainWindow.isMinimized()) {
-    mainWindow.restore();
+    mainWindow.show();
   }
 
   if (!mainWindow.isVisible()) {
-    mainWindow.restore();
+    mainWindow.show();
   }
 
   mainWindow.focus();
@@ -143,10 +154,6 @@ autoUpdater.on("update-downloaded", (info) => {
 // Ensure only one instance of the app is running
 const lock = app.requestSingleInstanceLock();
 
-if (!lock && !isDevelopment) {
-  app.quit();
-}
-
 // Quit when all windows are closed.
 // app.on("window-all-closed", (event) => {
 //   event.preventDefault();
@@ -157,11 +164,13 @@ if (!lock && !isDevelopment) {
 //   }
 // });
 
-app.setAppUserModelId(appName);
-
 app.on("second-instance", (event, argv, cwd) => {
   focusMainWindow();
 });
+
+if (!lock && isDevelopment) {
+  app.quit();
+}
 
 app.on("activate", () => {
   // On macOS it's common to re-create a window in the app when the
@@ -170,6 +179,12 @@ app.on("activate", () => {
     createWindow();
   } else {
     mainWindow.show();
+  }
+});
+
+app.on("before-quit", () => {
+  if (lock) {
+    app.releaseSingleInstanceLock();
   }
 });
 
@@ -216,6 +231,24 @@ app.on("ready", async () => {
   mainWindow.on("show", () => {
     const mainWindowBounds = electronStore.get("mainWindowBounds");
     mainWindow.setBounds(mainWindowBounds);
+  });
+
+  mainWindow.on("unmaximize", () => {
+    const mainWindowBounds = electronStore.get("mainWindowBounds");
+    mainWindow.setBounds(mainWindowBounds);
+  });
+
+  mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+    if (url == "about:blank") {
+      return {
+        action: "allow",
+        overrideBrowserWindowOptions: {
+          frame: true,
+        },
+      };
+    }
+
+    return { action: "deny" };
   });
 
   // Hide the window instead of closing it when the user clicks the close button
