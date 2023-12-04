@@ -131,7 +131,7 @@ export default {
     if (!this.allArtifacts.length) {
       window.ipc
         .receive("readJsonFile", {
-          folderPath: `${__static}/data/genshin/`,
+          folderPath: `$__static/data/genshin/`,
           fileName: "artifacts.json",
         })
         .then((data) => {

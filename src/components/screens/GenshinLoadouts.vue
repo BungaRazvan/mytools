@@ -13,7 +13,7 @@
         :index="index"
         v-for="(team, index) in teams"
       />
-      <div class="new-team" @click="this.addNewTeam">&plus; Add New Team</div>
+      <div class="new-team" @click="addNewTeam">&plus; Add New Team</div>
     </div>
 
     <div class="panel" v-if="displayCharactersList">
@@ -90,14 +90,6 @@ export default {
   props: ["goBack"],
   components: { Team, CharacterList, CharacterBuild, Tooltip },
 
-  methods: {
-    addNewTeam() {
-      this.$store.dispatch("all", {
-        mutation: "addNewTeam",
-      });
-    },
-  },
-
   computed: {
     ...mapGetters(["displayCharaterBuild", "displayCharactersList", "teams"]),
   },
@@ -108,6 +100,12 @@ export default {
         fileName: "genshinLoadouts.json",
         data: JSON.parse(JSON.stringify(this.teams)),
         overwrite: true,
+      });
+    },
+
+    addNewTeam() {
+      this.$store.dispatch("all", {
+        mutation: "addNewTeam",
       });
     },
   },

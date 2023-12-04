@@ -1,11 +1,12 @@
-const fs = require("fs");
-const path = require("path");
-const { app } = require("electron");
+import fs from "fs";
+import path from "path";
+import { app } from "electron";
+
+const isProduction = process.env.NODE_ENV == "production";
+
+const documentFolder = isProduction ? "MyTools" : "MyToolsDev";
 
 // Get the path to the Documents folder
-const documentFolder =
-  process.env.NODE_ENV == "production" ? "MyTools" : "MyToolsDev";
-
 export const documentsPath = path.join(
   app.getPath("documents"),
   documentFolder
@@ -23,6 +24,11 @@ export const readCSVFile = (
   delimiter = null,
   folderPath = documentsPath
 ) => {
+  folderPath = folderPath.replace(
+    "$__static",
+    isProduction ? process.resourcesPath : __static
+  );
+
   checkFolder(folderPath);
 
   // Define the file path
@@ -67,6 +73,11 @@ export const readCSVFile = (
 
 // Read the file
 export const readJsonFile = (fileName, folderPath = documentsPath) => {
+  folderPath = folderPath.replace(
+    "$__static",
+    isProduction ? process.resourcesPath : __static
+  );
+
   checkFolder(folderPath);
 
   // Define the file path

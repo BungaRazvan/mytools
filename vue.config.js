@@ -1,4 +1,5 @@
 const { defineConfig } = require("@vue/cli-service");
+
 module.exports = defineConfig({
   lintOnSave: false,
   transpileDependencies: true,
@@ -15,6 +16,10 @@ module.exports = defineConfig({
             {
               from: "dist_python/star_rail_items/",
               to: "./resources/scripts/star_rail_items",
+            },
+            {
+              from: "public/data/",
+              to: "./resources/data",
             },
           ],
         },

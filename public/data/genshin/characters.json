@@ -628,6 +628,43 @@
       "weapon": "Polearm",
       "region": "Liyue",
       "thumbnail": "Zhongli_Icon.webp"
+    },
+    {
+      "name": "Furina",
+      "type": "Character",
+      "display_name": "Furina",
+      "rarity": 5,
+      "element": "Hydro",
+      "weapon": "Sword",
+      "region": "Fontaine",
+      "thumbnail": "Furina_Icon.webp"
+    },
+    {
+      "name": "Charlotte",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Cryo",
+      "weapon": "Catalyst",
+      "region": "Fontaine",
+      "thumbnail": "Charlotte_Icon.webp"
+    },
+    {
+      "name": "Freminet",
+      "type": "Character",
+      "rarity": 4,
+      "element": "Cryo",
+      "weapon": "Claymore",
+      "region": "Fontaine",
+      "thumbnail": "Freminet_Icon.webp"
+    },
+    {
+      "name": "Neuvillette",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Hydro",
+      "weapon": "Catalyst",
+      "region": "Fontaine",
+      "thumbnail": "Neuvillette_Icon.webp"
     }
   ]
 }
