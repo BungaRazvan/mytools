@@ -3,7 +3,10 @@
     {
       "name": "Geo Sub-DPS",
       "weapon": "Cinnabar Spindle",
-      "substitute": ["Harbinger of Dawn", "Festering Desire"],
+      "substitute": [
+        "Harbinger of Dawn",
+        "Festering Desire"
+      ],
       "artifacts": [
         {
           "name": "Golden Troupe",
@@ -15,7 +18,10 @@
         "goblet": "Geo DMG Bonus",
         "circlet": "Crit Rate/DMG"
       },
-      "sub_stats": ["Crit Rate/DMG", "DEF%"]
+      "sub_stats": [
+        "Crit Rate/DMG",
+        "DEF%"
+      ]
     }
   ],
   "Alhaitham": [
@@ -68,7 +74,11 @@
         "goblet": "Cryo DMG Bonus",
         "circlet": "Crit Rate/Crit DMG"
       },
-      "sub_stats": ["Crit Rate/Crit DMG", "ATK%", "Energy Recharge"]
+      "sub_stats": [
+        "Crit Rate/Crit DMG",
+        "ATK%",
+        "Energy Recharge"
+      ]
     },
     {
       "name": "Burst DPS",
@@ -94,7 +104,11 @@
         "goblet": "Physical DMG Bonus",
         "circlet": "Crit Rate/Crit DMG"
       },
-      "sub_stats": ["Crit Rate/Crit DMG", "ATK%", "Energy Recharge"]
+      "sub_stats": [
+        "Crit Rate/Crit DMG",
+        "ATK%",
+        "Energy Recharge"
+      ]
     }
   ],
   "Ayato": [
@@ -128,7 +142,11 @@
     {
       "name": "Sub-DPS Burst",
       "weapon": "Freedom-Sworn",
-      "substitute": ["Amenoma Kageuchi", "Xiphos' Moonlight", "Favonius Sword"],
+      "substitute": [
+        "Amenoma Kageuchi",
+        "Xiphos' Moonlight",
+        "Favonius Sword"
+      ],
       "artifacts": [
         {
           "name": "Heart Of Depth",
@@ -201,14 +219,21 @@
         "goblet": "HP%",
         "circlet": "HP%"
       },
-      "sub_stats": ["Energy Recharge", "HP%"]
+      "sub_stats": [
+        "Energy Recharge",
+        "HP%"
+      ]
     }
   ],
   "Jean": [
     {
       "name": "On-Field DPS",
       "weapon": "Primordial Jade Cutter",
-      "substitute": ["Aquila Favonia", "Skyward Blade", "Amenoma Kageuchi"],
+      "substitute": [
+        "Aquila Favonia",
+        "Skyward Blade",
+        "Amenoma Kageuchi"
+      ],
       "artifacts": [
         {
           "name": "Pale Flame",
@@ -224,12 +249,20 @@
         "goblet": "Physical DMG Bonus",
         "circlet": "Crit Rate/DMG"
       },
-      "sub_stats": ["Crit Rate/DMG", "ATK%", "ATK", "Energy Recharge"]
+      "sub_stats": [
+        "Crit Rate/DMG",
+        "ATK%",
+        "ATK",
+        "Energy Recharge"
+      ]
     },
     {
       "name": "Healer/Support",
       "weapon": null,
-      "substitute": ["Aquila Favonia", "Skyward Blade"],
+      "substitute": [
+        "Aquila Favonia",
+        "Skyward Blade"
+      ],
       "artifacts": [
         {
           "name": "Viridescent Venerer",
@@ -241,7 +274,11 @@
         "goblet": "ATK%",
         "circlet": "Healing Bonus"
       },
-      "sub_stats": ["ATK%", "ATK", "Energy Recharge"]
+      "sub_stats": [
+        "ATK%",
+        "ATK",
+        "Energy Recharge"
+      ]
     }
   ],
   "Kaeya": [
@@ -301,14 +338,22 @@
         "goblet": "Physical DMG Bonus",
         "circlet": "CRIT Rate / DMG"
       },
-      "sub_stats": ["CRIT Rate or DMG", "ATK%", "ATK", "Energy Recharge"]
+      "sub_stats": [
+        "CRIT Rate or DMG",
+        "ATK%",
+        "ATK",
+        "Energy Recharge"
+      ]
     }
   ],
   "Kaedehara Kazuha": [
     {
       "name": "Swirl Support",
       "weapon": "Freedom-Sworn",
-      "substitute": ["Xiphos' Moonlight", "Iron Sting"],
+      "substitute": [
+        "Xiphos' Moonlight",
+        "Iron Sting"
+      ],
       "artifacts": [
         {
           "name": "Viridescent Venerer",
@@ -320,7 +365,10 @@
         "goblet": "Elemental Masterys",
         "circlet": "Elemental Mastery"
       },
-      "sub_stats": ["Elemental Mastery", "Energy Recharge"]
+      "sub_stats": [
+        "Elemental Mastery",
+        "Energy Recharge"
+      ]
     },
     {
       "name": "Anemo Main DPS",
@@ -374,7 +422,11 @@
         "goblet": "Electro DMG Bonus",
         "circlet": "Crit Rate/Crit DMG"
       },
-      "sub_stats": ["Crit Rate/Crit DMG", "ATK%", "Energy Recharge"]
+      "sub_stats": [
+        "Crit Rate/Crit DMG",
+        "ATK%",
+        "Energy Recharge"
+      ]
     },
     {
       "name": "Physical Main DPS",
@@ -396,7 +448,11 @@
         "goblet": "Physical DMG Bonus",
         "circlet": "Crit Rate/Crit DMG"
       },
-      "sub_stats": ["Crit Rate/Crit DMG", "ATK%", "Energy Recharge"]
+      "sub_stats": [
+        "Crit Rate/Crit DMG",
+        "ATK%",
+        "Energy Recharge"
+      ]
     }
   ],
   "Lynette": [
@@ -432,7 +488,11 @@
     {
       "name": "Support",
       "weapon": "Key Of Khaj-Nisut",
-      "substitute": ["Freedom-Sworn", "Xiphos' Moonlight", "Sapwood Blade"],
+      "substitute": [
+        "Freedom-Sworn",
+        "Xiphos' Moonlight",
+        "Sapwood Blade"
+      ],
       "artifacts": [
         {
           "name": "Tenacity of the Millelith",
@@ -448,12 +508,21 @@
         "goblet": "HP%",
         "circlet": "HP%"
       },
-      "sub_stats": ["HP%", "Elemental Mastery", "Energy Recharge", "Flat HP"]
+      "sub_stats": [
+        "HP%",
+        "Elemental Mastery",
+        "Energy Recharge",
+        "Flat HP"
+      ]
     },
     {
       "name": "DPS",
       "weapon": "Primordial Jade Cutter",
-      "substitute": ["Light Of Foliar Incision", "Skyward Blade", "Iron Sting"],
+      "substitute": [
+        "Light Of Foliar Incision",
+        "Skyward Blade",
+        "Iron Sting"
+      ],
       "artifacts": [
         {
           "name": " Gilded Dreams",
@@ -477,7 +546,11 @@
     {
       "name": "Hyperbloom",
       "weapon": "Xiphos' Moonlight",
-      "substitute": ["Freedom-Sworn", "Key of Khaj-Nisut", "Iron Sting"],
+      "substitute": [
+        "Freedom-Sworn",
+        "Key of Khaj-Nisut",
+        "Iron Sting"
+      ],
       "artifacts": [
         {
           "name": "Flower Of Paradise Lost",
@@ -489,7 +562,11 @@
         "goblet": "Elemental Mastery",
         "circlet": "Elemental Mastery"
       },
-      "sub_stats": ["Elemental Mastery", "HP%", "Energy Recharge"]
+      "sub_stats": [
+        "Elemental Mastery",
+        "HP%",
+        "Energy Recharge"
+      ]
     },
     {
       "name": "Healer & Reaction",
@@ -514,14 +591,22 @@
         "goblet": "HP%",
         "circlet": "Healing Bonus / HP%"
       },
-      "sub_stats": ["HP%", "Elemental Mastery", "Energy Recharge"]
+      "sub_stats": [
+        "HP%",
+        "Elemental Mastery",
+        "Energy Recharge"
+      ]
     }
   ],
   "Layla": [
     {
       "name": "Shield-Support",
       "weapon": "Key Of Khaj-Nisut",
-      "substitute": ["Freedom-Sworn", "Harbinger of Dawn", "Favonius Sword"],
+      "substitute": [
+        "Freedom-Sworn",
+        "Harbinger of Dawn",
+        "Favonius Sword"
+      ],
       "artifacts": [
         {
           "name": "Tenacity Of The Millelith",
@@ -543,7 +628,10 @@
     {
       "name": "Sub-DPS",
       "weapon": "Primordial Jade Cutter",
-      "substitute": ["Harbinger of Dawn", "Sacrificial Sword"],
+      "substitute": [
+        "Harbinger of Dawn",
+        "Sacrificial Sword"
+      ],
       "artifacts": [
         {
           "name": "Tenacity Of The Millelith",
@@ -559,14 +647,23 @@
         "goblet": "Cryo DMG Bonus",
         "circlet": "CRIT DMG"
       },
-      "sub_stats": ["HP%", "CRIT Rate", "CRIT DMG", "Elemental Mastery"]
+      "sub_stats": [
+        "HP%",
+        "CRIT Rate",
+        "CRIT DMG",
+        "Elemental Mastery"
+      ]
     }
   ],
   "Nilou": [
     {
       "name": "Bloom Bot",
       "weapon": "Key of Khaj-Nisut",
-      "substitute": ["Freedom-Sworn", "Xiphos' Moonlight", "Iron Sting"],
+      "substitute": [
+        "Freedom-Sworn",
+        "Xiphos' Moonlight",
+        "Iron Sting"
+      ],
       "artifacts": [
         {
           "name": "Vourukasha's Glow",
@@ -637,7 +734,11 @@
         "goblet": "ATK%",
         "circlet": "ATK% /"
       },
-      "sub_stats": ["ATK", "Energy Recharge", "Elemental Mastery"]
+      "sub_stats": [
+        "ATK",
+        "Energy Recharge",
+        "Elemental Mastery"
+      ]
     }
   ],
   "Traveler": [
@@ -662,12 +763,21 @@
         "goblet": "Elemental Mastery",
         "circlet": "Elemental Mastery"
       },
-      "sub_stats": ["Elemental Mastery", "Energy Recharge", "ATK%", "ATK"]
+      "sub_stats": [
+        "Elemental Mastery",
+        "Energy Recharge",
+        "ATK%",
+        "ATK"
+      ]
     },
     {
       "name": "Hydro DPS",
       "weapon": "Primordial Jade Cutter",
-      "substitute": ["Mistsplitter Reforged", "Wolf-Fang", "Festering Desire"],
+      "substitute": [
+        "Mistsplitter Reforged",
+        "Wolf-Fang",
+        "Festering Desire"
+      ],
       "artifacts": [
         {
           "name": "Any Hydro DMG Bonus",
@@ -683,7 +793,12 @@
         "goblet": "Hydro DMG Bonus",
         "circlet": "Crit DMG"
       },
-      "sub_stats": ["Crit Rate", "CRIT DMG", "Energy Recharge", "ATK%"]
+      "sub_stats": [
+        "Crit Rate",
+        "CRIT DMG",
+        "Energy Recharge",
+        "ATK%"
+      ]
     },
     {
       "name": "Hydro Support",
@@ -705,12 +820,20 @@
         "goblet": "Hydro DMG Bonus",
         "circlet": "Crit Rate"
       },
-      "sub_stats": ["Energy Recharge", "Crit DMG", "CRIT Rate", "ATK%"]
+      "sub_stats": [
+        "Energy Recharge",
+        "Crit DMG",
+        "CRIT Rate",
+        "ATK%"
+      ]
     },
     {
       "name": "Dendro Dendro Reaction Support",
       "weapon": "Xiphos' Moonlight",
-      "substitute": ["Freedom-Sworn", "Iron Sting"],
+      "substitute": [
+        "Freedom-Sworn",
+        "Iron Sting"
+      ],
       "artifacts": [
         {
           "name": "Gilded Dreams",
@@ -732,7 +855,11 @@
     {
       "name": "Dendro Dendro Sub-DPS",
       "weapon": "Xiphos' Moonlight",
-      "substitute": ["Sacrificial Sword", "Freedom-Sworn", "Sapwood Blade"],
+      "substitute": [
+        "Sacrificial Sword",
+        "Freedom-Sworn",
+        "Sapwood Blade"
+      ],
       "artifacts": [
         {
           "name": "Deepwood Memories",
@@ -754,7 +881,11 @@
     {
       "name": "Electro Battery Support",
       "weapon": "Sacrificial Sword",
-      "substitute": ["Freedom-Sworn", "Favonius Sword", "Sapwood Blade"],
+      "substitute": [
+        "Freedom-Sworn",
+        "Favonius Sword",
+        "Sapwood Blade"
+      ],
       "artifacts": [
         {
           "name": "Emblem Of Severed Fate",
@@ -766,7 +897,12 @@
         "goblet": "Electro DMG Bonus",
         "circlet": "CRIT Rate / DMG"
       },
-      "sub_stats": ["Energy Recharge", "CRIT Rate", "CRIT Damage", "ATK%"]
+      "sub_stats": [
+        "Energy Recharge",
+        "CRIT Rate",
+        "CRIT Damage",
+        "ATK%"
+      ]
     },
     {
       "name": "Geo DPS",
@@ -793,7 +929,12 @@
         "goblet": "Geo DMG Bonus",
         "circlet": "CRIT Rate / DMG"
       },
-      "sub_stats": ["CRIT Rate or DMG", "ATK%", "Energy Recharge", "Flat ATK"]
+      "sub_stats": [
+        "CRIT Rate or DMG",
+        "ATK%",
+        "Energy Recharge",
+        "Flat ATK"
+      ]
     }
   ],
   "Xingqiu": [
@@ -830,7 +971,10 @@
     {
       "name": "HP Support",
       "weapon": "Black Tassel",
-      "substitute": ["The Catch", "Favonius Lance"],
+      "substitute": [
+        "The Catch",
+        "Favonius Lance"
+      ],
       "artifacts": [
         {
           "name": "Emblem Of Severed Fate",
@@ -846,12 +990,21 @@
         "goblet": "HP%",
         "circlet": "HP%"
       },
-      "sub_stats": ["HP%", "Energy Recharge", "CRIT Rate", "CRIT Damage"]
+      "sub_stats": [
+        "HP%",
+        "Energy Recharge",
+        "CRIT Rate",
+        "CRIT Damage"
+      ]
     },
     {
       "name": "Main DPS",
       "weapon": "Staff Of Homa",
-      "substitute": ["Deathmatch", "Blackcliff Pole", "White Tassel"],
+      "substitute": [
+        "Deathmatch",
+        "Blackcliff Pole",
+        "White Tassel"
+      ],
       "artifacts": [
         {
           "name": "Heart Of Depth",
@@ -967,7 +1120,10 @@
     {
       "name": "Support-Healer",
       "weapon": null,
-      "substitute": ["Prototype Starglitter", "Black Tassel"],
+      "substitute": [
+        "Prototype Starglitter",
+        "Black Tassel"
+      ],
       "artifacts": [
         {
           "name": "Ocean-Hued Clam",
@@ -979,7 +1135,11 @@
         "goblet": "HP%",
         "circlet": "HP%"
       },
-      "sub_stats": ["HP%", "Energy Recharge", "Flat HP"]
+      "sub_stats": [
+        "HP%",
+        "Energy Recharge",
+        "Flat HP"
+      ]
     }
   ],
   "Raiden Shogun": [
@@ -1013,7 +1173,10 @@
     {
       "name": "Hyperbloom",
       "weapon": "Dragon's Bane",
-      "substitute": ["Moonpiercer", "Kitain Cross Spear"],
+      "substitute": [
+        "Moonpiercer",
+        "Kitain Cross Spear"
+      ],
       "artifacts": [
         {
           "name": "Flower Of Paradise Lost",
@@ -1025,7 +1188,10 @@
         "goblet": "Elemental Mastery",
         "circlet": "Elemental Mastery / Crit Rate/DMG"
       },
-      "sub_stats": ["Elemental Mastery", "Crit Rate/DMG"]
+      "sub_stats": [
+        "Elemental Mastery",
+        "Crit Rate/DMG"
+      ]
     }
   ],
   "Rosaria": [
@@ -1049,7 +1215,10 @@
         "goblet": "Physical DMG Bonus",
         "circlet": "Crit Rate / Crit DMG"
       },
-      "sub_stats": ["Crit Rate/DMG", "ATK%"]
+      "sub_stats": [
+        "Crit Rate/DMG",
+        "ATK%"
+      ]
     },
     {
       "name": "Burst Support",
@@ -1101,7 +1270,10 @@
         "goblet": "EATK%",
         "circlet": "ATK%"
       },
-      "sub_stats": ["ATK%", "Energy Recharge"]
+      "sub_stats": [
+        "ATK%",
+        "Energy Recharge"
+      ]
     }
   ],
   "Calamity Queller": [],
@@ -1109,7 +1281,10 @@
     {
       "name": "Burgeon",
       "weapon": "Dragon's Bane",
-      "substitute": ["Moonpiercer", "Kitain Cross Spear"],
+      "substitute": [
+        "Moonpiercer",
+        "Kitain Cross Spear"
+      ],
       "artifacts": [
         {
           "name": "Flower Of Paradise Lost",
@@ -1121,12 +1296,18 @@
         "goblet": "Elemental Mastery",
         "circlet": "Elemental Mastery"
       },
-      "sub_stats": ["Elemental Mastery", "Energy Recharge"]
+      "sub_stats": [
+        "Elemental Mastery",
+        "Energy Recharge"
+      ]
     },
     {
       "name": "Shield Support",
       "weapon": "Favonius Lance",
-      "substitute": ["Prototype Starglitter", "Black Tassel"],
+      "substitute": [
+        "Prototype Starglitter",
+        "Black Tassel"
+      ],
       "artifacts": [
         {
           "name": "Tenacity of the Millelith",
@@ -1142,7 +1323,10 @@
         "goblet": "HP%",
         "circlet": "HP%"
       },
-      "sub_stats": ["HP%", "Energy Recharge"]
+      "sub_stats": [
+        "HP%",
+        "Energy Recharge"
+      ]
     }
   ],
   "Xiangling": [
@@ -1196,14 +1380,22 @@
         "goblet": "Anemo DMG Bonus",
         "circlet": "Crit Rate/DMG"
       },
-      "sub_stats": ["Crit Rate/DMG", "ATK%", "Energy Recharge"]
+      "sub_stats": [
+        "Crit Rate/DMG",
+        "ATK%",
+        "Energy Recharge"
+      ]
     }
   ],
   "Yaoyao": [
     {
       "name": "Healer",
       "weapon": "Rightful Reward",
-      "substitute": ["Black Tassel", "Favonius Lance", "Kitain Cross Spear"],
+      "substitute": [
+        "Black Tassel",
+        "Favonius Lance",
+        "Kitain Cross Spear"
+      ],
       "artifacts": [
         {
           "name": "Tenacity Of The Millelith",
@@ -1215,14 +1407,21 @@
         "goblet": "HP%",
         "circlet": "Healing Bonus%"
       },
-      "sub_stats": ["HP%", "Energy Recharge", "Elemental Mastery"]
+      "sub_stats": [
+        "HP%",
+        "Energy Recharge",
+        "Elemental Mastery"
+      ]
     }
   ],
   "Yun Jin": [
     {
       "name": "Support",
       "weapon": "Favonius Lance",
-      "substitute": ["Prototype Starglitter", "Skyward Spine"],
+      "substitute": [
+        "Prototype Starglitter",
+        "Skyward Spine"
+      ],
       "artifacts": [
         {
           "name": "Husk of Opulent Dreams",
@@ -1234,14 +1433,21 @@
         "goblet": "DEF%",
         "circlet": "DEF% / Crit Rate"
       },
-      "sub_stats": ["DEF%", "Energy Recharge", "Crit Rate"]
+      "sub_stats": [
+        "DEF%",
+        "Energy Recharge",
+        "Crit Rate"
+      ]
     }
   ],
   "Zhongli": [
     {
       "name": "Shield Support DPS",
       "weapon": "Staff Of Homa",
-      "substitute": ["Black Tassel", "Vortex Vanquisher"],
+      "substitute": [
+        "Black Tassel",
+        "Vortex Vanquisher"
+      ],
       "artifacts": [
         {
           "name": "Tenacity Of The Millelith",
@@ -1253,7 +1459,9 @@
         "goblet": "HP%",
         "circlet": "HP%"
       },
-      "sub_stats": ["HP% Energy Recharge"]
+      "sub_stats": [
+        "HP% Energy Recharge"
+      ]
     },
     {
       "name": "Burst DPS",
@@ -1279,7 +1487,11 @@
         "goblet": "Geo DMG Bonus",
         "circlet": "Crit Rate/Crit DMG"
       },
-      "sub_stats": ["Crit Rate/Crit DMG", "HP%", "Energy Recharge"]
+      "sub_stats": [
+        "Crit Rate/Crit DMG",
+        "HP%",
+        "Energy Recharge"
+      ]
     }
   ],
   "Baizhu": [
@@ -1303,7 +1515,11 @@
         "goblet": "HP%",
         "circlet": "HP%"
       },
-      "sub_stats": ["Elemental Mastery", "Energy Recharge", "HP%"]
+      "sub_stats": [
+        "Elemental Mastery",
+        "Energy Recharge",
+        "HP%"
+      ]
     },
     {
       "name": "Healer",
@@ -1324,7 +1540,11 @@
         "goblet": "HP%",
         "circlet": "HP%"
       },
-      "sub_stats": ["HP%", "Energy Recharge", "Elemental Mastery"]
+      "sub_stats": [
+        "HP%",
+        "Energy Recharge",
+        "Elemental Mastery"
+      ]
     }
   ],
   "Barbara": [
@@ -1348,7 +1568,11 @@
         "goblet": "Elemental Mastery",
         "circlet": "Elemental Mastery"
       },
-      "sub_stats": ["Elemental Mastery", "Energy Recharge", "ATK%"]
+      "sub_stats": [
+        "Elemental Mastery",
+        "Energy Recharge",
+        "ATK%"
+      ]
     },
     {
       "name": "Support Healer",
@@ -1370,7 +1594,11 @@
         "goblet": "HP%",
         "circlet": "Healing Bonus"
       },
-      "sub_stats": ["HP%", "HP", "Energy Recharge"]
+      "sub_stats": [
+        "HP%",
+        "HP",
+        "Energy Recharge"
+      ]
     }
   ],
   "Klee": [
@@ -1422,7 +1650,11 @@
         "goblet": "Hydro DMG Bonus",
         "circlet": "Healing Bonus"
       },
-      "sub_stats": ["HP%", "Energy Recharge", "Elemental Mastery"]
+      "sub_stats": [
+        "HP%",
+        "Energy Recharge",
+        "Elemental Mastery"
+      ]
     },
     {
       "name": "High Utility Support",
@@ -1443,7 +1675,11 @@
         "goblet": "HP%",
         "circlet": "HP%"
       },
-      "sub_stats": ["HP%", "Energy Recharge", "Elemental Mastery"]
+      "sub_stats": [
+        "HP%",
+        "Energy Recharge",
+        "Elemental Mastery"
+      ]
     }
   ],
   "Lisa": [
@@ -1647,7 +1883,12 @@
         "goblet": "Geo DMG Bonus",
         "circlet": "CRIT Rate / DMG"
       },
-      "sub_stats": ["CRIT Rate or DMG", "ATK%", "Energy Recharge", "Flat ATK"]
+      "sub_stats": [
+        "CRIT Rate or DMG",
+        "ATK%",
+        "Energy Recharge",
+        "Flat ATK"
+      ]
     },
     {
       "name": "Support",
@@ -1673,14 +1914,23 @@
         "goblet": "Geo DMG Bonus",
         "circlet": "CRIT Rate / DMG"
       },
-      "sub_stats": ["CRIT Rate or DMG", "ATK%", "Energy Recharge", "Flat ATK"]
+      "sub_stats": [
+        "CRIT Rate or DMG",
+        "ATK%",
+        "Energy Recharge",
+        "Flat ATK"
+      ]
     }
   ],
   "Shikanoin Heizou": [
     {
       "name": "Swirl Enabler",
       "weapon": "Skyward Atlas",
-      "substitute": ["Kagura's Verity", "The Widsith", "Mappa Mare"],
+      "substitute": [
+        "Kagura's Verity",
+        "The Widsith",
+        "Mappa Mare"
+      ],
       "artifacts": [
         {
           "name": "Viridescent Venerer",
@@ -1692,7 +1942,12 @@
         "goblet": "Anemo DMG Bonus / Elemental Mastery",
         "circlet": "CRIT Rate / CRIT DMG / Elemental Mastery"
       },
-      "sub_stats": ["CRIT DMG", "CRIT Rate", "Elemental Mastery", "ATK%"]
+      "sub_stats": [
+        "CRIT DMG",
+        "CRIT Rate",
+        "Elemental Mastery",
+        "ATK%"
+      ]
     }
   ],
   "Neuvillette": [
@@ -1745,7 +2000,12 @@
         "goblet": "Elemental Mastery",
         "circlet": "Elemental Mastery"
       },
-      "sub_stats": ["Elemental Mastery", "Energy Recharge", "ATK%", "ATK"]
+      "sub_stats": [
+        "Elemental Mastery",
+        "Energy Recharge",
+        "ATK%",
+        "ATK"
+      ]
     }
   ],
   "Scaramouche": [
@@ -1769,7 +2029,12 @@
         "goblet": "Anemo DMG Bonus",
         "circlet": "CRIT Rate / CRIT DMG"
       },
-      "sub_stats": ["CRIT DMG", "CRIT Rate", "Elemental Mastery", "ATK%"]
+      "sub_stats": [
+        "CRIT DMG",
+        "CRIT Rate",
+        "Elemental Mastery",
+        "ATK%"
+      ]
     }
   ],
   "Wriothesley": [
@@ -1793,14 +2058,23 @@
         "goblet": "Cryo DMG Bonus",
         "circlet": "Crit DMG"
       },
-      "sub_stats": ["CRIT DMG", "ATK%", "Elemental Mastery", "CRIT Rate"]
+      "sub_stats": [
+        "CRIT DMG",
+        "ATK%",
+        "Elemental Mastery",
+        "CRIT Rate"
+      ]
     }
   ],
   "Yae Miko": [
     {
       "name": "Electro Main DPS",
       "weapon": "Kagura's Verity",
-      "substitute": ["Skyward Atlas", "The Widsith", "Mappa Mare"],
+      "substitute": [
+        "Skyward Atlas",
+        "The Widsith",
+        "Mappa Mare"
+      ],
       "artifacts": [
         {
           "name": "Gilded Dreams",
@@ -1972,7 +2246,11 @@
     {
       "name": "Main DPS",
       "weapon": "Beacon of the Reed Sea",
-      "substitute": ["Wolf's Gravestone", "Akuoumaru", "Luxurious Sea-Lord"],
+      "substitute": [
+        "Wolf's Gravestone",
+        "Akuoumaru",
+        "Luxurious Sea-Lord"
+      ],
       "artifacts": [
         {
           "name": "Emblem of Severed Fate",
@@ -1984,7 +2262,12 @@
         "goblet": "Pyro DMG Bonus",
         "circlet": "CRIT Rate / CRIT DMG"
       },
-      "sub_stats": ["CRIT DMG", "CRIT Rate", "ATK% / HP%", "Energy Recharge"]
+      "sub_stats": [
+        "CRIT DMG",
+        "CRIT Rate",
+        "ATK% / HP%",
+        "Energy Recharge"
+      ]
     },
     {
       "name": "Sub DPS",
@@ -2007,7 +2290,12 @@
         "goblet": "Pyro DMG Bonus",
         "circlet": "CRIT Rate / CRIT DMG"
       },
-      "sub_stats": ["CRIT DMG", "CRIT Rate", "ATK% / HP%", "Elemental Mastery"]
+      "sub_stats": [
+        "CRIT DMG",
+        "CRIT Rate",
+        "ATK% / HP%",
+        "Elemental Mastery"
+      ]
     },
     {
       "name": "Support",
@@ -2029,14 +2317,23 @@
         "goblet": "HP%",
         "circlet": "HP%"
       },
-      "sub_stats": ["HP%", "Elemental Mastery", "CRIT Rate", "CRIT DMG"]
+      "sub_stats": [
+        "HP%",
+        "Elemental Mastery",
+        "CRIT Rate",
+        "CRIT DMG"
+      ]
     }
   ],
   "Diluc": [
     {
       "name": "Pyro Main DPS",
       "weapon": "Wolf's Gravestone",
-      "substitute": ["The Unforged", "Serpent Spine", "Prototype Archaic"],
+      "substitute": [
+        "The Unforged",
+        "Serpent Spine",
+        "Prototype Archaic"
+      ],
       "artifacts": [
         {
           "name": "Crimson Witch Of Flames",
@@ -2048,7 +2345,11 @@
         "goblet": "Pyro DMG Bonus",
         "circlet": "Crit Rate/DMG"
       },
-      "sub_stats": ["Crit Rate/DMG", "ATK%", "Elemental Mastery"]
+      "sub_stats": [
+        "Crit Rate/DMG",
+        "ATK%",
+        "Elemental Mastery"
+      ]
     }
   ],
   "Dori": [
@@ -2075,7 +2376,12 @@
         "goblet": "HP%",
         "circlet": "HP%"
       },
-      "sub_stats": ["Energy Recharge", "HP%", "Elemental Mastery", "Flat HP"]
+      "sub_stats": [
+        "Energy Recharge",
+        "HP%",
+        "Elemental Mastery",
+        "Flat HP"
+      ]
     }
   ],
   "Eula": [
@@ -2099,7 +2405,11 @@
         "goblet": "Physical DMG Bonus",
         "circlet": "Crit Rate/DMG"
       },
-      "sub_stats": ["Crit Rate/DMG", "ATK%", "Energy Recharge"]
+      "sub_stats": [
+        "Crit Rate/DMG",
+        "ATK%",
+        "Energy Recharge"
+      ]
     }
   ],
   "Freminet": [
@@ -2152,14 +2462,23 @@
         "goblet": "Cryo DMG Bonus",
         "circlet": "Crit Rate/DMG"
       },
-      "sub_stats": ["CRIT DMG", "CRIT Rate", "ATK%", "Energy Recharge"]
+      "sub_stats": [
+        "CRIT DMG",
+        "CRIT Rate",
+        "ATK%",
+        "Energy Recharge"
+      ]
     }
   ],
   "Arataki Itto": [
     {
       "name": "Main DPS",
       "weapon": "Redhorn Stonethresher",
-      "substitute": ["Wolf's Gravestone", "Serpent Spine", "Whiteblind"],
+      "substitute": [
+        "Wolf's Gravestone",
+        "Serpent Spine",
+        "Whiteblind"
+      ],
       "artifacts": [
         {
           "name": "Husk Of Opulent Dreams",
@@ -2171,14 +2490,23 @@
         "goblet": "Geo DMG Bonus",
         "circlet": "CRIT Rate / CRIT DMG"
       },
-      "sub_stats": ["CRIT DMG", "CRIT Rate", "DEF%", "Energy Recharge"]
+      "sub_stats": [
+        "CRIT DMG",
+        "CRIT Rate",
+        "DEF%",
+        "Energy Recharge"
+      ]
     }
   ],
   "Kaveh": [
     {
       "name": "Bloom Bot",
       "weapon": "Mailed Flower",
-      "substitute": ["Makhaira Aquamarine", "Rainslasher", "Forest Regalia"],
+      "substitute": [
+        "Makhaira Aquamarine",
+        "Rainslasher",
+        "Forest Regalia"
+      ],
       "artifacts": [
         {
           "name": "Flower Of Paradise Lost",
@@ -2190,7 +2518,10 @@
         "goblet": "Elemental Mastery",
         "circlet": "Elemental Mastery"
       },
-      "sub_stats": ["Elemental Mastery", "Energy Recharge"]
+      "sub_stats": [
+        "Elemental Mastery",
+        "Energy Recharge"
+      ]
     },
     {
       "name": "Spread DPS",
@@ -2241,7 +2572,11 @@
         "goblet": "Geo DMG Bonus",
         "circlet": "Crit Rate/DMG"
       },
-      "sub_stats": ["Crit Rate/DMG", "DEF%", "Energy Recharge"]
+      "sub_stats": [
+        "Crit Rate/DMG",
+        "DEF%",
+        "Energy Recharge"
+      ]
     }
   ],
   "Razor": [
@@ -2265,12 +2600,19 @@
         "goblet": "Physical DMG Bonus",
         "circlet": "Crit Rate/DMG"
       },
-      "sub_stats": ["Crit Rate/DMG", "ATK%", "Energy Recharge"]
+      "sub_stats": [
+        "Crit Rate/DMG",
+        "ATK%",
+        "Energy Recharge"
+      ]
     },
     {
       "name": "Hyperbloom",
       "weapon": "Rainslasher",
-      "substitute": ["Makhaira Aquamarine", "Bloodtainted Greatsword"],
+      "substitute": [
+        "Makhaira Aquamarine",
+        "Bloodtainted Greatsword"
+      ],
       "artifacts": [
         {
           "name": "Flower of Paradise Lost",
@@ -2282,14 +2624,21 @@
         "goblet": "Elemental Mastery",
         "circlet": "Elemental Mastery"
       },
-      "sub_stats": ["Elemental Mastery", "Energy Recharge"]
+      "sub_stats": [
+        "Elemental Mastery",
+        "Energy Recharge"
+      ]
     }
   ],
   "Sayu": [
     {
       "name": "Swirl & Healer",
       "weapon": "Favonius Greatsword",
-      "substitute": ["Skyward Pride", "Katsuragikiri Nagamasa", "Rainslasher"],
+      "substitute": [
+        "Skyward Pride",
+        "Katsuragikiri Nagamasa",
+        "Rainslasher"
+      ],
       "artifacts": [
         {
           "name": "Viridescent Venerer",
@@ -2301,7 +2650,11 @@
         "goblet": "Elemental Mastery",
         "circlet": "Elemental Mastery"
       },
-      "sub_stats": ["Energy Recharge", "ATK%", "Elemental Mastery"]
+      "sub_stats": [
+        "Energy Recharge",
+        "ATK%",
+        "Elemental Mastery"
+      ]
     }
   ],
   "Xinyan": [
@@ -2328,12 +2681,20 @@
         "goblet": "Physical DMG Bonus",
         "circlet": "Crit Rate/DMG"
       },
-      "sub_stats": ["Crit Rate/DMG", "ATK%", "Energy Recharge"]
+      "sub_stats": [
+        "Crit Rate/DMG",
+        "ATK%",
+        "Energy Recharge"
+      ]
     },
     {
       "name": "Shield Support",
       "weapon": "Sacrificial Greatsword",
-      "substitute": ["Whiteblind", "Skyward Pride", "Luxurious Sea-Lord"],
+      "substitute": [
+        "Whiteblind",
+        "Skyward Pride",
+        "Luxurious Sea-Lord"
+      ],
       "artifacts": [
         {
           "name": "Tenacity of the Millelith",
@@ -2345,7 +2706,11 @@
         "goblet": "DEF%",
         "circlet": "DEF%"
       },
-      "sub_stats": ["CRIT Rate or DMG", "ATK%", "Energy Recharge"]
+      "sub_stats": [
+        "CRIT Rate or DMG",
+        "ATK%",
+        "Energy Recharge"
+      ]
     }
   ],
   "Amber": [
@@ -2396,14 +2761,24 @@
         "goblet": "Pyro DMG Bonus",
         "circlet": "Crit Rate/DMG"
       },
-      "sub_stats": ["Crit Rate or DMG", "ATK%", "ATK", "Energy Recharge"]
+      "sub_stats": [
+        "Crit Rate or DMG",
+        "ATK%",
+        "ATK",
+        "Energy Recharge"
+      ]
     }
   ],
   "Aloy": [
     {
       "name": "Cryo Main DPS",
       "weapon": "Thundering Pulse",
-      "substitute": ["Skyward Harp", "Polar Star", "Rust", "King's Squire"],
+      "substitute": [
+        "Skyward Harp",
+        "Polar Star",
+        "Rust",
+        "King's Squire"
+      ],
       "artifacts": [
         {
           "name": "Blizzard Strayer",
@@ -2425,7 +2800,11 @@
     {
       "name": "Cryo Sub-DPS",
       "weapon": "Polar Star",
-      "substitute": ["Skyward Harp", "The Stringless", "King's Squire"],
+      "substitute": [
+        "Skyward Harp",
+        "The Stringless",
+        "King's Squire"
+      ],
       "artifacts": [
         {
           "name": "Blizzard Strayer",
@@ -2481,7 +2860,11 @@
     {
       "name": "Burst Nuke",
       "weapon": "Polar Star",
-      "substitute": ["Skyward Harp", "The Stringless", "King's Squire"],
+      "substitute": [
+        "Skyward Harp",
+        "The Stringless",
+        "King's Squire"
+      ],
       "artifacts": [
         {
           "name": "Wanderer's Troupe",
@@ -2509,7 +2892,11 @@
     {
       "name": "Elemental Mastery Support",
       "weapon": "Elegy For The End",
-      "substitute": ["The Stringless", "Windblume Ode", "Sacrificial Bow"],
+      "substitute": [
+        "The Stringless",
+        "Windblume Ode",
+        "Sacrificial Bow"
+      ],
       "artifacts": [
         {
           "name": "Gilded Dreams",
@@ -2560,7 +2947,11 @@
     {
       "name": "Support/Healer",
       "weapon": "Sacrificial Bow",
-      "substitute": ["Favonius Warbow", "Elegy For The End", "End Of The Line"],
+      "substitute": [
+        "Favonius Warbow",
+        "Elegy For The End",
+        "End Of The Line"
+      ],
       "artifacts": [
         {
           "name": "Noblesse Oblige",
@@ -2572,7 +2963,10 @@
         "goblet": "HP%",
         "circlet": "HP%"
       },
-      "sub_stats": ["Energy Recharge", "HP%"]
+      "sub_stats": [
+        "Energy Recharge",
+        "HP%"
+      ]
     }
   ],
   "Faruzan": [
@@ -2648,7 +3042,11 @@
         "goblet": "Physical DMG Bonus",
         "circlet": "CRIT Rate / DMG"
       },
-      "sub_stats": ["CRIT Rate or DMG", "ATK%", "Energy Recharge"]
+      "sub_stats": [
+        "CRIT Rate or DMG",
+        "ATK%",
+        "Energy Recharge"
+      ]
     }
   ],
   "Ganyu": [
@@ -2672,12 +3070,21 @@
         "goblet": "Cryo DMG Bonus",
         "circlet": "Crit DMG"
       },
-      "sub_stats": ["Crit DMG", "ATK%", "Elemental Mastery", "Energy Recharge"]
+      "sub_stats": [
+        "Crit DMG",
+        "ATK%",
+        "Elemental Mastery",
+        "Energy Recharge"
+      ]
     },
     {
       "name": "Melt Comp DPS",
       "weapon": "Hunter's Path",
-      "substitute": ["Aqua Simulacra", "Amos' Bow", "Hamayumi"],
+      "substitute": [
+        "Aqua Simulacra",
+        "Amos' Bow",
+        "Hamayumi"
+      ],
       "artifacts": [
         {
           "name": "Wanderer's Troupe",
@@ -2701,7 +3108,10 @@
     {
       "name": "Geo Support",
       "weapon": "Favonius Warbow",
-      "substitute": ["Elegy For The End", "End Of The Line"],
+      "substitute": [
+        "Elegy For The End",
+        "End Of The Line"
+      ],
       "artifacts": [
         {
           "name": "The Exile",
@@ -2713,14 +3123,23 @@
         "goblet": "Geo DMG Bonus / DEF",
         "circlet": "CRIT Rate / DEF"
       },
-      "sub_stats": ["Energy Recharge", "DEF%", "CRIT Rate", "CRIT Damage"]
+      "sub_stats": [
+        "Energy Recharge",
+        "DEF%",
+        "CRIT Rate",
+        "CRIT Damage"
+      ]
     }
   ],
   "Kujou Sara": [
     {
       "name": "Support",
       "weapon": "Skyward Harp",
-      "substitute": ["Elegy For The End", "Sacrificial Bow", "End Of The Line"],
+      "substitute": [
+        "Elegy For The End",
+        "Sacrificial Bow",
+        "End Of The Line"
+      ],
       "artifacts": [
         {
           "name": "Noblesse Oblige",
@@ -2732,14 +3151,23 @@
         "goblet": "Electro DMG Bonus",
         "circlet": "CRIT Rate / DMG"
       },
-      "sub_stats": ["Energy Recharge", "CRIT Rate", "CRIT Damage", "ATK%"]
+      "sub_stats": [
+        "Energy Recharge",
+        "CRIT Rate",
+        "CRIT Damage",
+        "ATK%"
+      ]
     }
   ],
   "Tighnari": [
     {
       "name": "Dendro DPS",
       "weapon": "Hunter's Path",
-      "substitute": ["Skyward Harp", "Aqua Simulacra", "Prototype Crescent"],
+      "substitute": [
+        "Skyward Harp",
+        "Aqua Simulacra",
+        "Prototype Crescent"
+      ],
       "artifacts": [
         {
           "name": "Deepwood Memories",
@@ -2751,14 +3179,22 @@
         "goblet": "Dendro DMG Bonus%",
         "circlet": "CRIT Rate/ DMG"
       },
-      "sub_stats": ["Elemental Mastery", "ATK%", "CRIT Rate", "CRIT Damage"]
+      "sub_stats": [
+        "Elemental Mastery",
+        "ATK%",
+        "CRIT Rate",
+        "CRIT Damage"
+      ]
     }
   ],
   "Venti": [
     {
       "name": "Swirl EM Support",
       "weapon": "Elegy for the End",
-      "substitute": ["The Stringless", "End Of The Line"],
+      "substitute": [
+        "The Stringless",
+        "End Of The Line"
+      ],
       "artifacts": [
         {
           "name": "Viridescent Venerer",
@@ -2770,12 +3206,19 @@
         "goblet": "Elemental Mastery",
         "circlet": "Elemental Mastery"
       },
-      "sub_stats": ["Elemental Mastery", "Energy Recharge", "ATK%"]
+      "sub_stats": [
+        "Elemental Mastery",
+        "Energy Recharge",
+        "ATK%"
+      ]
     },
     {
       "name": "Anemo DPS",
       "weapon": "Skyward Harp",
-      "substitute": ["Polar Star", "Mouun's Moon"],
+      "substitute": [
+        "Polar Star",
+        "Mouun's Moon"
+      ],
       "artifacts": [
         {
           "name": "Viridescent Venerer",
@@ -2824,12 +3267,21 @@
         "goblet": "Hydro DMG Bonus",
         "circlet": "CRIT Rate / CRIT DMG"
       },
-      "sub_stats": ["CRIT DMG", "CRIT Rate", "HP%", "Energy Recharge"]
+      "sub_stats": [
+        "CRIT DMG",
+        "CRIT Rate",
+        "HP%",
+        "Energy Recharge"
+      ]
     },
     {
       "name": "Sub-DPS",
       "weapon": "Aqua Simulacra",
-      "substitute": ["Polar Star", "Elegy for the End", "Favonius Warbow"],
+      "substitute": [
+        "Polar Star",
+        "Elegy for the End",
+        "Favonius Warbow"
+      ],
       "artifacts": [
         {
           "name": "Emblem of Severed Fate",
@@ -2841,7 +3293,12 @@
         "goblet": "Hydro DMG Bonus",
         "circlet": "CRIT Rate / CRIT DMG"
       },
-      "sub_stats": ["Energy Recharge", "HP%", "CRIT DMG", "CRIT Rate"]
+      "sub_stats": [
+        "Energy Recharge",
+        "HP%",
+        "CRIT DMG",
+        "CRIT Rate"
+      ]
     }
   ],
   "Yoimiya": [
@@ -2878,7 +3335,11 @@
     {
       "name": "Mono Pyro DPS",
       "weapon": "The First Great Magic",
-      "substitute": ["Aqua Simulacra", "Skyward Harp", "Blackcliff Warbow"],
+      "substitute": [
+        "Aqua Simulacra",
+        "Skyward Harp",
+        "Blackcliff Warbow"
+      ],
       "artifacts": [
         {
           "name": " Marechaussee Hunter",
@@ -2890,7 +3351,66 @@
         "goblet": "Pyro DMG Bonus",
         "circlet": "Crit DMG"
       },
-      "sub_stats": ["CRIT DMG", "CRIT Rate", "ATK%", "Energy Recharge"]
+      "sub_stats": [
+        "CRIT DMG",
+        "CRIT Rate",
+        "ATK%",
+        "Energy Recharge"
+      ]
+    }
+  ],
+  "Furina": [
+    {
+      "name": "Sub-DPS and Support",
+      "weapon": "Splendor of Tranquil Waters",
+      "substitute": [
+        "Primordial Jade Cutter",
+        "Wolf-Fang",
+        "Festering Desire"
+      ],
+      "artifacts": [
+        {
+          "name": "Golden Troupe",
+          "no": 4
+        }
+      ],
+      "main_stats": {
+        "sands": "HP%",
+        "goblet": "HP%",
+        "circlet": "CRIT Rate or DMG"
+      },
+      "sub_stats": [
+        "CRIT Rate",
+        "CRIT DMG",
+        "HP%",
+        "Energy Recharge"
+      ]
+    }
+  ],
+  "Charlotte": [
+    {
+      "name": "Support Healer",
+      "weapon": "Skyward Atlas",
+      "substitute": [
+        "Oathsworn Eye",
+        "Flowing Purity",
+        "Thrilling Tales Of Dragon Slayers"
+      ],
+      "artifacts": [
+        {
+          "name": "Tenacity Of The Millelith",
+          "no": 4
+        }
+      ],
+      "main_stats": {
+        "sands": "Energy Recharge",
+        "goblet": "ATK%",
+        "circlet": "Healing Bonus or ATK%"
+      },
+      "sub_stats": [
+        "Energy Recharge",
+        "ATK%"
+      ]
     }
   ]
 }

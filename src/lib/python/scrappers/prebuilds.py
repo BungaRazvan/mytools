@@ -146,10 +146,31 @@ def characters_links():
     return all_builds
 
 
-if __name__ == "__main__":
+def all_builds(json_path):
     builds = characters_links()
-
-    json_path = Path("../../../../public/data/genshin")
 
     with open(f"{json_path}/prebuilds.json", "w") as f:
         f.write(json.dumps(builds, indent=2))
+
+
+def append_build(json_path, url, character_name):
+    builds = character_builds(url, character_name)
+    existing_data = None
+
+    with open(f"{json_path}/prebuilds.json", "r") as file:
+        existing_data = json.load(file)
+
+    existing_data[character_name] = builds
+
+    with open(f"{json_path}/prebuilds.json", "w") as file:
+        json.dump(existing_data, file, indent=2)
+
+
+if __name__ == "__main__":
+    json_path = Path("../../../../public/data/genshin")
+
+    append_build(
+        json_path,
+        "https://gamewith.net/genshin-impact/article/show/39069",
+        "Charlotte",
+    )

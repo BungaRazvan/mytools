@@ -163,7 +163,7 @@ export default {
     if (!preBuilds.length) {
       window.ipc
         .receive("readJsonFile", {
-          folderPath: `${__static}/data/genshin/`,
+          folderPath: `$__static/data/genshin/`,
           fileName: "prebuilds.json",
         })
         .then((data) => {

@@ -119,7 +119,7 @@ export default {
     if (!characters.length) {
       window.ipc
         .receive("readJsonFile", {
-          folderPath: `${__static}/data/genshin/`,
+          folderPath: `$__static/data/genshin/`,
           fileName: "characters.json",
         })
         .then((response) => {
