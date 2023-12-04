@@ -42,7 +42,7 @@ def character_builds(link, character):
         for row in rows:
             category = row.th.text.lower()
 
-            if category == "weapon":
+            if category in ["weapon", "weapon (f2p)", "best weapon"]:
                 weapon = row.td.text.strip()
                 build_data[category] = weapon
 
@@ -56,7 +56,7 @@ def character_builds(link, character):
                 tags = row.td.find_all("a")
 
                 for tag in tags:
-                    artifact_name = tag.find("img").parent.text
+                    artifact_name = tag.find("img").parent.text.strip()
 
                     try:
                         artifact_number = int(
