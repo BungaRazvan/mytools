@@ -4,14 +4,21 @@
       <div class="left-nav">
         <img class="logo" src="img/icon310x310.ico" />
 
-        <span @click="openSettings" class="nav-link"
-          >{{ isDevelopment ? "MyToolsDev" : "MyTools" }}
+        <span v-if="!minimal" @click="openSettings" class="nav-link no-drag"
+          >{{ isDevelopment ? "MyTools Dev" : "MyTools" }}
+        </span>
+        <span v-if="minimal" class="nav-link"
+          >{{ this.$route.name }} {{ isDevelopment ? "Dev" : "" }}
         </span>
       </div>
 
-      <div class="rigth-nav">
-        <span @click="action('minimize')" class="nav-link">&minus;</span>
-        <span @click="action('maximize')" class="nav-link">&#128470; </span>
+      <div class="rigth-nav no-drag">
+        <span v-if="!minimal" @click="action('minimize')" class="nav-link"
+          >&minus;</span
+        >
+        <span v-if="!minimal" @click="action('maximize')" class="nav-link"
+          >&#128470;
+        </span>
         <span @click="action('close')" class="nav-link danger">&#10006;</span>
       </div>
     </nav>
@@ -32,15 +39,17 @@
     align-items: center;
     font-size: 25px;
 
-    .nav-link {
+    .no-drag {
       -webkit-app-region: no-drag;
+    }
 
+    .nav-link {
       cursor: default;
       padding: 15px;
 
       &.danger {
         &:hover {
-          background-color: #b31d1d;
+          background-color: #b31d1d !important;
         }
       }
     }
@@ -78,20 +87,15 @@
 <script>
 export default {
   name: "Navbar",
+  props: ["minimal"],
+
   methods: {
     action(action) {
       window.ipc.send("electronAction", { action });
     },
 
     openSettings() {
-      const childWindow = window.open(
-        "about:blank",
-        "_blank",
-        "top=500,left=200,frame=false,nodeIntegration=no"
-      );
-
-      console.log(childWindow);
-      childWindow.document.write("<h1>Hello</h1>");
+      window.open("settings", "settngs");
     },
   },
 

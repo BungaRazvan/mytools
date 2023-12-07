@@ -21,6 +21,7 @@
     "electron-store": "8.1.0",
     "lodash": "4.17.21",
     "vue": "3.2.13",
+    "vue-router": "^4.2.5",
     "vuex": "4.1.0"
   },
   "devDependencies": {

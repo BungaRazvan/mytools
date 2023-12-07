@@ -68,15 +68,25 @@ ipcMain.on("electronAction", (event, args) => {
 
   switch (action) {
     case "close":
+      if (focusedWindow.isMaximized()) {
+        electronStore.set("wasMaximized", true);
+      }
+
       focusedWindow.close();
       break;
 
     case "minimize":
+      if (focusedWindow.isMaximized()) {
+        electronStore.set("wasMaximized", true);
+      }
+
       focusedWindow.minimize();
       break;
 
     case "maximize":
       if (focusedWindow.isMaximized()) {
+        electronStore.set("wasMaximized", false);
+
         focusedWindow.unmaximize();
         break;
       }
