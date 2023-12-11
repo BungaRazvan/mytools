@@ -127,15 +127,17 @@ autoUpdater.on("update-downloaded", (info) => {
   const updateNotification = new Notification({
     icon: iconPath,
     title: "A new update is ready to install.",
-    body: `${apfpName} version ${info.version} has been downloaded and will be automatically installed on exit.
+    body: `${appName} version ${info.version} has been downloaded and will be automatically installed on exit.
     `,
   });
 
   updateNotification.show();
 
   updateNotification.on("click", () => {
-    autoUpdater.quitAndInstall({ isSilent: true, isForceRunAfter: true });
+    autoUpdater.quitAndInstall(true, true);
   });
+
+  mainWindow.setProgressBar(0);
 });
 
 // Ensure only one instance of the app is running

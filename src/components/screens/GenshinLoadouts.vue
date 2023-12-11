@@ -16,11 +16,11 @@
       <div class="new-team" @click="addNewTeam">&plus; Add New Team</div>
     </div>
 
-    <div class="panel" v-if="displayCharactersList">
+    <div class="panel container" v-if="displayCharactersList">
       <CharacterList />
     </div>
 
-    <div class="panel" v-if="displayCharaterBuild">
+    <div class="panel container" v-if="displayCharaterBuild">
       <CharacterBuild />
     </div>
   </div>

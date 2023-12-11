@@ -37,3 +37,34 @@ html::-webkit-scrollbar-thumb {
   background-color: #4b83bc;
   border-radius: 100vw;
 }
+
+.container-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsive styles for different screen sizes */
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}

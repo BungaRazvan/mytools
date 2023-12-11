@@ -19,7 +19,9 @@
         <span v-if="!minimal" @click="action('maximize')" class="nav-link"
           >&#128470;
         </span>
-        <span @click="action('close')" class="nav-link danger">&#10006;</span>
+        <span @click="action('close')" class="nav-link danger no-drag"
+          >&#10006;</span
+        >
       </div>
     </nav>
   </div>

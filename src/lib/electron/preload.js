@@ -14,6 +14,7 @@ contextBridge.exposeInMainWorld("ipc", {
       "openBrowser",
       "writeJsonFile",
       "electronAction",
+      "checkForUpdate",
     ];
 
     if (validChannels.includes(channel)) {
@@ -29,6 +30,7 @@ contextBridge.exposeInMainWorld("ipc", {
       "readFolder",
       "readJsonFile",
       "checkForTesseract",
+      "appVersion",
     ];
 
     if (validChannels.includes(channel)) {
@@ -38,7 +40,7 @@ contextBridge.exposeInMainWorld("ipc", {
   },
   on: (channel, callback) => {
     // whitelist channels
-    const validChannels = ["python_star_rail_items"];
+    const validChannels = ["python_star_rail_items", "checkForUpdate"];
 
     if (validChannels.includes(channel)) {
       ipcRenderer.on(channel, (event, data) => {

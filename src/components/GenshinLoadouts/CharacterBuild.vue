@@ -47,8 +47,8 @@
 .teams-container {
   .panel {
     padding-right: 25px;
+    padding-bottom: 40px;
     height: 100% !important;
-    min-height: 100vh;
   }
 }
 

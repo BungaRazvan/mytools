@@ -1,10 +1,11 @@
 import path from "path";
 
-import { BrowserWindow, ipcMain, shell } from "electron";
+import { BrowserWindow, ipcMain, shell, app } from "electron";
 import { map, groupBy, sumBy } from "lodash";
 import { spawn } from "child_process";
+import { autoUpdater } from "electron-updater";
 
-import { isDevelopment } from "@/background";
+import { isDevelopment, downloadingState } from "@/lib/vue/constants";
 import { startRailItemName } from "@/lib/vue/items";
 
 import {
@@ -72,7 +73,7 @@ ipcMain.on("electronAction", (event, args) => {
         electronStore.set("wasMaximized", true);
       }
 
-      focusedWindow.close();
+      focusedWindow.destroy();
       break;
 
     case "minimize":
@@ -142,6 +143,24 @@ ipcMain.on("openBrowser", (event, args) => {
   shell.openExternal(url);
 });
 
+ipcMain.on("checkForUpdate", (event, args) => {
+  const channel = "checkForUpdate";
+
+  autoUpdater.checkForUpdates();
+
+  autoUpdater.on("update-available", () => {
+    event.reply(channel, downloadingState.DOWNLOADING);
+  });
+
+  autoUpdater.on("update-downloaded", () => {
+    autoUpdater.quitAndInstall(true, true);
+  });
+
+  autoUpdater.on("update-not-available", () => {
+    event.reply("checkForUpdate", downloadingState.NOT_AVAIL);
+  });
+});
+
 // receive
 ipcMain.handle("isGameRunning", async (event, args) => {
   const isGameRunning = await isProgramRunning(`${args}.exe`);
@@ -181,4 +200,8 @@ ipcMain.handle("readJsonFile", (event, args) => {
 
 ipcMain.handle("checkForTesseract", (event, args) => {
   return checkForTesseract();
+});
+
+ipcMain.handle("appVersion", (event, args) => {
+  return app.getVersion();
 });
