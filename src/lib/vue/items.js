@@ -1,5 +1,6 @@
 export const startRailItemName = (item) => {
   let itemName = item;
+  const modifiedText = item.replace(/\s+/g, " ").trim(); // Replace multiple spaces with a single space
 
   if (item.includes("Strange")) {
     itemName = "Strange Matter of Destruction";
@@ -21,17 +22,17 @@ export const startRailItemName = (item) => {
     return itemName;
   }
 
-  if (item.includes("Discarded Ingenium")) {
+  if (modifiedText.includes("Discarded Ingenium")) {
     itemName = "Discarded Ingenium Parts";
     return itemName;
   }
 
-  if (item.includes("HumanHeight Auspici")) {
+  if (modifiedText.includes("HumanHeight Auspici")) {
     itemName = "Human-Height Auspicious Crops";
     return itemName;
   }
 
-  if (item.includes("Extract of Medicinal")) {
+  if (modifiedText.includes("Extract of Medicinal")) {
     itemName = "Extract of Medicinal Herbs";
     return itemName;
   }
@@ -41,7 +42,7 @@ export const startRailItemName = (item) => {
     return itemName;
   }
 
-  switch (itemName) {
+  switch (modifiedText) {
     case "Conquerors Will":
       itemName = "Conqueror's Will";
       break;

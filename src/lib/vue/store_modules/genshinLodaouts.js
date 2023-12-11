@@ -114,11 +114,14 @@ const mutations = {
   removeTeam(state, data) {
     const { index } = data;
 
-    state.teamIndex = null;
-    state.characterIndex = null;
-    state.selectedBuild = {};
-    state.displayCharaterBuild = false;
-    state.displayCharactersList = false;
+    if (state.teamIndex >= index) {
+      state.teamIndex = null;
+      state.characterIndex = null;
+      state.selectedBuild = {};
+      state.displayCharaterBuild = false;
+      state.displayCharactersList = false;
+    }
+
     state.teams.splice(index, 1);
   },
 

@@ -1,8 +1,8 @@
 "use strict";
 
 import path from "path";
-
 import AutoLaunch from "auto-launch";
+import installExtension from "electron-devtools-installer";
 
 import {
   app,
@@ -10,23 +10,28 @@ import {
   BrowserWindow,
   Tray,
   Menu,
-  screen,
   Notification,
 } from "electron";
 import { createProtocol } from "vue-cli-plugin-electron-builder/lib";
-import installExtension from "electron-devtools-installer";
 import { autoUpdater } from "electron-updater";
+
+import { BASE_WINDOW, SETTINGS_WINDOW, iconPath } from "./lib/electron/windows";
+import { isDevelopment } from "./lib/vue/constants";
+import { calculateCenterBounds } from "./lib/electron/utils";
+
 import electronStore from "./lib/electron/store";
 
 import "./lib/electron/ipc";
 
-export const isDevelopment = process.env.NODE_ENV !== "production";
-
-const iconPath = isDevelopment
-  ? "./public/img/icon310x310.ico"
-  : path.join(process.resourcesPath, "img", "icon310x310.ico");
-const appName = app.getName();
 const testUpdate = false;
+
+let appName = app.getName();
+
+if (isDevelopment) {
+  appName += "dev";
+}
+
+app.setAppUserModelId(appName);
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
@@ -39,17 +44,9 @@ let tray = null;
 async function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    icon: iconPath,
+    ...BASE_WINDOW,
     width: 1800,
     height: 1600,
-    webPreferences: {
-      // Use pluginOptions.nodeIntegration, leave this alone
-      // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
-      nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
-      contextIsolation: !process.env.ELECTRON_NODE_INTEGRATION,
-      preload: path.join(__dirname, "preload.js"),
-      devTools: isDevelopment,
-    },
   });
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
@@ -96,11 +93,11 @@ function createTray() {
 // Create a function to focus the existing instance (if any)
 function focusMainWindow() {
   if (mainWindow.isMinimized()) {
-    mainWindow.restore();
+    mainWindow.show();
   }
 
   if (!mainWindow.isVisible()) {
-    mainWindow.restore();
+    mainWindow.show();
   }
 
   mainWindow.focus();
@@ -117,6 +114,7 @@ if (isDevelopment && testUpdate) {
 
   autoUpdater.forceDevUpdateConfig = isDevelopment;
 }
+
 autoUpdater.checkForUpdates();
 
 autoUpdater.on("download-progress", (progressObj) => {
@@ -136,16 +134,14 @@ autoUpdater.on("update-downloaded", (info) => {
   updateNotification.show();
 
   updateNotification.on("click", () => {
-    autoUpdater.quitAndInstall({ isSilent: true, isForceRunAfter: true });
+    autoUpdater.quitAndInstall(true, true);
   });
+
+  mainWindow.setProgressBar(0);
 });
 
 // Ensure only one instance of the app is running
 const lock = app.requestSingleInstanceLock();
-
-if (!lock && !isDevelopment) {
-  app.quit();
-}
 
 // Quit when all windows are closed.
 // app.on("window-all-closed", (event) => {
@@ -157,11 +153,13 @@ if (!lock && !isDevelopment) {
 //   }
 // });
 
-app.setAppUserModelId(appName);
-
 app.on("second-instance", (event, argv, cwd) => {
   focusMainWindow();
 });
+
+if (!lock && !isDevelopment) {
+  app.quit();
+}
 
 app.on("activate", () => {
   // On macOS it's common to re-create a window in the app when the
@@ -170,6 +168,12 @@ app.on("activate", () => {
     createWindow();
   } else {
     mainWindow.show();
+  }
+});
+
+app.on("before-quit", () => {
+  if (lock) {
+    app.releaseSingleInstanceLock();
   }
 });
 
@@ -197,17 +201,7 @@ app.on("ready", async () => {
     const mainWindowBounds = electronStore.get("mainWindowBounds");
 
     if (mainWindowBounds) {
-      const currentDisplay = screen.getDisplayMatching(mainWindow.getBounds());
-      const scaleFactorX = currentDisplay.scaleFactor;
-      const scaleFactorY = currentDisplay.scaleFactor;
-      const bounds = {
-        x: mainWindowBounds.x * scaleFactorX,
-        y: mainWindowBounds.y * scaleFactorY,
-        width: mainWindowBounds.width * scaleFactorX,
-        height: mainWindowBounds.height * scaleFactorY,
-      };
-
-      mainWindow.setBounds(bounds);
+      mainWindow.setBounds(mainWindowBounds);
     }
   });
 
@@ -215,7 +209,56 @@ app.on("ready", async () => {
   // no idea why ready-to-show needs to be scaled and this doesn't
   mainWindow.on("show", () => {
     const mainWindowBounds = electronStore.get("mainWindowBounds");
+    const wasMaximized = electronStore.get("wasMaximized");
+
+    if (wasMaximized) {
+      mainWindow.maximize();
+      electronStore.set("wasMaximazed", false);
+    }
+
     mainWindow.setBounds(mainWindowBounds);
+  });
+
+  mainWindow.on("unmaximize", () => {
+    const mainWindowBounds = electronStore.get("mainWindowBounds");
+
+    mainWindow.setBounds(mainWindowBounds);
+  });
+
+  mainWindow.on("minimize", () => {
+    electronStore.set("mainWindowBounds", mainWindow.getBounds());
+  });
+
+  mainWindow.on("moved", () => {
+    electronStore.set("mainWindowBounds", mainWindow.getBounds());
+  });
+
+  mainWindow.on("resized", () => {
+    if (mainWindow.isMaximized() || mainWindow.isMinimized()) {
+      return;
+    }
+
+    electronStore.set("mainWindowBounds", mainWindow.getBounds());
+  });
+
+  mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+    if (url.includes("settings")) {
+      const bounds = calculateCenterBounds(
+        SETTINGS_WINDOW.height,
+        SETTINGS_WINDOW.width,
+        mainWindow
+      );
+
+      return {
+        action: "allow",
+        overrideBrowserWindowOptions: {
+          ...bounds,
+          ...SETTINGS_WINDOW,
+        },
+      };
+    }
+
+    return { action: "deny" };
   });
 
   // Hide the window instead of closing it when the user clicks the close button
@@ -224,9 +267,6 @@ app.on("ready", async () => {
       mainWindow = null;
     } else {
       event.preventDefault();
-      // Save window position and size to store when the window
-      const bounds = mainWindow.getBounds();
-      electronStore.set("mainWindowBounds", bounds);
 
       mainWindow.hide();
     }

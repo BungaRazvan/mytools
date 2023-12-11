@@ -1,9 +1,30 @@
 <template>
-  <RouterView> </RouterView>
+  <div>
+    <Navbar :minimal="false" />
+
+    <MainScreen key="main-screen" v-if="this.screen() == 'main'" />
+    <GameTracking
+      key="game-tracking"
+      v-if="this.screen() == 'gameTracking'"
+      :goBack="this.goBack"
+      :recordRunningGame="this.recordRunningGame"
+      :calculateGameTime="this.calculateGameTime"
+    />
+    <GenshinLoadouts
+      key="genshin-loadouts"
+      v-if="this.screen() == 'genshinLoadouts'"
+      :goBack="this.goBack"
+    />
+    <GameResourceTracking
+      key="game-resource-tracking"
+      v-if="this.screen() == 'gameResourceTracking'"
+      :goBack="this.goBack"
+    />
+  </div>
 </template>
 
 <script>
-import "./assets/scss/style.scss";
+import "@/assets/scss/style.scss";
 
 import MainScreen from "@/components/screens/MainScreen.vue";
 import GameTracking from "@/components/screens/GameTracking.vue";
