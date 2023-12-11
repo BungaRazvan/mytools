@@ -97,7 +97,7 @@ export default {
     },
 
     openSettings() {
-      window.open("settings", "settngs");
+      window.open("#/settings", "settngs");
     },
   },
 
