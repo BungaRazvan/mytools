@@ -11,10 +11,12 @@ const state = () => ({
 });
 
 const mutations = {
-  mergeItems(state, items) {
-    state.items = mergeWith(state.items, items, (srcValue, objValue) => {
+  mergeItems(state, data) {
+    state.items = mergeWith(state.items, data, (srcValue, objValue) => {
       if (isNumber(objValue) && isNumber(srcValue)) {
         return objValue + srcValue;
+      } else if (isNumber(objValue) && !srcValue) {
+        return objValue;
       }
     });
   },
@@ -24,7 +26,10 @@ const mutations = {
     state.time = 0;
 
     if (!isEmpty(data.items)) {
-      state.previousItems.unshift(data);
+      state.previousItems.unshift({
+        ...data,
+        date: new Date().toISOString(),
+      });
     }
   },
 
@@ -40,6 +45,11 @@ const mutations = {
 
   setPreviousRuns(state, data) {
     state.previousRuns = data;
+  },
+
+  setPreviousItems(state, data) {
+    state.previousRuns = [...state.previousItems, ...state.previousRuns];
+    state.previousItems = data;
   },
 };
 

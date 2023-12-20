@@ -237,15 +237,23 @@ export default {
       this.tesseractInstalled = data;
     });
 
-    if (!this.previousRuns.lenght) {
+    if (!this.previousRuns.length && !this.previousItems.length) {
       window.ipc
         .receive("readJsonFile", { fileName: "gameResourceTracking.json" })
         .then((data) => {
           store.dispatch("all", {
             mutation: "setPreviousRuns",
-            data: reverse(data.data),
+            data: reverse(data.data) || [],
           });
         });
+    }
+  },
+
+  unmounted() {
+    const store = this.$store;
+
+    if (this.previousItems.length && !this.isScriptRunning) {
+      store.dispatch("all", { mutation: "setPreviousItems", data: [] });
     }
   },
 };

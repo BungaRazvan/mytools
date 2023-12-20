@@ -25,9 +25,9 @@ def extract_bonuses(bonuses):
         return {"2-piece": _bonuses[1].strip(), "4-piece": _bonuses[2].strip()}
 
 
-def extract_aritifacts(set_link, set_name):
+def extract_aritifacts(set_link, set_name, save_img=False):
     artifacts = {}
-    index_to_type = {1: "Flower", 2: "Feather", 3: "Sands", 4: "Goblet", 5: "Circlet"}
+    index_to_type = {1: "flower", 2: "feather", 3: "sands", 4: "goblet", 5: "circlet"}
 
     soup = _bs4(get(set_link).content, "html.parser")
 
@@ -41,9 +41,11 @@ def extract_aritifacts(set_link, set_name):
         "Noblesse": 6,
         "Husk": 6,
         "Nymph's": 5,
-        "Ocean": 6,
+        "Ocean-Hued": 6,
         "Vermillion": 5,
         "Vourukasha's": 5,
+        "Nighttime": 3,
+        "Song": 3,
     }
     set_start_name = set_name.split(" ")[0]
 
@@ -62,37 +64,41 @@ def extract_aritifacts(set_link, set_name):
         if not artifact_type:
             continue
 
-        artifacts[artifact_type] = {}
+        # artifacts[artifact_type] = {}
 
         for td in tds:
             if td.img:
-                img_name = f'{set_name.replace(" ", "_")}_{artifact_type}.png'
-                save_image(
-                    f"{img_name}",
-                    td.img.get("data-src"),
-                    Path("../../../../public/img/genshin/artifacts/"),
+                img_name = (
+                    f'{set_name.replace(" ", "_")}_{artifact_type.capitalize()}.png'
                 )
 
-                artifacts[artifact_type]["name"] = (
-                    td.img.get("alt").replace("Image", "").strip()
-                )
-                artifacts[artifact_type]["image"] = img_name
+                if save_img:
+                    save_image(
+                        f"{img_name}",
+                        td.img.get("data-src"),
+                        Path("../../../../public/img/genshin/artifacts/"),
+                    )
 
-            if td.br:
-                stats = (
-                    str(td)
-                    .replace('<td class="center">', "")
-                    .replace("(Always)", "")
-                    .strip()
-                    .replace("<br/>", "~")
-                    .replace("</td>", "")
-                    .split("~")
-                )
+                # artifacts[artifact_type]["name"] = (
+                #     td.img.get("alt").replace("Image", "").strip()
+                # )
+                # artifacts[artifact_type]["image"] = img_name
 
-                if not stats[1]:
-                    stats = [stats[0]]
+            # if td.br:
+            #     stats = (
+            #         str(td)
+            #         .replace('<td class="center">', "")
+            #         .replace("(Always)", "")
+            #         .strip()
+            #         .replace("<br/>", "~")
+            #         .replace("</td>", "")
+            #         .split("~")
+            #     )
 
-                artifacts[artifact_type]["main_stats"] = stats
+            #     if not stats[1]:
+            #         stats = [stats[0]]
+
+            #     artifacts[artifact_type]["main_stats"] = stats
 
     return artifacts
 
@@ -116,21 +122,20 @@ def all_sets():
                 "2-piece": None,
                 "4-peiece": None,
             },
-            "artifacts": {},
         }
         set_link = tr.a.get("href")
         bonuses = tr.find_all("td")
         artifact_details = extract_aritifacts(set_link, tr.b.text)
         new_set["bonus"] = extract_bonuses(bonuses)
         new_set["set_name"] = tr.b.text
-        new_set["artifacts"] = artifact_details
+        # new_set["artifacts"] = artifact_details
 
         sets_data.append(new_set)
 
     print(len(sets_data))
 
     with open(f"{json_path}/artifacts.json", "w") as f:
-        f.write(json.dumps({"data": sets_data}, indent=2))
+        f.write(json.dumps(sets_data, indent=2))
 
 
 if __name__ == "__main__":

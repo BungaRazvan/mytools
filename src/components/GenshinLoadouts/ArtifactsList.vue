@@ -137,7 +137,7 @@ export default {
         .then((data) => {
           store.dispatch("all", {
             mutation: "setAllArtifacts",
-            data: data.data,
+            data: data,
           });
         });
     }

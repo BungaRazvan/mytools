@@ -1,9 +1,7 @@
 <template>
   <div class="item">
     <img :src="this.itemNametoImage(name)" />
-    <div class="description">
-      {{ this.itemToProperName(name) }} x{{ amount }}
-    </div>
+    <div class="description">{{ name }} x{{ amount }}</div>
   </div>
 </template>
 
@@ -28,19 +26,13 @@
 </style>
 
 <script>
-import { startRailItemName } from "@/lib/vue/items";
-
 export default {
   name: "Items",
   props: ["amount", "name"],
 
   methods: {
-    itemToProperName(item) {
-      return startRailItemName(item);
-    },
-
     itemNametoImage(item) {
-      const itemName = this.itemToProperName(item).replaceAll(" ", "_");
+      const itemName = item.replaceAll(" ", "_");
 
       return `img/star_rail/materials/${itemName}.png`;
     },

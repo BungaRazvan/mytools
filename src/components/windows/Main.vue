@@ -32,8 +32,6 @@ import GenshinLoadouts from "@/components/screens/GenshinLoadouts.vue";
 import GameResourceTracking from "@/components/screens/GameResourceTracking.vue";
 import Navbar from "@/components/Navbar.vue";
 
-import { secondToMS } from "@/lib/vue/constants";
-
 export default {
   name: "App",
   components: {
@@ -57,101 +55,6 @@ export default {
         data: "back",
       });
     },
-
-    goBackOrForward() {
-      const store = this.$store;
-
-      // Add a mousedown event listener to the element
-      document.addEventListener("mousedown", (event) => {
-        switch (event.button) {
-          case 4:
-            store.dispatch("all", {
-              mutation: "navigateScreen",
-              data: "forward",
-            });
-            break;
-          case 3:
-            store.dispatch("all", {
-              mutation: "navigateScreen",
-              data: "back",
-            });
-            break;
-        }
-      });
-    },
-
-    calculateGameTime(endDate) {
-      return Math.floor((new Date() - endDate) / secondToMS);
-    },
-
-    recordRunningGame(gamesToCheck) {
-      const store = this.$store;
-
-      const intervalId = setInterval(() => {
-        gamesToCheck.map((game) => {
-          window.ipc.receive("isGameRunning", game.app).then((data) => {
-            if (data[game.app]) {
-              if (!game.startTime) {
-                // Game has just started running - record the start time
-                game.startTime = new Date();
-              }
-
-              store.dispatch("all", {
-                mutation: "setGameRunning",
-                data: { running: true, name: game.app },
-              });
-            }
-
-            if (
-              Object.keys(data)[0] == game.app &&
-              !data[game.app] &&
-              game.startTime != null
-            ) {
-              const elapsedSeconds = this.calculateGameTime(game.startTime);
-              game.startTime = null;
-
-              store.dispatch("all", {
-                mutation: "setGameRunning",
-                data: {
-                  running: false,
-                  name: game.app,
-                  elapsedSeconds,
-                },
-              });
-              window.ipc.send("logRunningGame", {
-                app: game.app,
-                time: elapsedSeconds,
-              });
-            }
-          });
-        });
-      }, secondToMS);
-
-      store.dispatch("all", {
-        mutation: "setIntervalId",
-        data: { intervalId },
-      });
-    },
-  },
-
-  mounted() {
-    this.goBackOrForward();
-    const store = this.$store;
-
-    window.ipc.receive("getSetting", "trackingGames").then((data) => {
-      store.dispatch("all", {
-        mutation: "setGames",
-        data: data || [],
-      });
-
-      this.recordRunningGame(store.getters.trackingGames);
-    });
-
-    window.ipc.on("python_star_rail_items", (data) => {
-      const items = JSON.parse(data);
-
-      store.dispatch("all", { mutation: "mergeItems", data: items });
-    });
   },
 };
 </script>
