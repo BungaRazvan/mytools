@@ -51,9 +51,9 @@ export default {
 
   mounted() {
     window.ipc.on("checkForUpdate", (data) => {
-      console.log(data);
       this.newVersion = data;
     });
+
     this.fetchVersion();
   },
 };

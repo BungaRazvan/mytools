@@ -665,6 +665,15 @@
       "weapon": "Catalyst",
       "region": "Fontaine",
       "thumbnail": "Neuvillette_Icon.webp"
+    },
+    {
+      "name": "Navia",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Geo",
+      "weapon": "Claymore",
+      "region": "Fontaine",
+      "thumbnail": "Navia_Icon.webp"
     }
   ]
 }

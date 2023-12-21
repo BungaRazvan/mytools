@@ -2934,5 +2934,29 @@
       },
       "sub_stats": ["Energy Recharge", "ATK%"]
     }
+  ],
+  "Navia": [
+    {
+      "name": "Main DPS",
+      "weapon": "Verdict",
+      "substitute": [
+        "The Unforged",
+        "Serpent Spine",
+        "Talking Stick",
+        "Prototype Archaic"
+      ],
+      "artifacts": [
+        {
+          "name": "Nighttime Whispers In The Echoing Woods",
+          "no": 4
+        }
+      ],
+      "main_stats": {
+        "sands": "ATK%",
+        "goblet": "Geo DMG Bonus",
+        "circlet": "CRIT Rate or DMG"
+      },
+      "sub_stats": ["CRIT Rate", "CRIT DMG", "ATK%", "Energy Recharge"]
+    }
   ]
 }

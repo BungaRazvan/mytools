@@ -24,19 +24,6 @@ export default {
   },
 
   methods: {
-    screen() {
-      return this.$store.state.screen;
-    },
-
-    goBack() {
-      const store = this.$store;
-
-      store.dispatch("all", {
-        mutation: "navigateScreen",
-        data: "back",
-      });
-    },
-
     goBackOrForward() {
       const store = this.$store;
 

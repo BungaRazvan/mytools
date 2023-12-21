@@ -6,7 +6,6 @@ import { spawn } from "child_process";
 import { autoUpdater } from "electron-updater";
 
 import { isDevelopment, downloadingState } from "@/lib/vue/constants";
-import { startRailItemName } from "@/lib/vue/items";
 
 import {
   writeCSVFile,
@@ -37,16 +36,11 @@ ipcMain.on("logRunningGame", (event, args) => {
 
 ipcMain.on("saveItems", (event, args) => {
   const { items, time } = args;
-  const correctItems = {};
-
-  for (const item in items) {
-    correctItems[startRailItemName(item)] = items[item];
-  }
 
   writeJsonFile("gameResourceTracking.json", {
     game: "StarRail",
     time: time,
-    items: correctItems,
+    items: items,
     date: new Date().toISOString(),
   });
 });

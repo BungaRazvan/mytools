@@ -11,13 +11,40 @@ parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 sys.path.append(parent_dir)
 
 from grt.image import StarRailRewardsTextImage, StarRailItemsImage
+from grt.name_conversion import star_rail_item_name
 from utils import cleanup, send_to_electron, get_tesseract_path
 
 
 def format_text(text):
     # Initialize an empty dictionary
     result_dict = {}
-    artifacts = ["*", ">", "�", "-", "_", "»", "’", "'", "<", "‘", "|", "~", "/", "“"]
+    artifacts = (
+        "*",
+        ">",
+        "�",
+        "-",
+        "_",
+        "»",
+        "«",
+        "’",
+        "'",
+        "<",
+        "‘",
+        "|",
+        "~",
+        "/",
+        "“",
+        ":",
+        "!",
+        "@",
+        "#",
+        "$",
+        "%",
+        "&",
+        "—",
+        "=",
+        "+",
+    )
 
     for find in artifacts:
         text = text.replace(find, "")
@@ -32,10 +59,14 @@ def format_text(text):
         for line in lines:
             parts = line.split(" x")
 
+            # If there's no "x" in the line, try 2 empty spaces
+            if len(parts) == 1:
+                parts = line.split("  ")
+
             if len(parts) < 2:
                 continue
 
-            item_name = parts[0].strip()
+            item_name = star_rail_item_name(parts[0].strip())
 
             try:
                 item_quantity = int(parts[1].strip())
@@ -57,6 +88,7 @@ def grab_items():
             img = StarRailItemsImage()()
             items = pytesseract.image_to_string(img, config="--oem 3")
             send_to_electron(json.dumps(format_text(items)))
+            cv2.imshow("window", img)
 
         if cv2.waitKey(25) & 0xFF == ord("q"):
             cv2.destroyAllWindows()
