@@ -88,7 +88,6 @@ def grab_items():
             img = StarRailItemsImage()()
             items = pytesseract.image_to_string(img, config="--oem 3")
             send_to_electron(json.dumps(format_text(items)))
-            cv2.imshow("window", img)
 
         if cv2.waitKey(25) & 0xFF == ord("q"):
             cv2.destroyAllWindows()
