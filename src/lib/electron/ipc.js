@@ -67,7 +67,7 @@ ipcMain.on("electronAction", (event, args) => {
         electronStore.set("wasMaximized", true);
       }
 
-      focusedWindow.destroy();
+      focusedWindow.close();
       break;
 
     case "minimize":

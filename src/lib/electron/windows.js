@@ -16,7 +16,7 @@ export const BASE_WINDOW = {
     nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
     contextIsolation: !process.env.ELECTRON_NODE_INTEGRATION,
     preload: path.join(__dirname, "preload.js"),
-    devTools: isDevelopment,
+    // devTools: isDevelopment,
   },
 };
 
