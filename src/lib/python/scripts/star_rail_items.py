@@ -10,44 +10,18 @@ import sys
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 sys.path.append(parent_dir)
 
+from utils import cleanup, send_to_electron, get_tesseract_path
+from constants import ITEMS_ARTIFACTS
+
 from grt.image import StarRailRewardsTextImage, StarRailItemsImage
 from grt.name_conversion import star_rail_item_name
-from utils import cleanup, send_to_electron, get_tesseract_path
 
 
-def format_text(text):
+def extract_data(text):
     # Initialize an empty dictionary
     result_dict = {}
-    artifacts = (
-        "*",
-        ">",
-        "�",
-        "-",
-        "_",
-        "»",
-        "«",
-        "’",
-        "'",
-        "<",
-        "‘",
-        "|",
-        "~",
-        "/",
-        "“",
-        ":",
-        "!",
-        "@",
-        "#",
-        "$",
-        "%",
-        "&",
-        "—",
-        "=",
-        "+",
-        ".",
-    )
 
-    for find in artifacts:
+    for find in ITEMS_ARTIFACTS:
         text = text.replace(find, "")
 
     # Split the text into sections by "wards"
@@ -88,7 +62,7 @@ def grab_items():
             time.sleep(1)
             img = StarRailItemsImage()()
             items = pytesseract.image_to_string(img, config="--oem 3")
-            send_to_electron(json.dumps(format_text(items)))
+            send_to_electron(json.dumps(extract_data(items)))
 
         if cv2.waitKey(25) & 0xFF == ord("q"):
             cv2.destroyAllWindows()
