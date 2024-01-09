@@ -171,6 +171,6 @@ if __name__ == "__main__":
 
     append_build(
         json_path,
-        "https://gamewith.net/genshin-impact/article/show/40238",
-        "Navia",
+        "https://gamewith.net/genshin-impact/article/show/41187",
+        "Chevreuse",
     )
