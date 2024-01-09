@@ -253,7 +253,8 @@ app.on("ready", async () => {
         action: "allow",
         overrideBrowserWindowOptions: {
           ...bounds,
-          ...SETTINGS_WINDOW,
+          resizable: false,
+          maximizable: false,
         },
       };
     }
