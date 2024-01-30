@@ -17,8 +17,34 @@ class StarRailRelicImage(Image):
 class StarRailRelicStatsImage(Image):
     def __init__(self) -> None:
         super().__init__(
-            SCREEN_SIZE[0] - 580, 200, SCREEN_SIZE[0] - 50, SCREEN_SIZE[1] / 2 + 20
+            SCREEN_SIZE[0] - 580,
+            int(SCREEN_SIZE[1] / 7) - 5,
+            SCREEN_SIZE[0] - 50,
+            SCREEN_SIZE[1] / 2 + 40,
         )
 
     def __call__(self):
         return self.grayscale(super().__call__())
+
+
+# class StarRailRelicStatsImage(Image):
+#     def __init__(self) -> None:
+#         super().__init__(
+#             SCREEN_SIZE[0] - 580,
+#             SCREEN_SIZE[1] / 2 - 400,
+#             SCREEN_SIZE[0] - 50,
+#             SCREEN_SIZE[1] / 2 - 100,
+#         )
+
+#     def __call__(self):
+#         return self.grayscale(super().__call__())
+
+
+# class StarRailRelicStatsImage(Image):
+#     def __init__(self) -> None:
+#         super().__init__(
+#             SCREEN_SIZE[0] - 580, 200, SCREEN_SIZE[0] - 50, SCREEN_SIZE[1] / 2 + 40
+#         )
+
+#     def __call__(self):
+#         return self.grayscale(super().__call__())

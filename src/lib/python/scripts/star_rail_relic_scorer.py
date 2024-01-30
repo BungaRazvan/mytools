@@ -20,15 +20,19 @@ from scorer.star_rail.utils import fix_line, find_stat, extract_type_lvl
 def read_screen():
     while True:
         screen = StarRailRelicStatsImage()()
-        data = pytesseract.image_to_string(screen)
+        data = pytesseract.image_to_string(
+            screen, config="--user-words hsr_stats.txt,hsr_relic_categories.txt"
+        )
         cv2.imshow("relic", screen)
 
         try:
             data = extract_data(data)
 
+            if data.get("main_stat"):
+                cv2.imwrite(f"./img/{data.get('type')}.png", screen)
+
         except Exception as e:
-            print(data)
-            cv2.imwrite("./fails/fail.png", screen)
+            continue
 
             raise e
 
@@ -52,7 +56,8 @@ def extract_data(text):
         line = line.lower()
 
         if any(
-            keyword in line for keyword in ("sphere", "rope", "head", "body", "feet")
+            keyword in line
+            for keyword in ("sphere", "rope", "head", "body", "feet", "hands")
         ):
             _type, lvl = extract_type_lvl(line)
             result_dict["type"] = _type.strip()
@@ -72,20 +77,32 @@ def extract_data(text):
                 result_dict["sub_stats"].append((stat, value))
 
         if "set" in line:
-            pass
+            result_dict["set_name"] = lines[index + 1]
 
+    print(json.dumps(lines, indent=2), len(lines))
     print(json.dumps(result_dict, indent=2), len(lines))
+    return result_dict
 
 
 def read_img():
-    img = cv2.imread("./img/Screenshot 2023-12-26 143020.jpg")
-    img = Image.grayscale(img)
+    img = cv2.imread("./img/head aga 5.png")
+    # img = Image.grayscale(img)
 
-    cv2.imshow("img", img)
     data = pytesseract.image_to_string(img)
+    # thresh = cv2.adaptiveThreshold(
+    #     cv2.cvtColor(img, cv2.COLOR_BGR2GRAY),
+    #     255,
+    #     cv2.ADAPTIVE_THRESH_MEAN_C,
+    #     cv2.THRESH_BINARY,
+    #     5,
+    #     5,
+    # )
+    cv2.imshow("img", img)
 
-    extract_data(data)
-    cv2.waitKey(0)
+    data = extract_data(data)
+
+    if cv2.waitKey(0) & 0xFF == ord("q"):
+        cv2.destroyAllWindows()
 
     # # Destroying present windows on screen
     # cv2.destroyAllWindows()
@@ -94,4 +111,4 @@ def read_img():
 if __name__ == "__main__":
     tesseract_path = get_tesseract_path()
     pytesseract.pytesseract.tesseract_cmd = tesseract_path
-    read_screen()
+    read_img()
