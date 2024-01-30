@@ -1,16 +1,41 @@
 <template>
-  <div>
-    <div class="title"></div>
-    <h1>{{ title }}</h1>
-    <div class="info">
-      <p>Play Time: {{ this.displayTime(time) }} hour/s</p>
-      <p>
-        Last Played:
-        {{ this.checkDate(played, running) }}
-      </p>
-    </div>
+  <div class="game-title">
+    <input
+      class="game-number"
+      type="number"
+      @blur="changeOrder($event)"
+      :value="order"
+      min="0"
+      :max="maxOrder"
+      :style="{ width: 50 + (order - 1) * 0.05 + 'px' }"
+    />
+
+    <h1>- {{ title }}</h1>
+  </div>
+  <div class="game-info">
+    <p>Play Time: {{ this.displayTime(time) }} hour/s</p>
+    <p>
+      Last Played:
+      {{ this.checkDate(played, running) }}
+    </p>
   </div>
 </template>
+
+<style lang="scss">
+.game-title {
+  h1 {
+    display: inline;
+  }
+
+  .game-number {
+    background-color: inherit;
+    display: inline-block;
+    border: none;
+    color: #fff;
+    font-size: 50px;
+  }
+}
+</style>
 
 <script>
 export default {
@@ -20,6 +45,9 @@ export default {
     time: Number,
     played: Date,
     running: Boolean,
+    order: Number,
+    maxOrder: Number,
+    onChangeOrder: Function,
   },
 
   methods: {
@@ -59,6 +87,28 @@ export default {
       }
 
       return Math.floor(time / 3600);
+    },
+
+    changeOrder(event) {
+      const newOrder = Number(event.target.value);
+
+      // special case where the user migth type a invalid number
+      if (newOrder == this.order) {
+        event.target.value = this.order;
+        return;
+      }
+
+      if (newOrder > event.target.max) {
+        event.target.value = this.order;
+        return;
+      }
+
+      if (newOrder < event.target.min) {
+        event.target.value = this.order;
+        return;
+      }
+
+      this.onChangeOrder(this.order, newOrder);
     },
   },
 };
