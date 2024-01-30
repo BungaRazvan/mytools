@@ -1,0 +1,16 @@
+HP
+ATK
+Effect Hit Rate
+Outgoing Healing Boost
+CRIT Rate
+CRIT DMG
+SPD
+Physical DMG Boost
+Fire DMG Boost
+Ice DMG Boost
+Wind DMG Boost
+Lightning DMG Boost
+Quantum DMG Boost
+Imaginary DMG Boost
+Break Effect
+Energy Regeneration Rate

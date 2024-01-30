@@ -1,0 +1,6 @@
+Head
+Body
+Hands
+Feet
+Planar Sphere
+Link Rope

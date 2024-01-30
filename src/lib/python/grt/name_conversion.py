@@ -1,8 +1,8 @@
 def star_rail_item_name(item):
     item_name = item.lower()
-    modified_text = " ".join(
-        item.split()
-    ).lower()  # Replace multiple spaces with a single space
+
+    # Replace multiple spaces with a single space
+    modified_text = " ".join(item.split()).lower()
 
     if "dade" in item_name:
         return "Jade Abacus Unit"
