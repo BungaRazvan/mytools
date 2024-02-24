@@ -3,7 +3,7 @@
     <div @click="this.goBack" class="btn pulse">Back</div>
 
     <div class="new-game-add" v-if="!addGame" @click="toggleAddGame">
-      &plus; Add Games to Track
+      &plus; Add Game to Track
     </div>
     <div class="new-game-container" v-if="addGame">
       <div class="new-game-label">
@@ -37,25 +37,32 @@
     </div>
 
     <div
-      class="game-info"
+      class="games"
       :class="{ 'game-running': game.running }"
-      v-for="game in this.$store.getters.gamesData"
+      v-for="(game, index) in gamesData"
       :key="game.app"
     >
       <Game
+        :maxOrder="gamesData.length"
+        :order="index + 1"
         :time="game.time"
         :title="game.label"
         :running="game.running"
         :played="game.played"
+        :onChangeOrder="onChangeOrder"
       />
     </div>
   </div>
 </template>
 
 <style lang="scss">
-.game-info {
+.games {
   &.game-running {
-    color: #a972cb;
+    color: #2d873f;
+  }
+
+  .title {
+    color: #fff;
   }
 }
 
@@ -64,7 +71,7 @@
   padding: 0.5em 1.5em;
 }
 
-.game-info,
+.games,
 .new-game-label,
 .new-game-exec {
   margin: 0.5em;
@@ -85,6 +92,7 @@
 
 <script>
 import { map, omit, filter } from "lodash";
+import { mapGetters } from "vuex";
 
 import Game from "@/components/GameTracking/Game.vue";
 
@@ -131,8 +139,8 @@ export default {
       this.toggleAddGame();
 
       const store = this.$store;
-      const trackingGames = store.getters.trackingGames;
-      const gamesData = store.getters.gamesData;
+      const trackingGames = [...this.trackingGames];
+      const gamesData = [...this.gamesData];
       const listOfGames = map(trackingGames, "app");
 
       if (!this.gameData.app || !this.gameData.label) {
@@ -143,7 +151,7 @@ export default {
         return;
       }
 
-      listOfGames.push(this.gameData.app);
+      listOfGames.unshift(this.gameData.app);
 
       // stop checking for running games
       clearInterval(store.getters.intrervalId);
@@ -162,13 +170,14 @@ export default {
         }
         game.startTime = null;
       }
+
       store.dispatch("all", {
         mutation: "setGames",
         data: [...trackingGames, this.gameData],
       });
 
       // add the game to the dom
-      gamesData.push({
+      gamesData.unshift({
         ...this.gameData,
       });
 
@@ -204,12 +213,11 @@ export default {
 
     getGameData() {
       const store = this.$store;
-      const trackingGames = store.getters.trackingGames;
 
       window.ipc.receive("getGamesData").then((fileData) => {
         const gameData = [];
 
-        trackingGames.map((game) => {
+        this.trackingGames.map((game) => {
           let data = {};
           const fileGame = filter(fileData, (o) => {
             if (o.app == game.app) {
@@ -237,6 +245,41 @@ export default {
         });
       });
     },
+
+    onChangeOrder(originalOrder, newOrder) {
+      const store = this.$store;
+      const trackingGames = [...this.trackingGames];
+      const gamesData = [...this.gamesData];
+
+      originalOrder = originalOrder - 1;
+      newOrder = newOrder - 1;
+      // Remove the item from its original position
+      const [removedItemTracking] = trackingGames.splice(originalOrder, 1);
+      const [removedItemGames] = gamesData.splice(originalOrder, 1);
+
+      // Insert the item at the new position
+      trackingGames.splice(newOrder, 0, removedItemTracking);
+      gamesData.splice(newOrder, 0, removedItemGames);
+
+      store.dispatch("all", {
+        mutation: "setGamesData",
+        data: gamesData,
+      });
+
+      store.dispatch("all", {
+        mutation: "setGames",
+        data: trackingGames,
+      });
+
+      window.ipc.send("setSetting", {
+        setting: "trackingGames",
+        data: map(trackingGames, (obj) => ({ ...obj })),
+      });
+    },
+  },
+
+  computed: {
+    ...mapGetters(["gamesData", "trackingGames"]),
   },
 
   mounted() {
