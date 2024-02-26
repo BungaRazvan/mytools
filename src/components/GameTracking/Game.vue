@@ -18,6 +18,7 @@
       Last Played:
       {{ this.checkDate(played, running) }}
     </p>
+    <p>Last Session: {{ this.secondsToHms(lastSession) }}</p>
   </div>
 </template>
 
@@ -38,6 +39,8 @@
 </style>
 
 <script>
+import { secondsToHms } from "@/lib/vue/dates";
+
 export default {
   name: "Game",
   props: {
@@ -47,10 +50,13 @@ export default {
     running: Boolean,
     order: Number,
     maxOrder: Number,
+    lastSession: Number,
     onChangeOrder: Function,
   },
 
   methods: {
+    secondsToHms,
+
     checkDate(date, isRunning) {
       const today = new Date();
       const yesterday = new Date(today);

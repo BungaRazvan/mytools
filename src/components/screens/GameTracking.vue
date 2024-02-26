@@ -49,6 +49,7 @@
         :title="game.label"
         :running="game.running"
         :played="game.played"
+        :lastSession="game.lastSession"
         :onChangeOrder="onChangeOrder"
       />
     </div>
@@ -108,6 +109,7 @@ export default {
         label: null,
         app: null,
         startTime: null,
+        lastSession: null,
         time: null,
         running: null,
         played: null,
@@ -116,6 +118,7 @@ export default {
         label: null,
         app: null,
         startTime: null,
+        lastSession: null,
         time: null,
         running: null,
         played: null,
@@ -162,12 +165,16 @@ export default {
         // save the current time if any games are opened
         if (game.startTime) {
           const elapsedSeconds = this.calculateGameTime(game.startTime);
+
           window.ipc.send("logRunningGame", {
             app: game.app,
             time: elapsedSeconds,
           });
+
           game.time += elapsedSeconds;
+          game.lastSession += elapsedSeconds;
         }
+
         game.startTime = null;
       }
 
@@ -195,7 +202,14 @@ export default {
       };
 
       const gamesSettings = map(gamesData, (obj) =>
-        omit(obj, ["time", "display", "running", "played", "startTime"])
+        omit(obj, [
+          "time",
+          "display",
+          "running",
+          "played",
+          "startTime",
+          "lastSession",
+        ])
       );
       // save to settings
       window.ipc.send("setSetting", {
