@@ -1,27 +1,35 @@
 <template>
-  <div class="game-title">
-    <input
-      class="game-number"
-      type="number"
-      @blur="changeOrder($event)"
-      :value="order"
-      min="0"
-      :max="maxOrder"
-      :style="{ width: 50 + (order - 1) * 0.05 + 'px' }"
-    />
+  <div class="game" :class="{ 'game-running': running }">
+    <div class="game-title">
+      <input
+        class="game-number"
+        :class="{ 'game-running': running }"
+        type="number"
+        @blur="changeOrder($event)"
+        :value="order"
+        min="0"
+        :max="maxOrder"
+        :style="{ width: 50 + (order - 1) * 0.05 + 'px' }"
+      />
 
-    <h1>- {{ title }}</h1>
-  </div>
-  <div class="game-info">
-    <p>Play Time: {{ this.displayTime(time) }} hour/s</p>
-    <p>
-      Last Played:
-      {{ this.checkDate(played, running) }}
-    </p>
+      <h1>- {{ title }}</h1>
+    </div>
+    <div class="game-info">
+      <p>Play Time: {{ this.displayTime(time) }} hour/s</p>
+      <p>
+        Last Played:
+        {{ this.checkDate(played, running) }}
+      </p>
+      <p>Last Session: {{ this.secondsToHms(lastSession) }}</p>
+    </div>
   </div>
 </template>
 
 <style lang="scss">
+.game-running {
+  color: #2d873f !important;
+}
+
 .game-title {
   h1 {
     display: inline;
@@ -38,6 +46,8 @@
 </style>
 
 <script>
+import { secondsToHms } from "@/lib/vue/dates";
+
 export default {
   name: "Game",
   props: {
@@ -47,10 +57,13 @@ export default {
     running: Boolean,
     order: Number,
     maxOrder: Number,
+    lastSession: Number,
     onChangeOrder: Function,
   },
 
   methods: {
+    secondsToHms,
+
     checkDate(date, isRunning) {
       const today = new Date();
       const yesterday = new Date(today);

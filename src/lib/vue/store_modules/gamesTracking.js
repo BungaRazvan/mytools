@@ -24,6 +24,7 @@ const mutations = {
 
         if (elapsedSeconds) {
           game.time += elapsedSeconds;
+          game.lastSession += elapsedSeconds;
           game.played = new Date();
         }
       }
