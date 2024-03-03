@@ -36,12 +36,7 @@
       <button class="cancel-btn raise" @click="cancelNewGame">Cancel</button>
     </div>
 
-    <div
-      class="games"
-      :class="{ 'game-running': game.running }"
-      v-for="(game, index) in gamesData"
-      :key="game.app"
-    >
+    <div class="games" v-for="(game, index) in gamesData" :key="game.app">
       <Game
         :maxOrder="gamesData.length"
         :order="index + 1"
@@ -57,16 +52,6 @@
 </template>
 
 <style lang="scss">
-.games {
-  &.game-running {
-    color: #2d873f;
-  }
-
-  .title {
-    color: #fff;
-  }
-}
-
 .save-btn,
 .cancel-btn {
   padding: 0.5em 1.5em;
