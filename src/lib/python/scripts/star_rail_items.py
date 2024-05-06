@@ -82,6 +82,8 @@ def format_text(text):
 def grab_items():
     while True:
         screen = StarRailRewardsTextImage()()
+        bg_screen = StarRailRewardsTextImage().screenshot("Honkai: Star Rail")
+        # cv2.imshow("bg_screen", screen)
         tesstr = pytesseract.image_to_string(screen, config="--oem 3")
 
         if "Rewards" in tesstr:
