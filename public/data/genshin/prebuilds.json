@@ -3468,5 +3468,34 @@
         "Elemental Mastery"
       ]
     }
+  ],
+  "Arlecchino": [
+    {
+      "name": "Is Best Built As A Main DPS",
+      "weapon": "Crimson Moon's Semblance",
+      "substitute": [
+        "Primordial Jade Winged-Spear",
+        "Staff Of Homa",
+        "Deathmatch",
+        "White Tassel"
+      ],
+      "artifacts": [
+        {
+          "name": "Fragment Of Harmonic Whimsy",
+          "no": 4
+        }
+      ],
+      "main_stats": {
+        "sands": "ATK%",
+        "goblet": "Pyro DMG Bonus",
+        "circlet": "CRIT Rate / DMG"
+      },
+      "sub_stats": [
+        "CRIT Rate or DMG",
+        "ATK%",
+        "Elemental Mastery",
+        "Energy Recharge"
+      ]
+    }
   ]
 }

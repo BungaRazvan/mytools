@@ -39,5 +39,7 @@ def star_rail_item_name(item):
 
     elif modified_text == "usurpers scheme":
         return "Usurper's Scheme"
+    elif 'Dream Col' in  modified_text:
+        return "Dream Collection Component"
 
     return item
