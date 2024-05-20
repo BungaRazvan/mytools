@@ -45,6 +45,8 @@ def format_text(text):
         "=",
         "+",
         ".",
+        ';',
+        '"'
     )
 
     for find in artifacts:
