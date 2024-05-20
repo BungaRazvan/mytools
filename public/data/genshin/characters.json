@@ -674,6 +674,15 @@
       "weapon": "Claymore",
       "region": "Fontaine",
       "thumbnail": "Navia_Icon.webp"
+    },
+    {
+      "name": "Arlecchino",
+      "type": "Character",
+      "rarity": 5,
+      "element": "Pyro",
+      "weapon": "Polearm",
+      "region": "Snezhnaya",
+      "thumbnail": "Arlecchino_Icon.webp"
     }
   ]
 }
