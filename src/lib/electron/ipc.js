@@ -172,7 +172,7 @@ ipcMain.handle("getGamesData", (event, args) => {
   const transformedData = map(groupBy(data, "app"), (group) => {
     const total = sumBy(group, (item) => parseInt(item.time));
     const lastGroup = group[group.length - 1];
-
+    console.log(lastGroup.date);
     return {
       app: group[0].app,
       time: total,
