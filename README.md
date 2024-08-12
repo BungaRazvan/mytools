@@ -1,24 +1,23 @@
 # mytools
 
-## Project setup
-```
-npm install
-```
+Utility App to store a lot of "use full" functionality
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### Features
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Game Tracking
 
-### Lints and fixes files
-```
-npm run lint
-```
+Track the playtime of any game. Supports tracking of multiple games at once.
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![Track Games](images/tracking_game.png)
+
+## Game Resource Tracking
+
+Track resources you obtain in StarRail by simply playing the game.
+
+![Track Resources](images/resources_tracking.png)
+
+## Genshin Lodaouts
+
+Easy meta Gensin Impact meta builds. Display the artefacts and weapons for each character. Autosaves almost any change.
+
+![Genshin Lodaouts](images/genshin_lodaouts.png)
