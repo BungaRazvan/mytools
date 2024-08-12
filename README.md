@@ -2,21 +2,21 @@
 
 Utility App to store a lot of "use full" functionality
 
-### Features
+## Features
 
-## Game Tracking
+### Game Tracking
 
 Track the playtime of any game. Supports tracking of multiple games at once.
 
 ![Track Games](images/tracking_game.png)
 
-## Game Resource Tracking
+### Game Resource Tracking
 
 Track resources you obtain in StarRail by simply playing the game.
 
 ![Track Resources](images/resources_tracking.png)
 
-## Genshin Lodaouts
+### Genshin Lodaouts
 
 Easy meta Gensin Impact meta builds. Display the artefacts and weapons for each character. Autosaves almost any change.
 
