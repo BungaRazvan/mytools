@@ -27,6 +27,10 @@ let childProcess = null;
 ipcMain.on("logRunningGame", (event, args) => {
   const { app, time } = args;
 
+  if (!time) {
+    return;
+  }
+
   writeCSVFile("runningTime.csv", {
     app,
     time,
