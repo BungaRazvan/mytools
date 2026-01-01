@@ -31,6 +31,7 @@ contextBridge.exposeInMainWorld("ipc", {
       "readJsonFile",
       "checkForTesseract",
       "appVersion",
+      "api",
     ];
 
     if (validChannels.includes(channel)) {

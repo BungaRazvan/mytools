@@ -21,7 +21,7 @@ import { calculateCenterBounds } from "./lib/electron/utils";
 
 import electronStore from "./lib/electron/store";
 
-import "./lib/electron/ipc";
+import { setupIpcHandlers } from "./lib/electron/ipc";
 
 const testUpdate = false;
 
@@ -193,6 +193,7 @@ app.on("ready", async () => {
     }
   }
 
+  setupIpcHandlers();
   createWindow();
   createTray();
 
