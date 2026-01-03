@@ -1,11 +1,17 @@
-import electronStore from "./store";
+import electronStore, { getDecryptedKey } from "./store";
 import { net } from "electron";
 
 export async function apiCall(method, endpoint, body, options = {}) {
   const { path = "mytools", headers = {} } = options;
 
-  //   let url = `${electronStore.API_URL}/${path}/${endpoint}`;
-  let url = `http://localhost:8000/${path}/${endpoint}`;
+  const APP_API_TOKEN = getDecryptedKey("APP_API_TOKEN");
+  const APP_API_URL = electronStore.get("APP_API_URL");
+
+  if (!APP_API_URL) {
+    throw new Error("Missing API URL");
+  }
+
+  let url = `${APP_API_URL}/${path}/${endpoint}`;
   let requestBody = body;
 
   if (
@@ -19,9 +25,11 @@ export async function apiCall(method, endpoint, body, options = {}) {
   }
 
   if (options.useAPIKey) {
-    // headers["X-API-KEY"] = electronStore.API_APP_TOKEN;
-    headers["X-API-KEY"] =
-      "3737f7ebbca481a17a9938a9d3b6c30eb63d8926b75c5bbbe9fd71393369ed70";
+    if (!APP_API_TOKEN) {
+      throw new Error("Missing API TOKEN");
+    }
+
+    headers["X-API-KEY"] = APP_API_TOKEN;
   }
 
   if (headers["Content-Type"] == "application/json") {

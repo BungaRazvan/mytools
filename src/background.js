@@ -214,7 +214,7 @@ app.on("ready", async () => {
 
     if (wasMaximized) {
       mainWindow.maximize();
-      electronStore.set("wasMaximazed", false);
+      electronStore.set("wasMaximized", false);
     }
 
     mainWindow.setBounds(mainWindowBounds);

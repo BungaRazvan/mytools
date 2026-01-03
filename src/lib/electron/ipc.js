@@ -68,7 +68,7 @@ export function setupIpcHandlers() {
 
   ipcMain.on("setSetting", (event, args) => {
     const { setting, data, isSecure } = args;
-
+    console.log("set");
     if (isSecure && safeStorage.isEncryptionAvailable()) {
       const encrypted = safeStorage.encryptString(data);
       electronStore.set(setting, encrypted.toString("hex"));

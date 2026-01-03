@@ -19,7 +19,7 @@
       <div class="setting-group">
         <label>API Url</label>
         <input
-          v-model="settings.API_URL"
+          v-model="settings.APP_API_URL"
           type="text"
           placeholder="Server base URL"
         />
@@ -29,7 +29,7 @@
         <label>API App Token</label>
         <div class="password-wrapper">
           <input
-            v-model="settings.API_APP_TOKEN"
+            v-model="settings.APP_API_TOKEN"
             :type="showToken ? 'text' : 'password'"
             placeholder="Secure token"
           />
@@ -41,6 +41,7 @@
 
       <div class="footer">
         <button class="save-btn" @click="saveAllSettings">Save</button>
+        <p v-if="statusMsg" class="status-msg">{{ statusMsg }}</p>
       </div>
     </div>
   </div>
@@ -192,6 +193,23 @@ export default {
     checkForUpdate() {
       window.ipc.send("checkForUpdate");
     },
+
+    saveAllSettings() {
+      window.ipc.send("setSetting", {
+        setting: "APP_API_URL",
+        data: this.settings.APP_API_URL,
+        isSecure: false,
+      });
+
+      window.ipc.send("setSetting", {
+        setting: "APP_API_TOKEN",
+        data: this.settings.APP_API_TOKEN,
+        isSecure: true,
+      });
+
+      this.statusMsg = "Settings saved successfully!";
+      setTimeout(() => (this.statusMsg = ""), 3000);
+    },
   },
 
   data() {
@@ -200,10 +218,11 @@ export default {
       newVersion: null,
       downloadingState,
       settings: {
-        API_URL: "",
-        API_APP_TOKEN: "",
+        APP_API_URL: null,
+        APP_API_TOKEN: null,
       },
       showToken: false,
+      statusMsg: "",
     };
   },
 
