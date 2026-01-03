@@ -20,3 +20,7 @@ export const secondsToHms = (d, format) => {
 
   return hDisplay + mDisplay + sDisplay;
 };
+
+export const displayDate = (date) => {
+  return new Date(date).toDateString();
+};

@@ -18,6 +18,13 @@
       title="Genshin Loadouts"
       shape="sqr"
     />
+
+    <WindowsTile
+      @click="this.changeScreen('etfSchedule')"
+      color="green"
+      title="Etfs Schedule"
+      shape="sqr"
+    />
   </div>
 </template>
 

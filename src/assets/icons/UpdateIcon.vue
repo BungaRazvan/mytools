@@ -30,41 +30,6 @@
     transform: rotate(360deg);
   }
 }
-
-.refresh {
-  padding: 8px;
-  border: 0;
-  width: 40px;
-  height: 40px;
-  margin: 0 auto;
-  display: inline-block;
-
-  .icon {
-    fill: #f0eeee;
-  }
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  &:active {
-    .icon {
-      fill: #5ac938;
-    }
-  }
-  &.loading {
-    cursor: wait;
-
-    .icon {
-      fill: #5ac938;
-      -webkit-animation: rotating 1.2s linear infinite;
-      -moz-animation: rotating 1.2s linear infinite;
-      -ms-animation: rotating 1.2s linear infinite;
-      -o-animation: rotating 1.2s linear infinite;
-      animation: rotating 1.2s linear infinite;
-    }
-  }
-}
 </style>
 
 <script>

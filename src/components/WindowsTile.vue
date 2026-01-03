@@ -16,7 +16,7 @@
       <span class="tile-content">
         <span class="tile-img"></span>
         <span class="tile-holder tile-holder-lg">
-          <span class="title">{{ title }}</span>
+          <span class="window-title">{{ title }}</span>
         </span>
       </span>
     </span>

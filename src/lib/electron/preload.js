@@ -15,6 +15,8 @@ contextBridge.exposeInMainWorld("ipc", {
       "writeJsonFile",
       "electronAction",
       "checkForUpdate",
+      "openWindow",
+      "closeWindow",
     ];
 
     if (validChannels.includes(channel)) {
@@ -31,6 +33,7 @@ contextBridge.exposeInMainWorld("ipc", {
       "readJsonFile",
       "checkForTesseract",
       "appVersion",
+      "api",
     ];
 
     if (validChannels.includes(channel)) {

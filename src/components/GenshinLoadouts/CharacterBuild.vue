@@ -38,7 +38,7 @@
     </div>
 
     <div v-if="selectedBuild.name">
-      <div @click="setBuild" class="btn offset">Set Build</div>
+      <div @click="setBuild" class="simple-btn btn offset">Set Build</div>
     </div>
   </div>
 </template>

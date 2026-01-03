@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div @click="this.goBack" class="btn pulse">Back</div>
+    <div @click="this.goBack" class="simple-btn btn pulse">Back</div>
 
     <div class="new-game-add" v-if="!addGame" @click="toggleAddGame">
       &plus; Add Game to Track
@@ -32,8 +32,12 @@
         </div>
       </div>
 
-      <button class="save-btn raise" @click="trackNewGame">Save</button>
-      <button class="cancel-btn raise" @click="cancelNewGame">Cancel</button>
+      <button class="simple-btn btn save-btn raise" @click="trackNewGame">
+        Save
+      </button>
+      <button class="simple-btn btn cancel-btn raise" @click="cancelNewGame">
+        Cancel
+      </button>
     </div>
 
     <div class="games" v-for="(game, index) in gamesData" :key="game.app">
