@@ -1,7 +1,6 @@
 <template>
   <div class="etfs-container" v-for="etf in etfs">
     <Etf :key="etf.ef_id" :etf="etf" />
-    <Etf :key="etf.ef_id" :etf="etf" />
   </div>
 </template>
 
