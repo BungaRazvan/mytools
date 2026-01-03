@@ -2,8 +2,8 @@
   <div class="teams-container">
     <div class="teams">
       <div class="btn-container">
-        <div class="btn fill" @click="goBack">Back</div>
-        <div class="btn raise" @click="saveConfig">Save</div>
+        <div class="simple-btn btn fill" @click="goBack">Back</div>
+        <div class="simple-btn btn raise" @click="saveConfig">Save</div>
       </div>
 
       <Team

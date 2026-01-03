@@ -2,7 +2,7 @@
   <div class="game-resource-tracking">
     <div class="container">
       <div @click="goBack" class="back-button">
-        <div class="btn pulse">Back</div>
+        <div class="simple-btn btn pulse">Back</div>
       </div>
 
       <div v-if="!tesseractInstalled">
@@ -16,12 +16,16 @@
 
         <div
           @click="toggleScript"
-          class="btn"
+          class="simple-btn btn"
           :class="{ danger: isScriptRunning, slide: !isScriptRunning }"
         >
           {{ !isScriptRunning ? "Start" : "Stop" }} Script
         </div>
-        <div @click="newRun" v-if="isScriptRunning" class="btn slide">
+        <div
+          @click="newRun"
+          v-if="isScriptRunning"
+          class="simple-btn btn slide"
+        >
           New Run
         </div>
       </div>
