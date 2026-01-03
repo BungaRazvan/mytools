@@ -15,6 +15,8 @@ contextBridge.exposeInMainWorld("ipc", {
       "writeJsonFile",
       "electronAction",
       "checkForUpdate",
+      "openWindow",
+      "closeWindow",
     ];
 
     if (validChannels.includes(channel)) {

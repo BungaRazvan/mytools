@@ -97,7 +97,10 @@ export default {
     },
 
     openSettings() {
-      window.open("#/settings", "settngs");
+      window.ipc.send("openWindow", {
+        route: "settings",
+        configName: "SETTINGS_WINDOW",
+      });
     },
   },
 

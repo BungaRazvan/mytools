@@ -16,11 +16,26 @@ import {
 } from "./files";
 import { isProgramRunning, checkForTesseract } from "./running";
 import electronStore from "./store";
+import * as windowConfigs from "./windows";
 
 let childProcess = null;
 
 export function setupIpcHandlers() {
   // send
+
+  ipcMain.on("openWindow", (event, args) => {
+    const { route, configName } = args;
+    const config = windowConfigs[configName];
+
+    const newWin = new BrowserWindow(config);
+
+    const url = isDevelopment
+      ? `${process.env.WEBPACK_DEV_SERVER_URL}#/${route}`
+      : `file://${path.join(__dirname, "index.html")}#/${route}`;
+
+    newWin.loadURL(url);
+  });
+
   ipcMain.on("logRunningGame", (event, args) => {
     const { app, time } = args;
 
@@ -61,10 +76,6 @@ export function setupIpcHandlers() {
     }
 
     electronStore.set(setting, data);
-  });
-
-  ipcMain.handle("getSetting", (event, arg) => {
-    return electronStore.get(arg);
   });
 
   ipcMain.on("electronAction", (event, args) => {
@@ -172,6 +183,10 @@ export function setupIpcHandlers() {
   });
 
   // receive
+  ipcMain.handle("getSetting", (event, arg) => {
+    return electronStore.get(arg);
+  });
+
   ipcMain.handle("isGameRunning", async (event, args) => {
     const isGameRunning = await isProgramRunning(`${args}.exe`);
 
