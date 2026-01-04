@@ -2,53 +2,51 @@
   <div class="etf">
     <h2 class="title">{{ etf.ef_name }}</h2>
 
-    <div class="info-grid" v-if="etfEvent || etfNextEvent">
-      <div v-if="etfEvent">
+    <div class="info-grid">
+      <div v-if="etf.future_event">
         <p>
-          <span>
-            <span v-if="etfEvent.ee_ex_estimated">(Est)</span>Ex Dividend
+          <span
+            ><span v-if="etf.future_event.ee_ex_estimated">(Est)</span>Next Ex
             Date:</span
           >
-          {{ formatDate(etfEvent.ee_ex_date) }}
+          {{ formatDate(etf.future_event.ee_ex_date) }}
         </p>
         <p>
           <span>
-            <span v-if="etfEvent.ee_payment_estimated">(Est)</span>Payment
-            Date:</span
+            <span v-if="etf.future_event.ee_payment_estimated">(Est)</span>Next
+            Payment Date:</span
           >
-          {{ formatDate(etfEvent.ee_payment_date) }}
+          {{ formatDate(etf.future_event.ee_payment_date) }}
         </p>
-        <p v-if="etfEvent.ee_pay_per_share">
-          <span>Est Pay:</span>
-          {{ calculatePay(etf.events) }} =>
-          {{ formatShares(etfEvent.ee_eligible_shares_amount) }} x
-          {{ etfEvent.ee_pay_per_share || "0.00" }}
+        <p>
+          <span><span>(Est)</span>Eligible Shares:</span>
+          {{ formatShares(etf.future_event.ee_eligible_shares_amount) }}
+        </p>
+      </div>
+      <div v-if="etf.recent_event">
+        <p>
+          <span>
+            <span v-if="etf.recent_event.ee_ex_estimated">(Est)</span>Last Ex
+            Dividend Date:</span
+          >
+          {{ formatDate(etf.recent_event.ee_ex_date) }}
+        </p>
+        <p>
+          <span>
+            <span v-if="etf.recent_event.ee_payment_estimated">(Est)</span>Last
+            Payment Date:</span
+          >
+          {{ formatDate(etf.recent_event.ee_payment_date) }}
+        </p>
+        <p v-if="etf.recent_event.ee_pay_per_share">
+          <span>Last Pay:</span>
+          {{ calculatePay(etf.recent_event) }} =>
+          {{ formatShares(etf.recent_event.ee_eligible_shares_amount) }} x
+          {{ etf.recent_event.ee_pay_per_share || "0.00" }}
         </p>
         <p v-else>
           <span>Eligible Shares:</span>
-          {{ formatShares(etfEvent.ee_eligible_shares_amount) }}
-        </p>
-      </div>
-
-      <div v-if="etfNextEvent">
-        <p>
-          <span
-            ><span v-if="etfNextEvent.ee_ex_estimated">(Est)</span> Next Ex
-            Date:</span
-          >
-          {{ formatDate(etfNextEvent.ee_ex_date) }}
-        </p>
-        <p>
-          <span
-            >Next
-            <span v-if="etfNextEvent.ee_payment_estimated">(Est)</span> Payment
-            Date:</span
-          >
-          {{ formatDate(etfNextEvent.ee_payment_date) }}
-        </p>
-        <p>
-          <span>Eligible Shares:</span>
-          {{ formatShares(etfNextEvent.ee_eligible_shares_amount) }}
+          {{ formatShares(etf.recent_event.ee_eligible_shares_amount) }}
         </p>
       </div>
     </div>
@@ -215,25 +213,14 @@ export default {
   data() {
     return {
       showPurchaseHistory: false,
-      etfEvent: null,
-      etfNextEvent: null,
+      recentEvent: null,
+      futureEvent: null,
     };
   },
 
   methods: {
     togglePurchaseHistory() {
       this.showPurchaseHistory = !this.showPurchaseHistory;
-    },
-
-    getEvents(events) {
-      if (events && events.length == 1) {
-        this.etfEvent = events[0];
-      }
-
-      if (events && events.length > 1) {
-        this.etfEvent = events[0];
-        this.etfNextEvent = events[1];
-      }
     },
 
     formatDate(dateStr) {
@@ -284,10 +271,6 @@ export default {
         maximumFractionDigits: 8,
       }).format(amount);
     },
-  },
-
-  mounted() {
-    this.getEvents(this.etf.events);
   },
 };
 </script>

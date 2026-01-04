@@ -1,7 +1,7 @@
 import path from "path";
 
 import { BrowserWindow, ipcMain, shell, app, safeStorage } from "electron";
-import { map, groupBy, sumBy } from "lodash";
+import { map, groupBy, sumBy, isArray } from "lodash";
 import { spawn } from "child_process";
 import { autoUpdater } from "electron-updater";
 import { apiCall } from "./api";
@@ -15,7 +15,7 @@ import {
   readJsonFile,
 } from "./files";
 import { isProgramRunning, checkForTesseract } from "./running";
-import electronStore from "./store";
+import electronStore, { getDecryptedKey } from "./store";
 import * as windowConfigs from "./windows";
 
 let childProcess = null;
@@ -68,7 +68,7 @@ export function setupIpcHandlers() {
 
   ipcMain.on("setSetting", (event, args) => {
     const { setting, data, isSecure } = args;
-    console.log("set");
+
     if (isSecure && safeStorage.isEncryptionAvailable()) {
       const encrypted = safeStorage.encryptString(data);
       electronStore.set(setting, encrypted.toString("hex"));
@@ -183,8 +183,25 @@ export function setupIpcHandlers() {
   });
 
   // receive
-  ipcMain.handle("getSetting", (event, arg) => {
-    return electronStore.get(arg);
+  ipcMain.handle("getSetting", (event, args) => {
+    if (typeof args == "string") {
+      return electronStore.get(args);
+    } else if (Array.isArray(args)) {
+      const settings = {};
+
+      args.map((key) => {
+        if (typeof key == "string") {
+          settings[key] = electronStore.get(key);
+        } else if (key && key.isSecure) {
+          const value = getDecryptedKey(key.name);
+          settings[key.name] = value;
+        }
+      });
+
+      return settings;
+    }
+
+    return null;
   });
 
   ipcMain.handle("isGameRunning", async (event, args) => {
