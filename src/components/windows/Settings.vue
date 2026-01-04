@@ -232,6 +232,17 @@ export default {
     });
 
     this.fetchVersion();
+
+    window.ipc
+      .receive("getSetting", [
+        "APP_API_URL",
+        { name: "APP_API_TOKEN", isSecure: true },
+      ])
+      .then((data) => {
+        console.log(data);
+        this.settings.APP_API_TOKEN = data.APP_API_TOKEN;
+        this.settings.APP_API_URL = data.APP_API_URL;
+      });
   },
 };
 </script>
