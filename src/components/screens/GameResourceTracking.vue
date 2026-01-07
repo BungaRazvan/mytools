@@ -149,6 +149,7 @@ export default {
   data() {
     return {
       tesseractInstalled: false,
+      fileName: "gameResourceTracking.json",
     };
   },
 
@@ -185,9 +186,14 @@ export default {
         clearInterval(this.resourceInterval);
 
         if (!isEmpty(this.items)) {
-          window.ipc.send("saveItems", {
-            items: { ...this.items },
-            time: this.resourceTime,
+          window.ipc.send("writeFile", {
+            fileName: this.fileName,
+            data: JSON.stringify({
+              game: "StarRail",
+              items: { ...this.items },
+              time: this.resourceTime,
+              date: new Date().toISOString(),
+            }),
           });
         }
 
@@ -207,9 +213,14 @@ export default {
       const store = this.$store;
 
       if (!isEmpty(this.items)) {
-        window.ipc.send("saveItems", {
-          items: { ...this.items },
-          time: this.resourceTime,
+        window.ipc.send("writeFile", {
+          fileName: this.fileName,
+          data: JSON.stringify({
+            game: "StarRail",
+            items: { ...this.items },
+            time: this.resourceTime,
+            date: new Date().toISOString(),
+          }),
         });
       }
 
@@ -243,7 +254,7 @@ export default {
 
     if (!this.previousRuns.length && !this.previousItems.length) {
       window.ipc
-        .receive("readJsonFile", { fileName: "gameResourceTracking.json" })
+        .receive("readJsonFile", { fileName: this.fileName })
         .then((data) => {
           store.dispatch("all", {
             mutation: "setPreviousRuns",

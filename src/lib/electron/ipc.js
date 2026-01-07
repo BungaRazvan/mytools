@@ -2,10 +2,12 @@ import path from "path";
 
 import { BrowserWindow, ipcMain, shell, app, safeStorage } from "electron";
 import { map, groupBy, sumBy, isArray } from "lodash";
-import { spawn } from "child_process";
+
 import { autoUpdater } from "electron-updater";
-import { apiCall } from "./api";
+
 import { isDevelopment, downloadingState } from "@/lib/vue/constants";
+
+import { registerExternalHandlers } from "./handlers/external";
 
 import {
   writeCSVFile,
@@ -16,26 +18,10 @@ import {
 } from "./files";
 import { isProgramRunning, checkForTesseract } from "./running";
 import electronStore, { getDecryptedKey } from "./store";
-import * as windowConfigs from "./windows";
-
-let childProcess = null;
+import { registerFileHandlers } from "./handlers/files";
+import { registerWindowHandlers } from "./handlers/window";
 
 export function setupIpcHandlers() {
-  // send
-
-  ipcMain.on("openWindow", (event, args) => {
-    const { route, configName } = args;
-    const config = windowConfigs[configName];
-
-    const newWin = new BrowserWindow(config);
-
-    const url = isDevelopment
-      ? `${process.env.WEBPACK_DEV_SERVER_URL}#/${route}`
-      : `file://${path.join(__dirname, "index.html")}#/${route}`;
-
-    newWin.loadURL(url);
-  });
-
   ipcMain.on("logRunningGame", (event, args) => {
     const { app, time } = args;
 
@@ -50,21 +36,16 @@ export function setupIpcHandlers() {
     });
   });
 
-  ipcMain.on("saveItems", (event, args) => {
-    const { items, time } = args;
+  // ipcMain.on("saveItems", (event, args) => {
+  //   const { items, time } = args;
 
-    writeJsonFile("gameResourceTracking.json", {
-      game: "StarRail",
-      time: time,
-      items: items,
-      date: new Date().toISOString(),
-    });
-  });
-
-  ipcMain.on("writeJsonFile", (event, args) => {
-    const { fileName, data, folderPath, overwrite } = args;
-    writeJsonFile(fileName, data, folderPath, overwrite);
-  });
+  //   writeJsonFile("gameResourceTracking.json", {
+  //     game: "StarRail",
+  //     time: time,
+  //     items: items,
+  //     date: new Date().toISOString(),
+  //   });
+  // });
 
   ipcMain.on("setSetting", (event, args) => {
     const { setting, data, isSecure } = args;
@@ -76,92 +57,6 @@ export function setupIpcHandlers() {
     }
 
     electronStore.set(setting, data);
-  });
-
-  ipcMain.on("electronAction", (event, args) => {
-    const { action } = args;
-
-    const focusedWindow = BrowserWindow.getFocusedWindow();
-
-    switch (action) {
-      case "close":
-        if (focusedWindow.isMaximized()) {
-          electronStore.set("wasMaximized", true);
-        }
-
-        focusedWindow.close();
-        break;
-
-      case "minimize":
-        if (focusedWindow.isMaximized()) {
-          electronStore.set("wasMaximized", true);
-        }
-
-        focusedWindow.minimize();
-        break;
-
-      case "maximize":
-        if (focusedWindow.isMaximized()) {
-          electronStore.set("wasMaximized", false);
-
-          focusedWindow.unmaximize();
-          break;
-        }
-
-        focusedWindow.maximize();
-        break;
-
-      default:
-        break;
-    }
-  });
-
-  ipcMain.on("startPython", (event, args) => {
-    const { script } = args;
-
-    const scriptPath = isDevelopment
-      ? path.join(__dirname, "..", `src/lib/python/scripts/${script}.py`)
-      : path.join(
-          process.resourcesPath,
-          "scripts",
-          `${script}`,
-          `${script}.exe`
-        );
-
-    if (isDevelopment) {
-      childProcess = spawn("python", [scriptPath]);
-    } else {
-      childProcess = spawn(scriptPath);
-    }
-
-    // Handle data and responses from the Python script
-    childProcess.stdout.on("data", (data) => {
-      const dataString = data.toString();
-      event.sender.send(`python_${script}`, dataString);
-    });
-
-    childProcess.stderr.on("data", (data) => {
-      console.error(`Error: ${data}`);
-      childProcess.kill();
-    });
-  });
-
-  ipcMain.on("stopPython", (event, args) => {
-    if (childProcess) {
-      childProcess.kill();
-    }
-  });
-
-  ipcMain.on("openBrowser", (event, args) => {
-    const { url } = args;
-
-    event.preventDefault();
-
-    if (!url) {
-      return;
-    }
-
-    shell.openExternal(url);
   });
 
   ipcMain.on("checkForUpdate", (event, args) => {
@@ -228,16 +123,6 @@ export function setupIpcHandlers() {
     return transformedData;
   });
 
-  ipcMain.handle("readFolder", (event, args) => {
-    const { folderPath } = args;
-    return readFolder(folderPath);
-  });
-
-  ipcMain.handle("readJsonFile", (event, args) => {
-    const { folderPath, fileName } = args;
-    return readJsonFile(fileName, folderPath);
-  });
-
   ipcMain.handle("checkForTesseract", (event, args) => {
     return checkForTesseract();
   });
@@ -246,23 +131,7 @@ export function setupIpcHandlers() {
     return app.getVersion();
   });
 
-  ipcMain.handle("api", async (event, args) => {
-    const { method, endpoint, body, options = {} } = args;
-
-    try {
-      const response = await apiCall(method, endpoint, body, options);
-
-      // Check if the response is actually JSON before parsing
-      const contentType = response.headers.get("content-type");
-      if (contentType && contentType.includes("application/json")) {
-        const data = await response.json();
-        return { ok: response.ok, status: response.status, data };
-      }
-
-      return { ok: response.ok, status: response.status, data: null };
-    } catch (error) {
-      console.error("IPC API Error:", error);
-      return { ok: false, error: error.message };
-    }
-  });
+  registerExternalHandlers();
+  registerFileHandlers();
+  registerWindowHandlers();
 }
