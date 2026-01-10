@@ -1,46 +1,60 @@
 <template>
   <div>
-    <div @click="this.goBack" class="simple-btn btn pulse">Back</div>
+    <div class="admin-wrapper">
+      <nav class="nav-header">
+        <button @click="goBack" class="btn-back">
+          <span class="arrow">←</span> Back
+        </button>
+      </nav>
 
-    <div class="new-game-add" v-if="!addGame" @click="toggleAddGame">
-      &plus; Add Game to Track
-    </div>
-    <div class="new-game-container" v-if="addGame">
-      <div class="new-game-label">
-        <label>New Game Label</label>
-        <div>
-          <input
-            name="label"
-            :value="gameData.label"
-            @change="setGameData"
-            type="text"
-            class="new-game-label-input"
-          />
-        </div>
+      <div v-if="!addGame" @click="toggleAddGame" class="add-game-trigger">
+        <span class="plus-icon">+</span> Add New Game to Track
       </div>
 
-      <div class="new-game-exec">
-        <label>New Game Executable</label>
-        <div>
-          <input
-            name="app"
-            :value="gameData.app"
-            @change="setGameData"
-            type="text"
-            class="new-game-app-input"
-          />
-        </div>
-      </div>
+      <transition name="slide-fade">
+        <div class="card new-game-card" v-if="addGame">
+          <div class="card-header">
+            <h3>Add New Game</h3>
+            <p>Register a new executable to start tracking play time.</p>
+          </div>
 
-      <button class="simple-btn btn save-btn raise" @click="trackNewGame">
-        Save
-      </button>
-      <button class="simple-btn btn cancel-btn raise" @click="cancelNewGame">
-        Cancel
-      </button>
+          <div class="form-body">
+            <div class="input-field">
+              <label>Display Name</label>
+              <input
+                name="label"
+                :value="gameData.label"
+                @input="setGameData"
+                placeholder="e.g. Cyberpunk 2077"
+                type="text"
+              />
+            </div>
+
+            <div class="input-field">
+              <label>Executable Path</label>
+              <input
+                name="app"
+                :value="gameData.app"
+                @input="setGameData"
+                placeholder="C:\Games\Cyberpunk2077.exe"
+                type="text"
+              />
+            </div>
+          </div>
+
+          <div class="form-footer">
+            <button class="btn btn-save" @click="trackNewGame">
+              Save Game
+            </button>
+            <button class="btn btn-cancel" @click="cancelNewGame">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </transition>
     </div>
 
-    <div class="games" v-for="(game, index) in gamesData" :key="game.app">
+    <div class="game" v-for="(game, index) in gamesData" :key="game.app">
       <Game
         :maxOrder="gamesData.length"
         :order="index + 1"
@@ -56,27 +70,151 @@
 </template>
 
 <style lang="scss">
-.save-btn,
-.cancel-btn {
-  padding: 0.5em 1.5em;
+.admin-wrapper,
+.game {
+  padding: 20px;
 }
 
-.games,
-.new-game-label,
-.new-game-exec {
-  margin: 0.5em;
-}
+.nav-header {
+  margin-bottom: 2rem;
 
-.new-game-container {
-  .new-game-label-input,
-  .new-game-app-input {
-    width: 20%;
-    font-size: 20px;
+  .btn-back {
+    background: transparent;
+    border: none;
+    color: #ff4081;
+
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+
+    opacity: 0.8;
+
+    font-weight: 700;
   }
 }
 
-.new-game-add {
+.add-game-trigger {
+  border: 2px dashed #3f3f4e;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  color: #888;
   cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+
+  &:hover {
+    border-color: #2d873f;
+    color: #fff;
+    background: rgba(45, 135, 63, 0.05);
+  }
+}
+
+.new-game-card {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  margin-bottom: 2rem;
+
+  .card-header {
+    margin-bottom: 1.5rem;
+
+    h3 {
+      margin: 0;
+      font-size: 1.55rem;
+    }
+
+    p {
+      margin: 4px 0 0;
+      font-size: 0.85rem;
+      color: #888;
+    }
+  }
+}
+
+.form-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #aaa;
+    font-weight: bold;
+  }
+
+  input {
+    background: #1a1a21;
+    border: 1px solid #3f3f4e;
+    border-radius: 6px;
+    padding: 12px;
+    color: #fff;
+    font-family: inherit;
+
+    &:focus {
+      outline: none;
+      border-color: #2d873f;
+    }
+  }
+}
+
+.form-footer {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+
+  .btn {
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.1s;
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
+  .btn-save {
+    background: #2d873f;
+    border: none;
+    color: #fff;
+    &:hover {
+      background: #36a44c;
+    }
+  }
+
+  .btn-cancel {
+    background: transparent;
+    border: 1px solid #3f3f4e;
+    color: #888;
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+    }
+  }
+}
+
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+.slide-fade-enter-from {
+  transform: translateY(-20px);
+  opacity: 0;
 }
 </style>
 

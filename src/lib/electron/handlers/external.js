@@ -11,7 +11,6 @@ export function registerExternalHandlers() {
   ipcMain.on("startPython", (event, args) => {
     const { script } = args;
 
-    console.log(__dirname);
     const scriptPath = isDevelopment
       ? path.join(__dirname, "..", "..", `src/lib/python/scripts/${script}.py`)
       : path.join(
