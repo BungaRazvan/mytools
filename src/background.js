@@ -206,8 +206,6 @@ app.on("ready", async () => {
     }
   });
 
-  // this is in the even of moving the window, clicking X and then brinkging it back
-  // no idea why ready-to-show needs to be scaled and this doesn't
   mainWindow.on("show", () => {
     const mainWindowBounds = electronStore.get("mainWindowBounds");
     const wasMaximized = electronStore.get("wasMaximized");
@@ -240,27 +238,6 @@ app.on("ready", async () => {
     }
 
     electronStore.set("mainWindowBounds", mainWindow.getBounds());
-  });
-
-  mainWindow.webContents.setWindowOpenHandler(({ url }) => {
-    if (url.includes("settings")) {
-      const bounds = calculateCenterBounds(
-        SETTINGS_WINDOW.height,
-        SETTINGS_WINDOW.width,
-        mainWindow
-      );
-
-      return {
-        action: "allow",
-        overrideBrowserWindowOptions: {
-          ...bounds,
-          resizable: false,
-          maximizable: false,
-        },
-      };
-    }
-
-    return { action: "deny" };
   });
 
   // Hide the window instead of closing it when the user clicks the close button

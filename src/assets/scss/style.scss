@@ -17,7 +17,7 @@ html {
   margin: 0;
   padding: 0;
   min-height: 100%;
-  background-color: #282a2c;
+  background-color: $main-bg-color;
 }
 
 #app {
@@ -30,7 +30,7 @@ html {
 
 html::-webkit-scrollbar {
   width: 10px;
-  background-color: #282a2c;
+  background-color: $main-bg-color;
 }
 
 html::-webkit-scrollbar-thumb {
@@ -42,6 +42,23 @@ html::-webkit-scrollbar-thumb {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.card {
+  background: #1e1e26;
+  border-left: 4px solid #3f3f4e;
+  border-radius: 8px;
+  padding: 1.5rem;
+
+  transition: all 0.3s ease;
+  color: #e0e0e0;
+
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
 }
 
 /* Responsive styles for different screen sizes */

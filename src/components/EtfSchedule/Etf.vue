@@ -88,11 +88,14 @@
 <style lang="scss">
 .etf {
   padding: 10px;
+  margin: auto;
+  min-width: 80%;
+  border-radius: 12px;
+
   color: #e5e7eb;
   background: #0f172a;
 
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  border-radius: 12px;
 
   .title {
     margin-bottom: 10px;
@@ -105,8 +108,8 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
-    border-top: 1px solid #1e293b;
-    border-bottom: 1px solid #1e293b;
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
     padding: 12px;
 
     p {
@@ -154,6 +157,7 @@
 
       thead {
         background: #020617;
+        background-color: #1e1e26;
       }
 
       th {

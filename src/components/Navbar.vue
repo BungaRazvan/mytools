@@ -93,13 +93,14 @@ export default {
 
   methods: {
     action(action) {
-      window.ipc.send("electronAction", { action });
+      window.ipc.send("windowAction", { action });
     },
 
     openSettings() {
       window.ipc.send("openWindow", {
         route: "settings",
         configName: "SETTINGS_WINDOW",
+        centerOfMainWindow: true,
       });
     },
   },

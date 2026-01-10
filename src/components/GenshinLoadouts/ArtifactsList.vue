@@ -83,6 +83,7 @@
 
 .extra-info {
   margin: 10px 0;
+  font-size: 1.5rem;
 }
 </style>
 

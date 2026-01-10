@@ -53,21 +53,19 @@
 
 <style lang="scss">
 .team {
-  width: 500px;
   margin-top: 10px;
 
   .team-label {
     display: flex;
-    align-items: center;
-    align-content: center;
-    font-size: 40px;
+    background: #1c1c24;
+
+    border: 1px solid rgba(255, 255, 255, 0.03);
 
     .edit-name {
-      background-color: #282a2c;
+      background: #1c1c24;
       color: #fff;
       border: 0;
-      font-size: 40px;
-      width: 100%;
+      font-size: 2rem;
 
       &:focus-visible {
         outline: none;
@@ -77,8 +75,7 @@
 
   i {
     font-size: 40px;
-    padding-right: 5px;
-    padding-bottom: 5px;
+    padding: 5px;
     cursor: pointer;
 
     &.edit-icon {
@@ -95,10 +92,6 @@
         color: #6c1c1c;
       }
     }
-
-    &:last-child {
-      float: right;
-    }
   }
 
   .team-characters {
@@ -107,7 +100,7 @@
     justify-content: space-around;
 
     .character {
-      margin: 10px;
+      margin: 10px 0;
       width: 105px;
       height: 105px;
       background-color: #1c1d1e;

@@ -1,79 +1,128 @@
 <template>
-  <div class="teams-container">
-    <div class="teams">
-      <div class="btn-container">
-        <div class="simple-btn btn fill" @click="goBack">Back</div>
-        <div class="simple-btn btn raise" @click="saveConfig">Save</div>
+  <div class="teams-manager-layout">
+    <aside class="sidebar">
+      <header class="sidebar-header">
+        <button class="btn-minimal" @click="goBack">← Back</button>
+        <button class="btn-primary" @click="saveConfig">Save Changes</button>
+      </header>
+
+      <div class="team-list">
+        <Team
+          v-for="(team, index) in teams"
+          :key="team.name"
+          :name="team.name"
+          :characters="team.characters"
+          :index="index"
+          class="team-entry"
+        />
+
+        <button class="add-team-trigger" @click="addNewTeam">
+          <span class="plus-icon">+</span> Add New Team
+        </button>
       </div>
+    </aside>
 
-      <Team
-        :name="team.name"
-        :characters="team.characters"
-        :key="team.name"
-        :index="index"
-        v-for="(team, index) in teams"
-      />
-      <div class="new-team" @click="addNewTeam">&plus; Add New Team</div>
-    </div>
-
-    <div class="panel container" v-if="displayCharactersList">
-      <CharacterList />
-    </div>
-
-    <div class="panel container" v-if="displayCharaterBuild">
-      <CharacterBuild />
-    </div>
+    <main
+      class="active-panel"
+      v-if="displayCharactersList || displayCharaterBuild"
+    >
+      <div class="panel-content card">
+        <CharacterList v-if="displayCharactersList" />
+        <CharacterBuild v-if="displayCharaterBuild" />
+      </div>
+    </main>
   </div>
 </template>
 
-<style lang="scss">
-.table {
-  width: 100%;
-  margin-top: 25px;
-  border-collapse: collapse;
-}
-
-.teams-container {
+<style lang="scss" scoped>
+.teams-manager-layout {
   display: flex;
+  height: 100vh;
+  background-color: #121216; // Deep dark background
+  color: #eee;
 
-  .teams {
+  .sidebar {
+    width: 550px;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 20px;
+
+    .sidebar-header {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+
+      button {
+        flex: 1;
+        padding: 10px;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .btn-minimal {
+        background: transparent;
+        border: 1px solid #3f3f4e;
+        color: #888;
+        &:hover {
+          color: #fff;
+          border-color: #ff4081;
+        }
+      }
+
+      .btn-primary {
+        background: #2d873f;
+        border: none;
+        color: white;
+        &:hover {
+          background: #36a44c;
+        }
+      }
+    }
   }
 
-  .new-team {
-    cursor: pointer;
-    margin-top: 10px;
-  }
-
-  .panel {
+  .active-panel {
+    flex: 1;
     position: sticky;
-    top: 0;
+    height: 1px;
+    top: 0px;
 
-    background-color: #1c1d1e;
+    .panel-content {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #1c1d1e;
+      border-radius: 12px;
 
-    padding-left: 25px;
-    height: 100vh;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  .add-team-trigger {
     width: 100%;
-  }
-  // 4-star character bg: #68598d
-  // 5-star character bg: #9f682a
-  .five-star {
-    background-color: #9f682a !important;
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 2px dashed #3f3f4e;
+    border-radius: 8px;
+    color: #888;
+    cursor: pointer;
+    transition: all 0.2s;
 
-    &.character {
-      background-color: #9f682a !important;
+    &:hover {
+      color: #fff;
+      border-color: #2d873f;
+      background: rgba(45, 135, 63, 0.05);
     }
   }
+}
 
-  .four-star {
-    background-color: #68598d !important;
-
-    &.character {
-      background-color: #68598d !important;
-    }
-  }
+// Rarity Colors (Global or Shared)
+:deep(.five-star) {
+  background-color: #9f682a !important;
+}
+:deep(.four-star) {
+  background-color: #68598d !important;
 }
 </style>
 
