@@ -180,7 +180,7 @@
       .run-duration {
         color: #2d873f;
         font-weight: bold;
-        font-size: 0.9rem;
+        font-size: 1rem;
       }
 
       .run-date {
