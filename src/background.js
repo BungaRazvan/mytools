@@ -15,9 +15,8 @@ import {
 import { createProtocol } from "vue-cli-plugin-electron-builder/lib";
 import { autoUpdater } from "electron-updater";
 
-import { BASE_WINDOW, SETTINGS_WINDOW, iconPath } from "./lib/electron/windows";
+import { BASE_WINDOW, iconPath } from "./lib/electron/windows";
 import { isDevelopment } from "./lib/vue/constants";
-import { calculateCenterBounds } from "./lib/electron/utils";
 
 import electronStore from "./lib/electron/store";
 
@@ -109,7 +108,7 @@ if (isDevelopment && testUpdate) {
     "..",
     "src",
     "tests",
-    "dev-app-update.yml"
+    "dev-app-update.yml",
   );
 
   autoUpdater.forceDevUpdateConfig = isDevelopment;

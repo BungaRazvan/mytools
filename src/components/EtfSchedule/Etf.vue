@@ -40,7 +40,7 @@
         </p>
         <p v-if="etf.recent_event.ee_pay_per_share">
           <span>Last Pay:</span>
-          {{ calculatePay(etf.recent_event) }} =>
+          {{ calculatePay(etf.recent_event) }} &pound; =>
           {{ formatShares(etf.recent_event.ee_eligible_shares_amount) }} x
           {{ etf.recent_event.ee_pay_per_share || "0.00" }}
         </p>
@@ -208,6 +208,7 @@
 
 <script>
 import { ChevronDown, ChevronUp } from "lucide-vue-next";
+import { formatDate, formatShares } from "./utils";
 
 export default {
   name: "Etf",
@@ -223,29 +224,11 @@ export default {
   },
 
   methods: {
+    formatDate,
+    formatShares,
+
     togglePurchaseHistory() {
       this.showPurchaseHistory = !this.showPurchaseHistory;
-    },
-
-    formatDate(dateStr) {
-      if (!dateStr) return "TBD";
-      const date = new Date(dateStr);
-
-      return date.toLocaleDateString("en-GB", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric",
-      });
-    },
-
-    formatShares(amount) {
-      // Formats 11.80540000 -> 11.8054
-      return (
-        parseFloat(amount).toLocaleString("en-GB", {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 8,
-        }) || "0.00"
-      );
     },
 
     calculatePay(event) {
