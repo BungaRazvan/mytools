@@ -3,6 +3,7 @@ import { calculateCenterBounds } from "../utils";
 import { BrowserWindow, ipcMain } from "electron";
 import { isDevelopment } from "@/lib/vue/constants";
 import electronStore from "../store";
+import path from "path";
 
 export function registerWindowHandlers() {
   ipcMain.on("openWindow", (event, args) => {
