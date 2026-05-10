@@ -5,6 +5,7 @@
       {
         'tile-sqr': shape == 'sqr',
         'tile-sm': size == 'sm',
+        'tile-md': size == 'md',
         'tile-lg': size != 'sm',
       },
       'tile-' + color,
@@ -12,9 +13,13 @@
     href="#"
     @click="ripple"
   >
+    <div
+      v-if="img"
+      class="tile-bg-image"
+      :style="{ backgroundImage: `url(${img})` }"
+    ></div>
     <span class="content-wrapper">
       <span class="tile-content">
-        <span class="tile-img"></span>
         <span class="tile-holder tile-holder-lg">
           <span class="window-title">{{ title }}</span>
         </span>
@@ -26,7 +31,7 @@
 <script>
 export default {
   name: "WindowsTile",
-  props: ["color", "size", "shape", "title"],
+  props: ["color", "size", "shape", "title", "img"],
   methods: {
     ripple: (e) => {
       const el = e.currentTarget;
@@ -51,7 +56,7 @@ export default {
             parseFloat(cssObject.getPropertyValue("margin-bottom")),
           el.offsetWidth +
             parseFloat(cssObject.getPropertyValue("margin-left")) +
-            parseFloat(cssObject.getPropertyValue("margin-right"))
+            parseFloat(cssObject.getPropertyValue("margin-right")),
         );
 
         ink.style.height = `${d}px`;
