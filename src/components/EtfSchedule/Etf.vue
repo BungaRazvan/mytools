@@ -1,208 +1,227 @@
 <template>
-  <div class="etf">
-    <h2 class="title">{{ etf.ef_name }}</h2>
+  <div class="etf-detail-card">
+    <header class="card-header">
+      <h2 class="title">{{ etf.ef_name }}</h2>
+      <div class="ticker-badge">{{ etf.ef_ticker }}</div>
+    </header>
 
     <div class="info-grid">
-      <div v-if="etf.future_event">
+      <div
+        v-for="(event, index) in orderedEvents"
+        :key="index"
+        class="event-box"
+        :class="{ 'next-priority': index === 0 }"
+      >
+        <h4 class="event-label">
+          {{ index === 0 ? "Upcoming / Next" : "Following / Recent" }}
+        </h4>
+
         <p>
-          <span
-            ><span v-if="etf.future_event.ee_ex_estimated">(Est)</span>Next Ex
-            Date:</span
-          >
-          {{ formatDate(etf.future_event.ee_ex_date) }}
+          <span class="label">
+            <span v-if="event.ee_ex_estimated" class="est">EST</span> Ex Date:
+          </span>
+          <span class="value">{{ formatDate(event.ee_ex_date) }}</span>
         </p>
+
         <p>
-          <span>
-            <span v-if="etf.future_event.ee_payment_estimated">(Est)</span>Next
-            Payment Date:</span
-          >
-          {{ formatDate(etf.future_event.ee_payment_date) }}
+          <span class="label">
+            <span v-if="event.ee_payment_estimated" class="est">EST</span> Pay
+            Date:
+          </span>
+          <span class="value">{{ formatDate(event.ee_payment_date) }}</span>
         </p>
-        <p>
-          <span><span>(Est)</span>Eligible Shares:</span>
-          {{ formatShares(etf.future_event.ee_eligible_shares_amount) }}
-        </p>
-      </div>
-      <div v-if="etf.recent_event">
-        <p>
-          <span>
-            <span v-if="etf.recent_event.ee_ex_estimated">(Est)</span>Last Ex
-            Dividend Date:</span
-          >
-          {{ formatDate(etf.recent_event.ee_ex_date) }}
-        </p>
-        <p>
-          <span>
-            <span v-if="etf.recent_event.ee_payment_estimated">(Est)</span>Last
-            Payment Date:</span
-          >
-          {{ formatDate(etf.recent_event.ee_payment_date) }}
-        </p>
-        <p v-if="etf.recent_event.ee_pay_per_share">
-          <span>Last Pay:</span>
-          {{ calculatePay(etf.recent_event) }} &pound; =>
-          {{ formatShares(etf.recent_event.ee_eligible_shares_amount) }} x
-          {{ etf.recent_event.ee_pay_per_share || "0.00" }}
+
+        <p v-if="event.ee_pay_per_share">
+          <span class="label">Total Pay:</span>
+          <span class="value highlight">
+            &pound;{{ calculatePay(event) }}
+          </span>
         </p>
         <p v-else>
-          <span>Eligible Shares:</span>
-          {{ formatShares(etf.recent_event.ee_eligible_shares_amount) }}
+          <span class="label">Eligible Shares:</span>
+          <span class="value">{{
+            formatShares(event.ee_eligible_shares_amount)
+          }}</span>
         </p>
       </div>
-    </div>
-
-    <div class="history">
-      <div class="header" @click="togglePurchaseHistory">
-        <ChevronDown v-if="!showPurchaseHistory" color="white" :size="32" />
-        <ChevronUp v-else color="white" :size="32" />
-
-        <h4>Purchase History</h4>
-      </div>
-
-      <transition name="expand">
-        <div v-if="showPurchaseHistory" class="purchases">
-          <table class="purchases-table">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Shares</th>
-                <th>Amount</th>
-                <th>Per Share</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="share in etf.shares" :key="share.efs_id">
-                <td>{{ formatDate(share.efs_purchase_date) }}</td>
-                <td class="num">{{ formatShares(share.efs_amount) }}</td>
-                <td class="num">{{ formatCurrency(share.efs_total_price) }}</td>
-                <td class="num">{{ calculatePerShare(share) }}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </transition>
     </div>
   </div>
 </template>
 
-<style lang="scss">
-.etf {
-  padding: 10px;
-  margin: auto;
-  min-width: 80%;
-  border-radius: 12px;
+<style lang="scss" scoped>
+$pink: #ff4081;
+$charcoal: #1c1c24;
+$lighter-charcoal: #2a2a35;
+$text-dim: #94a3b8;
+$border: rgba(255, 255, 255, 0.05);
 
-  color: #e5e7eb;
-  background: #0f172a;
+.etf-detail-card {
+  padding: 24px;
+  background: $charcoal;
+  border-radius: 16px;
+  border: 1px solid $border;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  margin-bottom: 20px;
 
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  .card-header {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+    margin-bottom: 20px;
 
-  .title {
-    margin-bottom: 10px;
-    color: #fff;
-    margin: 10px 0;
-    font-size: 40px;
+    .title {
+      font-size: 32px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .ticker-badge {
+      background: rgba($pink, 0.1);
+      color: $pink;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
   }
 
   .info-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #ffffff;
-    padding: 12px;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+
+  .event-box {
+    background: $lighter-charcoal;
+    padding: 16px;
+    border-radius: 12px;
+    border-left: 4px solid #3f3f4e;
+
+    &.future {
+      border-left-color: $pink;
+    }
+
+    .event-label {
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: $text-dim;
+      margin-bottom: 12px;
+    }
 
     p {
-      margin: 8px;
-      font-size: 20px;
+      display: flex;
+      justify-content: space-between;
+      margin: 8px 0;
+      font-size: 15px;
 
-      span {
-        color: #94a3b8;
-        margin-right: 8px;
+      .label {
+        color: $text-dim;
+      }
+      .value {
+        font-weight: 600;
+      }
+      .highlight {
+        color: $pink;
+      }
+
+      .est {
+        font-size: 10px;
+        background: #4b5563;
+        padding: 1px 4px;
+        border-radius: 3px;
+        margin-right: 5px;
+        color: #fff;
+      }
+
+      .breakdown {
+        font-weight: normal;
+        opacity: 0.6;
+        font-size: 12px;
       }
     }
   }
 
   .history {
-    font-size: 25px;
-
-    .header {
-      cursor: pointer;
-
+    .history-toggle {
       display: flex;
       align-items: center;
-      margin: 12px 0;
-      // border-top: 1px solid #1e293b;
-      height: 50px;
+      gap: 12px;
+      cursor: pointer;
+      padding: 10px 0;
+
+      h4 {
+        font-size: 16px;
+        font-weight: 600;
+        white-space: nowrap;
+        margin: 0;
+      }
+
+      .line {
+        height: 1px;
+        background: $border;
+        width: 100%;
+      }
     }
 
-    .purchases {
-      max-height: 300px;
-      overflow: auto;
-
-      &::-webkit-scrollbar {
-        width: 10px;
-        background-color: #0f172a;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background-color: #020617;
-      }
+    .purchases-container {
+      margin-top: 15px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      overflow: hidden;
     }
 
     .purchases-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 20px;
-
-      thead {
-        background: #020617;
-        background-color: #1e1e26;
-      }
+      font-size: 14px;
 
       th {
-        padding: 10px 12px;
-        text-transform: uppercase;
-        font-size: 20px;
-        color: #94a3b8;
+        padding: 12px;
         text-align: left;
+        color: $text-dim;
+        font-size: 11px;
+        text-transform: uppercase;
+        border-bottom: 1px solid $border;
       }
 
       td {
-        padding: 012px;
-        border-bottom: 1px solid #1e293b;
-
-        .num {
-          text-align: right;
-          font-variant-numeric: tabular-nums;
-        }
+        padding: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.02);
       }
 
-      tr:last-child td {
-        border-bottom: none;
+      .num {
+        text-align: right;
+      }
+      .font-bold {
+        font-weight: 700;
+        color: #fff;
+      }
+      .opacity-70 {
+        opacity: 0.7;
       }
 
       tbody tr:hover {
-        background: #020617;
+        background: rgba($pink, 0.03);
       }
     }
   }
 }
 
-/* Expand animation */
+/* Animations */
 .expand-enter-active,
 .expand-leave-active {
-  transition: all 0.25s ease;
+  transition: all 0.3s ease;
+  max-height: 1000px;
 }
 .expand-enter-from,
 .expand-leave-to {
   opacity: 0;
   max-height: 0;
-}
-.expand-enter-to,
-.expand-leave-from {
-  opacity: 1;
-  max-height: 500px;
+  transform: translateY(-10px);
 }
 </style>
 
@@ -221,6 +240,28 @@ export default {
       recentEvent: null,
       futureEvent: null,
     };
+  },
+
+  computed: {
+    // Logic to determine which event block is "closer" to today
+    orderedEvents() {
+      const list = [];
+
+      // Add events to a temporary list if they exist
+      if (this.etf.future_event) {
+        list.push({ ...this.etf.future_event, type: "future" });
+      }
+      if (this.etf.recent_event) {
+        list.push({ ...this.etf.recent_event, type: "recent" });
+      }
+
+      // Sort them so the one closest to "Now" (or the earliest date) is first
+      return list.sort((a, b) => {
+        const dateA = new Date(a.ee_ex_date || a.ee_payment_date);
+        const dateB = new Date(b.ee_ex_date || b.ee_payment_date);
+        return dateA - dateB;
+      });
+    },
   },
 
   methods: {

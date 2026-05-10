@@ -10,7 +10,7 @@
       @click="this.changeScreen('gameResourceTracking')"
       color="cyan"
       title="Game Resource Tracking"
-      shape="sqr"
+      size="md"
     />
     <WindowsTile
       @click="this.changeScreen('genshinLoadouts')"
