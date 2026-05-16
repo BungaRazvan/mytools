@@ -1,9 +1,25 @@
 <template>
   <div class="etf-detail-card">
-    <header class="card-header">
+    <div class="card-header">
       <h2 class="title">{{ etf.ef_name }}</h2>
-      <div class="ticker-badge">{{ etf.ef_ticker }}</div>
-    </header>
+    </div>
+
+    <div class="summary-stats">
+      <div class="stat-item">
+        <span class="stat-label">Total Shares</span>
+        <span class="stat-value">{{ formatShares(etf.total_shares) }}</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Total Invested</span>
+        <span class="stat-value">{{ formatCurrency(etf.total_spent) }}</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Total Dividends</span>
+        <span class="stat-value highlight">{{
+          formatCurrency(etf.total_dividents)
+        }}</span>
+      </div>
+    </div>
 
     <div class="info-grid">
       <div
@@ -13,7 +29,7 @@
         :class="{ 'next-priority': index === 0 }"
       >
         <h4 class="event-label">
-          {{ index === 0 ? "Upcoming / Next" : "Following / Recent" }}
+          {{ index === 0 ? "Upcoming / Next" : "Recent" }}
         </h4>
 
         <p>
@@ -45,200 +61,293 @@
         </p>
       </div>
     </div>
+
+    <ToggleSection
+      title="Divident History"
+      :condition="showDividentsHistory"
+      :on-click="() => toggleSection('showDividentsHistory')"
+      color="#ff4081"
+      size="24"
+    >
+      <table>
+        <thead>
+          <tr>
+            <th style="text-align: left">Date</th>
+            <th>Total Received</th>
+            <th>Shares</th>
+            <th>Pay Per Share</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="divident in etf.dividents">
+            <td>{{ formatDate(divident.ee_payment_date) }}</td>
+            <td class="num">{{ formatCurrency(calculatePay(divident)) }}</td>
+
+            <td class="num font-bold">
+              {{ formatShares(divident.ee_eligible_shares_amount) }}
+            </td>
+            <td class="num opacity-70">
+              {{ formatCurrency(divident.ee_pay_per_share) }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ToggleSection>
+
+    <ToggleSection
+      :condition="showPurchaseHistory"
+      :on-click="() => toggleSection('showPurchaseHistory')"
+      color="#ff4081"
+      :size="24"
+      title="Purchase History"
+    >
+      <table>
+        <thead>
+          <tr>
+            <th style="text-align: left">Date</th>
+            <th>Shares</th>
+            <th>Total Cost</th>
+            <th>Per Share</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="share in etf.shares" :key="share.efs_id">
+            <td>{{ formatDate(share.efs_purchase_date) }}</td>
+            <td class="num font-bold">
+              {{ formatShares(share.efs_amount) }}
+            </td>
+            <td class="num">{{ formatCurrency(share.efs_total_price) }}</td>
+            <td class="num opacity-70">
+              {{ formatCurrency(calculatePerShare(share)) }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ToggleSection>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $pink: #ff4081;
 $charcoal: #1c1c24;
 $lighter-charcoal: #2a2a35;
 $text-dim: #94a3b8;
 $border: rgba(255, 255, 255, 0.05);
 
-.etf-detail-card {
-  padding: 24px;
-  background: $charcoal;
-  border-radius: 16px;
-  border: 1px solid $border;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-  color: #fff;
-  margin-bottom: 20px;
-
-  .card-header {
-    display: flex;
-    align-items: baseline;
-    gap: 15px;
+.etfs-container {
+  .etf-detail-card {
+    padding: 24px;
+    background: $charcoal;
+    border-radius: 16px;
+    border: 1px solid $border;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    color: #fff;
     margin-bottom: 20px;
 
-    .title {
-      font-size: 32px;
-      font-weight: 800;
-      margin: 0;
-    }
-
-    .ticker-badge {
-      background: rgba($pink, 0.1);
-      color: $pink;
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 14px;
-      text-transform: uppercase;
-    }
-  }
-
-  .info-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 24px;
-  }
-
-  .event-box {
-    background: $lighter-charcoal;
-    padding: 16px;
-    border-radius: 12px;
-    border-left: 4px solid #3f3f4e;
-
-    &.future {
-      border-left-color: $pink;
-    }
-
-    .event-label {
-      text-transform: uppercase;
-      font-size: 11px;
-      letter-spacing: 1px;
-      color: $text-dim;
-      margin-bottom: 12px;
-    }
-
-    p {
+    .card-header {
       display: flex;
-      justify-content: space-between;
-      margin: 8px 0;
-      font-size: 15px;
+      align-items: baseline;
+      gap: 15px;
+      margin-bottom: 20px;
 
-      .label {
-        color: $text-dim;
-      }
-      .value {
-        font-weight: 600;
-      }
-      .highlight {
-        color: $pink;
-      }
-
-      .est {
-        font-size: 10px;
-        background: #4b5563;
-        padding: 1px 4px;
-        border-radius: 3px;
-        margin-right: 5px;
-        color: #fff;
-      }
-
-      .breakdown {
-        font-weight: normal;
-        opacity: 0.6;
-        font-size: 12px;
-      }
-    }
-  }
-
-  .history {
-    .history-toggle {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      cursor: pointer;
-      padding: 10px 0;
-
-      h4 {
-        font-size: 16px;
-        font-weight: 600;
-        white-space: nowrap;
+      .title {
+        font-size: 32px;
+        font-weight: 800;
         margin: 0;
       }
+    }
 
-      .line {
-        height: 1px;
-        background: $border;
-        width: 100%;
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .summary-stats {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 25px;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.15);
+      border-radius: 12px;
+      border: 1px solid $border;
+
+      .stat-item {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        .stat-label {
+          font-size: 11px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          color: $text-dim;
+        }
+
+        .stat-value {
+          font-size: 18px;
+          font-weight: 700;
+
+          &.highlight {
+            color: $pink;
+          }
+        }
       }
     }
 
-    .purchases-container {
-      margin-top: 15px;
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: 8px;
-      overflow: hidden;
-    }
+    .event-box {
+      background: $lighter-charcoal;
+      padding: 16px;
+      border-radius: 12px;
+      border-left: 4px solid #3f3f4e;
 
-    .purchases-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
+      &.future {
+        border-left-color: $pink;
+      }
 
-      th {
-        padding: 12px;
-        text-align: left;
-        color: $text-dim;
-        font-size: 11px;
+      .event-label {
         text-transform: uppercase;
-        border-bottom: 1px solid $border;
+        font-size: 11px;
+        letter-spacing: 1px;
+        color: $text-dim;
+        margin-bottom: 12px;
       }
 
-      td {
-        padding: 12px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+      p {
+        display: flex;
+        justify-content: space-between;
+        margin: 8px 0;
+        font-size: 15px;
+
+        .label {
+          color: $text-dim;
+        }
+        .value {
+          font-weight: 600;
+        }
+        .highlight {
+          color: $pink;
+        }
+
+        .breakdown {
+          font-weight: normal;
+          opacity: 0.6;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .toggle-section {
+      .toggle-container {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+        padding: 10px 0;
+
+        h4 {
+          font-size: 16px;
+          font-weight: 600;
+          white-space: nowrap;
+          margin: 0;
+        }
+
+        .line {
+          height: 1px;
+          background: $border;
+          width: 100%;
+        }
       }
 
-      .num {
-        text-align: right;
-      }
-      .font-bold {
-        font-weight: 700;
-        color: #fff;
-      }
-      .opacity-70 {
-        opacity: 0.7;
+      .table-container {
+        margin-top: 15px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        overflow-y: auto;
+        max-height: 200px;
+
+        &::-webkit-scrollbar {
+          width: 5px;
+          background-color: $charcoal;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: $pink;
+          border-radius: 100px;
+        }
       }
 
-      tbody tr:hover {
-        background: rgba($pink, 0.03);
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+
+        th {
+          padding: 12px;
+          text-align: right;
+          color: $text-dim;
+          font-size: 11px;
+          text-transform: uppercase;
+          border-bottom: 1px solid $border;
+          position: sticky;
+          top: 0px;
+          background: rgb(0, 0, 0);
+        }
+
+        td {
+          padding: 12px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .num {
+          text-align: right;
+        }
+        .font-bold {
+          font-weight: 700;
+          color: #fff;
+        }
+
+        tbody tr:hover {
+          background: rgba($pink, 0.03);
+        }
+      }
+
+      &:-webkit-scrollbar {
+        width: 20px;
       }
     }
   }
-}
 
-/* Animations */
-.expand-enter-active,
-.expand-leave-active {
-  transition: all 0.3s ease;
-  max-height: 1000px;
-}
-.expand-enter-from,
-.expand-leave-to {
-  opacity: 0;
-  max-height: 0;
-  transform: translateY(-10px);
+  /* Animations */
+  .expand-enter-active,
+  .expand-leave-active {
+    transition: all 0.3s ease;
+    max-height: 1000px;
+  }
+  .expand-enter-from,
+  .expand-leave-to {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-10px);
+  }
 }
 </style>
 
 <script>
 import { ChevronDown, ChevronUp } from "lucide-vue-next";
 import { formatDate, formatShares } from "./utils";
+import ToggleSection from "./ToggleSection";
 
 export default {
   name: "Etf",
   props: ["etf"],
-  components: { ChevronDown, ChevronUp },
+  components: { ChevronDown, ChevronUp, ToggleSection },
 
   data() {
     return {
       showPurchaseHistory: false,
-      recentEvent: null,
-      futureEvent: null,
+      showDividentsHistory: false,
     };
   },
 
@@ -246,20 +355,46 @@ export default {
     // Logic to determine which event block is "closer" to today
     orderedEvents() {
       const list = [];
+      const now = new Date();
 
-      // Add events to a temporary list if they exist
+      // Helper to find the "active" date for an event
+      const getNextRelevantDate = (event) => {
+        const exDate = new Date(event.ee_ex_date);
+        const payDate = new Date(event.ee_payment_date);
+
+        // If we haven't hit the Ex-Date yet, that's the priority
+        if (exDate > now) return exDate;
+        // If Ex-Date passed but Payment is coming up, Payment is the priority
+        if (payDate > now) return payDate;
+        // If both passed, use the latest one to keep it at the end of the "past" pile
+        return payDate;
+      };
+
       if (this.etf.future_event) {
-        list.push({ ...this.etf.future_event, type: "future" });
+        list.push({
+          ...this.etf.future_event,
+          sortDate: getNextRelevantDate(this.etf.future_event),
+        });
       }
       if (this.etf.recent_event) {
-        list.push({ ...this.etf.recent_event, type: "recent" });
+        list.push({
+          ...this.etf.recent_event,
+          sortDate: getNextRelevantDate(this.etf.recent_event),
+        });
       }
 
-      // Sort them so the one closest to "Now" (or the earliest date) is first
       return list.sort((a, b) => {
-        const dateA = new Date(a.ee_ex_date || a.ee_payment_date);
-        const dateB = new Date(b.ee_ex_date || b.ee_payment_date);
-        return dateA - dateB;
+        const isAPast = a.sortDate < now;
+        const isBPast = b.sortDate < now;
+
+        if (isAPast && !isBPast) return 1;
+        if (!isAPast && isBPast) return 1;
+
+        // 2. If both are future, sort ascending (sooner is left)
+        if (!isAPast && !isBPast) return a.sortDate - b.sortDate;
+
+        // 3. If both are past, sort descending (most recent is right-most in the past block)
+        return a.sortDate - b.sortDate;
       });
     },
   },
@@ -268,8 +403,8 @@ export default {
     formatDate,
     formatShares,
 
-    togglePurchaseHistory() {
-      this.showPurchaseHistory = !this.showPurchaseHistory;
+    toggleSection(name) {
+      this[name] = !this[name];
     },
 
     calculatePay(event) {

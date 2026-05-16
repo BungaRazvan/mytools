@@ -69,6 +69,15 @@
       cursor: pointer;
     }
   }
+
+  .est {
+    font-size: 10px;
+    background: #4b5563;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin-right: 5px;
+    color: #fff;
+  }
 }
 </style>
 

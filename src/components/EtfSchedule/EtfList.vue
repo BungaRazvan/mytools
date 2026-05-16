@@ -9,7 +9,6 @@ import Etf from "./Etf.vue";
 
 export default {
   name: "EtfList",
-  props: ["etfs"],
   components: { Etf },
 
   data() {
