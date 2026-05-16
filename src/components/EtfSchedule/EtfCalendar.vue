@@ -15,9 +15,6 @@
           {{ selectedEvent.ef_name }}
         </div>
         <p>
-          <span v-if="selectedEvent.ee_payment_estimated" class="est-tag"
-            >EST</span
-          >
           <strong>Eligible Shares:</strong>
           {{ formatShares(selectedEvent.ee_eligible_shares_amount) }}
         </p>
