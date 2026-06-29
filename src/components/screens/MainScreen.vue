@@ -20,9 +20,9 @@
     />
 
     <WindowsTile
-      @click="this.changeScreen('etfSchedule')"
+      @click="this.changeScreen('etfs')"
       color="green"
-      title="Etfs Schedule"
+      title="Etfs"
       shape="sqr"
     />
   </div>

@@ -9,14 +9,30 @@
         <span class="stat-label">Total Shares</span>
         <span class="stat-value">{{ formatShares(etf.total_shares) }}</span>
       </div>
+
       <div class="stat-item">
         <span class="stat-label">Total Invested</span>
         <span class="stat-value">{{ formatCurrency(etf.total_spent) }}</span>
       </div>
+
       <div class="stat-item">
         <span class="stat-label">Total Dividends</span>
         <span class="stat-value highlight">{{
           formatCurrency(etf.total_dividents)
+        }}</span>
+      </div>
+
+      <div class="stat-item">
+        <span class="stat-label">Total Compouding Shares</span>
+        <span class="stat-value">{{
+          formatShares(etf.total_compounding_shares)
+        }}</span>
+      </div>
+
+      <div class="stat-item">
+        <span class="stat-label">Total Compouding Cost</span>
+        <span class="stat-value">{{
+          formatCurrency(etf.total_compounding_cost)
         }}</span>
       </div>
     </div>
@@ -29,7 +45,7 @@
         :class="{ 'next-priority': index === 0 }"
       >
         <h4 class="event-label">
-          {{ index === 0 ? "Upcoming / Next" : "Recent" }}
+          {{ index === 0 ? "Upcoming / Next" : "Last / Future" }}
         </h4>
 
         <p>
@@ -166,7 +182,7 @@ $border: rgba(255, 255, 255, 0.05);
 
     .summary-stats {
       display: flex;
-      gap: 30px;
+      // gap: 430px;
       margin-bottom: 25px;
       padding: 15px;
       background: rgba(0, 0, 0, 0.15);
@@ -177,6 +193,8 @@ $border: rgba(255, 255, 255, 0.05);
         display: flex;
         flex-direction: column;
         gap: 4px;
+        width: 100%;
+        // flex: 1;
 
         .stat-label {
           font-size: 11px;
@@ -336,7 +354,7 @@ $border: rgba(255, 255, 255, 0.05);
 
 <script>
 import { ChevronDown, ChevronUp } from "lucide-vue-next";
-import { formatDate, formatShares } from "./utils";
+import { formatCurrency, formatDate, formatShares } from "./utils";
 import ToggleSection from "./ToggleSection";
 
 export default {
@@ -402,6 +420,7 @@ export default {
   methods: {
     formatDate,
     formatShares,
+    formatCurrency,
 
     toggleSection(name) {
       this[name] = !this[name];
@@ -420,19 +439,6 @@ export default {
         parseFloat(share.efs_total_price) / parseFloat(share.efs_amount);
 
       return price.toFixed(3);
-    },
-
-    formatCurrency(value, currencyType = "pound") {
-      const amount = parseFloat(value || 0);
-      const symbol = currencyType === "pound" ? "en-GB" : "de-DE";
-      const currency = currencyType === "pound" ? "GBP" : "EUR";
-
-      return new Intl.NumberFormat(symbol, {
-        style: "currency",
-        currency: currency,
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 8,
-      }).format(amount);
     },
   },
 };

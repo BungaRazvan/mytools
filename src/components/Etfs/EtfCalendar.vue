@@ -12,7 +12,7 @@
     >
       <div class="popover-content">
         <div class="popover-header">
-          {{ selectedEvent.ef_name }}
+          {{ selectedEvent.ee_etf.ef_name }}
         </div>
         <p>
           <strong>Eligible Shares:</strong>
