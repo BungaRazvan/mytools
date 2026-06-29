@@ -3,6 +3,7 @@ import { createStore } from "vuex";
 import genshinLodaouts from "./store_modules/genshinLodaouts";
 import gamesTracking from "./store_modules/gamesTracking";
 import gameResourceTracking from "./store_modules/gameResourceTracking";
+import etfs from "./store_modules/etfs";
 
 const initialStore = {
   screen: "main",
@@ -12,7 +13,7 @@ const initialStore = {
 
 export const store = createStore({
   state: { ...initialStore },
-  modules: { genshinLodaouts, gamesTracking, gameResourceTracking },
+  modules: { genshinLodaouts, gamesTracking, gameResourceTracking, etfs },
 
   actions: {
     all: (context, payload) => {

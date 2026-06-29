@@ -20,11 +20,7 @@
       v-if="this.screen() == 'gameResourceTracking'"
       :goBack="this.goBack"
     />
-    <EtfSchedule
-      key="etfSchedule"
-      v-if="this.screen() == 'etfSchedule'"
-      :goBack="this.goBack"
-    />
+    <Etfs key="etfs" v-if="this.screen() == 'etfs'" :goBack="this.goBack" />
   </div>
 </template>
 
@@ -35,7 +31,7 @@ import MainScreen from "@/components/screens/MainScreen.vue";
 import GameTracking from "@/components/screens/GameTracking.vue";
 import GenshinLoadouts from "@/components/screens/GenshinLoadouts.vue";
 import GameResourceTracking from "@/components/screens/GameResourceTracking.vue";
-import EtfSchedule from "@/components/screens/EtfSchedule.vue";
+import Etfs from "@/components/screens/Etfs.vue";
 import Navbar from "@/components/Navbar.vue";
 
 import { secondToMS } from "@/lib/vue/constants";
@@ -48,7 +44,7 @@ export default {
     GameTracking,
     GenshinLoadouts,
     GameResourceTracking,
-    EtfSchedule,
+    Etfs,
   },
 
   methods: {
