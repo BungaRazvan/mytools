@@ -4,6 +4,7 @@ import genshinLodaouts from "./store_modules/genshinLodaouts";
 import gamesTracking from "./store_modules/gamesTracking";
 import gameResourceTracking from "./store_modules/gameResourceTracking";
 import etfs from "./store_modules/etfs";
+import energy from "./store_modules/enegy";
 
 const initialStore = {
   screen: "main",
@@ -13,7 +14,13 @@ const initialStore = {
 
 export const store = createStore({
   state: { ...initialStore },
-  modules: { genshinLodaouts, gamesTracking, gameResourceTracking, etfs },
+  modules: {
+    genshinLodaouts,
+    gamesTracking,
+    gameResourceTracking,
+    etfs,
+    energy,
+  },
 
   actions: {
     all: (context, payload) => {

@@ -6,6 +6,7 @@ module.exports = defineConfig({
   pluginOptions: {
     electronBuilder: {
       preload: "src/lib/electron/preload.js",
+      mainProcessTypeCheck: false,
       builderOptions: {
         productName: "MyTools",
         appId: "e080f96c-d23f-11ed-afa1-0242ac120002",
