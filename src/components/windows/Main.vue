@@ -21,18 +21,24 @@
       :goBack="this.goBack"
     />
     <Etfs key="etfs" v-if="this.screen() == 'etfs'" :goBack="this.goBack" />
+    <Energy
+      key="energy"
+      v-if="this.screen() == 'energy'"
+      :goBack="this.goBack"
+    />
   </div>
 </template>
 
 <script>
 import "@/assets/scss/style.scss";
+import Navbar from "@/components/Navbar.vue";
 
 import MainScreen from "@/components/screens/MainScreen.vue";
 import GameTracking from "@/components/screens/GameTracking.vue";
 import GenshinLoadouts from "@/components/screens/GenshinLoadouts.vue";
 import GameResourceTracking from "@/components/screens/GameResourceTracking.vue";
 import Etfs from "@/components/screens/Etfs.vue";
-import Navbar from "@/components/Navbar.vue";
+import Energy from "@/components/screens/Energy.vue";
 
 import { secondToMS } from "@/lib/vue/constants";
 
@@ -45,6 +51,7 @@ export default {
     GenshinLoadouts,
     GameResourceTracking,
     Etfs,
+    Energy,
   },
 
   methods: {

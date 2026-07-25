@@ -21,9 +21,16 @@
 
     <WindowsTile
       @click="this.changeScreen('etfs')"
-      color="green"
+      color="red"
       title="Etfs"
       shape="sqr"
+    />
+
+    <WindowsTile
+      @click="this.changeScreen('energy')"
+      color="green"
+      title="Energy"
+      size="md"
     />
   </div>
 </template>

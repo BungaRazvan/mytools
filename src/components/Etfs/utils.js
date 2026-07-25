@@ -9,8 +9,9 @@ export function formatDate(dateStr) {
   });
 }
 
-export function formatShares(amount) {
+export function formatShares(amount, settings = {}) {
   // Formats 11.80540000 -> 11.8054
+  const { minimumFractionDigits = 2, maximumFractionDigits = 8 } = settings;
 
   if (!amount) {
     return "0.00";
@@ -18,8 +19,8 @@ export function formatShares(amount) {
 
   return (
     parseFloat(amount).toLocaleString("en-GB", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 8,
+      minimumFractionDigits,
+      maximumFractionDigits,
     }) || "0.00"
   );
 }
