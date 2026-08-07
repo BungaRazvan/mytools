@@ -4,6 +4,14 @@
       <h1 class="main-title">Bills</h1>
       <p class="subtitle">Breakdown of Bills</p>
     </div>
+
+    <div class="header-actions">
+      <CalendarHeaderPicker
+        :showMonths="false"
+        :showYears="true"
+        @dateUpdated="handlePeriodChange"
+      />
+    </div>
   </header>
 
   <div class="energy-grid">
@@ -26,6 +34,7 @@ import {
   Legend,
   BarElement,
 } from "chart.js";
+import CalendarHeaderPicker from "@/components/CalendarHeaderPicker";
 
 ChartJS.register(
   Title,
@@ -38,12 +47,13 @@ ChartJS.register(
 
 export default {
   name: "Bills",
-  components: { Bar },
+  components: { Bar, CalendarHeaderPicker },
 
   data() {
     return {
       loading: true,
       monthlyBills: [],
+      statsYear: new Date().getFullYear(),
     };
   },
 
@@ -92,7 +102,6 @@ export default {
               label: (ctx) => {
                 const label = ctx.dataset.label;
                 const val = ctx.raw;
-                console.log(ctx);
 
                 return [
                   ` ${label}: £${val.toFixed(2)}`,
@@ -118,28 +127,30 @@ export default {
   },
 
   methods: {
-    fetchData: async (statsPeriodType, statsPeriod) => {
+    fetchData: async (statsYear) => {
       const response = await window.ipc.receive("api", {
         method: "get",
         endpoint: "bills-stats",
         options: { useAPIKey: true, strip: true },
-        body: { statsPeriodType, statsPeriod },
+        body: { statsYear },
       });
 
       if (response.ok) {
-        console.log(response.data);
         return response.data;
       }
 
       return [];
     },
+
+    async handlePeriodChange(payload) {
+      const freshStats = await this.fetchData(payload.year);
+      this.monthlyBills = freshStats;
+      this.statsYear = payload.year;
+    },
   },
 
   async mounted() {
-    const freshStats = await this.fetchData(
-      this.statsPeriodType,
-      this.statsPeriodMonth,
-    );
+    const freshStats = await this.fetchData(this.statsYear);
     this.monthlyBills = freshStats;
   },
 };
