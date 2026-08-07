@@ -35,7 +35,7 @@
 
         <KpiCard label="Actual Cost" type="column">
           <span class="kpi-value">{{
-            formatCurrency(stats.total_actual_cost)
+            formatCurrency(stats.total_net_cost)
           }}</span>
         </KpiCard>
 
@@ -93,7 +93,7 @@
                 <div>
                   <span class="item-label">Projected Cost</span>
                   <span class="item-value value-green">{{
-                    formatCurrency(stats.total_theoretical_cost)
+                    formatCurrency(stats.total_gross_cost)
                   }}</span>
                 </div>
               </li>

@@ -292,6 +292,7 @@ $border-subtle: rgba(255, 255, 255, 0.05);
     width: 280px;
     border: 1px solid $btn-back-pink; /* Subtle pink border for the popover */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    font-size: 20px;
 
     strong {
       color: $btn-back-pink;
