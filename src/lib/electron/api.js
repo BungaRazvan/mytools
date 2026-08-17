@@ -1,6 +1,6 @@
 import electronStore, { getDecryptedKey } from "./store";
 import { net } from "electron";
-import { pickBy, identity } from "lodash";
+import { pickBy } from "lodash";
 
 export async function apiCall(method, endpoint, body, options = {}) {
   const { path = "mytools", headers = {} } = options;
@@ -23,7 +23,7 @@ export async function apiCall(method, endpoint, body, options = {}) {
     let queryString = new URLSearchParams(body).toString();
 
     if (options.strip) {
-      const cleanBody = _.pickBy(
+      const cleanBody = pickBy(
         body,
         (value) => value !== null && value !== undefined && value !== "",
       );
@@ -49,7 +49,8 @@ export async function apiCall(method, endpoint, body, options = {}) {
   const params = {
     method: method.toUpperCase(),
     body: requestBody,
-    headers,
+    headers: new Headers(headers),
+    credentials: "include",
   };
 
   return await net.fetch(url, params);

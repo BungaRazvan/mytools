@@ -32,6 +32,13 @@
       title="Energy"
       size="md"
     />
+
+    <WindowsTile
+      @click="this.changeScreen('bmwCarDataContainers')"
+      color="blue"
+      title="BMW Car Containers"
+      size="md"
+    />
   </div>
 </template>
 
