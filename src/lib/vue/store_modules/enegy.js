@@ -1,5 +1,5 @@
 const state = () => ({
-  view: "bills",
+  view: "solar-performance",
 });
 
 const mutations = {

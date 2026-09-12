@@ -101,7 +101,7 @@ export default {
     async fetchEvents() {
       const response = await window.ipc.receive("api", {
         method: "GET",
-        endpoint: "etfs-events",
+        endpoint: "etfs/events",
         options: { useAPIKey: true },
       });
       return response.ok ? response.data : [];
