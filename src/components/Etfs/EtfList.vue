@@ -75,7 +75,7 @@ export default {
     async fetchEtfs() {
       const response = await window.ipc.receive("api", {
         method: "GET",
-        endpoint: "etfs-list",
+        endpoint: "etfs/list",
         options: { useAPIKey: true },
       });
 
@@ -89,7 +89,7 @@ export default {
     async fetchDasboard() {
       const response = await window.ipc.receive("api", {
         method: "GET",
-        endpoint: "etfs-dashboard",
+        endpoint: "etfs/metrics",
         options: { useAPIKey: true },
       });
 

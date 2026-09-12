@@ -131,7 +131,7 @@ import {
   Coins,
 } from "lucide-vue-next";
 export default {
-  name: "SolarEconmy",
+  name: "SolarPerformance",
   components: {
     KpiCard,
     House,
@@ -187,7 +187,7 @@ export default {
     fetchData: async (statsPeriodType, statsPeriod) => {
       const response = await window.ipc.receive("api", {
         method: "get",
-        endpoint: "solar-stats",
+        endpoint: "solar/performance",
         options: { useAPIKey: true, strip: true },
         body: { statsPeriodType, statsPeriod },
       });

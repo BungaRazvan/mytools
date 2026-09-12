@@ -4,15 +4,21 @@
 
     <div class="main-controls">
       <div class="button-row">
-        <button @click="setView('solar')" class="btn-new">Solar Econmy</button>
+        <button @click="setView('solar-performance')" class="btn-new">
+          Solar Performance
+        </button>
+        <button @click="setView('solar-generation')" class="btn-new">
+          Solar Generation
+        </button>
         <button @click="setView('bills')" class="btn-new">Bills</button>
       </div>
     </div>
   </header>
 
   <div class="energy-dashbaord">
-    <SolarEconomy v-if="view == 'solar'" />
+    <SolarPerformance v-if="view == 'solar-performance'" />
     <Bills v-if="view == 'bills'" />
+    <SolarGeneration v-if="view == 'solar-generation'" />
   </div>
 </template>
 
@@ -219,7 +225,8 @@ $border-light: #21262d;
 </style>
 
 <script>
-import SolarEconomy from "@/components/Energy/SolarEconomy.vue";
+import SolarPerformance from "@/components/Energy/SolarPerformance.vue";
+import SolarGeneration from "@/components/Energy/SolarGeneration.vue";
 import Bills from "@/components/Energy/Bills.vue";
 
 import { mapGetters } from "vuex";
@@ -228,7 +235,8 @@ export default {
   name: "Energy",
   props: ["goBack"],
   components: {
-    SolarEconomy,
+    SolarPerformance,
+    SolarGeneration,
     Bills,
   },
 
