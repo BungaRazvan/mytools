@@ -77,6 +77,12 @@ export default {
           center: "title",
           right: "",
         },
+        datesSet: async (info) => {
+          this.events = await this.fetchEvents({
+            start_date: info.startStr,
+            end_date: info.endStr,
+          });
+        },
         eventClick: (info) => {
           const rect = info.el.getBoundingClientRect();
           const eventData = info.event.extendedProps;
@@ -95,15 +101,16 @@ export default {
       },
     };
   },
-  // ... (methods, fetchEvents, mounted, and beforeUnmount remain the same as previous)
   methods: {
     formatShares,
-    async fetchEvents() {
+    async fetchEvents(dateRange = {}) {
       const response = await window.ipc.receive("api", {
         method: "GET",
         endpoint: "etfs/events",
+        body: dateRange,
         options: { useAPIKey: true },
       });
+
       return response.ok ? response.data : [];
     },
     handleOutsideClick(e) {
@@ -117,7 +124,6 @@ export default {
   },
   async mounted() {
     document.addEventListener("click", this.handleOutsideClick);
-    this.events = await this.fetchEvents();
   },
   beforeUnmount() {
     document.removeEventListener("click", this.handleOutsideClick);
