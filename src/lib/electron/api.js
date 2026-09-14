@@ -1,6 +1,6 @@
 import electronStore, { getDecryptedKey } from "./store";
 import { net } from "electron";
-import { pickBy, identity } from "lodash";
+import { pickBy } from "lodash";
 
 export async function apiCall(method, endpoint, body, options = {}) {
   const { path = "mytools", headers = {} } = options;
@@ -13,17 +13,14 @@ export async function apiCall(method, endpoint, body, options = {}) {
   }
 
   let url = `${APP_API_URL}/${path}/${endpoint}`;
+  const normalizedMethod = method.toUpperCase();
   let requestBody = body;
 
-  if (
-    !headers["Content-Type"] &&
-    method.toUpperCase() === "GET" &&
-    body != null
-  ) {
-    let queryString = new URLSearchParams(body).toString();
+  if (["GET", "HEAD"].includes(normalizedMethod)) {
+    let queryString = body ? new URLSearchParams(body).toString() : "";
 
     if (options.strip) {
-      const cleanBody = _.pickBy(
+      const cleanBody = pickBy(
         body,
         (value) => value !== null && value !== undefined && value !== "",
       );
