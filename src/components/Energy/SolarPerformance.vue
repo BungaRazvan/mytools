@@ -69,7 +69,9 @@
                   <UtilityPole color="#54a6ff" />
                 </div>
                 <div>
-                  <span class="item-label">Grid Import</span>
+                  <span class="item-label"
+                    >Grid Import <Asterisk :isPerformance="isPerformance"
+                  /></span>
                   <span class="item-value"
                     >{{ formatNumber(stats.grid_import) }} kWh</span
                   >
@@ -80,7 +82,9 @@
                   <Upload color="#54a6ff" />
                 </div>
                 <div>
-                  <span class="item-label">Grid Export</span>
+                  <span class="item-label"
+                    >Grid Export <Asterisk :isPerformance="isPerformance"
+                  /></span>
                   <span class="item-value value-blue"
                     >{{ formatNumber(stats.grid_export) }} kWh</span
                   >
@@ -102,10 +106,12 @@
                   <Coins color="#54a6ff" />
                 </div>
                 <div>
-                  <span class="item-label">Export Revenue</span>
-                  <span class="item-value value-green"
-                    >+{{ formatCurrency(stats.total_exported_revenue) }}</span
-                  >
+                  <span class="item-label"
+                    >Export Revenue <Asterisk :isPerformance="isPerformance"
+                  /></span>
+                  <span class="item-value value-green">{{
+                    formatCurrency(stats.total_exported_revenue)
+                  }}</span>
                 </div>
               </li>
             </ul>
@@ -119,9 +125,11 @@
 <script>
 import KpiCard from "./KpiCard.vue";
 import ArcGauge from "./ArcGauge.vue";
+import Asterisk from "./Asterix.vue";
 
 import { formatCurrency, formatShares } from "@/components/Etfs/utils";
 import CalendarHeaderPicker from "@/components/CalendarHeaderPicker";
+import { isEmpty } from "lodash";
 
 import {
   House,
@@ -141,6 +149,7 @@ export default {
     Coins,
     CalendarHeaderPicker,
     ArcGauge,
+    Asterisk,
   },
 
   watch: {
@@ -157,11 +166,11 @@ export default {
         args["statsPeriod"] = this.statsPeriodYear;
       }
 
-      const freshStats = await this.fetchData(
+      const freshStats = await this.fetchPerformance(
         args.statsPeriodType,
         args.statsPeriod,
       );
-      this.stats = freshStats;
+      this.performance = freshStats;
     },
   },
 
@@ -171,7 +180,8 @@ export default {
       statsPeriodMonth: new Date().getMonth() + 1,
       statsPeriodYear: new Date().getFullYear(),
 
-      stats: {},
+      performance: {},
+      bill: {},
     };
   },
 
@@ -184,12 +194,27 @@ export default {
       return formatShares(value, { maximumFractionDigits: 2 });
     },
 
-    fetchData: async (statsPeriodType, statsPeriod) => {
+    fetchPerformance: async (statsPeriodType, statsPeriod) => {
       const response = await window.ipc.receive("api", {
         method: "get",
         endpoint: "solar/performance",
         options: { useAPIKey: true, strip: true },
         body: { statsPeriodType, statsPeriod },
+      });
+
+      if (response.ok) {
+        return response.data;
+      }
+
+      return {};
+    },
+
+    fetchBill: async (statsPeriod) => {
+      const response = await window.ipc.receive("api", {
+        method: "get",
+        endpoint: "bills/electricity_costs",
+        options: { useAPIKey: true, strip: true },
+        body: { statsPeriod },
       });
 
       if (response.ok) {
@@ -205,6 +230,8 @@ export default {
       if (this.statsPeriodType == "month") {
         this.statsPeriodMonth = payload.month;
         statsPeriod = payload.month;
+
+        this.bill = await this.fetchBill(this.statsPeriodMonth);
       }
 
       if (this.statsPeriodType == "year") {
@@ -212,20 +239,42 @@ export default {
         statsPeriod = payload.year;
       }
 
-      const freshStats = await this.fetchData(
+      const freshStats = await this.fetchPerformance(
         this.statsPeriodType,
         statsPeriod,
       );
-      this.stats = freshStats;
+      this.performance = freshStats;
+    },
+  },
+
+  computed: {
+    stats() {
+      if (this.statsPeriodType == "month") {
+        if (!isEmpty(this.bill)) {
+          return {
+            ...this.performance,
+            ...this.bill,
+          };
+        }
+      }
+
+      return this.performance;
+    },
+
+    isPerformance() {
+      return isEmpty(this.bill);
     },
   },
 
   async mounted() {
-    const freshStats = await this.fetchData(
+    const freshStats = await this.fetchPerformance(
       this.statsPeriodType,
       this.statsPeriodMonth,
     );
-    this.stats = freshStats;
+
+    const freshBill = await this.fetchBill(this.statsPeriodMonth);
+    this.bill = freshBill;
+    this.performance = freshStats;
   },
 };
 </script>

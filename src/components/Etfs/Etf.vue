@@ -420,7 +420,9 @@ export default {
   methods: {
     formatDate,
     formatShares,
-    formatCurrency,
+
+    formatCurrency: (value) =>
+      formatCurrency(value, { maximumFractionDigits: 2 }),
 
     toggleSection(name) {
       this[name] = !this[name];
