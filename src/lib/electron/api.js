@@ -46,7 +46,8 @@ export async function apiCall(method, endpoint, body, options = {}) {
   const params = {
     method: method.toUpperCase(),
     body: requestBody,
-    headers,
+    headers: new Headers(headers),
+    credentials: "include",
   };
 
   return await net.fetch(url, params);

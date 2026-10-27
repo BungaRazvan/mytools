@@ -26,6 +26,11 @@
       v-if="this.screen() == 'energy'"
       :goBack="this.goBack"
     />
+    <BMWCarContainers
+      key="bmwCarDataContainers"
+      v-if="this.screen() == 'bmwCarDataContainers'"
+      :goBack="this.goBack"
+    />
   </div>
 </template>
 
@@ -39,6 +44,7 @@ import GenshinLoadouts from "@/components/screens/GenshinLoadouts.vue";
 import GameResourceTracking from "@/components/screens/GameResourceTracking.vue";
 import Etfs from "@/components/screens/Etfs.vue";
 import Energy from "@/components/screens/Energy.vue";
+import BMWCarContainers from "@/components/screens/BMWCarContainers.vue";
 
 import { secondToMS } from "@/lib/vue/constants";
 
@@ -52,6 +58,7 @@ export default {
     GameResourceTracking,
     Etfs,
     Energy,
+    BMWCarContainers,
   },
 
   methods: {
