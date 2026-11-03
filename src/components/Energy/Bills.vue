@@ -130,7 +130,7 @@ export default {
     fetchData: async (statsYear) => {
       const response = await window.ipc.receive("api", {
         method: "get",
-        endpoint: "bills-stats",
+        endpoint: "bills/stats",
         options: { useAPIKey: true, strip: true },
         body: { statsYear },
       });
