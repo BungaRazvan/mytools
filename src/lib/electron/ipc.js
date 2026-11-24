@@ -87,6 +87,8 @@ export function setupIpcHandlers() {
       args.map((key) => {
         if (typeof key == "string") {
           settings[key] = electronStore.get(key);
+        } else if (key && !key.isSecure) {
+          settings[key.name] = electronStore.get(key.name);
         } else if (key && key.isSecure) {
           const value = getDecryptedKey(key.name);
           settings[key.name] = value;
