@@ -1,6 +1,6 @@
 {
   "name": "mytools",
-  "version": "0.13.41",
+  "version": "0.14.41",
   "author": {
     "name": "BungaRazvan"
   },
@@ -25,6 +25,7 @@
     "chart.js": "4.5.1",
     "core-js": "3.8.3",
     "electron-store": "8.1.0",
+    "leaflet": "1.9.4",
     "lodash": "4.17.21",
     "lucide-vue-next": "^0.562.0",
     "vue": "3.2.13",

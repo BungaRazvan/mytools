@@ -14,6 +14,7 @@ const store = new Store(storeOptions);
 
 export const getDecryptedKey = (key) => {
   const encrypted = store.get(key);
+
   if (!encrypted) {
     return null;
   }

@@ -17,17 +17,23 @@ export async function apiCall(method, endpoint, body, options = {}) {
   let requestBody = body;
 
   if (["GET", "HEAD"].includes(normalizedMethod)) {
-    let queryString = body ? new URLSearchParams(body).toString() : "";
+    const queryParams = new URLSearchParams();
+    const queryBody = options.strip
+      ? pickBy(
+          body,
+          (value) => value !== null && value !== undefined && value !== "",
+        )
+      : body;
 
-    if (options.strip) {
-      const cleanBody = pickBy(
-        body,
-        (value) => value !== null && value !== undefined && value !== "",
-      );
-      queryString = new URLSearchParams(cleanBody).toString();
+    Object.entries(queryBody || {}).forEach(([key, value]) => {
+      const values = Array.isArray(value) ? value : [value];
+      values.forEach((item) => queryParams.append(key, item));
+    });
+
+    const queryString = queryParams.toString();
+    if (queryString) {
+      url += `?${queryString}`;
     }
-
-    url += `?${queryString}`;
     requestBody = null;
   }
 

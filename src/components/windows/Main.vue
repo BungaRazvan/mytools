@@ -26,6 +26,11 @@
       v-if="this.screen() == 'energy'"
       :goBack="this.goBack"
     />
+    <VehicleSession
+      key="vehicle-session"
+      v-if="this.screen() == 'vehicleSession'"
+      :goBack="this.goBack"
+    />
   </div>
 </template>
 
@@ -39,6 +44,7 @@ import GenshinLoadouts from "@/components/screens/GenshinLoadouts.vue";
 import GameResourceTracking from "@/components/screens/GameResourceTracking.vue";
 import Etfs from "@/components/screens/Etfs.vue";
 import Energy from "@/components/screens/Energy.vue";
+import VehicleSession from "@/components/screens/VehicleSession.vue";
 
 import { secondToMS } from "@/lib/vue/constants";
 
@@ -52,6 +58,7 @@ export default {
     GameResourceTracking,
     Etfs,
     Energy,
+    VehicleSession,
   },
 
   methods: {

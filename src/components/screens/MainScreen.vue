@@ -32,6 +32,13 @@
       title="Energy"
       size="md"
     />
+
+    <WindowsTile
+      @click="this.changeScreen('vehicleSession')"
+      color="light-blue"
+      title="Vehicle Session"
+      size="xl"
+    />
   </div>
 </template>
 

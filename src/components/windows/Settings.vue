@@ -25,11 +25,17 @@
         />
       </div>
 
+      <PwdInput
+        :settings="settings"
+        name="APP_API_TOKEN"
+        title="API App Token"
+      />
+
       <div class="setting-group">
-        <label>API App Token</label>
+        <label>Carto API KEY</label>
         <div class="password-wrapper">
           <input
-            v-model="settings.APP_API_TOKEN"
+            v-model="settings.CARTO_API_TOKEN"
             :type="showToken ? 'text' : 'password'"
             placeholder="Secure token"
           />
@@ -178,10 +184,11 @@ import Navbar from "@/components/Navbar.vue";
 import UpdateIcon from "@/assets/icons/UpdateIcon.vue";
 
 import { downloadingState } from "@/lib/vue/constants";
+import PwdInput from "./PwdInput.vue";
 
 export default {
   name: "Settings",
-  components: { Navbar, UpdateIcon },
+  components: { Navbar, UpdateIcon, PwdInput },
 
   methods: {
     fetchVersion() {
@@ -195,17 +202,13 @@ export default {
     },
 
     saveAllSettings() {
-      window.ipc.send("setSetting", {
-        setting: "APP_API_URL",
-        data: this.settings.APP_API_URL,
-        isSecure: false,
-      });
-
-      window.ipc.send("setSetting", {
-        setting: "APP_API_TOKEN",
-        data: this.settings.APP_API_TOKEN,
-        isSecure: true,
-      });
+      for (const [key, value] of Object.entries(this.settings)) {
+        window.ipc.send("setSetting", {
+          setting: key,
+          data: value,
+          isSecure: this.isSecure.includes(key),
+        });
+      }
 
       this.statusMsg = "Settings saved successfully!";
       setTimeout(() => (this.statusMsg = ""), 3000);
@@ -220,7 +223,9 @@ export default {
       settings: {
         APP_API_URL: null,
         APP_API_TOKEN: null,
+        CARTO_API_TOKEN: null,
       },
+      isSecure: ["APP_API_TOKEN", "CARTO_API_TOKEN"],
       showToken: false,
       statusMsg: "",
     };
@@ -233,16 +238,21 @@ export default {
 
     this.fetchVersion();
 
-    window.ipc
-      .receive("getSetting", [
-        "APP_API_URL",
-        { name: "APP_API_TOKEN", isSecure: true },
-      ])
-      .then((data) => {
-        console.log(data);
-        this.settings.APP_API_TOKEN = data.APP_API_TOKEN;
-        this.settings.APP_API_URL = data.APP_API_URL;
+    const settingsList = [];
+
+    for (const [key, value] of Object.entries(this.settings)) {
+      settingsList.push({
+        name: key,
+        isSecure: this.isSecure.includes(key),
       });
+    }
+
+    window.ipc.receive("getSetting", settingsList).then((data) => {
+      console.log(data, settingsList);
+      for (const [key, value] of Object.entries(data)) {
+        this.settings[key] = value;
+      }
+    });
   },
 };
 </script>
